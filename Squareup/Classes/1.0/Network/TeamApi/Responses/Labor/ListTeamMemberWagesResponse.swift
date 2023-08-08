@@ -18,4 +18,14 @@ open class ListTeamMemberWagesResponse: SquareupResponse {
         case TeamMemberWages = "team_member_wages"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.TeamMemberWages = try container.decodeIfPresent([TeamMemberWage].self, forKey: .TeamMemberWages)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

@@ -18,4 +18,14 @@ open class SearchLoyaltyAccountsResponse: SquareupResponse {
         case LoyaltyAccounts = "loyalty_accounts"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.LoyaltyAccounts = try container.decodeIfPresent([LoyaltyAccount].self, forKey: .LoyaltyAccounts)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

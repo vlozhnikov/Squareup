@@ -15,4 +15,12 @@ open class BatchRetrieveOrdersResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Orders = "orders"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Orders = try container.decodeIfPresent([Order].self, forKey: .Orders)
+    }
 }

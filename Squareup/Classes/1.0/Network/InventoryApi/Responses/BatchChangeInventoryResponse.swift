@@ -18,4 +18,14 @@ open class BatchChangeInventoryResponse: SquareupResponse {
         case Counts = "counts"
         case Changes = "changes"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Counts = try container.decodeIfPresent([InventoryCount].self, forKey: .Counts)
+        self.Changes = try container.decodeIfPresent([InventoryChange].self, forKey: .Changes)
+    }
 }

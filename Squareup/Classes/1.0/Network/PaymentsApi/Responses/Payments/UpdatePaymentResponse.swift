@@ -15,4 +15,12 @@ open class UpdatePaymentResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case payment = "payment"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.payment = try container.decodeIfPresent(Payment.self, forKey: .payment)
+    }
 }

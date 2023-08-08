@@ -15,4 +15,12 @@ open class BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDele
     enum CodingKeys: String, CodingKey {
         case LocationId = "location_id"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
+    }
 }

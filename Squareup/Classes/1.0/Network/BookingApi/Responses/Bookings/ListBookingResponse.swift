@@ -16,4 +16,14 @@ open class ListBookingResponse: SquareupResponse {
         case Bookings = "bookings"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Bookings = try container.decodeIfPresent([Booking].self, forKey: .Bookings)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

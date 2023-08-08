@@ -15,4 +15,12 @@ open class BulkCreateVendorsResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Responses = "responses"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Responses = try container.decodeIfPresent([String: CreateVendorResponse].self, forKey: .Responses)
+    }
 }

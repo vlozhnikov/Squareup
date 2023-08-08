@@ -18,4 +18,14 @@ open class DeletePaymentLinkResponse: SquareupResponse {
         case Id = "id"
         case CancelledOrderId = "cancelled_order_id"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
+        self.CancelledOrderId = try container.decodeIfPresent(String.self, forKey: .CancelledOrderId)
+    }
 }

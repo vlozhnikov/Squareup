@@ -15,4 +15,12 @@ open class UpdateShiftResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case shift = "shift"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.shift = try container.decodeIfPresent(Shift.self, forKey: .shift)
+    }
 }

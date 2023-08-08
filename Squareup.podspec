@@ -38,7 +38,8 @@ The Squareup framework was developed to support the platform for iOS-based devic
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'SquareInAppPaymentsSDK'
+#  s.dependency 'SquareInAppPaymentsSDK'
+#  s.dependency 'SquareBuyerVerificationSDK'
   s.dependency 'Alamofire'
+  
 end

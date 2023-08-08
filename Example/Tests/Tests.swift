@@ -1,7 +1,9 @@
 import XCTest
-import Squareup
+@testable import Squareup
 
 class Tests: XCTestCase {
+    
+    private let accessToken = "EAAAEMtberzJmhus1KGKQuPM03GaemtBhdA3LDJ3YNXhC1u2Wbrqp0kpOZo5L5p3"
     
     override func setUp() {
         super.setUp()
@@ -22,13 +24,23 @@ class Tests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
         
-        BusinessApi.locations.listLocations(accessToken: "EAAAEMtberzJmhus1KGKQuPM03GaemtBhdA3LDJ3YNXhC1u2Wbrqp0kpOZo5L5p3", completion: { response in
-            print(response.locations)
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        BusinessApi.locations.listLocations(accessToken: self.accessToken, completion: { response in
+            print(response.Locations)
+            
+            XCTAssert(true, "Pass")
+            semaphore.signal()
         }) { error in
             print(error.localizedDescription)
+            
+            XCTAssert(true, "Pass")
+            semaphore.signal()
         }
+        
+        // Wait for the async request to complete
+        semaphore.wait()
     }
     
     func testPerformanceExample() {

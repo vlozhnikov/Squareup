@@ -15,4 +15,12 @@ open class CreateDisputeEvidenceFileResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Evidence = "evidence"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Evidence = try container.decodeIfPresent(DisputeEvidence.self, forKey: .Evidence)
+    }
 }

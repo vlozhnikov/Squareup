@@ -17,4 +17,14 @@ open class ListTeamMemberBookingProfilesResponse: SquareupResponse {
         case TeamMemberBookingProfiles = "team_member_booking_profiles"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.TeamMemberBookingProfiles = try container.decodeIfPresent([TeamMemberBookingProfile].self, forKey: .TeamMemberBookingProfiles)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

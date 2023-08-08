@@ -15,4 +15,12 @@ open class DeleteSubscriptionResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case subscription = "subscription"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.subscription = try container.decodeIfPresent(Subscription.self, forKey: .subscription)
+    }
 }

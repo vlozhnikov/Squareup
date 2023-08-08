@@ -18,4 +18,14 @@ open class CreatePaymentLinkResponse: SquareupResponse {
         case paymentLink = "payment_link"
         case RelatedResources = "related_resources"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.paymentLink = try container.decodeIfPresent(PaymentLink.self, forKey: .paymentLink)
+        self.RelatedResources = try container.decodeIfPresent(PaymentLinkRelatedResources.self, forKey: .RelatedResources)
+    }
 }

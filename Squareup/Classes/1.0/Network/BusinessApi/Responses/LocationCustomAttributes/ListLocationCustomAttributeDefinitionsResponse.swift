@@ -18,4 +18,14 @@ open class ListLocationCustomAttributeDefinitionsResponse: SquareupResponse {
         case CustomAttributeDefinitions = "custom_attribute_definitions"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.CustomAttributeDefinitions = try container.decodeIfPresent([CustomAttributeDefinition].self, forKey: .CustomAttributeDefinitions)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

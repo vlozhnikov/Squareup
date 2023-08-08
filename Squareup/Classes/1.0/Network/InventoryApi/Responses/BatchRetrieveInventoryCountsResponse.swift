@@ -18,4 +18,14 @@ open class BatchRetrieveInventoryCountsResponse: SquareupResponse {
         case Counts = "counts"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Counts = try container.decodeIfPresent([InventoryCount].self, forKey: .Counts)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

@@ -18,4 +18,14 @@ open class BulkUpsertMerchantCustomAttributesResponseMerchantCustomAttributeUpse
         case MerchantId = "merchant_id"
         case customAttribute = "custom_attribute"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.MerchantId = try container.decodeIfPresent(String.self, forKey: .MerchantId)
+        self.customAttribute = try container.decodeIfPresent(CustomAttribute.self, forKey: .customAttribute)
+    }
 }

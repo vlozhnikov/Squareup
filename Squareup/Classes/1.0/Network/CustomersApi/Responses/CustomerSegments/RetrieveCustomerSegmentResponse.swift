@@ -15,4 +15,12 @@ open class RetrieveCustomerSegmentResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Segment = "segment"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Segment = try container.decodeIfPresent(CustomerSegment.self, forKey: .Segment)
+    }
 }

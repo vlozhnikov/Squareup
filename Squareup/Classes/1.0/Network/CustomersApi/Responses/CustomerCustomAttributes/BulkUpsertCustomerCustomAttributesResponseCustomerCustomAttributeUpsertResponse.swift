@@ -19,4 +19,14 @@ open class BulkUpsertCustomerCustomAttributesResponseCustomerCustomAttributeUpse
         case CustomerId = "customer_id"
         case customAttribute = "custom_attribute"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.CustomerId = try container.decodeIfPresent(String.self, forKey: .CustomerId)
+        self.customAttribute = try container.decodeIfPresent(CustomAttribute.self, forKey: .customAttribute)
+    }
 }

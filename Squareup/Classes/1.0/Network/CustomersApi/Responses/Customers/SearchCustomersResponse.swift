@@ -18,4 +18,14 @@ open class SearchCustomersResponse: SquareupResponse {
         case Customers = "customers"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Customers = try container.decodeIfPresent([Customer].self, forKey: .Customers)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

@@ -18,4 +18,14 @@ open class ListCustomerSegmentsResponse: SquareupResponse {
         case Segments = "segments"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Segments = try container.decodeIfPresent([CustomerSegment].self, forKey: .Segments)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

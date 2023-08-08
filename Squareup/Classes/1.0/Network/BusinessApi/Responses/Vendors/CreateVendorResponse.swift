@@ -17,4 +17,12 @@ open class CreateVendorResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case vendor = "vendor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.vendor = try container.decodeIfPresent(Vendor.self, forKey: .vendor)
+    }
 }

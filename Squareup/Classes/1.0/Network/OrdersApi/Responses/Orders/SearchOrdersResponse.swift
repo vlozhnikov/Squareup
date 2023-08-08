@@ -21,4 +21,15 @@ open class SearchOrdersResponse: SquareupResponse {
         case Orders = "orders"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.OrderEntries = try container.decodeIfPresent([OrderEntry].self, forKey: .OrderEntries)
+        self.Orders = try container.decodeIfPresent([Order].self, forKey: .Orders)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

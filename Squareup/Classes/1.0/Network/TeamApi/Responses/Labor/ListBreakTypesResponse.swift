@@ -18,4 +18,14 @@ open class ListBreakTypesResponse: SquareupResponse {
         case BreakTypes = "break_types"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.BreakTypes = try container.decodeIfPresent([BreakType].self, forKey: .BreakTypes)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

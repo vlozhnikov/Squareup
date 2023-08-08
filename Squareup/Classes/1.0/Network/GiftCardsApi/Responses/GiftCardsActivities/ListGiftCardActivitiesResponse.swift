@@ -18,4 +18,14 @@ open class ListGiftCardActivitiesResponse: SquareupResponse {
         case GiftCardActivities = "gift_card_activities"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.GiftCardActivities = try container.decodeIfPresent([GiftCardActivity].self, forKey: .GiftCardActivities)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

@@ -15,4 +15,12 @@ open class RetrievePaymentLinkResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case paymentLink = "payment_link"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.paymentLink = try container.decodeIfPresent(PaymentLink.self, forKey: .paymentLink)
+    }
 }

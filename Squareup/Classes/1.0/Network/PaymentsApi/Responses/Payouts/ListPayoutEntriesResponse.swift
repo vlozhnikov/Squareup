@@ -18,4 +18,14 @@ open class ListPayoutEntriesResponse: SquareupResponse {
         case PayoutEntries = "payout_entries"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.PayoutEntries = try container.decodeIfPresent([PayoutEntry].self, forKey: .PayoutEntries)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

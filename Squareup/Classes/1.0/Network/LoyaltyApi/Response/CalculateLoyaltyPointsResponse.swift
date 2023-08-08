@@ -18,4 +18,14 @@ open class CalculateLoyaltyPointsResponse: SquareupResponse {
         case Points = "points"
         case PromotionPoints = "promotion_points"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Points = try container.decodeIfPresent(Int.self, forKey: .Points)
+        self.PromotionPoints = try container.decodeIfPresent(Int.self, forKey: .PromotionPoints)
+    }
 }

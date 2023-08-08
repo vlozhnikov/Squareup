@@ -15,4 +15,12 @@ open class CancelLoyaltyPromotionResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case loyaltyPromotion = "loyalty_promotion"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.loyaltyPromotion = try container.decodeIfPresent(LoyaltyPromotion.self, forKey: .loyaltyPromotion)
+    }
 }

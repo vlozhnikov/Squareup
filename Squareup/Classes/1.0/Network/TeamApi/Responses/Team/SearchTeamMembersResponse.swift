@@ -16,4 +16,14 @@ open class SearchTeamMembersResponse: SquareupResponse {
         case TeamMembers = "team_members"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.TeamMembers = try container.decodeIfPresent([TeamMember].self, forKey: .TeamMembers)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

@@ -15,4 +15,12 @@ open class RetrieveLoyaltyProgramResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Program = "program"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Program = try container.decodeIfPresent(LoyaltyProgram.self, forKey: .Program)
+    }
 }

@@ -15,4 +15,12 @@ open class BulkUpsertMerchantCustomAttributesResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Values = "values"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Values = try container.decodeIfPresent([String: BulkUpsertMerchantCustomAttributesResponseMerchantCustomAttributeUpsertResponse].self, forKey: .Values)
+    }
 }

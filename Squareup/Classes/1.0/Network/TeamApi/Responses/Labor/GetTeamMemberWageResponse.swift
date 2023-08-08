@@ -15,4 +15,12 @@ open class GetTeamMemberWageResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case teamMemberWage = "team_member_wage"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.teamMemberWage = try container.decodeIfPresent(TeamMemberWage.self, forKey: .teamMemberWage)
+    }
 }

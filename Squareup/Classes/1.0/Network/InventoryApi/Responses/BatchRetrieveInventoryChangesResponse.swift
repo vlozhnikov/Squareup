@@ -18,4 +18,14 @@ open class BatchRetrieveInventoryChangesResponse: SquareupResponse {
         case Changes = "changes"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Changes = try container.decodeIfPresent([InventoryChange].self, forKey: .Changes)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

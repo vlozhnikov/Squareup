@@ -15,4 +15,12 @@ open class RetrieveInventoryAdjustmentResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Adjustment = "adjustment"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Adjustment = try container.decodeIfPresent(InventoryAdjustment.self, forKey: .Adjustment)
+    }
 }

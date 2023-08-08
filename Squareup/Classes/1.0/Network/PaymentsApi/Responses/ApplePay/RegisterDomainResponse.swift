@@ -15,4 +15,12 @@ open class RegisterDomainResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Status = "status"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Status = try container.decodeIfPresent(RegisterDomainResponseStatus.self, forKey: .Status)
+    }
 }

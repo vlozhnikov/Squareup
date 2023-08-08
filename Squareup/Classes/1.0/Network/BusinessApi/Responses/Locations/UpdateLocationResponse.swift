@@ -15,4 +15,12 @@ open class UpdateLocationResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case location = "location"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.location = try container.decodeIfPresent(Location.self, forKey: .location)
+    }
 }

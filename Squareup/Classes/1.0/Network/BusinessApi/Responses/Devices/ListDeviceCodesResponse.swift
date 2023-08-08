@@ -15,4 +15,12 @@ open class ListDeviceCodesResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case DeviceCodes = "device_codes"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.DeviceCodes = try container.decodeIfPresent([DeviceCode].self, forKey: .DeviceCodes)
+    }
 }

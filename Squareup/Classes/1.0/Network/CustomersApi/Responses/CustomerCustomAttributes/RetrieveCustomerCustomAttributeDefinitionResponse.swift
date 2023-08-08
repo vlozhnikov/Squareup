@@ -15,4 +15,12 @@ open class RetrieveCustomerCustomAttributeDefinitionResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case customAttributeDefinition = "custom_attribute_definition"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.customAttributeDefinition = try container.decodeIfPresent(CustomAttributeDefinition.self, forKey: .customAttributeDefinition)
+    }
 }

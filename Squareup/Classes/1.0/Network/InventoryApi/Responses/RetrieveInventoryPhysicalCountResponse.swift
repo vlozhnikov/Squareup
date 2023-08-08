@@ -15,4 +15,12 @@ open class RetrieveInventoryPhysicalCountResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Count = "count"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Count = try container.decodeIfPresent(InventoryPhysicalCount.self, forKey: .Count)
+    }
 }

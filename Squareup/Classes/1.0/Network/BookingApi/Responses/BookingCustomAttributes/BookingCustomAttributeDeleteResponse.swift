@@ -17,4 +17,12 @@ open class BookingCustomAttributeDeleteResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case BookingId = "booking_id"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.BookingId = try container.decodeIfPresent(String.self, forKey: .BookingId)
+    }
 }

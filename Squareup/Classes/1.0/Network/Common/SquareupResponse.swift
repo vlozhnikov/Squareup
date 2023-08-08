@@ -19,4 +19,10 @@ open class SquareupResponse: Codable {
     public var error: SquareErrorResponse? {
         return self.Errors?.first
     }
+    
+    required public init(from decoder: Decoder) throws {
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Errors = try container.decodeIfPresent([SquareErrorResponse].self, forKey: .Errors)
+    }
 }

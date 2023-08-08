@@ -15,4 +15,12 @@ open class RedeemLoyaltyRewardResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case Event = "event"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Event = try container.decodeIfPresent(LoyaltyEvent.self, forKey: .Event)
+    }
 }

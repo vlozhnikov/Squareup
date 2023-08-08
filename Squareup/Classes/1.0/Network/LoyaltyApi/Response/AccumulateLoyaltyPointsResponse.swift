@@ -19,4 +19,14 @@ open class AccumulateLoyaltyPointsResponse: SquareupResponse {
         case Event = "event"
         case Events = "events"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Event = try container.decodeIfPresent(LoyaltyEvent.self, forKey: .Event)
+        self.Events = try container.decodeIfPresent([LoyaltyEvent].self, forKey: .Events)
+    }
 }

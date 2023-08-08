@@ -15,4 +15,12 @@ open class RetrieveBusinessBookingProfileResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case businessBookingProfile = "business_booking_profile"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.businessBookingProfile = try container.decodeIfPresent(BusinessBookingProfile.self, forKey: .businessBookingProfile)
+    }
 }

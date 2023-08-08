@@ -15,4 +15,12 @@ open class UpdateWorkweekConfigResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case workweekConfig = "workweek_config"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.workweekConfig = try container.decodeIfPresent(WorkweekConfig.self, forKey: .workweekConfig)
+    }
 }

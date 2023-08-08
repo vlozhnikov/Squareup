@@ -18,4 +18,14 @@ open class ListDisputesResponse: SquareupResponse {
         case Disputes = "disputes"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.Disputes = try container.decodeIfPresent([Dispute].self, forKey: .Disputes)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }

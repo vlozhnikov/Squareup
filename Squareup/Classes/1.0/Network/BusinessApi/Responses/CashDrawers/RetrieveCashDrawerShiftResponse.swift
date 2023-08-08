@@ -15,4 +15,12 @@ open class RetrieveCashDrawerShiftResponse: SquareupResponse {
     enum CodingKeys: String, CodingKey {
         case cashDrawerShift = "cash_drawer_shift"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.cashDrawerShift = try container.decodeIfPresent(CashDrawerShift.self, forKey: .cashDrawerShift)
+    }
 }

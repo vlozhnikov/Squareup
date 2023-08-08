@@ -18,4 +18,14 @@ open class ListWorkweekConfigsResponse: SquareupResponse {
         case WorkweekConfigs = "workweek_configs"
         case Cursor = "cursor"
     }
+    
+    required public init(from decoder: Decoder) throws {
+        
+        try super.init(from: decoder)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.WorkweekConfigs = try container.decodeIfPresent([WorkweekConfig].self, forKey: .WorkweekConfigs)
+        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
+    }
 }
