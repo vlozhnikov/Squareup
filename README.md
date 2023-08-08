@@ -13,21 +13,22 @@ The Squareup framework was developed to support the platform for iOS-based devic
 import Squareup
 
 // setup Squareup
-SquareupConfigurer.shared.setup(applicationId: <#YOUR_APPLICATION_ID#>,
-                                squareLocationId: <#LOCATION_ID#>,
-                                type: .dev /*or .prod*/)
+let APPLICATION_ID = "<#APPLICATION_ID#>"
+let SQUARE_LOCATION_ID = "<#SQUARE_LOCATION_ID#>"
+let ACCESS_TOKEN = "<#ACCESS_TOKEN#>"
+        
+SquareupConfigurer.shared.setup(applicationId: APPLICATION_ID,
+                                squareLocationId: SQUARE_LOCATION_ID,
+                                type: .dev)
 
-// to use PaymentsApi
-PaymentsApi.payments.listPayments(/*arguments*/) { response in // completion
-}, failed { error in
-}
-
-PaymentsApi.cards.listCards(...) { response in // completion
-}, failed { error in
+BusinessApi.locations.listLocations(accessToken: ACCESS_TOKEN, completion: { response in
+    print(response.locations)
+}) { error in
+    print(error.localizedDescription)
 }
 ```
 
-Another examples you can find in an *Tests* folder.
+More examples you can find in *Tests* folder.
 
 ### Installation
 
