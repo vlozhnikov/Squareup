@@ -27,7 +27,7 @@ PaymentsApi.cards.listCards(...) { response in // completion
 }
 ```
 
-Another examples you can find in an *Example* folder.
+Another examples you can find in an *Tests* folder.
 
 ### Installation
 
