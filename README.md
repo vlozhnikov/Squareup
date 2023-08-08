@@ -2,6 +2,55 @@
 
 The Squareup framework was developed to support the platform for iOS-based devices. It provides full support for the squareup API, implementing all functions except for the terminal/online/auth API.
 
+## Requirements
+
+ - Minimum Swift Version - 5.0
+ - Deployment target - 13.0
+
+### How to use?
+
+```swift
+import Squareup
+
+// setup Squareup
+SquareupConfigurer.shared.setup(applicationId: <#YOUR_APPLICATION_ID#>,
+                                squareLocationId: <#LOCATION_ID#>,
+                                type: .dev /*or .prod*/)
+
+// to use PaymentsApi
+PaymentsApi.payments.listPayments(/*arguments*/) { response in // completion
+}, failed { error in
+}
+
+PaymentsApi.cards.listCards(...) { response in // completion
+}, failed { error in
+}
+```
+
+Another examples you can find in an *Tests* folder.
+
+### Installation
+
+#### CocoaPods
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '13.0'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'Squareup'
+end
+```
+
+#### Manually
+
+If you prefer not to use any of the aforementioned dependency managers, you can integrate Alamofire into your project manually. Just copy all the folders and files from here
+
+*Squareup/Squareup/Classes/1.0*
+
+and paste them into your project.
+
 ## Features
 
 - [x] *PaymentsApi*. This includes support for the following subsections:
@@ -59,43 +108,3 @@ The Squareup framework was developed to support the platform for iOS-based devic
    - [Labor](https://developer.squareup.com/reference/square/labor-api)
      
 - [x] [FinansialsApi](https://developer.squareup.com/reference/square/bank-accounts-api)
-
-### Installation
-
-#### Swift Package Manager
-
-- File > Swift Packages > Add Package Dependency
-- Add `[https://github.com/onevcat/Kingfisher.git](https://github.com/vlozhnikov/Squareup.git)`
-- Select "Up to Next Major" with "11.0.0"
-
-#### CocoaPods
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '11.0'
-use_frameworks!
-
-target 'MyApp' do
-  pod 'Squareup-iOS', '~> 1.0'
-end
-```
-
-### How to use?
-
-```swift
-import Squareup
-
-// setup Squareup
-SquareupConfigurer.shared.setup(applicationId: <#YOUR_APPLICATION_ID#>,
-                                squareLocationId: <#LOCATION_ID#>,
-                                type: .dev /*or .prod*/)
-
-// to use PaymentsApi
-PaymentsApi.payments.listPayments(/*arguments*/) { response in // completion
-}, failed { error in
-}
-
-PaymentsApi.cards.listCards(...) { response in // completion
-}, failed { error in
-}
-```
