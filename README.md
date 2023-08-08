@@ -46,7 +46,7 @@ end
 
 #### Manually
 
-If you prefer not to use any of the aforementioned dependency managers, you can integrate Alamofire into your project manually. Just copy all the folders and files from here
+If you prefer not to use any of the aforementioned dependency managers, you can integrate Squareup into your project manually. Just copy all the folders and files from here
 
 *Squareup/Squareup/Classes/1.0*
 
