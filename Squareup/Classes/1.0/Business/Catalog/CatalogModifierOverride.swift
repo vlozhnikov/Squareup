@@ -1,0 +1,23 @@
+//
+//  CatalogModifierOverride.swift
+//  Business Calendar
+//
+//  Created by user on 1.05.23.
+//
+
+import Foundation
+
+/// - CatalogModifierOverride: Options to control how to override the default behavior of the specified modifier.
+/// https://developer.squareup.com/reference/square/objects/CatalogModifierOverride
+open class CatalogModifierOverride: Codable {
+    
+    /// - ModifierId: The ID of the CatalogModifier whose default behavior is being overridden. Min Length 1.
+    var ModifierId: String?
+    /// - OnByDefault: If true, this CatalogModifier should be selected by default for this CatalogItem.
+    var OnByDefault: Bool?
+    
+    enum CodingKeys: String, CodingKey {
+        case ModifierId = "modifier_id"
+        case OnByDefault = "on_by_default"
+    }
+}
