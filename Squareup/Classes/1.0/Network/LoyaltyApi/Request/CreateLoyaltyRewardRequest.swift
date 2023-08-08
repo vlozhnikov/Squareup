@@ -7,14 +7,14 @@
 
 import Foundation
 
-internal class CreateLoyaltyRewardRequest: Codable {
+open class CreateLoyaltyRewardRequest: Codable {
     
     /// - Reward: The reward to create.
-    var Reward: LoyaltyReward?
+    public var Reward: LoyaltyReward?
     /// - IdempotencyKey: A unique string that identifies this CreateLoyaltyReward request. Keys can be any valid string, but must be unique for every request.
     /// Min Length 1
     /// Max Length 128
-    var IdempotencyKey: String?
+    public var IdempotencyKey: String?
     
     enum CodingKeys: String, CodingKey {
         case Reward = "reward"

@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpdateSubscriptionRequest: Codable {
+open class UpdateSubscriptionRequest: Codable {
     
     /// - subscription: The subscription object containing the current version, and fields to update. Unset fields will be left at their current server values, and JSON null values will be treated as a request to clear the relevant data.
-    var subscription: Subscription?
+    public var subscription: Subscription?
     
     enum CodingKeys: String, CodingKey {
         case subscription = "subscription"

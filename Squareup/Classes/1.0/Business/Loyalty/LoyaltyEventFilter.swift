@@ -13,15 +13,15 @@ import Foundation
 open class LoyaltyEventFilter: Codable {
     
     /// - LoyaltyAccountFilter: Filter events by loyalty account.
-    var LoyaltyAccountFilter: LoyaltyEventLoyaltyAccountFilter?
+    public var LoyaltyAccountFilter: LoyaltyEventLoyaltyAccountFilter?
     /// - TypeFilter: Filter events by event type.
-    var TypeFilter: LoyaltyEventTypeFilter?
+    public var TypeFilter: LoyaltyEventTypeFilter?
     /// - DateTimeFilter: Filter events by date time range. For each range, the start time is inclusive and the end time is exclusive.
-    var DateTimeFilter: LoyaltyEventDateTimeFilter?
+    public var DateTimeFilter: LoyaltyEventDateTimeFilter?
     /// - LocationFilter: Filter events by location.
-    var LocationFilter: LoyaltyEventLocationFilter?
+    public var LocationFilter: LoyaltyEventLocationFilter?
     /// - OrderFilter: Filter events by the order associated with the event.
-    var OrderFilter: LoyaltyEventOrderFilter?
+    public var OrderFilter: LoyaltyEventOrderFilter?
     
     enum CodingKeys: String, CodingKey {
         case LoyaltyAccountFilter = "loyalty_account_filter"

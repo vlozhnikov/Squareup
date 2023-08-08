@@ -14,10 +14,10 @@ open class PayoutEntry: Codable {
     
     /// - Id: A unique ID for the payout entry.
     /// Min Length 1
-    var Id: String?
+    public var Id: String?
     /// - PayoutId: The ID of the payout entries’ associated payout.
     /// Min Length 1
-    var PayoutId: String?
+    public var PayoutId: String?
     /// - EffectiveAt: The timestamp of when the payout entry affected the balance, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -25,59 +25,59 @@ open class PayoutEntry: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var EffectiveAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EffectiveAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EffectiveAt: Date?
     /// - type: The type of activity associated with this payout entry.
-    var type: ActivityType?
+    public var type: ActivityType?
     /// - GrossAmountMoney: The amount of money involved in this payout entry.
-    var GrossAmountMoney: Money?
+    public var GrossAmountMoney: Money?
     /// - FeeAmountMoney: The amount of Square fees associated with this payout entry.
-    var FeeAmountMoney: Money?
+    public var FeeAmountMoney: Money?
     /// - NetAmountMoney: The net proceeds from this transaction after any fees.
-    var NetAmountMoney: Money?
+    public var NetAmountMoney: Money?
     /// - TypeAppFeeRevenueDetails: Details of any developer app fee revenue generated on a payment.
-    var TypeAppFeeRevenueDetails: PaymentBalanceActivityAppFeeRevenueDetail?
+    public var TypeAppFeeRevenueDetails: PaymentBalanceActivityAppFeeRevenueDetail?
     /// - TypeAppFeeRefundDetails: Details of a refund for an app fee on a payment.
-    var TypeAppFeeRefundDetails: PaymentBalanceActivityAppFeeRefundDetail?
+    public var TypeAppFeeRefundDetails: PaymentBalanceActivityAppFeeRefundDetail?
     /// - TypeAutomaticSavingsDetails: Details of any automatic transfer from the payment processing balance to the Square Savings account. These are, generally, proportional to the merchant's sales.
-    var TypeAutomaticSavingsDetails: PaymentBalanceActivityAutomaticSavingsDetail?
+    public var TypeAutomaticSavingsDetails: PaymentBalanceActivityAutomaticSavingsDetail?
     /// - TypeAutomaticSavingsReversedDetails: Details of any automatic transfer from the Square Savings account back to the processing balance. These are, generally, proportional to the merchant's refunds.
-    var TypeAutomaticSavingsReversedDetails: PaymentBalanceActivityAutomaticSavingsReversedDetail?
+    public var TypeAutomaticSavingsReversedDetails: PaymentBalanceActivityAutomaticSavingsReversedDetail?
     /// - TypeChargeDetails: Details of credit card payment captures.
-    var TypeChargeDetails: PaymentBalanceActivityChargeDetail?
+    public var TypeChargeDetails: PaymentBalanceActivityChargeDetail?
     /// - TypeDepositFeeDetails: Details of any fees involved with deposits such as for instant deposits.
-    var TypeDepositFeeDetails: PaymentBalanceActivityDepositFeeDetail?
+    public var TypeDepositFeeDetails: PaymentBalanceActivityDepositFeeDetail?
     /// - TypeDisputeDetails: Details of any balance change due to a dispute event.
-    var TypeDisputeDetails: PaymentBalanceActivityDisputeDetail?
+    public var TypeDisputeDetails: PaymentBalanceActivityDisputeDetail?
     /// - TypeFeeDetails: Details of adjustments due to the Square processing fee.
-    var TypeFeeDetails: PaymentBalanceActivityFeeDetail?
+    public var TypeFeeDetails: PaymentBalanceActivityFeeDetail?
     /// - TypeFreeProcessingDetails: Square offers Free Payments Processing for a variety of business scenarios including seller referral or when Square wants to apologize for a bug, customer service, repricing complication, and so on. This entry represents details of any credit to the merchant for the purposes of Free Processing.
-    var TypeFreeProcessingDetails: PaymentBalanceActivityFreeProcessingDetail?
+    public var TypeFreeProcessingDetails: PaymentBalanceActivityFreeProcessingDetail?
     /// - TypeHoldAdjustmentDetails: Details of any adjustment made by Square related to the holding or releasing of a payment.
-    var TypeHoldAdjustmentDetails: PaymentBalanceActivityHoldAdjustmentDetail?
+    public var TypeHoldAdjustmentDetails: PaymentBalanceActivityHoldAdjustmentDetail?
     /// - TypePpenDisputeDetails: Details of any open disputes.
-    var TypeOpenDisputeDetails: PaymentBalanceActivityOpenDisputeDetail?
+    public var TypeOpenDisputeDetails: PaymentBalanceActivityOpenDisputeDetail?
     /// - TypeOtherDetails: Details of any other type that does not belong in the rest of the types.
-    var TypeOtherDetails: PaymentBalanceActivityOtherDetail?
+    public var TypeOtherDetails: PaymentBalanceActivityOtherDetail?
     /// - TypeOtherAdjustmentDetails: Details of any other type of adjustments that don't fall under existing types.
-    var TypeOtherAdjustmentDetails: PaymentBalanceActivityOtherAdjustmentDetail?
+    public var TypeOtherAdjustmentDetails: PaymentBalanceActivityOtherAdjustmentDetail?
     /// - TypeRefundDetails: Details of a refund for an existing card payment.
-    var TypeRefundDetails: PaymentBalanceActivityRefundDetail?
+    public var TypeRefundDetails: PaymentBalanceActivityRefundDetail?
     /// - TypeReleaseAdjustmentDetails: Details of fees released for adjustments.
-    var TypeReleaseAdjustmentDetails: PaymentBalanceActivityReleaseAdjustmentDetail?
+    public var TypeReleaseAdjustmentDetails: PaymentBalanceActivityReleaseAdjustmentDetail?
     /// - TypeReserveHoldDetails: Details of fees paid for funding risk reserve.
-    var TypeReserveHoldDetails: PaymentBalanceActivityReserveHoldDetail?
+    public var TypeReserveHoldDetails: PaymentBalanceActivityReserveHoldDetail?
     /// - TypeReserveReleaseDetails: Details of fees released from risk reserve.
-    var TypeReserveReleaseDetails: PaymentBalanceActivityReserveReleaseDetail?
+    public var TypeReserveReleaseDetails: PaymentBalanceActivityReserveReleaseDetail?
     /// - TypeSquareCapitalPaymentDetails: Details of capital merchant cash advance (MCA) assessments. These are, generally, proportional to the merchant's sales but may be issued for other reasons related to the MCA.
-    var TypeSquareCapitalPaymentDetails: PaymentBalanceActivitySquareCapitalPaymentDetail?
+    public var TypeSquareCapitalPaymentDetails: PaymentBalanceActivitySquareCapitalPaymentDetail?
     /// - TypeSquareCapitalReversedPaymentDetails: Details of capital merchant cash advance (MCA) assessment refunds. These are, generally, proportional to the merchant's refunds but may be issued for other reasons related to the MCA.
-    var TypeSquareCapitalReversedPaymentDetails: PaymentBalanceActivitySquareCapitalReversedPaymentDetail?
+    public var TypeSquareCapitalReversedPaymentDetails: PaymentBalanceActivitySquareCapitalReversedPaymentDetail?
     /// - TypeTaxOnFeeDetails: Details of tax paid on fee amounts.
-    var TypeTaxOnFeeDetails: PaymentBalanceActivityTaxOnFeeDetail?
+    public var TypeTaxOnFeeDetails: PaymentBalanceActivityTaxOnFeeDetail?
     /// - TypeThirdPartyFeeDetails: Details of fees collected by a 3rd party platform.
-    var TypeThirdPartyFeeDetails: PaymentBalanceActivityThirdPartyFeeDetail?
+    public var TypeThirdPartyFeeDetails: PaymentBalanceActivityThirdPartyFeeDetail?
     /// - TypeThirdPartyFeeRefundDetails: Details of refunded fees from a 3rd party platform.
-    var TypeThirdPartyFeeRefundDetails: PaymentBalanceActivityThirdPartyFeeRefundDetail?
+    public var TypeThirdPartyFeeRefundDetails: PaymentBalanceActivityThirdPartyFeeRefundDetail?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

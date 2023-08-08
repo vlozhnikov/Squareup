@@ -13,13 +13,13 @@ open class DeviceDetails: Codable {
     
     /// - DeviceId: The Square-issued ID of the device.
     /// Max Length 255
-    var DeviceId: String?
+    public var DeviceId: String?
     /// - DeviceInstallationId: The Square-issued installation ID for the device.
     /// Max Length 255
-    var DeviceInstallationId: String?
+    public var DeviceInstallationId: String?
     /// - DeviceName: The name of the device set by the seller.
     /// Max Length 255
-    var DeviceName: String?
+    public var DeviceName: String?
     
     enum CodingKeys: String, CodingKey {
         case DeviceId = "device_id"

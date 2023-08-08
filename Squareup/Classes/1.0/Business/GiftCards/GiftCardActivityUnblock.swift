@@ -12,7 +12,7 @@ import Foundation
 open class GiftCardActivityUnblock: Codable {
     
     /// - Reason: The reason the gift card was unblocked.
-    var Reason: String?
+    public var Reason: String?
     
     enum CodingKeys: String, CodingKey {
         case Reason = "reason"

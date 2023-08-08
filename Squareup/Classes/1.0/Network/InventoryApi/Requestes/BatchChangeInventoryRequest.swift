@@ -7,17 +7,17 @@
 
 import Foundation
 
-internal class BatchChangeInventoryRequest: Codable {
+open class BatchChangeInventoryRequest: Codable {
     
     /// - IdempotencyKey: A client-supplied, universally unique identifier (UUID) for the request.
     /// See Idempotency in the API Development 101 section for more information.
     /// Min Length 1
     /// Max Length 128
-    var IdempotencyKey: String?
+    public var IdempotencyKey: String?
     /// - Counts: Changes created for the request.
-    var Changes: [InventoryChange]?
+    public var Changes: [InventoryChange]?
     /// - IgnoreUnchangedCounts: Indicates whether the current physical count should be ignored if the quantity is unchanged since the last physical count. Default: true.
-    var IgnoreUnchangedCounts = true
+    public var IgnoreUnchangedCounts = true
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

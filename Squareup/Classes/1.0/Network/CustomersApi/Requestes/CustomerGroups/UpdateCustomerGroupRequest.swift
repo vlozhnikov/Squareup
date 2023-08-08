@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpdateCustomerGroupRequest: Codable {
+open class UpdateCustomerGroupRequest: Codable {
     
     /// - Group: The customer group to create.
-    var Group: CustomerGroup?
+    public var Group: CustomerGroup?
     
     enum CodingKeys: String, CodingKey {
         case Group = "group"

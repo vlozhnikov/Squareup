@@ -13,23 +13,23 @@ open class AppointmentSegment: Codable {
     
     /// - DurationMinutes: The time span in minutes of an appointment segment.
     /// Max 1500
-    var DurationMinutes: Int?
+    public var DurationMinutes: Int?
     /// - ServiceVariationId: The ID of the CatalogItemVariation object representing the service booked in this segment.
     /// Max Length 36
-    var ServiceVariationId: String?
+    public var ServiceVariationId: String?
     /// - TeamMemberId: Required
     /// The ID of the TeamMember object representing the team member booked in this segment.
     /// Min Length 1
     /// Max Length 32
-    var TeamMemberId: String?
+    public var TeamMemberId: String?
     /// - ServiceVariationVersion: The current version of the item variation representing the service booked in this segment.
-    var ServiceVariationVersion: Int?
+    public var ServiceVariationVersion: Int?
     /// - IntermissionMinutes: Read only Time between the end of this segment and the beginning of the subsequent segment.
-    var IntermissionMinutes: Int?
+    public var IntermissionMinutes: Int?
     /// - AnyTeamMember: Read only Whether the customer accepts any team member, instead of a specific one, to serve this segment.
-    var AnyTeamMember: Bool?
+    public var AnyTeamMember: Bool?
     /// - ResourceIds: Read only The IDs of the seller-accessible resources used for this appointment segment.
-    var ResourceIds: [String]?
+    public var ResourceIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case DurationMinutes = "duration_minutes"

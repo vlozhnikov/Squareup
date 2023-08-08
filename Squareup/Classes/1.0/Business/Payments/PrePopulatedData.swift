@@ -13,12 +13,12 @@ open class PrePopulatedData: Codable {
     
     /// - BuyerEmail: The buyer email to prepopulate in the payment form.
     /// Max Length 256
-    var BuyerEmail: String?
+    public var BuyerEmail: String?
     /// - BuyerPhoneNumber: The buyer phone number to prepopulate in the payment form.
     /// Max Length 17
-    var BuyerPhoneNumber: String?
+    public var BuyerPhoneNumber: String?
     /// - BuyerAddress: The buyer address to prepopulate in the payment form.
-    var BuyerAddress: Address?
+    public var BuyerAddress: Address?
     
     enum CodingKeys: String, CodingKey {
         case BuyerEmail = "buyer_email"

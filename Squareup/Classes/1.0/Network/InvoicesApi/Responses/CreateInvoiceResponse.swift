@@ -10,7 +10,7 @@ import Foundation
 open class CreateInvoiceResponse: SquareupResponse {
     
     /// - invoice: The newly created invoice.
-    var invoice: Invoice?
+    public var invoice: Invoice?
     
     enum CodingKeys: String, CodingKey {
         case invoice = "invoice"

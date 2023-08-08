@@ -15,28 +15,28 @@ open class DisputeEvidence: Codable {
     /// The Square-generated ID of the evidence.
     /// Min Length 1
     /// Max Length 40
-    var EvidenceId: String?
+    public var EvidenceId: String?
     /// - Id: The Square-generated ID of the evidence.
     /// Min Length 1
     /// Max Length 40
-    var Id: String?
+    public var Id: String?
     /// - DisputeId: The ID of the dispute the evidence is associated with.
     /// Min Length 1
     /// Max Length 40
-    var DisputeId: String?
+    public var DisputeId: String?
     /// - EvidenceFile: Image, PDF, TXT
-    var EvidenceFile: DisputeEvidenceFile?
+    public var EvidenceFile: DisputeEvidenceFile?
     /// - EvidenceText: Raw text
     /// Min Length 1
     /// Max Length 500
-    var EvidenceText: String?
+    public var EvidenceText: String?
     /// - UploadedAt: The time when the evidence was uploaded, in RFC 3339 format.
     /// Min Length 1
     /// Max Length 40
 //    var UploadedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UploadedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UploadedAt: Date?
     /// - EvidenceType: The type of the evidence.
-    var EvidenceType: DisputeEvidenceType?
+    public var EvidenceType: DisputeEvidenceType?
     
     enum CodingKeys: String, CodingKey {
         case EvidenceId = "evidence_id"

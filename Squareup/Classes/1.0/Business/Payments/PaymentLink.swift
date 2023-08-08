@@ -12,26 +12,26 @@ import Foundation
 open class PaymentLink: Codable {
     
     /// - Id: Read only The Square-assigned ID of the payment link.
-    var Id: String?
+    public var Id: String?
     /// - Version: The Square-assigned version number, which is incremented each time an update is committed to the payment link.
     /// Max 65535
-    var Version: Int?
+    public var Version: Int?
     /// - Description: The optional description of the payment_link object. It is primarily for use by your application and is not used anywhere.
     /// Max Length 4096
-    var Description: String?
+    public var Description: String?
     /// - OrderId: Read only The ID of the order associated with the payment link.
     /// Max Length 192
-    var OrderId: String?
+    public var OrderId: String?
     /// - checkoutOptions: The checkout options configured for the payment link. For more information, see Optional Checkout Configurations.
-    var checkoutOptions: CheckoutOptions?
+    public var checkoutOptions: CheckoutOptions?
     /// - prePopulatedData: Describes buyer data to prepopulate on the checkout page.
-    var prePopulatedData: PrePopulatedData?
+    public var prePopulatedData: PrePopulatedData?
     /// - Url: Read only The shortened URL of the payment link.
     /// Max Length 255
-    var Url: String?
+    public var Url: String?
     /// - LongUrl: Read only The long URL of the payment link.
     /// Max Length 255
-    var LongUrl: String?
+    public var LongUrl: String?
     /// - CreatedAt: The timestamp when the payment link was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -39,7 +39,7 @@ open class PaymentLink: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: The timestamp when the payment link was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -47,10 +47,10 @@ open class PaymentLink: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - PaymentNote: An optional note. After Square processes the payment, this note is added to the resulting Payment.
     /// Max Length 500
-    var PaymentNote: String?
+    public var PaymentNote: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

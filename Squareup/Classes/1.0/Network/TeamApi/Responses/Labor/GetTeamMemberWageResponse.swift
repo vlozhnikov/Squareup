@@ -10,7 +10,7 @@ import Foundation
 open class GetTeamMemberWageResponse: SquareupResponse {
     
     /// - teamMemberWage: The requested TeamMemberWage object.
-    var teamMemberWage: TeamMemberWage?
+    public var teamMemberWage: TeamMemberWage?
     
     enum CodingKeys: String, CodingKey {
         case teamMemberWage = "team_member_wage"

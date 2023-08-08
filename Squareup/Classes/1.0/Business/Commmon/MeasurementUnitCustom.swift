@@ -13,10 +13,10 @@ open class MeasurementUnitCustom: Codable {
     
     /// - Name: Required
     /// The name of the custom unit, for example "bushel".
-    var Name: String?
+    public var Name: String?
     /// - Abbreviation: Required
     /// The abbreviation of the custom unit, such as "bsh" (bushel). This appears in the cart for the Point of Sale app, and in reports.
-    var Abbreviation: String?
+    public var Abbreviation: String?
     
     enum CodingKeys: String, CodingKey {
         case Name = "name"

@@ -10,9 +10,9 @@ import Foundation
 open class ListPayoutEntriesResponse: SquareupResponse {
     
     /// - PayoutEntries: The requested list of payout entries, ordered with the given or default sort order.
-    var PayoutEntries: [PayoutEntry]?
+    public var PayoutEntries: [PayoutEntry]?
     /// - Cursor: The pagination cursor to be used in a subsequent request. If empty, this is the final response. For more information, see Pagination.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case PayoutEntries = "payout_entries"

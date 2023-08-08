@@ -12,9 +12,9 @@ import Foundation
 open class GiftCardActivityAdjustDecrement: Codable {
     
     /// - AmountMoney: The amount deducted from the gift card balance. This value is a positive integer.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - Reason: The reason the gift card balance was adjusted.
-    var Reason: String?
+    public var Reason: String?
     
     enum CodingKeys: String, CodingKey {
         case AmountMoney = "amount_money"

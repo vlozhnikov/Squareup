@@ -12,25 +12,25 @@ import Foundation
 open class Break: Codable {
     
     /// - Id: The UUID for this object.
-    var Id: String?
+    public var Id: String?
     /// - StartAt: RFC 3339; shifted to the location timezone + offset. Precision up to the minute is respected; seconds are truncated.
     /// Min Length 1
 //    var StartAt: Date?
-    @FormattedDate<RFC3339_Strategy> var StartAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var StartAt: Date?
     /// - EndAt: RFC 3339; shifted to the timezone + offset. Precision up to the minute is respected; seconds are truncated.
 //    var EndAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EndAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndAt: Date?
     /// - BreakTypeId: The BreakType that this Break was templated on.
     /// Min Length 1
-    var BreakTypeId: String?
+    public var BreakTypeId: String?
     /// - Name: A human-readable name.
     /// Min Length 1
-    var Name: String?
+    public var Name: String?
     /// - ExpectedDuration: Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of the break.
     /// Min Length 1
-    var ExpectedDuration: String?
+    public var ExpectedDuration: String?
     /// - IsPaid: Whether this break counts towards time worked for compensation purposes.
-    var IsPaid: Bool?
+    public var IsPaid: Bool?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveInventoryAdjustmentResponse: SquareupResponse {
     
     /// - Adjustment: The requested InventoryAdjustment.
-    var Adjustment: InventoryAdjustment?
+    public var Adjustment: InventoryAdjustment?
     
     enum CodingKeys: String, CodingKey {
         case Adjustment = "adjustment"

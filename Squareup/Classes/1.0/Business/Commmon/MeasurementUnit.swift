@@ -13,21 +13,21 @@ import Foundation
 open class MeasurementUnit: Codable {
     
     /// - CustomUnit: A custom unit of measurement defined by the seller using the Point of Sale app or ad-hoc as an order line item.
-    var CustomUnit: MeasurementUnitCustom?
+    public var CustomUnit: MeasurementUnitCustom?
     /// - AreaUnit: Represents a standard area unit.
-    var AreaUnit: MeasurementUnitArea?
+    public var AreaUnit: MeasurementUnitArea?
     /// - LengthUnit: Represents a standard length unit.
-    var LengthUnit: MeasurementUnitLength?
+    public var LengthUnit: MeasurementUnitLength?
     /// - VolumeUnit: Represents a standard volume unit.
-    var VolumeUnit: MeasurementUnitVolume?
+    public var VolumeUnit: MeasurementUnitVolume?
     /// - WeightUnit: Represents a standard unit of weight or mass.
-    var WeightUnit: MeasurementUnitWeight?
+    public var WeightUnit: MeasurementUnitWeight?
     /// - GenericUnit: Reserved for API integrations that lack the ability to specify a real measurement unit
-    var GenericUnit: MeasurementUnitGeneric?
+    public var GenericUnit: MeasurementUnitGeneric?
     /// - TimeUnit: Represents a standard unit of time.
-    var TimeUnit: MeasurementUnitTime?
+    public var TimeUnit: MeasurementUnitTime?
     /// - UnitType: Represents the type of the measurement unit.
-    var UnitType: MeasurementUnitUnitType?
+    public var UnitType: MeasurementUnitUnitType?
     
     enum CodingKeys: String, CodingKey {
         case CustomUnit = "custom_unit"

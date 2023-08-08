@@ -13,7 +13,7 @@ open class Vendor: Codable {
     
     /// - Id: A unique Square-generated ID for the Vendor. This field is required when attempting to update a Vendor.
     /// Max Length 100
-    var Id: String?
+    public var Id: String?
     /// - CreatedAt: Read only An RFC 3339-formatted timestamp that indicates when the Vendor was created.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -22,7 +22,7 @@ open class Vendor: Codable {
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 34
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only An RFC 3339-formatted timestamp that indicates when the Vendor was last updated.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -31,24 +31,24 @@ open class Vendor: Codable {
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 34
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - Name: The name of the Vendor. This field is required when attempting to create or update a Vendor.
     /// Max Length 100
-    var Name: String?
+    public var Name: String?
     /// - address: The address of the Vendor.
-    var address: Address?
+    public var address: Address?
     /// - Contacts: The contacts of the Vendor.
-    var Contacts: [VendorContact]?
+    public var Contacts: [VendorContact]?
     /// - AccountNumber: The account number of the Vendor.
     /// Max Length 100
-    var AccountNumber: String?
+    public var AccountNumber: String?
     /// - Note: A note detailing information about the Vendor.
     /// Max Length 4096
-    var Note: String?
+    public var Note: String?
     /// - Version: The version of the Vendor.
-    var Version: Int?
+    public var Version: Int?
     /// - Status: The status of the Vendor.
-    var Status: VendorStatus?
+    public var Status: VendorStatus?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

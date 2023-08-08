@@ -13,11 +13,11 @@ import Foundation
 open class GiftCardActivity: Codable {
     
     /// - Id: Read only The Square-assigned ID of the gift card activity
-    var Id: String?
+    public var Id: String?
     /// - type: The type of gift card activity.
-    var type: GiftCardActivityType?
+    public var type: GiftCardActivityType?
     /// - LocationId: The ID of the business location where the activity occurred.
-    var LocationId: String?
+    public var LocationId: String?
     /// - CreatedAt: Read only The timestamp when the gift card activity was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -25,45 +25,45 @@ open class GiftCardActivity: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - GiftCardId: The gift card ID. When creating a gift card activity, gift_card_id is not required if gift_card_gan is specified.
-    var GiftCardId: String?
+    public var GiftCardId: String?
     /// - GiftCardGan: The gift card account number (GAN). When creating a gift card activity, gift_card_gan is not required if gift_card_id is specified.
-    var GiftCardGan: String?
+    public var GiftCardGan: String?
     /// - GiftCardBalanceMoney: Read only The final balance on the gift card after the action is completed.
-    var GiftCardBalanceMoney: Money?
+    public var GiftCardBalanceMoney: Money?
     /// - LoadActivityDetails: Additional details about a LOAD activity, which is used to reload money onto a gift card.
-    var LoadActivityDetails: GiftCardActivityLoad?
+    public var LoadActivityDetails: GiftCardActivityLoad?
     /// - ActivateActivityDetails: Additional details about an ACTIVATE activity, which is used to activate a gift card with an initial balance.
-    var ActivateActivityDetails: GiftCardActivityActivate?
+    public var ActivateActivityDetails: GiftCardActivityActivate?
     /// - RedeemActivityDetails: Additional details about a REDEEM activity, which is used to redeem a gift card for a purchase.
     /// For applications that process payments using the Square Payments API, Square creates a REDEEM activity that updates the gift card balance after the corresponding CreatePayment request is completed. Applications that use a custom payment processing system must call CreateGiftCardActivity to create the REDEEM activity.
-    var RedeemActivityDetails: GiftCardActivityRedeem?
+    public var RedeemActivityDetails: GiftCardActivityRedeem?
     /// - ClearBalanceActivityDetails: Additional details about a CLEAR_BALANCE activity, which is used to set the balance of a gift card to zero.
-    var ClearBalanceActivityDetails: GiftCardActivityClearBalance?
+    public var ClearBalanceActivityDetails: GiftCardActivityClearBalance?
     /// - DeactivateActivityDetails: Additional details about a DEACTIVATE activity, which is used to deactivate a gift card.
-    var DeactivateActivityDetails: GiftCardActivityDeactivate?
+    public var DeactivateActivityDetails: GiftCardActivityDeactivate?
     /// - AdjustIncrementActivityDetails: Additional details about an ADJUST_INCREMENT activity, which is used to add money to a gift card outside of a typical ACTIVATE, LOAD, or REFUND activity flow.
-    var AdjustIncrementActivityDetails: GiftCardActivityAdjustIncrement?
+    public var AdjustIncrementActivityDetails: GiftCardActivityAdjustIncrement?
     /// - AdjustDecrementActivityDetails: Additional details about an ADJUST_DECREMENT activity, which is used to deduct money from a gift card outside of a typical REDEEM activity flow.
-    var AdjustDecrementActivityDetails: GiftCardActivityAdjustDecrement?
+    public var AdjustDecrementActivityDetails: GiftCardActivityAdjustDecrement?
     /// - RefundActivityDetails: Additional details about a REFUND activity, which is used to add money to a gift card when refunding a payment.
     /// For applications that process payments using the Square Payments API, Square creates a REFUND activity that updates the gift card balance after the corresponding RefundPayment request is completed. Applications that use a custom payment processing system must call CreateGiftCardActivity to create the REFUND activity.
-    var RefundActivityDetails: GiftCardActivityRefund?
+    public var RefundActivityDetails: GiftCardActivityRefund?
     /// - UnlinkedActivityRefundActivityDetails: Additional details about an UNLINKED_ACTIVITY_REFUND activity. This activity is used to add money to a gift card when refunding a payment that was processed using a custom payment processing system and not linked to the gift card.
-    var UnlinkedActivityRefundActivityDetails: GiftCardActivityUnlinkedActivityRefund?
+    public var UnlinkedActivityRefundActivityDetails: GiftCardActivityUnlinkedActivityRefund?
     /// - ImportActivityDetails: Read only Additional details about an IMPORT activity, which Square uses to import a third-party gift card with a balance.
-    var ImportActivityDetails: GiftCardActivityImport?
+    public var ImportActivityDetails: GiftCardActivityImport?
     /// - BlockActivityDetails: Read only Additional details about a BLOCK activity, which Square uses to temporarily block a gift card.
-    var BlockActivityDetails: GiftCardActivityBlock?
+    public var BlockActivityDetails: GiftCardActivityBlock?
     /// - UnblockActivityDetails: Read only Additional details about an UNBLOCK activity, which Square uses to unblock a gift card.
-    var UnblockActivityDetails: GiftCardActivityUnblock?
+    public var UnblockActivityDetails: GiftCardActivityUnblock?
     /// - ImportReversalActivityDetails: Read only Additional details about an IMPORT_REVERSAL activity, which Square uses to reverse the import of a third-party gift card.
-    var ImportReversalActivityDetails: GiftCardActivityImportReversal?
+    public var ImportReversalActivityDetails: GiftCardActivityImportReversal?
     /// - TransferBalanceToActivityDetails: Read only Additional details about a TRANSFER_BALANCE_TO activity, which Square uses to add money to a gift card as the result of a transfer from another gift card.
-    var TransferBalanceToActivityDetails: GiftCardActivityTransferBalanceTo?
+    public var TransferBalanceToActivityDetails: GiftCardActivityTransferBalanceTo?
     /// - TransferBalanceFromActivityDetails: Read only Additional details about a TRANSFER_BALANCE_FROM activity, which Square uses to deduct money from a gift as the result of a transfer to another gift card.
-    var TransferBalanceFromActivityDetails: GiftCardActivityTransferBalanceFrom?
+    public var TransferBalanceFromActivityDetails: GiftCardActivityTransferBalanceFrom?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

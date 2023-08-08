@@ -19,7 +19,7 @@ open class CatalogCustomAttributeDefinitionNumberConfig: Codable {
     ///
     /// Default: 5
     /// Max 5
-    var Precision: Int?
+    public var Precision: Int?
     
     enum CodingKeys: String, CodingKey {
         case Precision = "precision"

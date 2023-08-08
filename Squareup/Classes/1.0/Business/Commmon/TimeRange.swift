@@ -14,10 +14,10 @@ open class TimeRange: Codable {
     
     /// - StartAt: A datetime value in RFC 3339 format indicating when the time range starts.
 //    var StartAt: Date?
-    @FormattedDate<RFC3339_Strategy> var StartAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var StartAt: Date?
     /// - EndAt: A datetime value in RFC 3339 format indicating when the time range ends.
 //    var EndAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EndAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case StartAt = "start_at"

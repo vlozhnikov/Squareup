@@ -7,15 +7,15 @@
 
 import Foundation
 
-internal class UpdatePaymentRequest: Codable {
+open class UpdatePaymentRequest: Codable {
     
     /// - payment: The updated Payment object.
-    var payment: Payment?
+    public var payment: Payment?
     /// - IdempotencyKey: A unique string that identifies this UpdatePayment request. Keys can be any valid string but must be unique for every UpdatePayment request.
     /// For more information, see Idempotency.
     /// Min Length 1
     /// Max Length 45
-    var IdempotencyKey: String?
+    public var IdempotencyKey: String?
     
     enum CodingKeys: String, CodingKey {
         case payment = "payment"

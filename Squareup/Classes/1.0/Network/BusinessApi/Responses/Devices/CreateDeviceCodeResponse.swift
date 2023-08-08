@@ -10,7 +10,7 @@ import Foundation
 open class CreateDeviceCodeResponse: SquareupResponse {
     
     /// - deviceCode: The created DeviceCode object containing the device code string.
-    var deviceCode: DeviceCode?
+    public var deviceCode: DeviceCode?
     
     enum CodingKeys: String, CodingKey {
         case deviceCode = "device_code"

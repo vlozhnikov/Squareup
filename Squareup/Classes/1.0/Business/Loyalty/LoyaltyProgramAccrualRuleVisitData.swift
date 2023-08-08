@@ -12,9 +12,9 @@ import Foundation
 open class LoyaltyProgramAccrualRuleVisitData: Codable {
     
     /// - MinimumAmountMoney: The minimum purchase required during the visit to quality for points.
-    var MinimumAmountMoney: Money?
+    public var MinimumAmountMoney: Money?
     /// - TaxMode: ndicates how taxes should be treated when calculating the purchase amount to determine whether the visit qualifies for points. This setting applies only if minimum_amount_money is specified.
-    var TaxMode: LoyaltyProgramAccrualRuleTaxMode?
+    public var TaxMode: LoyaltyProgramAccrualRuleTaxMode?
     
     enum CodingKeys: String, CodingKey {
         case MinimumAmountMoney = "minimum_amount_money"

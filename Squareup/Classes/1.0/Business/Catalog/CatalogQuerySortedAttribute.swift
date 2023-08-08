@@ -14,11 +14,11 @@ open class CatalogQuerySortedAttribute: Codable {
     /// - AttributeName: Required
     /// The attribute whose value is used as the sort key.
     /// Min Length 1
-    var AttributeName: String?
+    public var AttributeName: String?
     /// - InitialAttributeValue:  The first attribute value to be returned by the query. Ascending sorts will return only objects with this value or greater, while descending sorts will return only objects with this value or less. If unset, start at the beginning (for ascending sorts) or end (for descending sorts).
-    var InitialAttributeValue: String?
+    public var InitialAttributeValue: String?
     /// - SortOrder: The desired sort order, "ASC" (ascending) or "DESC" (descending).
-    var sortOrder: SortOrder?
+    public var sortOrder: SortOrder?
     
     enum CodingKeys: String, CodingKey {
         case AttributeName = "attribute_name"

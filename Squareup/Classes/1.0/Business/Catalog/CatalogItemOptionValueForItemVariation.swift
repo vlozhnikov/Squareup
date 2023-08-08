@@ -13,9 +13,9 @@ import Foundation
 open class CatalogItemOptionValueForItemVariation: Codable {
     
     /// - ItemOptionId: The unique id of an item option.
-    var ItemOptionId: String?
+    public var ItemOptionId: String?
     /// - ItemOptionValueId: The unique id of the selected value for the item option.
-    var ItemOptionValueId: String?
+    public var ItemOptionValueId: String?
     
     enum CodingKeys: String, CodingKey {
         case ItemOptionId = "item_option_id"

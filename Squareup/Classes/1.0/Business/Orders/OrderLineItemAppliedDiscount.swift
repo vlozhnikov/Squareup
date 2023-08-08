@@ -14,14 +14,14 @@ open class OrderLineItemAppliedDiscount: Codable {
     
     /// - UID: A unique ID that identifies the applied discount only within this order.
     /// Max Length 60
-    var UID: String?
+    public var UID: String?
     /// - DiscountUid: The uid of the discount that the applied discount represents. It must reference a discount present in the order.discounts field.
     /// This field is immutable. To change which discounts apply to a line item, you must delete the discount and re-add it as a new OrderLineItemAppliedDiscount.
     /// Min Length 1
     /// Max Length 60
-    var DiscountUid: String?
+    public var DiscountUid: String?
     /// - AppliedMoney: Read only The amount of money applied by the discount to the line item.
-    var AppliedMoney: Money?
+    public var AppliedMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

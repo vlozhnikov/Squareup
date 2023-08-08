@@ -14,22 +14,22 @@ open class LoyaltyReward: Codable {
     
     /// - Id: Read only The Square-assigned ID of the loyalty account.
     /// Max Length 36
-    var Id: String?
+    public var Id: String?
     /// - Status: Read only The status of a loyalty reward.
-    var Status: LoyaltyRewardStatus?
+    public var Status: LoyaltyRewardStatus?
     /// - LoyaltyAccountId: The Square-assigned ID of the loyalty account to which the reward belongs.
     /// Min Length 1
     /// Max Length 36
-    var LoyaltyAccountId: String?
+    public var LoyaltyAccountId: String?
     /// - RewardTierId: The Square-assigned ID of the reward tier used to create the reward.
     /// Min Length 1
     /// Max Length 36
-    var RewardTierId: String?
+    public var RewardTierId: String?
     /// - Points: Read only The number of loyalty points used for the reward.
     /// Min 1
-    var Points: Int?
+    public var Points: Int?
     /// - OrderId: The Square-assigned ID of the order to which the reward is attached.
-    var OrderId: String?
+    public var OrderId: String?
     /// - CreatedAt: Read only The timestamp when the reward was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -37,7 +37,7 @@ open class LoyaltyReward: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp when the reward was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -45,7 +45,7 @@ open class LoyaltyReward: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - RedeemedAt: Read only The timestamp when the reward was redeemed, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -53,7 +53,7 @@ open class LoyaltyReward: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var RedeemedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var RedeemedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var RedeemedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

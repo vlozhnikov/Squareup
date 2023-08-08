@@ -12,9 +12,9 @@ import Foundation
 open class ShiftSort: Codable {
     
     /// - Field: The field to sort on.
-    var Field: ShiftSortField?
+    public var Field: ShiftSortField?
     /// - Order: The order in which results are returned. Defaults to DESC.
-    var Order: SortOrder?
+    public var Order: SortOrder?
     
     enum CodingKeys: String, CodingKey {
         case Field = "field"

@@ -17,7 +17,7 @@ open class CatalogTimePeriod: Codable {
     ///     DURATION:P2H
     ///     RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR
     /// Only SUMMARY, DTSTART, DURATION and RRULE fields are supported. DTSTART must be in local (unzoned) time format. Note that while BEGIN:VEVENT and END:VEVENT is not required in the request. The response will always include them.
-    var Event: String?
+    public var Event: String?
     
     enum CodingKeys: String, CodingKey {
         case Event = "event"

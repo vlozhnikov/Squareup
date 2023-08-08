@@ -10,7 +10,7 @@ import Foundation
 open class RegisterDomainResponse: SquareupResponse {
     
     /// - Status: The status of the domain registration.
-    var Status: RegisterDomainResponseStatus?
+    public var Status: RegisterDomainResponseStatus?
     
     enum CodingKeys: String, CodingKey {
         case Status = "status"

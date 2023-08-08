@@ -13,10 +13,10 @@ open class Payout: Codable {
     
     /// - Id: A unique ID for the payout.
     /// Min Length 1
-    var Id: String?
+    public var Id: String?
     /// - Status: Indicates the payout status.
-    var Status: PayoutStatus?
-    var LocationId: String?
+    public var Status: PayoutStatus?
+    public var LocationId: String?
     /// - CreatedAt: The timestamp of when the payout was created and submitted for deposit to the seller's banking destination, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -24,7 +24,7 @@ open class Payout: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: The timestamp of when the payout was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -32,22 +32,22 @@ open class Payout: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - AmountMoney: The amount of money involved in the payout. A positive amount indicates a deposit, and a negative amount indicates a withdrawal. This amount is never zero.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - destination: Information about the banking destination (such as a bank account, Square checking account, or debit card) against which the payout was made.
-    var destination: Destination?
+    public var destination: Destination?
     /// - Version: The version number, which is incremented each time an update is made to this payout record. The version number helps developers receive event notifications or feeds out of order.
-    var Version: Int?
+    public var Version: Int?
     /// - type: Indicates the payout type.
-    var type: PayoutType?
+    public var type: PayoutType?
     /// - payoutFee: A list of transfer fees and any taxes on the fees assessed by Square for this payout.
-    var payoutFee: PayoutFee?
+    public var payoutFee: PayoutFee?
     /// - ArrivalDate: The calendar date, in ISO 8601 format (YYYY-MM-DD), when the payout is due to arrive in the seller’s banking destination.
 //    var ArrivalDate: Date?
-    @FormattedDate<YYYYMMDD_Strategy> var ArrivalDate: Date?
+    @FormattedDate<YYYYMMDD_Strategy> public var ArrivalDate: Date?
     /// - EndToEndId: A unique ID for each Payout object that might also appear on the seller’s bank statement. You can use this ID to automate the process of reconciling each payout with the corresponding line item on the bank statement.
-    var EndToEndId: String?
+    public var EndToEndId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

@@ -12,9 +12,9 @@ import Foundation
 open class SearchOrdersFulfillmentFilter: Codable {
     
     /// - FulfillmentTypes: A list of fulfillment types to filter for. The list returns orders if any of its fulfillments match any of the fulfillment types listed in this field.
-    var FulfillmentTypes: [FulfillmentType]?
+    public var FulfillmentTypes: [FulfillmentType]?
     /// - FulfillmentStates: A list of fulfillment states to filter for. The list returns orders if any of its fulfillments match any of the fulfillment states listed in this field.
-    var FulfillmentStates: [FulfillmentState]?
+    public var FulfillmentStates: [FulfillmentState]?
     
     enum CodingKeys: String, CodingKey {
         case FulfillmentTypes = "fulfillment_types"

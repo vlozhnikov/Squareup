@@ -19,9 +19,9 @@ open class RiskEvaluation: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - RiskLevel: The risk level associated with the payment
-    var RiskLevel: RiskEvaluationRiskLevel?
+    public var RiskLevel: RiskEvaluationRiskLevel?
     
     enum CodingKeys: String, CodingKey {
         case CreatedAt = "created_at"

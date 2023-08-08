@@ -12,11 +12,11 @@ import Foundation
 open class SourceApplication: Codable {
     
     /// - Product: Read only The product type of the application.
-    var Product: Product?
+    public var Product: Product?
     /// - ApplicationId: Read only The Square-assigned ID of the application. This field is used only if the product type is EXTERNAL_API.
-    var ApplicationId: String?
+    public var ApplicationId: String?
     /// - Name: Read only The display name of the application (for example, "Custom Application" or "Square POS 4.74 for Android").
-    var Name: String?
+    public var Name: String?
     
     enum CodingKeys: String, CodingKey {
         case Product = "product"

@@ -14,10 +14,10 @@ open class CatalogQueryExact: Codable {
     /// - AttributeName: Required
     /// The name of the attribute to be searched. Matching of the attribute name is exact.
     /// Min Length 1
-    var AttributeName: String?
+    public var AttributeName: String?
     /// - AttributeValue: Required
     /// The desired value of the search attribute. Matching of the attribute value is case insensitive and can be partial. For example, if a specified value of "sma", objects with the named attribute value of "Small", "small" are both matched.
-    var AttributeValue: String?
+    public var AttributeValue: String?
     
     enum CodingKeys: String, CodingKey {
         case AttributeName = "attribute_name"

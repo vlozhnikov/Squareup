@@ -13,7 +13,7 @@ open class CatalogQueryItemsForTax: Codable {
     
     /// - TaxIds: Required
     /// A set of CatalogTax IDs to be used to find associated CatalogItems.
-    var TaxIds: [String]?
+    public var TaxIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case TaxIds = "tax_ids"

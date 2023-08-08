@@ -12,9 +12,9 @@ import Foundation
 open class CatalogV1Id: Codable {
     
     /// - CatalogV1Id: The ID for an object used in the Square API V1, if the object ID differs from the Square API V2 object ID.
-    let CatalogV1Id: String?
+    public var CatalogV1Id: String?
     /// - LocationId: The ID of the Location this Connect V1 ID is associated with.
-    let LocationId: String?
+    public var LocationId: String?
     
     enum CodingKeys: String, CodingKey {
         case CatalogV1Id = "catalog_v1_id"

@@ -10,7 +10,7 @@ import Foundation
 /// - BookingCustomAttributeUpsertRequest: Represents an individual upsert request in a BulkUpsertBookingCustomAttributes request.
 /// An individual request contains a booking ID, the custom attribute to create or update, and an optional idempotency key.
 /// https://developer.squareup.com/reference/square/objects/BookingCustomAttributeUpsertRequest
-internal class BookingCustomAttributeUpsertRequest: Codable {
+public class BookingCustomAttributeUpsertRequest: Codable {
     
     /// - BookingId: The ID of the target booking.
     ///  Length 1

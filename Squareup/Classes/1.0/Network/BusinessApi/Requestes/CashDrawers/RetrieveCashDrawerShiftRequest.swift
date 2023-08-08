@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class RetrieveCashDrawerShiftRequest: Codable {
+open class RetrieveCashDrawerShiftRequest: Codable {
     
     /// - LocationId: The ID of the location to retrieve cash drawer shifts from.
-    var LocationId: String?
+    public var LocationId: String?
     
     enum CodingKeys: String, CodingKey {
         case LocationId = "location_id"

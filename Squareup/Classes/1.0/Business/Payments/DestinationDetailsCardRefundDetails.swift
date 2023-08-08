@@ -12,9 +12,9 @@ import Foundation
 open class DestinationDetailsCardRefundDetails: Codable {
     
     /// - card: The card's non-confidential details.
-    var card: Card?
+    public var card: Card?
     /// - EntryMethod: The method used to enter the card's details for the refund. The method can be KEYED, SWIPED, EMV, ON_FILE, or CONTACTLESS.
-    var EntryMethod: DestinationDetailsCardRefundDetailsEntryMethod?
+    public var EntryMethod: DestinationDetailsCardRefundDetailsEntryMethod?
     
     enum CodingKeys: String, CodingKey {
         case card = "card"

@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveInventoryTransferResponse: SquareupResponse {
     
     /// - Transfer: The requested InventoryTransfer.
-    var Transfer: InventoryTransfer?
+    public var Transfer: InventoryTransfer?
     
     enum CodingKeys: String, CodingKey {
         case Transfer = "transfer"

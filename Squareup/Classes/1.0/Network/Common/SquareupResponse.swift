@@ -10,13 +10,13 @@ import Foundation
 open class SquareupResponse: Codable {
     
     /// - Errors: Any errors that occurred during the request.
-    var Errors: [SquareErrorResponse]?
+    public var Errors: [SquareErrorResponse]?
     
     enum CodingKeys: String, CodingKey {
         case Errors = "errors"
     }
     
-    var error: SquareErrorResponse? {
+    public var error: SquareErrorResponse? {
         return self.Errors?.first
     }
 }

@@ -26,7 +26,7 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/list-bookings
-        func listBooking(limit: Int? = nil,
+        public func listBooking(limit: Int? = nil,
                          cursor: String? = nil,
                          teamMemberId: String? = nil,
                          locationId: String?,
@@ -67,7 +67,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/bookings-api/create-booking
-        func createBooking(booking: Booking,
+        public func createBooking(booking: Booking,
                            idempotencyKey: String?,
                            accessToken: String,
                            completion: ((CreateBookingResponse) -> Void)? = nil,
@@ -90,7 +90,7 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/search-availability
-        func searchaAvailability(query: SearchAvailabilityQuery,
+        public func searchaAvailability(query: SearchAvailabilityQuery,
                                  accessToken: String,
                                  completion: ((SearchAvailabilityResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
@@ -109,7 +109,7 @@ open class BookingApi {
         /// - retrieveBusinessBookingProfile: Retrieves a seller's booking profile.
         /// Permissions: APPOINTMENTS_BUSINESS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-business-booking-profile
-        func retrieveBusinessBookingProfile(accessToken: String,
+        public func retrieveBusinessBookingProfile(accessToken: String,
                                             completion: ((RetrieveBusinessBookingProfileResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -124,7 +124,7 @@ open class BookingApi {
         /// - listTeamMemberBookingProfiles: Lists booking profiles for team members.
         /// Permissions: APPOINTMENTS_BUSINESS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/list-team-member-booking-profiles
-        func listTeamMemberBookingProfiles(bookableOnly: Bool? = nil,
+        public func listTeamMemberBookingProfiles(bookableOnly: Bool? = nil,
                                            limit: Int? = nil,
                                            cursor: String? = nil,
                                            locationId: String,
@@ -151,7 +151,7 @@ open class BookingApi {
         /// - retriveTeamMemberBookingProfile: Retrieves a team member's booking profile.
         /// Permissions: APPOINTMENTS_BUSINESS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-team-member-booking-profile
-        func retriveTeamMemberBookingProfile(teamMemberId: String,
+        public func retriveTeamMemberBookingProfile(teamMemberId: String,
                                              accessToken: String,
                                              completion: ((RetriveTeamMemberBookingProfileResponse) -> Void)? = nil,
                                              failed: ((Error) -> Void)? = nil) {
@@ -168,7 +168,7 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-booking
-        func retriveBoooking(bookingId: String,
+        public func retriveBoooking(bookingId: String,
                              accessToken: String,
                              completion: ((RetrieveBookingResponse) -> Void)? = nil,
                              failed: ((Error) -> Void)? = nil) {
@@ -187,7 +187,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/bookings-api/update-booking
-        func updateBoooking(bookingId: String,
+        public func updateBoooking(bookingId: String,
                             booking: Booking,
                             idempotencyKey: String?,
                             accessToken: String,
@@ -212,7 +212,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/bookings-api/cancel-booking
-        func cancelBoooking(bookingId: String,
+        public func cancelBoooking(bookingId: String,
                             bookingVersion: Int,
                             idempotencyKey: String?,
                             accessToken: String,
@@ -243,7 +243,7 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/list-booking-custom-attribute-definitions
-        func listBookingCustomAttributeDefinitions(limit: Int?,
+        public func listBookingCustomAttributeDefinitions(limit: Int?,
                                                    cursor: String?,
                                                    accessToken: String,
                                                    completion: ((ListBookingCustomAttributeDefinitionsResponse) -> Void)? = nil,
@@ -268,7 +268,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/create-booking-custom-attribute-definition
-        func createBookingCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
+        public func createBookingCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
                                                     idempotencyKey: String,
                                                     accessToken: String,
                                                     completion: ((CreateBookingCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -292,7 +292,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/delete-booking-custom-attribute-definition
-        func deleteBookingCustomAttributeDefinition(key: String,
+        public func deleteBookingCustomAttributeDefinition(key: String,
                                                     accessToken: String,
                                                     completion: ((SquareupResponse) -> Void)? = nil,
                                                     failed: ((Error) -> Void)? = nil) {
@@ -309,7 +309,7 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/retrieve-booking-custom-attribute-definition
-        func retrieveBookingCustomAttributeDefinition(key: String,
+        public func retrieveBookingCustomAttributeDefinition(key: String,
                                                       version: Int,
                                                       accessToken: String,
                                                       completion: ((RetrieveBookingCustomAttributeDefinition) -> Void)? = nil,
@@ -332,7 +332,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/update-booking-custom-attribute-definition
-        func updateBookingCustomAttributeDefinition(key: String,
+        public func updateBookingCustomAttributeDefinition(key: String,
                                                     customAttributeDefinition: CustomAttributeDefinition,
                                                     idempotencyKey: String?,
                                                     accessToken: String,
@@ -357,7 +357,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/bulk-delete-booking-custom-attributes
-        func bulkDeleteBookingCustomAttributes(values: [String: BookingCustomAttributeDeleteRequest],
+        public func bulkDeleteBookingCustomAttributes(values: [String: BookingCustomAttributeDeleteRequest],
                                                accessToken: String,
                                                completion: ((BulkDeleteBookingCustomAttributesResponse) -> Void)? = nil,
                                                failed: ((Error) -> Void)? = nil) {
@@ -378,7 +378,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/bulk-upsert-booking-custom-attributes
-        func bulkUpsertBookingCustomAttributes(values: [String: BookingCustomAttributeUpsertRequest],
+        public func bulkUpsertBookingCustomAttributes(values: [String: BookingCustomAttributeUpsertRequest],
                                                accessToken: String,
                                                completion: ((BulkUpsertBookingCustomAttributesResponse) -> Void)? = nil,
                                                failed: ((Error) -> Void)? = nil) {
@@ -398,7 +398,7 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/list-booking-custom-attributes
-        func listBookingCustomAttributes(bookingId: String,
+        public func listBookingCustomAttributes(bookingId: String,
                                          limit: Int?,
                                          cursor: String?,
                                          withDefinitions: Bool?,
@@ -426,7 +426,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/delete-booking-custom-attribute
-        func deleteBookingCustomAttribute(bookingId: String,
+        public func deleteBookingCustomAttribute(bookingId: String,
                                           key: String,
                                           accessToken: String,
                                           completion: ((SquareupResponse) -> Void)? = nil,
@@ -444,7 +444,7 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/retrieve-booking-custom-attribute
-        func retrieveBookingCustomAttribute(bookingId: String,
+        public func retrieveBookingCustomAttribute(bookingId: String,
                                             key: String,
                                             withDefinitions: Bool?,
                                             version: Int?,
@@ -471,7 +471,7 @@ open class BookingApi {
         /// For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to Appointments Plus or Appointments Premium.
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/upsert-booking-custom-attribute
-        func upsertBookingCustomAttribute(bookingId: String,
+        public func upsertBookingCustomAttribute(bookingId: String,
                                           key: String,
                                           customAttribute: CustomAttribute?,
                                           idempotencyKey: String?,

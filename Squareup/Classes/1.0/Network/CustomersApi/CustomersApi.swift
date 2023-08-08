@@ -28,7 +28,7 @@ open class CustomersApi {
         /// Under normal operating conditions, newly created or updated customer profiles become available for the listing operation in well under 30 seconds. Occasionally, propagation of the new or updated profiles can take closer to one minute or longer, especially during network incidents and outages.
         /// Permissions: CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customers-api/list-customers
-        func listCustomers(cursor: String?,
+        public func listCustomers(cursor: String?,
                            limit: Int?,
                            sortField: CustomerSortField = .Default,
                            sortOrder: SortOrder = .Asc,
@@ -63,7 +63,7 @@ open class CustomersApi {
         ///
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/create-customer
-        func createCustomer(givenName: String?,
+        public func createCustomer(givenName: String?,
                             familyName: String?,
                             companyName: String?,
                             nickname: String?,
@@ -107,7 +107,7 @@ open class CustomersApi {
         ///
         /// Under normal operating conditions, newly created or updated customer profiles become available for the search operation in well under 30 seconds. Occasionally, propagation of the new or updated profiles can take closer to one minute or longer, especially during network incidents and outages.
         /// Permissions: CUSTOMERS_READ
-        func searchCustomers(cursor: String?,
+        public func searchCustomers(cursor: String?,
                              limit: Int?,
                              query: CustomerQuery?,
                              accessToken: String,
@@ -135,7 +135,7 @@ open class CustomersApi {
         /// To delete a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/delete-customer
-        func deleteCustomer(customerId: String,
+        public func deleteCustomer(customerId: String,
                             version: Int?,
                             accessToken: String,
                             completion: ((SquareupResponse) -> Void)? = nil,
@@ -155,7 +155,7 @@ open class CustomersApi {
         
         /// - retrieveCustomer: Returns details for a single customer.
         /// Permissions: CUSTOMERS_READ
-        func retrieveCustomer(customerId: String,
+        public func retrieveCustomer(customerId: String,
                               accessToken: String,
                               completion: ((RetrieveCustomerResponse) -> Void)? = nil,
                               failed: ((Error) -> Void)? = nil) {
@@ -177,7 +177,7 @@ open class CustomersApi {
         /// You cannot use this endpoint to change cards on file. To make changes, use the Cards API or Gift Cards API.
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/update-customer
-        func updateCustomer(customerId: String,
+        public func updateCustomer(customerId: String,
                             givenName: String?,
                             familyName: String?,
                             companyName: String?,
@@ -221,7 +221,7 @@ open class CustomersApi {
         /// The customer is identified by the customer_id value and the customer group is identified by the group_id value.
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/remove-group-from-customer
-        func removeGroupFromCustomer(customerId: String,
+        public func removeGroupFromCustomer(customerId: String,
                                      groupId: String,
                                      accessToken: String,
                                      completion: ((SquareupResponse) -> Void)? = nil,
@@ -239,7 +239,7 @@ open class CustomersApi {
         /// The customer is identified by the customer_id value and the customer group is identified by the group_id value.
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/add-group-to-customer
-        func addGroupFromCustomer(customerId: String,
+        public func addGroupFromCustomer(customerId: String,
                                   groupId: String,
                                   accessToken: String,
                                   completion: ((SquareupResponse) -> Void)? = nil,
@@ -265,7 +265,7 @@ open class CustomersApi {
         /// When all response pages are retrieved, the results include all custom attribute definitions that are visible to the requesting application, including those that are created by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-custom-attributes-api/list-customer-custom-attribute-definitions
-        func listCustomerCustomAttributeDefinitions(limit: Int?,
+        public func listCustomerCustomAttributeDefinitions(limit: Int?,
                                                     cursor: String?,
                                                     accessToken: String,
                                                     completion: ((ListCustomerCustomAttributeDefinitionsResponse) -> Void)? = nil,
@@ -294,7 +294,7 @@ open class CustomersApi {
         /// Sellers can view all custom attributes in exported customer data, including those set to VISIBILITY_HIDDEN.
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/create-customer-custom-attribute-definition
-        func createCustomerCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
+        public func createCustomerCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
                                                      idempotencyKey: String?,
                                                      accessToken: String,
                                                      completion: ((CreateCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -319,7 +319,7 @@ open class CustomersApi {
         /// Only the definition owner can delete a custom attribute definition.
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/delete-customer-custom-attribute-definition
-        func deleteCustomerCustomAttributeDefinition(key: String,
+        public func deleteCustomerCustomAttributeDefinition(key: String,
                                                      accessToken: String,
                                                      completion: ((SquareupResponse) -> Void)? = nil,
                                                      failed: ((Error) -> Void)? = nil) {
@@ -336,7 +336,7 @@ open class CustomersApi {
         /// To retrieve a custom attribute definition created by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/retrieve-customer-custom-attribute-definition
-        func retrieveCustomerCustomAttributeDefinition(key: String,
+        public func retrieveCustomerCustomAttributeDefinition(key: String,
                                                        version: Int?,
                                                        accessToken: String,
                                                        completion: ((RetrieveCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -360,7 +360,7 @@ open class CustomersApi {
         /// Only the definition owner can update a custom attribute definition. Note that sellers can view all custom attributes in exported customer data, including those set to VISIBILITY_HIDDEN.
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/update-customer-custom-attribute-definition
-        func updateCustomerCustomAttributeDefinition(key: String,
+        public func updateCustomerCustomAttributeDefinition(key: String,
                                                      customAttributeDefinition: CustomAttributeDefinition?,
                                                      idempotencyKey: String?,
                                                      accessToken: String,
@@ -388,7 +388,7 @@ open class CustomersApi {
         /// To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes
-        func bulkUpsertCustomerCustomAttributes(value: [String: BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest]?,
+        public func bulkUpsertCustomerCustomAttributes(value: [String: BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest]?,
                                                 accessToken: String,
                                                 completion: ((BulkUpsertCustomerCustomAttributesResponse) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
@@ -410,7 +410,7 @@ open class CustomersApi {
         /// When all response pages are retrieved, the results include all custom attributes that are visible to the requesting application, including those that are owned by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/list-customer-custom-attributes
-        func listCustomerCustomAttributes(customerId: String,
+        public func listCustomerCustomAttributes(customerId: String,
                                           limit: Int?,
                                           cursor: String?,
                                           withDefinitions: Bool?,
@@ -437,7 +437,7 @@ open class CustomersApi {
         /// To delete a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/delete-customer-custom-attribute
-        func deleteCustomerCustomAttribute(customerId: String,
+        public func deleteCustomerCustomAttribute(customerId: String,
                                            key: String,
                                            accessToken: String,
                                            completion: ((SquareupResponse) -> Void)? = nil,
@@ -456,7 +456,7 @@ open class CustomersApi {
         /// To retrieve a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/retrieve-customer-custom-attribute
-        func retrieveCustomerCustomAttribute(customerId: String,
+        public func retrieveCustomerCustomAttribute(customerId: String,
                                              key: String,
                                              withDefinitions: Bool?,
                                              version: Int?,
@@ -484,7 +484,7 @@ open class CustomersApi {
         /// To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/upsert-customer-custom-attribute
-        func upsertCustomerCustomAttribute(customerId: String,
+        public func upsertCustomerCustomAttribute(customerId: String,
                                            key: String,
                                            customAttribute: CustomAttribute?,
                                            idempotencyKey: String?,
@@ -518,7 +518,7 @@ open class CustomersApi {
         /// - listCustomerGroups: Retrieves the list of customer groups of a business.
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-groups-api/list-customer-groups
-        func listCustomerGroups(cursor: String?,
+        public func listCustomerGroups(cursor: String?,
                                 limit: Int?,
                                 accessToken: String,
                                 completion: ((ListCustomerGroupsResponse) -> Void)? = nil,
@@ -542,7 +542,7 @@ open class CustomersApi {
         /// The request must include the name value of the group.
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-groups-api/create-customer-group
-        func createCustomerGroup(idempotencyKey: String?,
+        public func createCustomerGroup(idempotencyKey: String?,
                                  group: CustomerGroup,
                                  accessToken: String,
                                  completion: ((CreateCustomerGroupResponse) -> Void)? = nil,
@@ -564,7 +564,7 @@ open class CustomersApi {
         /// - deleteCustomerGroup: Deletes a customer group as identified by the group_id value.
         /// Permissions:CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customer-groups-api/delete-customer-group
-        func deleteCustomerGroup(groupId: String,
+        public func deleteCustomerGroup(groupId: String,
                                  accessToken: String,
                                  completion: ((SquareupResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
@@ -580,7 +580,7 @@ open class CustomersApi {
         /// - retrieveCustomerGroup: Retrieves a specific customer group as identified by the group_id value.
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-groups-api/retrieve-customer-group
-        func retrieveCustomerGroup(groupId: String,
+        public func retrieveCustomerGroup(groupId: String,
                                    accessToken: String,
                                    completion: ((RetrieveCustomerGroupResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
@@ -596,7 +596,7 @@ open class CustomersApi {
         /// - updateCustomerGroup: Updates a customer group as identified by the group_id value.
         /// Permissions:CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customer-groups-api/update-customer-group
-        func updateCustomerGroup(groupId: String,
+        public func updateCustomerGroup(groupId: String,
                                  group: CustomerGroup?,
                                  accessToken: String,
                                  completion: ((UpdateCustomerGroupResponse) -> Void)? = nil,
@@ -625,7 +625,7 @@ open class CustomersApi {
         /// - listCustomerSegments: Retrieves the list of customer segments of a business.
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-segments-api/list-customer-segments
-        func listCustomerSegments(cursor: String?,
+        public func listCustomerSegments(cursor: String?,
                                   limit: Int?,
                                   accessToken: String,
                                   completion: ((ListCustomerSegmentsResponse) -> Void)? = nil,
@@ -648,7 +648,7 @@ open class CustomersApi {
         /// - retrieveCustomerSegment: Retrieves a specific customer segment as identified by the segment_id value.
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-segments-api/retrieve-customer-segment
-        func retrieveCustomerSegment(segmentId: String,
+        public func retrieveCustomerSegment(segmentId: String,
                                      accessToken: String,
                                      completion: ((RetrieveCustomerSegmentResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {

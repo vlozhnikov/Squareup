@@ -7,11 +7,11 @@
 
 import Foundation
 
-internal class UpdateCatalogImageRequest: Codable {
+open class UpdateCatalogImageRequest: Codable {
     
-    var IdempotencyKey: String?
-    var ImageId: String?
-    var Image: CatalogObject?
+    public var IdempotencyKey: String?
+    public var ImageId: String?
+    public var Image: CatalogObject?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

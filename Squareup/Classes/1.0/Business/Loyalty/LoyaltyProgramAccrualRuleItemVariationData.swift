@@ -13,7 +13,7 @@ open class LoyaltyProgramAccrualRuleItemVariationData: Codable {
     
     /// - ItemVariationId: The ID of the ITEM_VARIATION catalog object that buyers can purchase to earn points.
     /// Min Length 1
-    var ItemVariationId: String?
+    public var ItemVariationId: String?
     
     enum CodingKeys: String, CodingKey {
         case ItemVariationId = "item_variation_id"

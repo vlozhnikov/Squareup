@@ -7,18 +7,18 @@
 
 import Foundation
 
-internal class ListCustomersRequest: Codable {
+open class ListCustomersRequest: Codable {
     
     /// - Cursor: A pagination cursor returned by a previous call to this endpoint. Provide this cursor to retrieve the next set of results for your original query.
-    var Cursor: String?
+    public var Cursor: String?
     /// - Limit: The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results. If the specified limit is less than 1 or greater than 100, Square returns a 400 VALUE_TOO_LOW or 400 VALUE_TOO_HIGH error. The default value is 100.
-    var Limit: Int?
+    public var Limit: Int?
     /// - SortField: Indicates how customers should be sorted.
     /// The default value is DEFAULT.
-    var SortField: CustomerSortField?
+    public var SortField: CustomerSortField?
     /// - sortOrder: Indicates whether customers should be sorted in ascending (ASC) or descending (DESC) order.
     /// The default value is ASC.
-    var sortOrder: SortOrder?
+    public var sortOrder: SortOrder?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"

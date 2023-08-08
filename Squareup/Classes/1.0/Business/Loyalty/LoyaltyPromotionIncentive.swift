@@ -12,11 +12,11 @@ import Foundation
 open class LoyaltyPromotionIncentive: Codable {
     
     /// - type: The type of points incentive.
-    var type: LoyaltyPromotionIncentiveType?
+    public var type: LoyaltyPromotionIncentiveType?
     /// - PointsMultiplierData: Additional data for a POINTS_MULTIPLIER incentive type.
-    var PointsMultiplierData: LoyaltyPromotionIncentivePointsMultiplierData?
+    public var PointsMultiplierData: LoyaltyPromotionIncentivePointsMultiplierData?
     /// - PointsAdditionData: Additional data for a POINTS_ADDITION incentive type.
-    var PointsAdditionData: LoyaltyPromotionIncentivePointsAdditionData?
+    public var PointsAdditionData: LoyaltyPromotionIncentivePointsAdditionData?
     
     enum CodingKeys: String, CodingKey {
         case type = "type"

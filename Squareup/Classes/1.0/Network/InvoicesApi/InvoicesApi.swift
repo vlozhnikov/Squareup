@@ -27,7 +27,7 @@ open class InvoicesApi {
         /// The response is paginated. If truncated, the response includes a cursor that you
         /// use in a subsequent request to retrieve the next set of invoices.
         /// Permissions: INVOICES_READ
-        func listInvoices(locationId: String,
+        public func listInvoices(locationId: String,
                           cursor: String?,
                           limit: Int?,
                           accessToken: String,
@@ -51,7 +51,7 @@ open class InvoicesApi {
         /// A draft invoice remains in your account and no action is taken. You must publish the invoice before Square can process it (send it to the customer's email address or charge the customer’s card on file).
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/create-invoice
-        func createInvoice(invoice: Invoice,
+        public func createInvoice(invoice: Invoice,
                            idempotencyKey: String?,
                            accessToken: String,
                            completion: ((CreateInvoiceResponse) -> Void)? = nil,
@@ -74,7 +74,7 @@ open class InvoicesApi {
         /// The response is paginated. If truncated, the response includes a cursor that you use in a subsequent request to retrieve the next set of invoices.
         /// Permissions: INVOICES_READ
         /// https://developer.squareup.com/reference/square/invoices-api/search-invoices
-        func searchInvoices(query: InvoiceQuery,
+        public func searchInvoices(query: InvoiceQuery,
                             limit: Int?,
                             cursor: String?,
                             accessToken: String,
@@ -99,7 +99,7 @@ open class InvoicesApi {
         /// When an invoice is deleted, the associated order status changes to CANCELED. You can only delete a draft invoice (you cannot delete a published invoice, including one that is scheduled for processing).
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/delete-invoice
-        func deleteInvoice(invoiceId: String,
+        public func deleteInvoice(invoiceId: String,
                            version: Int?,
                            accessToken: String,
                            completion: ((SquareupResponse) -> Void)? = nil,
@@ -119,7 +119,7 @@ open class InvoicesApi {
         /// - getInvoice: Retrieves an invoice by invoice ID.
         /// Permissions: INVOICES_READ
         /// https://developer.squareup.com/reference/square/invoices-api/get-invoice
-        func getInvoice(invoiceId: String,
+        public func getInvoice(invoiceId: String,
                         accessToken: String,
                         completion: ((GetInvoiceResponse) -> Void)? = nil,
                         failed: ((Error) -> Void)? = nil) {
@@ -136,7 +136,7 @@ open class InvoicesApi {
         /// For most updates, you can use a sparse Invoice object to add fields or change values and use the fields_to_clear field to specify fields to clear. However, some restrictions apply. For example, you cannot change the order_id or location_id field and you must provide the complete custom_fields list to update a custom field. Published invoices have additional restrictions.
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/update-invoice
-        func updateInvoice(invoiceId: String,
+        public func updateInvoice(invoiceId: String,
                            invoice: Invoice,
                            idempotencyKey: String?,
                            fieldsToClear: [String]?,
@@ -163,7 +163,7 @@ open class InvoicesApi {
         /// You cannot cancel an invoice in the DRAFT state or in a terminal state: PAID, REFUNDED, CANCELED, or FAILED.
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/cancel-invoice
-        func cancelInvoice(invoiceId: String,
+        public func cancelInvoice(invoiceId: String,
                            version: Int,
                            accessToken: String,
                            completion: ((CancelInvoiceResponse) -> Void)? = nil,
@@ -186,7 +186,7 @@ open class InvoicesApi {
         /// The invoice status also changes from DRAFT to a status based on the invoice configuration. For example, the status changes to UNPAID if Square emails the invoice or PARTIALLY_PAID if Square charge a card on file for a portion of the invoice amount.
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/publish-invoice
-        func publishInvoice(invoiceId: String,
+        public func publishInvoice(invoiceId: String,
                             version: Int,
                             idempotencyKey: String?,
                             accessToken: String,

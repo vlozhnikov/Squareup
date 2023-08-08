@@ -14,10 +14,10 @@ open class CatalogQuerySet: Codable {
     /// - AttributeName: Required
     /// The name of the attribute to be searched. Matching of the attribute name is exact.
     /// Min Length 1
-    var AttributeName: String?
+    public var AttributeName: String?
     /// - AttributeValues: Required
     /// The desired values of the search attribute. Matching of the attribute values is exact and case insensitive. A maximum of 250 values may be searched in a request.
-    var AttributeValues: [String]?
+    public var AttributeValues: [String]?
     
     enum CodingKeys: String, CodingKey {
         case AttributeName = "attribute_name"

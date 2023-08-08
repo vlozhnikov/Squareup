@@ -10,9 +10,9 @@ import Foundation
 open class BatchRetrieveInventoryChangesResponse: SquareupResponse {
     
     /// - Changes: The current calculated inventory changes for the requested objects and locations.
-    var Changes: [InventoryChange]?
+    public var Changes: [InventoryChange]?
     /// - Cursor:   The pagination cursor to be used in a subsequent request. If unset, this is the final response. See the Pagination guide for more information.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Changes = "changes"

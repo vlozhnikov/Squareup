@@ -14,22 +14,22 @@ open class CustomerGroup: Codable {
     
     /// - Id: Read only A unique Square-generated ID for the customer group.
     /// Max Length 255
-    var Id: String?
+    public var Id: String?
     /// - Name: Required
     /// The name of the customer group.
-    var Name: String?
+    public var Name: String?
     /// - CreatedAt: Read only The timestamp when the customer group was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     /// UTC: 2020-01-26T02:25:34Z
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp when the customer group was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     /// UTC: 2020-01-26T02:25:34Z
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

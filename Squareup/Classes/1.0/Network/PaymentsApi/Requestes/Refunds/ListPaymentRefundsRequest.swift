@@ -7,35 +7,35 @@
 
 import Foundation
 
-internal class ListPaymentRefundsRequest: Codable {
+open class ListPaymentRefundsRequest: Codable {
     
     /// - BeginTime: Indicates the start of the time range to retrieve each PaymentRefundfor, in RFC 3339 format. The range is determined using thecreated_atfield for eachPaymentRefund`.
     /// Default: The current time minus one year.
 //    var BeginTime: Date?
-    @FormattedDate<RFC3339_Strategy> var BeginTime: Date?
+    @FormattedDate<RFC3339_Strategy> public var BeginTime: Date?
     /// - EndTime: Indicates the end of the time range to retrieve each PaymentRefund for, in RFC 3339 format. The range is determined using the created_at field for each PaymentRefund.
     /// Default: The current time.
 //    var EndTime: Date?
-    @FormattedDate<RFC3339_Strategy> var EndTime: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndTime: Date?
     /// - sortOrder: The order in which results are listed by PaymentRefund.created_at:
     /// ASC - Oldest to newest.
     /// DESC - Newest to oldest (default).
-    var sortOrder: SortOrder?
+    public var sortOrder: SortOrder?
     /// - Cursor: A pagination cursor returned by a previous call to this endpoint. Provide this cursor to retrieve the next set of results for the original query.
-    var Cursor: String?
+    public var Cursor: String?
     /// - LocationId: Limit results to the location supplied. By default, results are returned for all locations associated with the seller.
-    var LocationId: String?
+    public var LocationId: String?
     /// - Status: If provided, only refunds with the given status are returned. For a list of refund status values, see PaymentRefund.
     /// Default: If omitted, refunds are returned regardless of their status.
-    var Status: PaymentRefundStatus?
+    public var Status: PaymentRefundStatus?
     /// - SourceType: If provided, only returns refunds whose payments have the indicated source type. Current values include CARD, BANK_ACCOUNT, WALLET, CASH, and EXTERNAL. For information about these payment source types, see Take Payments.
     /// Default: If omitted, refunds are returned regardless of the source type.
-    var SourceType: PaymentRefundDestinationType?
+    public var SourceType: PaymentRefundDestinationType?
     /// - Limit: The maximum number of results to be returned in a single page.
     /// It is possible to receive fewer results than the specified limit on a given page.
     /// If the supplied value is greater than 100, no more than 100 results are returned.
     /// Default: 100
-    var Limit: Int?
+    public var Limit: Int?
     
     enum CodingKeys: String, CodingKey {
         case BeginTime = "begin_time"

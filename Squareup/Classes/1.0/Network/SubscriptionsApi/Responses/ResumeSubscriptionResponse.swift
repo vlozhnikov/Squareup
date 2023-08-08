@@ -10,9 +10,9 @@ import Foundation
 open class ResumeSubscriptionResponse: SquareupResponse {
     
     /// - subscription: The resumed subscription.
-    var subscription: Subscription?
+    public var subscription: Subscription?
     /// - Actions: A list of RESUME actions created by the request and scheduled for the subscription.
-    var Actions: [SubscriptionAction]?
+    public var Actions: [SubscriptionAction]?
     
     enum CodingKeys: String, CodingKey {
         case subscription = "subscription"

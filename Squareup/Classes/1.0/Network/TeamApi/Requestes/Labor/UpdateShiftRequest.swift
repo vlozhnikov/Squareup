@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpdateShiftRequest: Codable {
+open class UpdateShiftRequest: Codable {
     
     /// - shift: The updated Shift object.
-    var shift: Shift?
+    public var shift: Shift?
     
     enum CodingKeys: String, CodingKey {
         case shift = "shift"

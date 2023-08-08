@@ -24,7 +24,7 @@ open class InventoryApi {
         /// - retrieveInventoryAdjustment: Returns the InventoryAdjustment object with the provided adjustment_id.
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-adjustment
-        func retrieveInventoryAdjustment(adjustmentId: String,
+        public func retrieveInventoryAdjustment(adjustmentId: String,
                                          accessToken: String,
                                          completion: ((RetrieveInventoryAdjustmentResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
@@ -41,7 +41,7 @@ open class InventoryApi {
         /// On success: returns the current calculated counts for all objects referenced in the request. On failure: returns a list of related errors.
         /// Permissions: INVENTORY_WRITE
         /// https://developer.squareup.com/reference/square/inventory-api/batch-change-inventory
-        func batchChangeInventory(changes: [InventoryChange],
+        public func batchChangeInventory(changes: [InventoryChange],
                                   ignoreUnchangedCounts: Bool = true,
                                   idempotencyKey: String?,
                                   accessToken: String,
@@ -67,7 +67,7 @@ open class InventoryApi {
         /// BatchRetrieveInventoryChanges is a catch-all query endpoint for queries that cannot be handled by other, simpler endpoints.
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/batch-retrieve-inventory-changes
-        func batchRetrieveInventoryChanges(catalogObjectIds: [String],
+        public func batchRetrieveInventoryChanges(catalogObjectIds: [String],
                                            locationIds: [String],
                                            types: [InventoryChangeType],
                                            states: [InventoryState],
@@ -105,7 +105,7 @@ open class InventoryApi {
         ///
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/batch-retrieve-inventory-counts
-        func batchRetrieveInventoryCounts(catalogObjectIds: [String],
+        public func batchRetrieveInventoryCounts(catalogObjectIds: [String],
                                           locationIds: [String],
                                           updatedAfter: Date?,
                                           cursor: String?,
@@ -115,7 +115,7 @@ open class InventoryApi {
                                           completion: ((BatchRetrieveInventoryCountsResponse) -> Void)? = nil,
                                           failed: ((Error) -> Void)? = nil) {
             
-            var batchRetrieveInventoryCountsRequest = Serializer.deserialize(BatchRetrieveInventoryCountsRequest.self, [:])!
+            let batchRetrieveInventoryCountsRequest = Serializer.deserialize(BatchRetrieveInventoryCountsRequest.self, [:])!
             
             batchRetrieveInventoryCountsRequest.CatalogObjectIds = catalogObjectIds
             batchRetrieveInventoryCountsRequest.LocationIds = locationIds
@@ -135,7 +135,7 @@ open class InventoryApi {
         /// - retrieveInventoryPhysicalCount: Returns the InventoryPhysicalCount object with the provided physical_count_id.
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-physical-count
-        func retrieveInventoryPhysicalCount(physicalCountId: String,
+        public func retrieveInventoryPhysicalCount(physicalCountId: String,
                                             accessToken: String,
                                             completion: ((RetrieveInventoryPhysicalCountResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
@@ -151,7 +151,7 @@ open class InventoryApi {
         /// - retrieveInventoryTransfer: Returns the InventoryTransfer object with the provided transfer_id.
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-transfer
-        func retrieveInventoryTransfer(transferId: String,
+        public func retrieveInventoryTransfer(transferId: String,
                                        accessToken: String,
                                        completion: ((RetrieveInventoryTransferResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
@@ -168,7 +168,7 @@ open class InventoryApi {
         /// Responses are paginated and unsorted. For more sophisticated queries, use a batch endpoint.
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-count
-        func retrieveInventoryCount(catalogObjectId: String,
+        public func retrieveInventoryCount(catalogObjectId: String,
                                     locationIds: [String],
                                     cursor: String?,
                                     accessToken: String,

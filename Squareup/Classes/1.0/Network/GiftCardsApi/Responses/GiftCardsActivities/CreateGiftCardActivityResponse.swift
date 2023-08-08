@@ -10,7 +10,7 @@ import Foundation
 open class CreateGiftCardActivityResponse: SquareupResponse {
     
     /// - giftCardActivity: The gift card activity that was created.
-    var giftCardActivity: GiftCardActivity?
+    public var giftCardActivity: GiftCardActivity?
     
     enum CodingKeys: String, CodingKey {
         case giftCardActivity = "gift_card_activity"

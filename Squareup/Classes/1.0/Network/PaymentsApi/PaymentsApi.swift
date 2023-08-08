@@ -38,7 +38,7 @@ open class PaymentsApi {
         /// The maximum results per page is 100.
         /// Permissions:PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/payments-api/list-payments
-        func listPayments(beginTime: Date?,
+        public func listPayments(beginTime: Date?,
                           endTime: Date?,
                           sortOrder: SortOrder?,
                           cursor: String?,
@@ -78,7 +78,7 @@ open class PaymentsApi {
         /// The endpoint creates a Payment object and returns it in the response.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/create-payment
-        func createPayment(sourceId: String?,
+        public func createPayment(sourceId: String?,
                            idempotencyKey: String?,
                            amountMoney: Money?,
                            tipMoney: Money?,
@@ -142,7 +142,7 @@ open class PaymentsApi {
         /// Note that if no payment with the specified idempotency key is found, no action is taken and the endpoint returns successfully.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/cancel-payment-by-idempotency-key
-        func cancelPayment(idempotencyKey: String?,
+        public func cancelPayment(idempotencyKey: String?,
                            accessToken: String,
                            completion: ((SquareupResponse) -> Void)? = nil,
                            failed: ((Error) -> Void)? = nil) {
@@ -160,7 +160,7 @@ open class PaymentsApi {
         /// - getPayment: Retrieves details for a specific payment.
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/payments-api/get-payment
-        func getPayment(paymentId: String,
+        public func getPayment(paymentId: String,
                         accessToken: String,
                         completion: ((GetPaymentResponse) -> Void)? = nil,
                         failed: ((Error) -> Void)? = nil) {
@@ -177,7 +177,7 @@ open class PaymentsApi {
         /// You can update the amount_money and tip_money using this endpoint.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/update-payment
-        func updatePayment(paymentId: String,
+        public func updatePayment(paymentId: String,
                            payment: Payment,
                            idempotencyKey: String,
                            accessToken: String,
@@ -201,7 +201,7 @@ open class PaymentsApi {
         /// You can use this endpoint to cancel a payment with the APPROVED status.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/cancel-payment
-        func cancelPayment(paymentId: String,
+        public func cancelPayment(paymentId: String,
                            accessToken: String,
                            completion: ((CancelPaymentResponse) -> Void)? = nil,
                            failed: ((Error) -> Void)? = nil) {
@@ -218,7 +218,7 @@ open class PaymentsApi {
         /// You can use this endpoint to complete a payment with the APPROVED status.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/complete-payment
-        func completePayment(paymentId: String,
+        public func completePayment(paymentId: String,
                              versionToken: String,
                              accessToken: String,
                              completion: ((CompletePaymentResponse) -> Void)? = nil,
@@ -254,7 +254,7 @@ open class PaymentsApi {
         /// The maximum results per page is 100.
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/refunds-api/list-payment-refunds
-        func listPaymentRefunds(beginTime: Date?,
+        public func listPaymentRefunds(beginTime: Date?,
                                 endTime: Date?,
                                 sortOrder: SortOrder?,
                                 cursor: String?,
@@ -290,7 +290,7 @@ open class PaymentsApi {
         /// You can refund the entire payment amount or a portion of it. You can use this endpoint to refund a card payment or record a refund of a cash or external payment. For more information, see Refund Payment.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/refunds-api/refund-payment
-        func refundPayment(idempotencyKey: String,
+        public func refundPayment(idempotencyKey: String,
                            amountMoney: Money,
                            appFeeMoney: Money?,
                            paymentId: String?,
@@ -330,7 +330,7 @@ open class PaymentsApi {
         /// - getPaymentRefund: Retrieves a specific refund using the refund_id.
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/refunds-api/get-payment-refund
-        func getPaymentRefund(refundId: String,
+        public func getPaymentRefund(refundId: String,
                               accessToken: String,
                               completion: ((GetPaymentRefundResponse) -> Void)? = nil,
                               failed: ((Error) -> Void)? = nil) {
@@ -359,7 +359,7 @@ open class PaymentsApi {
         /// - listDisputes: Returns a list of disputes associated with a particular account.
         /// Permissions: DISPUTES_READ
         /// https://developer.squareup.com/reference/square/disputes-api/list-disputes
-        func listDisputes(cursor: String?,
+        public func listDisputes(cursor: String?,
                           states: DisputeState?,
                           locationId: String?,
                           accessToken: String,
@@ -384,7 +384,7 @@ open class PaymentsApi {
         /// - retrieveDispute: Returns details about a specific dispute.
         /// Permissions: DISPUTES_READ
         /// https://developer.squareup.com/reference/square/disputes-api/retrieve-dispute
-        func retrieveDispute(disputeId: String,
+        public func retrieveDispute(disputeId: String,
                              accessToken: String,
                              completion: ((RetrieveDisputeResponse) -> Void)? = nil,
                              failed: ((Error) -> Void)? = nil) {
@@ -402,7 +402,7 @@ open class PaymentsApi {
         /// Square debits the disputed amount from the seller’s Square account. If the Square account does not have sufficient funds, Square debits the associated bank account.
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/accept-dispute
-        func acceptDispute(disputeId: String,
+        public func acceptDispute(disputeId: String,
                            accessToken: String,
                            completion: ((AcceptDisputeResponse) -> Void)? = nil,
                            failed: ((Error) -> Void)? = nil) {
@@ -417,7 +417,7 @@ open class PaymentsApi {
         /// - listDisputeEvidence: Returns a list of evidence associated with a dispute.
         /// Permissions: DISPUTES_READ
         /// https://developer.squareup.com/reference/square/disputes-api/list-dispute-evidence
-        func listDisputeEvidence(disputeId: String,
+        public func listDisputeEvidence(disputeId: String,
                                  cursor: String?,
                                  accessToken: String,
                                  completion: ((ListDisputeEvidenceResponse) -> Void)? = nil,
@@ -439,7 +439,7 @@ open class PaymentsApi {
         /// The endpoint accepts HTTP multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats.
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/create-dispute-evidence-file
-        func createDisputeEvidenceFile(disputeId: String,
+        public func createDisputeEvidenceFile(disputeId: String,
                                        idempotencyKey: String,
                                        evidenceType: DisputeEvidenceType?,
                                        contentType: String?,
@@ -465,7 +465,7 @@ open class PaymentsApi {
         /// - createDisputeEvidenceText: Uploads text to use as evidence for a dispute challenge.
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/create-dispute-evidence-text
-        func createDisputeEvidenceText(disputeId: String,
+        public func createDisputeEvidenceText(disputeId: String,
                                        idempotencyKey: String,
                                        evidenceType: DisputeEvidenceType?,
                                        evidenceText: String?,
@@ -491,7 +491,7 @@ open class PaymentsApi {
         /// Square does not send the bank any evidence that is removed.
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/delete-dispute-evidence
-        func deleteDisputeEvidence(disputeId: String,
+        public func deleteDisputeEvidence(disputeId: String,
                                    evidenceId: String,
                                    accessToken: String,
                                    completion: ((SquareupResponse) -> Void)? = nil,
@@ -508,7 +508,7 @@ open class PaymentsApi {
         /// - retrieveDisputeEvidence: Returns the metadata for the evidence specified in the request URL path.
         /// You must maintain a copy of any evidence uploaded if you want to reference it later. Evidence cannot be downloaded after you upload it.
         /// Permissions: DISPUTES_READ
-        func retrieveDisputeEvidence(disputeId: String,
+        public func retrieveDisputeEvidence(disputeId: String,
                                      evidenceId: String,
                                      accessToken: String,
                                      completion: ((RetrieveDisputeEvidenceResponse) -> Void)? = nil,
@@ -527,7 +527,7 @@ open class PaymentsApi {
         /// The evidence submitted by this endpoint includes evidence uploaded using the CreateDisputeEvidenceFile and CreateDisputeEvidenceText endpoints and evidence automatically provided by Square, when available. Evidence cannot be removed from a dispute after submission.
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/submit-evidence
-        func submitEvidence(disputeId: String,
+        public func submitEvidence(disputeId: String,
                             accessToken: String,
                             completion: ((SubmitEvidenceResponse) -> Void)? = nil,
                             failed: ((Error) -> Void)? = nil) {
@@ -556,7 +556,7 @@ open class PaymentsApi {
         /// - listPaymentLinks: Lists all payment links.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/checkout-api/list-payment-links
-        func listPaymentLinks(cursor: String?,
+        public func listPaymentLinks(cursor: String?,
                               limit: Int,
                               accessToken: String,
                               completion: ((ListPaymentLinksResponse) -> Void)? = nil,
@@ -580,7 +580,7 @@ open class PaymentsApi {
         /// Applications can share the resulting payment link with their buyer to pay for goods and services.
         /// Permissions: PAYMENTS_WRITE, ORDERS_READ, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/checkout-api/create-payment-link
-        func createPaymentLink(idempotencyKey: String?,
+        public func createPaymentLink(idempotencyKey: String?,
                                description: String?,
                                quickPay: QuickPay?,
                                order: Order?,
@@ -612,7 +612,7 @@ open class PaymentsApi {
         /// - deletePaymentLink: Deletes a payment link.
         /// Permissions: ORDERS_READ, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/checkout-api/delete-payment-link
-        func deletePaymentLink(id: String,
+        public func deletePaymentLink(id: String,
                                accessToken: String,
                                completion: ((DeletePaymentLinkResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
@@ -628,7 +628,7 @@ open class PaymentsApi {
         /// - retrievePaymentLink: Retrieves a payment link.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/checkout-api/retrieve-payment-link
-        func retrievePaymentLink(id: String,
+        public func retrievePaymentLink(id: String,
                                  accessToken: String,
                                  completion: ((RetrievePaymentLinkResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
@@ -645,7 +645,7 @@ open class PaymentsApi {
         /// You can update the payment_link fields such as description, checkout_options, and pre_populated_data. You cannot update other fields such as the order_id, version, URL, or timestamp field.
         /// Permissions: PAYMENTS_WRITE, ORDERS_READ, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/checkout-api/update-payment-link
-        func updatePaymentLink(id: String,
+        public func updatePaymentLink(id: String,
                                paymentLink: PaymentLink?,
                                accessToken: String,
                                completion: ((UpdatePaymentLinkResponse) -> Void)? = nil,
@@ -676,7 +676,7 @@ open class PaymentsApi {
         /// Note: The SqPaymentForm library is deprecated as of May 13, 2021, and will only receive critical security updates until it is retired on October 31, 2022. You must migrate your payment form code to the Web Payments SDK to continue using your domain for Apple Pay. For more information on migrating to the Web Payments SDK, see Migrate to the Web Payments SDK.
         /// To learn more about the Web Payments SDK and how to add Apple Pay, see Take an Apple Pay Payment.
         /// https://developer.squareup.com/reference/square/apple-pay-api/register-domain
-        func registerDomain(domainName: String,
+        public func registerDomain(domainName: String,
                             accessToken: String,
                             completion: ((RegisterDomainResponse) -> Void)? = nil,
                             failed: ((Error) -> Void)? = nil) {
@@ -710,7 +710,7 @@ open class PaymentsApi {
         /// A max of 25 cards will be returned.
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/cards-api/list-cards
-        func listCards(cursor: String?,
+        public func listCards(cursor: String?,
                        customerId: String?,
                        includeDisabled: Bool?,
                        referenceId: String?,
@@ -739,7 +739,7 @@ open class PaymentsApi {
         /// - createCard: Adds a card on file to an existing merchant.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/cards-api/create-card
-        func createCard(idempotencyKey: String,
+        public func createCard(idempotencyKey: String,
                         sourceId: String,
                         verificationToken: String?,
                         card: Card?,
@@ -765,7 +765,7 @@ open class PaymentsApi {
         /// - retrieveCard: Retrieves details for a specific Card.
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/cards-api/retrieve-card
-        func retrieveCard(cardId: String,
+        public func retrieveCard(cardId: String,
                           accessToken: String,
                           completion: ((RetrieveCardResponse) -> Void)? = nil,
                           failed: ((Error) -> Void)? = nil) {
@@ -782,7 +782,7 @@ open class PaymentsApi {
         /// Disabling an already disabled card is allowed but has no effect.
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/cards-api/disable-card
-        func disableCard(cardId: String,
+        public func disableCard(cardId: String,
                         accessToken: String,
                         completion: ((DisableCardResponse) -> Void)? = nil,
                         failed: ((Error) -> Void)? = nil) {
@@ -805,7 +805,7 @@ open class PaymentsApi {
         /// - listPayouts: Retrieves a list of all payouts for the default location.
         /// You can filter payouts by location ID, status, time range, and order them in ascending or descending order. To call this endpoint, set PAYOUTS_READ for the OAuth scope.
         /// https://developer.squareup.com/reference/square/payouts-api/list-payouts
-        func listPayouts(locationId: String?,
+        public func listPayouts(locationId: String?,
                          status: PayoutStatus?,
                          beginTime: Date?,
                          endTime: Date?,
@@ -838,7 +838,7 @@ open class PaymentsApi {
         /// - getPayout: Retrieves details of a specific payout identified by a payout ID.
         /// To call this endpoint, set PAYOUTS_READ for the OAuth scope.
         /// https://developer.squareup.com/reference/square/payouts-api/get-payout
-        func getPayout(payoutId: String,
+        public func getPayout(payoutId: String,
                        accessToken: String,
                        completion: ((GetPayoutResponse) -> Void)? = nil,
                        failed: ((Error) -> Void)? = nil) {
@@ -854,7 +854,7 @@ open class PaymentsApi {
         /// - listPayoutEntries: Retrieves a list of all payout entries for a specific payout.
         /// To call this endpoint, set PAYOUTS_READ for the OAuth scope.
         /// https://developer.squareup.com/reference/square/payouts-api/list-payout-entries
-        func listPayoutEntries(payoutId: String,
+        public func listPayoutEntries(payoutId: String,
                                sortOrder: SortOrder?,
                                cursor: String?,
                                limit: Int?,

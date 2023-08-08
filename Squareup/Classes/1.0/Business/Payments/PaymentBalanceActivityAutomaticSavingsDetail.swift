@@ -12,9 +12,9 @@ import Foundation
 open class PaymentBalanceActivityAutomaticSavingsDetail: Codable {
     
     /// - PaymentId: The ID of the payment associated with this activity.
-    var PaymentId: String?
+    public var PaymentId: String?
     /// - PayoutId: The ID of the payout associated with this activity.
-    var PayoutId: String?
+    public var PayoutId: String?
     
     enum CodingKeys: String, CodingKey {
         case PaymentId = "payment_id"

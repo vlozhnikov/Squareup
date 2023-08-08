@@ -13,7 +13,7 @@ open class CatalogQueryItemsForModifierList: Codable {
     
     /// - ModifierListIds: Required
     /// A set of CatalogModifierList IDs to be used to find associated CatalogItems.
-    var ModifierListIds: [String]?
+    public var ModifierListIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case ModifierListIds = "modifier_list_ids"

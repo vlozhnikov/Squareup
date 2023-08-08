@@ -12,9 +12,9 @@ import Foundation
 open class FulfillmentDeliveryDetails: Codable {
     
     /// - Recipient: The contact information for the person to receive the fulfillment.
-    var Recipient: FulfillmentRecipient?
+    public var Recipient: FulfillmentRecipient?
     /// - ScheduleType: Indicates the fulfillment delivery schedule type. If SCHEDULED, then deliver_at is required. If ASAP, then prep_time_duration is required. The default is SCHEDULED
-    var ScheduleType: FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType?
+    public var ScheduleType: FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType?
     /// - PlacedAt: Read only The timestamp indicating when the fulfillment was placed. The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
     ///
@@ -24,7 +24,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var PlacedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var PlacedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var PlacedAt: Date?
     /// - DeliverAt: The timestamp that represents the start of the delivery period. When the fulfillment schedule_type is ASAP, the field is automatically set to the current time plus the prep_time_duration. Otherwise, the application can set this field while the fulfillment state is PROPOSED, RESERVED, or PREPARED (any time before the terminal state such as COMPLETED, CANCELED, and FAILED).
     /// The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     ///
@@ -34,13 +34,13 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     ///  Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var DeliverAt: Date?
-    @FormattedDate<RFC3339_Strategy> var DeliverAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var DeliverAt: Date?
     /// - PrepTimeDuration: The duration of time it takes to prepare and deliver this fulfillment. The timestamp must be in RFC 3339 format (for example, "P1W3D").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     /// UTC: 2020-01-26T02:25:34Z
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var PrepTimeDuration: Date?
-    @FormattedDate<RFC3339_Strategy> var PrepTimeDuration: Date?
+    @FormattedDate<RFC3339_Strategy> public var PrepTimeDuration: Date?
     /// - DeliveryWindowDuration: The time period after the deliver_at timestamp in which to deliver the order. Applications can set this field when the fulfillment state is PROPOSED, RESERVED, or PREPARED (any time before the terminal state such as COMPLETED, CANCELED, and FAILED).
     /// The timestamp must be in RFC 3339 format (for example, "P1W3D").
     ///
@@ -50,7 +50,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var DeliveryWindowDuration: Date?
-    @FormattedDate<RFC3339_Strategy> var DeliveryWindowDuration: Date?
+    @FormattedDate<RFC3339_Strategy> public var DeliveryWindowDuration: Date?
     /// - Note: Provides additional instructions about the delivery fulfillment. It is displayed in the Square Point of Sale application and set by the API.
     /// Max Length 550
     var Note: String?
@@ -61,7 +61,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CompletedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CompletedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CompletedAt: Date?
     /// - InProgressAt: Read only The timestamp indicates when the seller started processing the fulfillment. This field is automatically set when the fulfillment state changes to RESERVED. The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -69,7 +69,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var InProgressAt: Date?
-    @FormattedDate<RFC3339_Strategy> var InProgressAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var InProgressAt: Date?
     /// - RejectedAt: Read only The timestamp indicating when the fulfillment was rejected. This field is automatically set when the fulfillment state changes to FAILED. The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -77,7 +77,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var RejectedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var RejectedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var RejectedAt: Date?
     /// - ReadyAt: Read only The timestamp indicating when the seller marked the fulfillment as ready for courier pickup. This field is automatically set when the fulfillment state changes to PREPARED. The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -85,7 +85,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var ReadyAt: Date?
-    @FormattedDate<RFC3339_Strategy> var ReadyAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var ReadyAt: Date?
     /// - DeliveredAt: Read only The timestamp indicating when the fulfillment was delivered to the recipient. The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -93,7 +93,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var DeliveredAt: Date?
-    @FormattedDate<RFC3339_Strategy> var DeliveredAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var DeliveredAt: Date?
     /// - CanceledAt: Read only The timestamp indicating when the fulfillment was canceled. This field is automatically set when the fulfillment state changes to CANCELED.
     /// The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -102,10 +102,10 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CanceledAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CanceledAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CanceledAt: Date?
     /// - CancelReason: The delivery cancellation reason. Max length: 100 characters.
     /// Max Length 100
-    var CancelReason: String?
+    public var CancelReason: String?
     /// - CourierPickupAt: The timestamp indicating when an order can be picked up by the courier for delivery. The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -113,7 +113,7 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CourierPickupAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CourierPickupAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CourierPickupAt: Date?
     /// - CourierPickupWindowDuration: The period of time in which the order should be picked up by the courier after the courier_pickup_at timestamp. The time must be in RFC 3339 format (for example, "P1W3D").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -121,26 +121,26 @@ open class FulfillmentDeliveryDetails: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CourierPickupWindowDuration: Date?
-    @FormattedDate<RFC3339_Strategy> var CourierPickupWindowDuration: Date?
+    @FormattedDate<RFC3339_Strategy> public var CourierPickupWindowDuration: Date?
     /// - IsNoContactDelivery: Whether the delivery is preferred to be no contact.
-    var IsNoContactDelivery: Bool?
+    public var IsNoContactDelivery: Bool?
     /// - DropoffNotes: A note to provide additional instructions about how to deliver the order.
     /// Max Length 550
-    var DropoffNotes: String?
+    public var DropoffNotes: String?
     /// - CourierProviderName: The name of the courier provider.
     /// Max Lengthc 255
-    var CourierProviderName: String?
+    public var CourierProviderName: String?
     /// - CourierSupportphoneNumber: The support phone number of the courier.
     /// Max Length 17
-    var CourierSupportPhoneNumber: String?
+    public var CourierSupportPhoneNumber: String?
     /// - SquareDeliveryId: The identifier for the delivery created by Square.
     /// Max Length 50
-    var SquareDeliveryId: String?
+    public var SquareDeliveryId: String?
     /// - ExternalDeliveryId: The identifier for the delivery created by the third-party courier service.
     /// Max Length 50
-    var ExternalDeliveryId: String?
+    public var ExternalDeliveryId: String?
     /// - ManagedDelivery: The flag to indicate the delivery is managed by a third party (ie DoorDash), which means we may not receive all recipient information for PII purposes.
-    var ManagedDelivery: Bool?
+    public var ManagedDelivery: Bool?
     
     enum CodingKeys: String, CodingKey {
         case Recipient = "recipient"

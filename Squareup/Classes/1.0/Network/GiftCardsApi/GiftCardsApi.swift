@@ -27,7 +27,7 @@ open class GiftCardsApi {
         /// You can specify optional filters to retrieve a subset of the gift cards. Results are sorted by created_at in ascending order.
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/list-gift-cards
-        func listGiftCards(type: GiftCardType? = nil,
+        public func listGiftCards(type: GiftCardType? = nil,
                            state: GiftCardStatus? = nil,
                            limit: Int? = nil,
                            cursor: String?,
@@ -56,7 +56,7 @@ open class GiftCardsApi {
         /// After the gift card is created, you must call CreateGiftCardActivity to activate the card with an initial balance before it can be used for payment.
         /// Permissions: GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-cards-api/create-gift-card
-        func createGiftCard(idempotencyKey: String,
+        public func createGiftCard(idempotencyKey: String,
                             locationId: String,
                             giftCard: GiftCard,
                             accessToken: String,
@@ -80,7 +80,7 @@ open class GiftCardsApi {
         /// - retrieveGiftCardFromGAN: Retrieves a gift card using the gift card account number (GAN).
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card-from-gan
-        func retrieveGiftCardFromGAN(gan: String,
+        public func retrieveGiftCardFromGAN(gan: String,
                                      accessToken: String,
                                      completion: ((RetrieveGiftCardFromGANResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
@@ -99,7 +99,7 @@ open class GiftCardsApi {
         /// - retrieveGiftCardFromNonce: Retrieves a gift card using a secure payment token that represents the gift card.
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card-from-nonce
-        func retrieveGiftCardFromNonce(nonce: String,
+        public func retrieveGiftCardFromNonce(nonce: String,
                                        accessToken: String,
                                        completion: ((RetrieveGiftCardFromNonceResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
@@ -118,7 +118,7 @@ open class GiftCardsApi {
         /// - linkCustomerToGiftCard: Links a customer to a gift card, which is also referred to as adding a card on file.
         /// Permissions: GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-cards-api/link-customer-to-gift-card
-        func linkCustomerToGiftCard(giftCardId: String,
+        public func linkCustomerToGiftCard(giftCardId: String,
                                     customerId: String,
                                     accessToken: String,
                                     completion: ((LinkCustomerToGiftCardResponse) -> Void)? = nil,
@@ -138,7 +138,7 @@ open class GiftCardsApi {
         /// - uplinkCustomerFromGiftCard: Unlinks a customer from a gift card, which is also referred to as removing a card on file.
         /// Permissions: GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-cards-api/unlink-customer-from-gift-card
-        func uplinkCustomerFromGiftCard(giftCardId: String,
+        public func uplinkCustomerFromGiftCard(giftCardId: String,
                                         customerId: String,
                                         accessToken: String,
                                         completion: ((UnlinkCustomerFromGiftCardResponse) -> Void)? = nil,
@@ -158,7 +158,7 @@ open class GiftCardsApi {
         /// - retrieveGiftCard: Retrieves a gift card using the gift card ID.
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card
-        func retrieveGiftCard(id: String,
+        public func retrieveGiftCard(id: String,
                               accessToken: String,
                               completion: ((RetrieveGiftCardResponse) -> Void)? = nil,
                               failed: ((Error) -> Void)? = nil) {
@@ -183,7 +183,7 @@ open class GiftCardsApi {
         /// By default, you get gift card activities for all gift cards in the seller's account. You can optionally specify query parameters to filter the list. For example, you can get a list of gift card activities for a gift card, for all gift cards in a specific region, or for activities within a time window.
         /// Permissions:GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-card-activities-api/list-gift-card-activities
-        func listGiftCardActivities(giftCardId: String?,
+        public func listGiftCardActivities(giftCardId: String?,
                                     type: GiftCardActivityType?,
                                     locationId: String?,
                                     beginTime: Date?,
@@ -219,7 +219,7 @@ open class GiftCardsApi {
         /// For example, you create an ACTIVATE activity to activate a gift card with an initial balance before the gift card can be used.
         /// Permissions:GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-card-activities-api/create-gift-card-activity
-        func createGiftCardActivity(idempotencyKey: String,
+        public func createGiftCardActivity(idempotencyKey: String,
                                     giftCardActivity: GiftCardActivity,
                                     accessToken: String,
                                     completion: ((CreateGiftCardActivityResponse) -> Void)? = nil,

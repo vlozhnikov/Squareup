@@ -13,20 +13,20 @@ open class GiftCardActivityLoad: Codable {
     
     /// - AmountMoney: The amount added to the gift card. This value is a positive integer.
     /// Applications that use a custom order processing system must specify this amount in the CreateGiftCardActivity request.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - OrderId: The ID of the order that contains the GIFT_CARD line item.
     /// Applications that use the Square Orders API to process orders must specify the order ID in the CreateGiftCardActivity request.
-    var OrderId: String?
+    public var OrderId: String?
     /// - LineItemUID: The UID of the GIFT_CARD line item in the order that represents the additional funds for the gift card.
     /// Applications that use the Square Orders API to process orders must specify the line item UID in the CreateGiftCardActivity request.
-    var LineItemUID: String?
+    public var LineItemUID: String?
     /// - ReferenceId: A client-specified ID that associates the gift card activity with an entity in another system.
     /// Applications that use a custom order processing system can use this field to track information related to an order or payment.
-    var ReferenceId: String?
+    public var ReferenceId: String?
     /// - BuyerPaymentInstrumentIds: The payment instrument IDs used to process the order for the additional funds, such as a credit card ID or bank account ID.
     /// Applications that use a custom order processing system must specify payment instrument IDs in the CreateGiftCardActivity request. Square uses this information to perform compliance checks.
     /// For applications that use the Square Orders API to process payments, Square has the necessary instrument IDs to perform compliance checks.
-    var BuyerPaymentInstrumentIds: [String]?
+    public var BuyerPaymentInstrumentIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case AmountMoney = "amount_money"

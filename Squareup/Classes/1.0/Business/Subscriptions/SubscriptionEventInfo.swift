@@ -12,9 +12,9 @@ import Foundation
 open class SubscriptionEventInfo: Codable {
     
     /// - Detail: A human-readable explanation for the event.
-    var Detail: SearchSubscriptionsFilter?
+    public var Detail: SearchSubscriptionsFilter?
     /// - Code: An info code indicating the subscription event that occurred.
-    var Code: SubscriptionEventInfoCode?
+    public var Code: SubscriptionEventInfoCode?
     
     enum CodingKeys: String, CodingKey {
         case Detail = "detail"

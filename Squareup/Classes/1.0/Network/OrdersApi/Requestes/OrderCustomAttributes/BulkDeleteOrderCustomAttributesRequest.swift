@@ -9,10 +9,10 @@ import Foundation
 
 /// - BulkDeleteOrderCustomAttributesRequest: Represents a bulk delete request for one or more order custom attributes.
 /// https://developer.squareup.com/reference/square/objects/BulkDeleteOrderCustomAttributesRequest
-internal class BulkDeleteOrderCustomAttributesRequest: Codable {
+open class BulkDeleteOrderCustomAttributesRequest: Codable {
     
     /// - Values: A map of requests that correspond to individual delete operations for custom attributes.
-    var Values: [String: BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute]?
+    public var Values: [String: BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute]?
     
     enum CodingKeys: String, CodingKey {
         case Values = "values"

@@ -12,7 +12,7 @@ import Foundation
 open class SearchOrdersStateFilter: Codable {
     
     /// - States: OrderState
-    var States: [OrderState]?
+    public var States: [OrderState]?
     
     enum CodingKeys: String, CodingKey {
         case States = "states"

@@ -12,18 +12,18 @@ import Foundation
 open class InventoryChange: Codable {
     
     /// - type: Indicates how the inventory change is applied. See InventoryChangeType for all possible values.
-    var type: InventoryChangeType?
+    public var type: InventoryChangeType?
     /// - PhysicalCount: Contains details about the physical count when type is PHYSICAL_COUNT, and is unset for all other change types.
-    var PhysicalCount: InventoryPhysicalCount?
+    public var PhysicalCount: InventoryPhysicalCount?
     /// - Adjustment: Contains details about the inventory adjustment when type is ADJUSTMENT, and is unset for all other change types.
-    var Adjustment: InventoryAdjustment?
+    public var Adjustment: InventoryAdjustment?
     /// - Transfer: Contains details about the inventory transfer when type is TRANSFER, and is unset for all other change types.
     /// Note: An InventoryTransfer object can only be set in the input to the BatchChangeInventory endpoint when the seller has an active Retail Plus subscription.
-    var Transfer: InventoryTransfer?
+    public var Transfer: InventoryTransfer?
     /// - MeasurementInit: Read only The CatalogMeasurementUnit object representing the catalog measurement unit associated with the inventory change.
-    var MeasurementInit: CatalogMeasurementUnit?
+    public var MeasurementInit: CatalogMeasurementUnit?
     /// - MeasurementUnitId: Read only The ID of the CatalogMeasurementUnit object representing the catalog measurement unit associated with the inventory change.
-    var MeasurementUnitId: String?
+    public var MeasurementUnitId: String?
     
     enum CodingKeys: String, CodingKey {
         case type = "type"

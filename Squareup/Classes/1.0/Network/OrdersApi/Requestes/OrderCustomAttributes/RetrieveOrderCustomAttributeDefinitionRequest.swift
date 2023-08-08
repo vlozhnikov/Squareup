@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class RetrieveOrderCustomAttributeDefinitionRequest: Codable {
+open class RetrieveOrderCustomAttributeDefinitionRequest: Codable {
     
     /// - Version: To enable optimistic concurrency control, include this optional field and specify the current version of the custom attribute.
-    var Version: Int?
+    public var Version: Int?
     
     enum CodingKeys: String, CodingKey {
         case Version = "version"

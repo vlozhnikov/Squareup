@@ -13,11 +13,11 @@ open class CatalogQuickAmountsSettings: Codable {
     
     /// - Option: Required
     /// Represents the option seller currently uses on Quick Amounts.
-    var Option: CatalogQuickAmountsSettingsOption?
+    public var Option: CatalogQuickAmountsSettingsOption?
     /// - EligibleForAutoAmounts: Represents location's eligibility for auto amounts The boolean should be consistent with whether there are AUTO amounts in the amounts.
-    var EligibleForAutoAmounts: Bool?
+    public var EligibleForAutoAmounts: Bool?
     /// - Amounts: Represents a set of Quick Amounts at this location.
-    var Amounts: CatalogQuickAmount?
+    public var Amounts: CatalogQuickAmount?
     
     enum CodingKeys: String, CodingKey {
         case Option = "option"

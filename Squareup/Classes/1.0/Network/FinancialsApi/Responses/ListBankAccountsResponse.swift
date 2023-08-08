@@ -10,9 +10,9 @@ import Foundation
 open class ListBankAccountsResponse: SquareupResponse {
     
     /// - BankAccounts: List of BankAccounts associated with this account.
-    var BankAccounts: [BankAccount]?
+    public var BankAccounts: [BankAccount]?
     /// - Cursor: When a response is truncated, it includes a cursor that you can use in a subsequent request to fetch next set of bank accounts. If empty, this is the final response.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case BankAccounts = "bank_accounts"

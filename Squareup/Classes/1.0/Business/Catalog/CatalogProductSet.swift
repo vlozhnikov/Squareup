@@ -13,30 +13,30 @@ import Foundation
 open class CatalogProductSet: Codable {
     
     /// - Name: User-defined name for the product set. For example, "Clearance Items" or "Winter Sale Items".
-    var Name: String?
+    public var Name: String?
     /// - ProductIdsAny: Unique IDs for any CatalogObject included in this product set. Any number of these catalog objects can be in an order for a pricing rule to apply.
     ///
     /// This can be used with product_ids_all in a parent CatalogProductSet to match groups of products for a bulk discount, such as a discount for an entree and side combo.
     ///
     /// Only one of product_ids_all, product_ids_any, or all_products can be set.
     /// Max: 500 catalog object IDs.
-    var ProductIdsAny = [String]()
+    public var ProductIdsAny = [String]()
     /// - ProductIdsAll: Unique IDs for any CatalogObject included in this product set. All objects in this set must be included in an order for a pricing rule to apply.
     ///
     /// Only one of product_ids_all, product_ids_any, or all_products can be set.
     ///
     /// Max: 500 catalog object IDs.
-    var ProductIdsAll = [String]()
+    public var ProductIdsAll = [String]()
     /// - QuantityExact: If set, there must be exactly this many items from products_any or products_all in the cart for the discount to apply.
     ///
     /// Cannot be combined with either quantity_min or quantity_max.
-    var QuantityExact: Int?
+    public var QuantityExact: Int?
     /// - QuantityMin: If set, there must be at least this many items from products_any or products_all in a cart for the discount to apply. See quantity_exact. Defaults to 0 if quantity_exact, quantity_min and quantity_max are all unspecified.
-    var QuantityMin: Int?
+    public var QuantityMin: Int?
     /// - QuantityMax: If set, the pricing rule will apply to a maximum of this many items from products_any or products_all.
-    var QuantityMax: Int?
+    public var QuantityMax: Int?
     /// - AllProducts: If set to true, the product set will include every item in the catalog. Only one of product_ids_all, product_ids_any, or all_products can be set.
-    var AllProducts: Bool?
+    public var AllProducts: Bool?
     
     enum CodingKeys: String, CodingKey {
         case Name = "name"

@@ -10,9 +10,9 @@ import Foundation
 open class ListDisputesResponse: SquareupResponse {
     
     /// - Disputes: The list of disputes.
-    var Disputes: [Dispute]?
+    public var Disputes: [Dispute]?
     /// - Cursor: The pagination cursor to be used in a subsequent request. If unset, this is the final response. For more information, see Pagination.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Disputes = "disputes"

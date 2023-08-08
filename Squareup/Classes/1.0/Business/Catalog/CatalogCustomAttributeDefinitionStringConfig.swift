@@ -12,7 +12,7 @@ import Foundation
 open class CatalogCustomAttributeDefinitionStringConfig: Codable {
     
     /// - EnforceUniqueness: If true, each Custom Attribute instance associated with this Custom Attribute Definition must have a unique value within the seller's catalog. For example, this may be used for a value like a SKU that should not be duplicated within a seller's catalog. May not be modified after the definition has been created.
-    var EnforceUniqueness: Bool?
+    public var EnforceUniqueness: Bool?
     
     enum CodingKeys: String, CodingKey {
         case EnforceUniqueness = "enforce_uniqueness"

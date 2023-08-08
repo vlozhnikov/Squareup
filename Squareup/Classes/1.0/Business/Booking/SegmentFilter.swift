@@ -14,9 +14,9 @@ open class SegmentFilter: Codable {
     /// - ServiceVariationId: The ID of the CatalogItemVariation object representing the service booked in this segment.
     /// Min Length 1
     /// Max Length 36
-    var ServiceVariationId: String?
+    public var ServiceVariationId: String?
     /// - TeamMemberIdFilter: A query filter to search for buyer-accessible appointment segments with service-providing team members matching the specified list of team member IDs. Supported query expressions are
-    var TeamMemberIdFilter: FilterValue?
+    public var TeamMemberIdFilter: FilterValue?
     
     enum CodingKeys: String, CodingKey {
         case ServiceVariationId = "service_variation_id"

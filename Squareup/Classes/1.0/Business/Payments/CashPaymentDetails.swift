@@ -13,9 +13,9 @@ import Foundation
 open class CashPaymentDetails: Codable {
     
     /// - BuyerSuppliedMoney: The amount and currency of the money supplied by the buyer.
-    var BuyerSuppliedMoney: Money?
+    public var BuyerSuppliedMoney: Money?
     /// - ChangeBackMoney: The amount of change due back to the buyer. This read-only field is calculated from the amount_money and buyer_supplied_money fields.
-    var ChangeBackMoney: Money?
+    public var ChangeBackMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case BuyerSuppliedMoney = "buyer_supplied_money"

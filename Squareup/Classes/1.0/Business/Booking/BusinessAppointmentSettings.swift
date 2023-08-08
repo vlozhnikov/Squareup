@@ -12,32 +12,32 @@ import Foundation
 open class BusinessAppointmentSettings: Codable {
     
     /// - LocationTypes: Types of the location allowed for bookings.
-    var LocationTypes: [BusinessAppointmentSettingsBookingLocationType]?
+    public var LocationTypes: [BusinessAppointmentSettingsBookingLocationType]?
     /// - AlignmentTime: The time unit of the service duration for bookings.
-    var AlignmentTime: BusinessAppointmentSettingsAlignmentTime?
+    public var AlignmentTime: BusinessAppointmentSettingsAlignmentTime?
     /// - MinBookingLeadTimeSeconds: The minimum lead time in seconds before a service can be booked. Bookings must be created at least this far ahead of the booking's starting time.
-    var MinBookingLeadTimeSeconds: Int?
+    public var MinBookingLeadTimeSeconds: Int?
     /// - MaxBookingLeadTimeSeconds: The maximum lead time in seconds before a service can be booked. Bookings must be created at most this far ahead of the booking's starting time.
-    var MaxBookingLeadTimeSeconds: Int?
+    public var MaxBookingLeadTimeSeconds: Int?
     /// - AnyTeamMemberBookingEnabled: Indicates whether a customer can choose from all available time slots and have a staff member assigned automatically (true) or not (false).
-    var AnyTeamMemberBookingEnabled: Bool?
+    public var AnyTeamMemberBookingEnabled: Bool?
     /// - MultipleServiceBookingEnabled: Indicates whether a customer can book multiple services in a single online booking.
-    var MultipleServiceBookingEnabled: Bool?
+    public var MultipleServiceBookingEnabled: Bool?
     /// - MaxAppointmentsPerDayLimitType: Indicates whether the daily appointment limit applies to team members or to business locations.
-    var MaxAppointmentsPerDayLimitType: BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType?
+    public var MaxAppointmentsPerDayLimitType: BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType?
     /// - MaxAppointmentsPerDayLimit: The maximum number of daily appointments per team member or per location.
-    var MaxAppointmentsPerDayLimit: Int?
+    public var MaxAppointmentsPerDayLimit: Int?
     /// - CancellationWindowSeconds: The cut-off time in seconds for allowing clients to cancel or reschedule an appointment.
-    var CancellationWindowSeconds: Int?
+    public var CancellationWindowSeconds: Int?
     /// - CancellationFeeMoney: The flat-fee amount charged for a no-show booking.
-    var CancellationFeeMoney: Money?
+    public var CancellationFeeMoney: Money?
     /// - CancellationPolicy: The cancellation policy adopted by the seller.
-    var CancellationPolicy: BusinessAppointmentSettingsCancellationPolicy?
+    public var CancellationPolicy: BusinessAppointmentSettingsCancellationPolicy?
     /// - CancellationPolicyText: The free-form text of the seller's cancellation policy.
     /// Max Length 65536
-    var CancellationPolicyText: String?
+    public var CancellationPolicyText: String?
     /// - SkipBookingFlowStaffSelection: Indicates whether customers has an assigned staff member (true) or can select s staff member of their choice (false).
-    var SkipBookingFlowStaffSelection: Bool?
+    public var SkipBookingFlowStaffSelection: Bool?
     
     enum CodingKeys: String, CodingKey {
         case LocationTypes = "location_types"

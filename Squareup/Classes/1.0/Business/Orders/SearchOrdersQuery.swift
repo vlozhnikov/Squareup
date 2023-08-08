@@ -12,9 +12,9 @@ import Foundation
 open class SearchOrdersQuery: Codable {
     
     /// - Filter: Criteria to filter results by.
-    var Filter: SearchOrdersFilter?
+    public var Filter: SearchOrdersFilter?
     /// - Sort: Criteria to sort results by.
-    var Sort: SearchOrdersSort?
+    public var Sort: SearchOrdersSort?
     
     enum CodingKeys: String, CodingKey {
         case Filter = "filter"

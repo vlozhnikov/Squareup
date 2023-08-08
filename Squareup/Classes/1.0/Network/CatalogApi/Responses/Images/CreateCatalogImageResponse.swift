@@ -9,7 +9,7 @@ import Foundation
 
 open class CreateCatalogImageResponse: SquareupResponse {
     
-    var Image: CatalogObject?
+    public var Image: CatalogObject?
     
     enum CodingKeys: String, CodingKey {
         case Image = "image"

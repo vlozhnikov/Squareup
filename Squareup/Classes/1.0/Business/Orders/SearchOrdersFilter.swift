@@ -13,16 +13,16 @@ import Foundation
 open class SearchOrdersFilter: Codable {
     
     /// - StateFilter: Filter by OrderState.
-    var StateFilter: SearchOrdersStateFilter?
+    public var StateFilter: SearchOrdersStateFilter?
     /// - DateTimeFilter: Filter for results within a time range.
     /// Important: If you filter for orders by time range, you must set SearchOrdersSort to sort by the same field. Learn more about filtering orders by time range.
-    var DateTimeFilter: SearchOrdersDateTimeFilter?
+    public var DateTimeFilter: SearchOrdersDateTimeFilter?
     /// - FulfillmentFilter:
-    var FulfillmentFilter: SearchOrdersFulfillmentFilter?
+    public var FulfillmentFilter: SearchOrdersFulfillmentFilter?
     /// - SourceFilter: Filter by the source of the order.
-    var SourceFilter: SearchOrdersSourceFilter?
+    public var SourceFilter: SearchOrdersSourceFilter?
     /// - CustomerFilter: Filter by customers associated with the order.
-    var CustomerFilter: SearchOrdersCustomerFilter?
+    public var CustomerFilter: SearchOrdersCustomerFilter?
     
     enum CodingKeys: String, CodingKey {
         case StateFilter = "state_filter"

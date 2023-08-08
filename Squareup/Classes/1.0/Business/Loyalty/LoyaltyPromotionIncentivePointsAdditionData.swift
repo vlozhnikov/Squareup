@@ -13,7 +13,7 @@ open class LoyaltyPromotionIncentivePointsAdditionData: Codable {
     
     /// - PointsAddition: The number of additional points to earn each time the promotion is triggered. For example, suppose a purchase qualifies for 5 points from the base loyalty program. If the purchase also qualifies for a POINTS_ADDITION promotion incentive with a points_addition of 3, the buyer earns a total of 8 points (5 program points + 3 promotion points = 8 points).
     /// Min 1
-    var PointsAddition: Int?
+    public var PointsAddition: Int?
     
     enum CodingKeys: String, CodingKey {
         case PointsAddition = "points_addition"

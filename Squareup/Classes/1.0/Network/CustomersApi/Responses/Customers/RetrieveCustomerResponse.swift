@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveCustomerResponse: SquareupResponse {
     
     /// - customer: The requested customer.
-    var customer: Customer?
+    public var customer: Customer?
     
     enum CodingKeys: String, CodingKey {
         case customer = "customer"

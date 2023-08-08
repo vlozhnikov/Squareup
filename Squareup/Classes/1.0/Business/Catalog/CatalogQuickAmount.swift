@@ -13,14 +13,14 @@ open class CatalogQuickAmount: Codable {
     
     /// - type: Required
     /// Represents the type of the Quick Amount.
-    var type: CatalogQuickAmountType?
+    public var type: CatalogQuickAmountType?
     /// - Amount: Required
     /// Represents the actual amount of the Quick Amount with Money type.
-    var Amount: Money?
+    public var Amount: Money?
     /// - Score: Describes the ranking of the Quick Amount provided by machine learning model, in the range [0, 100]. MANUAL type amount will always have score = 100.
-    var Score: Int?
+    public var Score: Int?
     /// - Ordinal: The order in which this Quick Amount should be displayed.
-    var Ordinal: Int?
+    public var Ordinal: Int?
     
     enum CodingKeys: String, CodingKey {
         case type = "type"

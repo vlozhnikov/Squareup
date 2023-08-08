@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveCustomerGroupResponse: SquareupResponse {
     
     /// - Group: The retrieved customer group.
-    var Group: CustomerGroup?
+    public var Group: CustomerGroup?
     
     enum CodingKeys: String, CodingKey {
         case Group = "group"

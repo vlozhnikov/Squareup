@@ -12,9 +12,9 @@ import Foundation
 open class PhaseInput: Codable {
     
     /// - Ordinal: index of phase in total subscription plan
-    var Ordinal: Int?
+    public var Ordinal: Int?
     /// - OrderTemplateId: id of order to be used in billing
-    var OrderTemplateId: String?
+    public var OrderTemplateId: String?
     
     enum CodingKeys: String, CodingKey {
         case Ordinal = "ordinal"

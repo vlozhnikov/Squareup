@@ -10,7 +10,7 @@ import Foundation
 open class BulkUpdateVendorsResponse: SquareupResponse {
     
     /// - Responses: A set of UpdateVendorResponse objects encapsulating successfully created Vendor objects or error responses for failed attempts. The set is represented by a collection of Vendor-ID/UpdateVendorResponse-object or Vendor-ID/error-object pairs.
-    var Responses: [String: UpdateVendorResponse]?
+    public var Responses: [String: UpdateVendorResponse]?
     
     enum CodingKeys: String, CodingKey {
         case Responses = "responses"

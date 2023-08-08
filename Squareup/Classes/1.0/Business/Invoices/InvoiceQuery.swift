@@ -12,9 +12,9 @@ import Foundation
 open class InvoiceQuery: Codable {
     
     /// - Filter: Query filters to apply in searching invoices. For more information, see Search for invoices.
-    var Filter: InvoiceFilter?
+    public var Filter: InvoiceFilter?
     /// - Sort: Describes the sort order for the search result.
-    var Sort: InvoiceSort?
+    public var Sort: InvoiceSort?
     
     enum CodingKeys: String, CodingKey {
         case Filter = "filter"

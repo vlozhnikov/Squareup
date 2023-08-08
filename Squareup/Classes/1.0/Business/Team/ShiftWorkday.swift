@@ -12,11 +12,11 @@ import Foundation
 open class ShiftWorkday: Codable {
     
     /// - dateRange: Dates for fetching the shifts.
-    var dateRange: DateRange?
+    public var dateRange: DateRange?
     /// - MatchShiftsBy: The strategy on which the dates are applied.
-    var MatchShiftsBy: ShiftWorkdayMatcher?
+    public var MatchShiftsBy: ShiftWorkdayMatcher?
     /// - DefaultTimezone: Location-specific timezones convert workdays to datetime filters. Every location included in the query must have a timezone or this field must be provided as a fallback. Format: the IANA timezone database identifier for the relevant timezone.
-    var DefaultTimezone: String?
+    public var DefaultTimezone: String?
     
     enum CodingKeys: String, CodingKey {
         case dateRange = "date_range"

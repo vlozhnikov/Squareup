@@ -12,18 +12,18 @@ import Foundation
 open class LoyaltyProgramAccrualRule: Codable {
     
     /// - AccrualType: The type of the accrual rule that defines how buyers can earn points.
-    var AccrualType: LoyaltyProgramAccrualRuleType?
+    public var AccrualType: LoyaltyProgramAccrualRuleType?
     /// - Points: The number of points that buyers earn based on the accrual_type.
     /// Min 1
-    var Points: Int?
+    public var Points: Int?
     /// - VisitData: Additional data for rules with the VISIT accrual type.
-    var VisitData: LoyaltyProgramAccrualRuleVisitData?
+    public var VisitData: LoyaltyProgramAccrualRuleVisitData?
     /// - SpendData: Additional data for rules with the SPEND accrual type.
-    var SpendData: LoyaltyProgramAccrualRuleSpendData?
+    public var SpendData: LoyaltyProgramAccrualRuleSpendData?
     /// - ItemVariationData: Additional data for rules with the ITEM_VARIATION accrual type.
-    var ItemVariationData: LoyaltyProgramAccrualRuleItemVariationData?
+    public var ItemVariationData: LoyaltyProgramAccrualRuleItemVariationData?
     /// - CategoryData: Additional data for rules with the CATEGORY accrual type.
-    var CategoryData: LoyaltyProgramAccrualRuleCategoryData?
+    public var CategoryData: LoyaltyProgramAccrualRuleCategoryData?
     
     enum CodingKeys: String, CodingKey {
         case AccrualType = "accrual_type"

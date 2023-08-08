@@ -16,21 +16,21 @@ open class InvoiceRecipient: Codable {
     /// - CustomerId: The ID of the customer. This is the customer profile ID that you provide when creating a draft invoice.
     /// Min Length 1
     /// Max Length 255
-    var CustomerId: String?
+    public var CustomerId: String?
     /// - GivenName: Read only The recipient's given (that is, first) name.
-    var GivenName: String?
+    public var GivenName: String?
     /// - FamilyName: Read only The recipient's family (that is, last) name.
-    var FamilyName: String?
+    public var FamilyName: String?
     /// - EmailAddress: Read only The recipient's email address.
-    var EmailAddress: String?
+    public var EmailAddress: String?
     /// - address: Read only The recipient's physical address.
-    var address: Address?
+    public var address: Address?
     /// - PhoneNumber: Read only The recipient's phone number.
-    var PhoneNumber: String?
+    public var PhoneNumber: String?
     /// - CompanyName: Read only The name of the recipient's company.
-    var CompanyName: String?
+    public var CompanyName: String?
     /// - TaxIds: Read only The recipient's tax IDs. The country of the seller account determines whether this field is available for the customer. For more information, see Invoice recipient tax IDs.
-    var TaxIds: InvoiceRecipientTaxIds?
+    public var TaxIds: InvoiceRecipientTaxIds?
     
     enum CodingKeys: String, CodingKey {
         case CustomerId = "customer_id"

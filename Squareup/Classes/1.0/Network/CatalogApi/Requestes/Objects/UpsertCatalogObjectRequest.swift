@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpsertCatalogObjectRequest: Codable {
+open class UpsertCatalogObjectRequest: Codable {
     
-    var IdempotencyKey: String?
-    var Object: CatalogObject?
+    public var IdempotencyKey: String?
+    public var Object: CatalogObject?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

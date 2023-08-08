@@ -12,13 +12,13 @@ import Foundation
 open class SquareErrorResponse: Codable {
     
     /// - Category: The high-level category for the error.
-    var Category: String?
+    public var Category: String?
     /// - Code: The specific code of the error.
-    var Code: ErrorCode?
+    public var Code: ErrorCode?
     /// - Detail: A human-readable description of the error for debugging purposes.
-    var Detail: String?
+    public var Detail: String?
     /// - Field: The name of the field provided in the original request (if any) that the error pertains to.
-    var Field: String?
+    public var Field: String?
     
     enum CodingKeys: String, CodingKey {
         case Category = "category"
@@ -27,7 +27,7 @@ open class SquareErrorResponse: Codable {
         case Field = "field"
     }
     
-    var error: Error {
+    public var error: Error {
         return StringError("\(self.Detail ?? "-"): \(self.Field ?? "-")")
     }
 }

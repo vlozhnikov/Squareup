@@ -13,18 +13,18 @@ open class TeamMemberBookingProfile: Codable {
     
     /// - TeamMemberId: Read only The ID of the TeamMember object for the team member associated with the booking profile.
     /// Max Length 32
-    var TeamMemberId: String?
+    public var TeamMemberId: String?
     /// - Description: Read only The description of the team member.
     /// Max Length 65536
-    var Description: String?
+    public var Description: String?
     /// - DisplayName: Read only The display name of the team member.
     /// Max Length 512
-    var DisplayName: String?
+    public var DisplayName: String?
     /// - IsBookable: Indicates whether the team member can be booked through the Bookings API or the seller's online booking channel or site (true) or not (false`).
-    var IsBookable: String?
+    public var IsBookable: String?
     /// - ProfileImageUrl: Read only The URL of the team member's image for the bookings profile.
     /// Max Length 2048
-    var ProfileImageUrl: String?
+    public var ProfileImageUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case TeamMemberId = "team_member_id"

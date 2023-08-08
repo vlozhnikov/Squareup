@@ -7,17 +7,17 @@
 
 import Foundation
 
-internal class SearchCatalogItemsRequest: Codable {
+open class SearchCatalogItemsRequest: Codable {
     
-    var TextFilter: String?
-    var CategoryIds: [String]?
-    var StockLevels: [SearchCatalogItemsRequestStockLevel]?
-    var EnabledLocationIds: [String]?
-    var Cursor: String?
-    var Limit: Int?
-    var SortOrder: SortOrder?
-    var ProductTypes: [CatalogItemProductType]?
-    var CustomAttributeFilters: [CustomAttributeFilter]?
+    public var TextFilter: String?
+    public var CategoryIds: [String]?
+    public var StockLevels: [SearchCatalogItemsRequestStockLevel]?
+    public var EnabledLocationIds: [String]?
+    public var Cursor: String?
+    public var Limit: Int?
+    public var SortOrder: SortOrder?
+    public var ProductTypes: [CatalogItemProductType]?
+    public var CustomAttributeFilters: [CustomAttributeFilter]?
     
     enum CodingKeys: String, CodingKey {
         case TextFilter = "text_filter"

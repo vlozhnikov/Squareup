@@ -13,7 +13,7 @@ open class ClearpayDetails: Codable {
     
     /// - EmailAddress: Email address on the buyer's Clearpay account
     /// Max Length 255
-    var EmailAddress: String?
+    public var EmailAddress: String?
     
     enum CodingKeys: String, CodingKey {
         case EmailAddress = "email_address"

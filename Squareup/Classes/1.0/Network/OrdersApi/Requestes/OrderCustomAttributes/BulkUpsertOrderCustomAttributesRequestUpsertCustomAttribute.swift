@@ -9,20 +9,20 @@ import Foundation
 
 /// - BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute: Represents one upsert within the bulk operation.
 /// https://developer.squareup.com/reference/square/objects/BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute
-internal class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute: Codable {
+open class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute: Codable {
     
     /// - customAttribute: The custom attribute to create or update, with the following fields:
     /// value. This value must conform to the schema specified by the definition. For more information, see Value data types.
     /// version. To enable optimistic concurrency control, include this optional field and specify the current version of the custom attribute.
-    var customAttribute: CustomAttribute?
+    public var customAttribute: CustomAttribute?
     /// - IdempotencyKey: A unique identifier for this request, used to ensure idempotency. For more information, see Idempotency.
     /// Min Length 1
     /// Max Length 45
-    var IdempotencyKey: String?
+    public var IdempotencyKey: String?
     /// - OrderId: The ID of the target order.
     /// Min Length 1
     /// Max Length 255
-    var OrderId: String?
+    public var OrderId: String?
     
     enum CodingKeys: String, CodingKey {
         case customAttribute = "custom_attribute"

@@ -12,9 +12,9 @@ import Foundation
 open class InvoiceSort: Codable {
     
     /// - Field: The field to use for sorting.
-    var Field: InvoiceSortField?
+    public var Field: InvoiceSortField?
     /// - Order: The order to use for sorting the results.
-    var Order: SortOrder?
+    public var Order: SortOrder?
     
     enum CodingKeys: String, CodingKey {
         case Field = "field"

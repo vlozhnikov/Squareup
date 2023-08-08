@@ -12,9 +12,9 @@ import Foundation
 open class SearchVendorsRequestFilter: Codable {
     
     /// - Name: The names of the Vendor objects to retrieve.
-    var Name: [String]?
+    public var Name: [String]?
     /// - Status: The statuses of the Vendor objects to retrieve.
-    var Status: [VendorStatus]?
+    public var Status: [VendorStatus]?
     
     enum CodingKeys: String, CodingKey {
         case Name = "name"

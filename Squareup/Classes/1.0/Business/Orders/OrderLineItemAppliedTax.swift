@@ -14,14 +14,14 @@ open class OrderLineItemAppliedTax: Codable {
     
     /// - UID: A unique ID that identifies the applied tax only within this order.
     /// Max Length 60
-    var UID: String?
+    public var UID: String?
     /// - TaxUid: The uid of the tax for which this applied tax represents. It must reference a tax present in the order.taxes field.
     /// This field is immutable. To change which taxes apply to a line item, delete and add a new OrderLineItemAppliedTax.
     /// Min Length 1
     /// Max Length 60
-    var TaxUid: String?
+    public var TaxUid: String?
     /// - AppliedMoney: Read only The amount of money applied by the tax to the line item.
-    var AppliedMoney: Money?
+    public var AppliedMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

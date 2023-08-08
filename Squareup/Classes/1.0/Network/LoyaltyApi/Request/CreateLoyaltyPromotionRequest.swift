@@ -7,14 +7,14 @@
 
 import Foundation
 
-internal class CreateLoyaltyPromotionRequest: Codable {
+open class CreateLoyaltyPromotionRequest: Codable {
     
     /// - LoyaltyPromotion: The loyalty promotion to create.
-    var LoyaltyPromotion: LoyaltyPromotion?
+    public var LoyaltyPromotion: LoyaltyPromotion?
     /// - IdempotencyKey: A unique identifier for this request, which is used to ensure idempotency. For more information, see Idempotency.
     /// Min Length 1
     /// Max Length 128
-    var IdempotencyKey: String?
+    public var IdempotencyKey: String?
     
     enum CodingKeys: String, CodingKey {
         case LoyaltyPromotion = "loyalty_promotion"

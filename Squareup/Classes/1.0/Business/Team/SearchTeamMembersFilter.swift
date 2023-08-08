@@ -17,11 +17,11 @@ import Foundation
 open class SearchTeamMembersFilter: Codable {
     
     /// - LocationIds: When present, filters by team members assigned to the specified locations. When empty, includes team members assigned to any location.
-    var LocationIds: [String]?
+    public var LocationIds: [String]?
     /// - Status: When present, filters by team members who match the given status. When empty, includes team members of all statuses.
-    var Status: TeamMemberStatus?
+    public var Status: TeamMemberStatus?
     /// - IsOwner: When present and set to true, returns the team member who is the owner of the Square account.
-    var IsOwner: Bool?
+    public var IsOwner: Bool?
     
     enum CodingKeys: String, CodingKey {
         case LocationIds = "location_ids"

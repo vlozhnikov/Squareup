@@ -9,8 +9,8 @@ import Foundation
 
 open class SearchTeamMembersResponse: SquareupResponse {
     
-    var TeamMembers: [TeamMember]?
-    var Cursor: String?
+    public var TeamMembers: [TeamMember]?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case TeamMembers = "team_members"

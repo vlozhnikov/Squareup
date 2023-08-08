@@ -9,7 +9,7 @@ import Foundation
 
 open class BulkCreateTeamMembersResponse: SquareupResponse {
     
-    var TeamMembers: [String: CreateTeamMemberRequest]?
+    public var TeamMembers: [String: CreateTeamMemberRequest]?
     
     enum CodingKeys: String, CodingKey {
         case TeamMembers = "team_members"

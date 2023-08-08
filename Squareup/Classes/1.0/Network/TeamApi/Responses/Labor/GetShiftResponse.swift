@@ -10,7 +10,7 @@ import Foundation
 open class GetShiftResponse: SquareupResponse {
     
     /// - shift: The requested Shift.
-    var shift: Shift?
+    public var shift: Shift?
     
     enum CodingKeys: String, CodingKey {
         case shift = "shift"

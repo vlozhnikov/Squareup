@@ -7,11 +7,11 @@
 
 import Foundation
 
-internal class UpdateItemModifierListsRequest: Codable {
+open class UpdateItemModifierListsRequest: Codable {
     
-    var ItemIds = [String]()
-    var ModifierListsToDisable = [String]()
-    var ModifierListsToEnable = [String]()
+    public var ItemIds = [String]()
+    public var ModifierListsToDisable = [String]()
+    public var ModifierListsToEnable = [String]()
     
     enum CodingKeys: String, CodingKey {
         case ItemIds = "item_ids"

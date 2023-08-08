@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class BulkUpsertLocationCustomAttributesRequest: Codable {
+open class BulkUpsertLocationCustomAttributesRequest: Codable {
     
     /// - Values: A map containing 1 to 25 individual upsert requests. For each request, provide an arbitrary ID that is unique for this BulkUpsertLocationCustomAttributes request and the information needed to create or update a custom attribute.
-    var Values: [String: BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest]?
+    public var Values: [String: BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest]?
     
     enum CodingKeys: String, CodingKey {
         case Values = "values"

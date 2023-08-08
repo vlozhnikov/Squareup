@@ -10,9 +10,9 @@ import Foundation
 open class BatchChangeInventoryResponse: SquareupResponse {
     
     /// - Counts: The current counts for all objects referenced in the request.
-    var Counts: [InventoryCount]?
+    public var Counts: [InventoryCount]?
     /// - Changes: Changes created for the request.
-    var Changes: [InventoryChange]?
+    public var Changes: [InventoryChange]?
     
     enum CodingKeys: String, CodingKey {
         case Counts = "counts"

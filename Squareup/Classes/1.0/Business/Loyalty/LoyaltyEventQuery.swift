@@ -12,7 +12,7 @@ import Foundation
 open class LoyaltyEventQuery: Codable {
     
     /// - Filter: The query filter criteria.
-    var Filter: LoyaltyEventFilter?
+    public var Filter: LoyaltyEventFilter?
     
     enum CodingKeys: String, CodingKey {
         case Filter = "filter"

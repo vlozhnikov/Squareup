@@ -13,7 +13,7 @@ import Foundation
 open class GiftCardActivityImport: Codable {
     
     /// - AmountMoney: The balance amount on the imported gift card.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case AmountMoney = "amount_money"

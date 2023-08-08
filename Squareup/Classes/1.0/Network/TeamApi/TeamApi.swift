@@ -32,7 +32,7 @@ open class TeamApi {
         /// Learn about Troubleshooting the Team API.
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/create-team-member
-        func createTeamMember(teamMember: TeamMember,
+        public func createTeamMember(teamMember: TeamMember,
                               idempotencyKey: String?,
                               accessToken: String,
                               completion: ((CreateTeamMemberResponse) -> Void)? = nil,
@@ -56,7 +56,7 @@ open class TeamApi {
         /// Learn about Troubleshooting the Team API.
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/bulk-create-team-members
-        func bulkCreateTeamMembers(teamMembers: [TeamMember],
+        public func bulkCreateTeamMembers(teamMembers: [TeamMember],
                                    accessToken: String,
                                    completion: ((BulkCreateTeamMembersResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
@@ -85,7 +85,7 @@ open class TeamApi {
         /// The updated TeamMember objects are returned on successful updates. This process is non-transactional and processes as much of the request as possible. If one of the updates in the request cannot be successfully processed, the request is not marked as failed, but the body of the response contains explicit error information for the failed update. Learn about Troubleshooting the Team API.
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/bulk-update-team-members
-        func bulkUpdateTeamMembers(teamMembers: [TeamMember],
+        public func bulkUpdateTeamMembers(teamMembers: [TeamMember],
                                    accessToken: String,
                                    completion: ((BulkUpdateTeamMembersResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
@@ -118,7 +118,7 @@ open class TeamApi {
         ///
         /// Permissions: EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/team-api/search-team-members
-        func searchTeamMembers(filter: SearchTeamMembersFilter?,
+        public func searchTeamMembers(filter: SearchTeamMembersFilter?,
                                limit: Int?,
                                cursor: String?,
                                accessToken: String,
@@ -145,7 +145,7 @@ open class TeamApi {
         /// Learn about Troubleshooting the Team API.
         /// Permissions: EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/team-api/retrieve-team-member
-        func retrieveTeamMember(teamMemberId: String,
+        public func retrieveTeamMember(teamMemberId: String,
                                 accessToken: String,
                                 completion: ((RetrieveTeamMemberResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
@@ -161,7 +161,7 @@ open class TeamApi {
         /// The TeamMember object is returned on successful updates. Learn about Troubleshooting the Team API.
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/update-team-member
-        func updateTeamMember(teamMemberId: String,
+        public func updateTeamMember(teamMemberId: String,
                               teamMember: TeamMember,
                               accessToken: String,
                               completion: ((UpdateTeamMemberResponse) -> Void)? = nil,
@@ -182,7 +182,7 @@ open class TeamApi {
         /// Learn about Troubleshooting the Team API.
         /// Permissions: EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/team-api/retrieve-wage-setting
-        func retrieveWageSetting(teamMemberId: String,
+        public func retrieveWageSetting(teamMemberId: String,
                                  accessToken: String,
                                  completion: ((RetrieveWageSettingResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
@@ -199,7 +199,7 @@ open class TeamApi {
         /// The object is created if a WageSetting with the specified team_member_id does not exist. Otherwise, it fully replaces the WageSetting object for the team member. The WageSetting is returned on a successful update. Learn about Troubleshooting the Team API.
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/update-wage-setting
-        func updateWageSetting(teamMemberId: String,
+        public func updateWageSetting(teamMemberId: String,
                                wageSetting: WageSetting,
                                accessToken: String,
                                completion: ((UpdateWageSettingResponse) -> Void)? = nil,
@@ -228,7 +228,7 @@ open class TeamApi {
         /// - listBreakTypes: Returns a paginated list of BreakType instances for a business.
         /// Permissions:TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/list-break-types
-        func listBreakTypes(locationId: String,
+        public func listBreakTypes(locationId: String,
                             limit: Int?,
                             cursor: String?,
                             accessToken: String,
@@ -261,7 +261,7 @@ open class TeamApi {
         /// You can only have three BreakType instances per location. If you attempt to add a fourth BreakType for a location, an INVALID_REQUEST_ERROR "Exceeded limit of 3 breaks per location." is returned.
         /// Permissions:TIMECARDS_SETTINGS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/create-break-type
-        func createBreakType(idempotencyKey: String?,
+        public func createBreakType(idempotencyKey: String?,
                              breakType: BreakType?,
                              accessToken: String,
                              completion: ((CreateBreakTypeResponse) -> Void)? = nil,
@@ -284,7 +284,7 @@ open class TeamApi {
         /// A BreakType can be deleted even if it is referenced from a Shift.
         /// Permissions:TIMECARDS_SETTINGS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/delete-break-type
-        func deleteBreakType(id: String,
+        public func deleteBreakType(id: String,
                              accessToken: String,
                              completion: ((SquareupResponse) -> Void)? = nil,
                              failed: ((Error) -> Void)? = nil) {
@@ -300,7 +300,7 @@ open class TeamApi {
         /// - getBreakType: Returns a single BreakType specified by id.
         /// Permissions:TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/get-break-type
-        func getBreakType(id: String,
+        public func getBreakType(id: String,
                           accessToken: String,
                           completion: ((GetBreakTypeResponse) -> Void)? = nil,
                           failed: ((Error) -> Void)? = nil) {
@@ -316,7 +316,7 @@ open class TeamApi {
         /// - updateBreakType: Updates an existing BreakType.
         /// Permissions:TIMECARDS_SETTINGS_WRITE, TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/update-break-type
-        func updateBreakType(id: String,
+        public func updateBreakType(id: String,
                              breakType: BreakType?,
                              accessToken: String,
                              completion: ((UpdateBreakTypeResponse) -> Void)? = nil,
@@ -349,7 +349,7 @@ open class TeamApi {
         ///
         /// Permissions:TIMECARDS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/create-shift
-        func createShift(idempotencyKey: String?,
+        public func createShift(idempotencyKey: String?,
                          shift: Shift?,
                          accessToken: String,
                          completion: ((CreateShiftResponse) -> Void)? = nil,
@@ -385,7 +385,7 @@ open class TeamApi {
         /// updated_at.
         /// Permissions:TIMECARDS_READ
         /// https://developer.squareup.com/reference/square/labor-api/search-shifts
-        func searchShifts(query: ShiftQuery?,
+        public func searchShifts(query: ShiftQuery?,
                           limit: Int?,
                           cursor: String?,
                           accessToken: String,
@@ -408,7 +408,7 @@ open class TeamApi {
         /// - deleteShift: Deletes a Shift.
         /// Permissions:TIMECARDS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/delete-shift
-        func deleteShift(id: String,
+        public func deleteShift(id: String,
                          accessToken: String,
                          completion: ((SquareupResponse) -> Void)? = nil,
                          failed: ((Error) -> Void)? = nil) {
@@ -424,7 +424,7 @@ open class TeamApi {
         /// - getShift: Returns a single Shift specified by id.
         /// Permissions:TIMECARDS_READ
         /// https://developer.squareup.com/reference/square/labor-api/get-shift
-        func getShift(id: String,
+        public func getShift(id: String,
                       accessToken: String,
                       completion: ((GetShiftResponse) -> Void)? = nil,
                       failed: ((Error) -> Void)? = nil) {
@@ -443,7 +443,7 @@ open class TeamApi {
         /// When closing a Shift, all Break instances in the Shift must be complete with end_at set on each Break.
         /// Permissions:TIMECARDS_WRITE, TIMECARDS_READ
         /// https://developer.squareup.com/reference/square/labor-api/update-shift
-        func updateShift(id: String,
+        public func updateShift(id: String,
                          shift: Shift?,
                          accessToken: String,
                          completion: ((UpdateShiftResponse) -> Void)? = nil,
@@ -463,7 +463,7 @@ open class TeamApi {
         /// - listTeamMemberWages: Returns a paginated list of TeamMemberWage instances for a business.
         /// Permissions:EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/labor-api/list-team-member-wages
-        func listTeamMemberWages(teamMemberId: String?,
+        public func listTeamMemberWages(teamMemberId: String?,
                                  limit: Int?,
                                  cursor: String?,
                                  accessToken: String,
@@ -488,7 +488,7 @@ open class TeamApi {
         /// - getTeamMemberWage: Returns a single TeamMemberWage specified by id.
         /// Permissions:EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/labor-api/get-team-member-wage
-        func getTeamMemberWage(id: String,
+        public func getTeamMemberWage(id: String,
                                accessToken: String,
                                completion: ((GetTeamMemberWageResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
@@ -504,7 +504,7 @@ open class TeamApi {
         /// - listWorkweekConfigs: Returns a list of WorkweekConfig instances for a business.
         /// Permissions:TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/list-workweek-configs
-        func listWorkweekConfigs(limit: Int?,
+        public func listWorkweekConfigs(limit: Int?,
                                  cursor: String?,
                                  accessToken: String,
                                  completion: ((ListWorkweekConfigsResponse) -> Void)? = nil,
@@ -527,7 +527,7 @@ open class TeamApi {
         /// - updateWorkweekConfig: Updates a WorkweekConfig.
         /// Permissions:TIMECARDS_SETTINGS_WRITE, TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/update-workweek-config
-        func updateWorkweekConfig(id: String,
+        public func updateWorkweekConfig(id: String,
                                   workweekConfig: WorkweekConfig?,
                                   accessToken: String,
                                   completion: ((UpdateWorkweekConfigResponse) -> Void)? = nil,

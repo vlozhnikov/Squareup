@@ -12,9 +12,9 @@ import Foundation
 open class Range: Codable {
     
     /// - Min: The lower bound of the number range. At least one of min or max must be specified. If unspecified, the results will have no minimum value.
-    var Min: String?
+    public var Min: String?
     /// - Max: The upper bound of the number range. At least one of min or max must be specified. If unspecified, the results will have no maximum value.
-    var Max: String?
+    public var Max: String?
     
     enum CodingKeys: String, CodingKey {
         case Min = "min"

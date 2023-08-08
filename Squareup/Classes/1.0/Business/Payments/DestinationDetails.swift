@@ -12,7 +12,7 @@ import Foundation
 open class DestinationDetails: Codable {
     
     /// - CardDetails: Details about a card refund. Only populated if the destination_type is CARD.
-    var CardDetails: DestinationDetailsCardRefundDetails?
+    public var CardDetails: DestinationDetailsCardRefundDetails?
     
     enum CodingKeys: String, CodingKey {
         case CardDetails = "card_details"

@@ -13,11 +13,11 @@ open class BuyNowPayLaterDetails: Codable {
     
     /// - Status: The brand used for the Buy Now Pay Later payment. The brand can be AFTERPAY, CLEARPAY or UNKNOWN.
     /// Max Length 50
-    var Brand: BuyNowPayLaterDetailsBrand?
+    public var Brand: BuyNowPayLaterDetailsBrand?
     /// - AfterpayDetails: Details about an Afterpay payment. These details are only populated if the brand is AFTERPAY
-    var afterpayDetails: AfterpayDetails?
+    public var afterpayDetails: AfterpayDetails?
     /// - clearpayDetails: Details about a Clearpay payment. These details are only populated if the brand is CLEARPAY
-    var clearpayDetails: ClearpayDetails?
+    public var clearpayDetails: ClearpayDetails?
     
     enum CodingKeys: String, CodingKey {
         case Brand = "brand"

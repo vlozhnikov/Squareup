@@ -7,13 +7,13 @@
 
 import Foundation
 
-internal class ResumeSubscriptionRequest: Codable {
+open class ResumeSubscriptionRequest: Codable {
     
     /// - ResumeEffectiveDate: The YYYY-MM-DD-formatted date when the subscription reactivated.
 //    var ResumeEffectiveDate: Date?
-    @FormattedDate<YYYYMMDD_Strategy> var ResumeEffectiveDate: Date?
+    @FormattedDate<YYYYMMDD_Strategy> public var ResumeEffectiveDate: Date?
     /// - ResumeChangeTiming: The timing to resume a subscription, relative to the specified resume_effective_date attribute value.
-    var ResumeChangeTiming: ChangeTiming?
+    public var ResumeChangeTiming: ChangeTiming?
     
     enum CodingKeys: String, CodingKey {
         case ResumeEffectiveDate = "resume_effective_date"

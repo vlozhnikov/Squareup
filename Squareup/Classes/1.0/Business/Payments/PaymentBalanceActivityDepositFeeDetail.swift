@@ -12,7 +12,7 @@ import Foundation
 open class PaymentBalanceActivityDepositFeeDetail: Codable {
     
     /// - PayoutId: The ID of the payout associated with this activity.
-    var PayoutId: String?
+    public var PayoutId: String?
     
     enum CodingKeys: String, CodingKey {
         case PayoutId = "payout_id"

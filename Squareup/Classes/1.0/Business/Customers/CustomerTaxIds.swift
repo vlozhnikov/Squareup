@@ -14,7 +14,7 @@ open class CustomerTaxIds: Codable {
     
     /// - EuVat: The EU VAT identification number for the customer. For example, IE3426675K. The ID can contain alphanumeric characters only.
     /// Max Length 20
-    var EuVat: String?
+    public var EuVat: String?
     
     enum CodingKeys: String, CodingKey {
         case EuVat = "eu_vat"

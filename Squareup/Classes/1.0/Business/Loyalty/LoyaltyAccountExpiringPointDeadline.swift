@@ -12,7 +12,7 @@ import Foundation
 open class LoyaltyAccountExpiringPointDeadline: Codable {
     
     /// - Points: The number of points scheduled to expire at the expires_at timestamp.
-    var Points: Int?
+    public var Points: Int?
     /// - ExpiresAt: The timestamp of when the points are scheduled to expire, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -20,7 +20,7 @@ open class LoyaltyAccountExpiringPointDeadline: Codable {
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Min Length 1
 //    var ExpiresAt: Date?
-    @FormattedDate<RFC3339_Strategy> var ExpiresAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var ExpiresAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case Points = "points"

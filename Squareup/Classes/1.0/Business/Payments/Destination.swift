@@ -12,9 +12,9 @@ import Foundation
 open class Destination: Codable {
     
     /// - type: Type of the destination such as a bank account or debit card.
-    var type: DestinationType?
+    public var type: DestinationType?
     /// - Id: Square issued unique ID (also known as the instrument ID) associated with this destination.
-    var Id: String?
+    public var Id: String?
     
     enum CodingKeys: String, CodingKey {
         case type = "type"

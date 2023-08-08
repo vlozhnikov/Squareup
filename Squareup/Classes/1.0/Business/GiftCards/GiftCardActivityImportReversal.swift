@@ -12,7 +12,7 @@ import Foundation
 open class GiftCardActivityImportReversal: Codable {
     
     /// - AmountMoney: The amount of money cleared from the third-party gift card when the import was reversed.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case AmountMoney = "amount_money"

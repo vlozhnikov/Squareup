@@ -12,11 +12,11 @@ import Foundation
 open class OrderEntry: Codable {
     
     /// - OrderId: The ID of the order.
-    var OrderId: String?
+    public var OrderId: String?
     /// - Version: Read only The version number, which is incremented each time an update is committed to the order. Orders that were not created through the API do not include a version number and therefore cannot be updated.
-    var Version: Int?
+    public var Version: Int?
     /// - LocationId: The location ID the order belongs to.
-    var LocationId: String?
+    public var LocationId: String?
     
     enum CodingKeys: String, CodingKey {
         case OrderId = "order_id"

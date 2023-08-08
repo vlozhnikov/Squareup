@@ -10,7 +10,7 @@ import Foundation
 open class CalculateOrderResponse: SquareupResponse {
     
     /// - order: The calculated version of the order provided in the request.
-    var order: Order?
+    public var order: Order?
     
     enum CodingKeys: String, CodingKey {
         case order = "order"

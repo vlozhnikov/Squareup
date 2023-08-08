@@ -33,41 +33,41 @@ public struct FormattedDate<Formatter: DateValueCodableStrategy>: Codable {
     }
 }
 
-struct RFC3339_Strategy: DateValueCodableStrategy {
+public struct RFC3339_Strategy: DateValueCodableStrategy {
     
     private static var formatter = DateFormatter.RFC3339_DateFormatter
     
-    static func decode(_ value: String?) throws -> Date? {
+    public static func decode(_ value: String?) throws -> Date? {
         formatter.date(from: value ?? "")
     }
     
-    static func encode(_ date: Date) -> String {
+    public static func encode(_ date: Date) -> String {
         formatter.string(from: date)
     }
 }
 
-struct YYYYMMDD_Strategy: DateValueCodableStrategy {
+public struct YYYYMMDD_Strategy: DateValueCodableStrategy {
     
     private static var formatter = DateFormatter.YYYYMMDD_DateFormatter
     
-    static func decode(_ value: String?) throws -> Date? {
+    public static func decode(_ value: String?) throws -> Date? {
         formatter.date(from: value ?? "")
     }
     
-    static func encode(_ date: Date) -> String {
+    public static func encode(_ date: Date) -> String {
         formatter.string(from: date)
     }
 }
 
-struct HHMMSS_Strategy: DateValueCodableStrategy {
+public struct HHMMSS_Strategy: DateValueCodableStrategy {
     
     private static var formatter = DateFormatter.HHMMSS_DateFormatter
     
-    static func decode(_ value: String?) throws -> Date? {
+    public static func decode(_ value: String?) throws -> Date? {
         formatter.date(from: value ?? "")
     }
     
-    static func encode(_ date: Date) -> String {
+    public static func encode(_ date: Date) -> String {
         formatter.string(from: date)
     }
 }

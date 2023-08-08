@@ -12,9 +12,9 @@ import Foundation
 open class Coordinates: Codable {
     
     /// - Latitude: The latitude of the coordinate expressed in degrees.
-    var Latitude: Float?
+    public var Latitude: Float?
     /// - Longitude: The longitude of the coordinate expressed in degrees.
-    var Longitude: Float?
+    public var Longitude: Float?
     
     enum CodingKeys: String, CodingKey {
         case Latitude = "latitude"

@@ -14,7 +14,7 @@ open class LoyaltyAccountMapping: Codable {
     
     /// - Id: Read only The Square-assigned ID of the mapping.
     /// Max Length 36
-    var Id: String?
+    public var Id: String?
     /// - CreatedAt: Read only The timestamp when the mapping was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -22,7 +22,7 @@ open class LoyaltyAccountMapping: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - PhoneNumber: The phone number of the buyer, in E.164 format. For example, "+14155551111".
     var PhoneNumber: String?
     

@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpdateBreakTypeRequest: Codable {
+open class UpdateBreakTypeRequest: Codable {
     
     /// - breakType: The updated BreakType.
-    var breakType: BreakType?
+    public var breakType: BreakType?
     
     enum CodingKeys: String, CodingKey {
         case breakType = "break_type"

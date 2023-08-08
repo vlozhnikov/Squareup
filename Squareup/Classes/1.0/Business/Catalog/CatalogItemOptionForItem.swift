@@ -13,7 +13,7 @@ import Foundation
 open class CatalogItemOptionForItem: Codable {
     
     /// - ItemOptionId: The unique id of the item option, used to form the dimensions of the item option matrix in a specified order.
-    var ItemOptionId: String?
+    public var ItemOptionId: String?
     
     enum CodingKeys: String, CodingKey {
         case ItemOptionId = "item_option_id"

@@ -13,7 +13,7 @@ import Foundation
 open class CustomerCustomAttributeFilters: Codable {
     
     /// - Filters: The custom attribute filters. Each filter must specify key and include the filter field with a type-specific filter, the updated_at field, or both. The provided keys must be unique within the list of custom attribute filters.
-    var Filters: [CustomerCustomAttributeFilter]?
+    public var Filters: [CustomerCustomAttributeFilter]?
     
     enum CodingKeys: String, CodingKey {
         case Filters = "filters"

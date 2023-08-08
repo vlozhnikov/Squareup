@@ -14,11 +14,11 @@ open class DisputeEvidenceFile: Codable {
     /// - Filename: The file name including the file extension. For example: "receipt.tiff".
     /// Min Length 1
     /// Max Length 40
-    var Filename: String?
+    public var Filename: String?
     /// - Filetype: Dispute evidence files must be application/pdf, image/heic, image/heif, image/jpeg, image/png, or image/tiff formats.
     /// Min Length  1
     /// Max Length 40
-    var Filetype: String?
+    public var Filetype: String?
     
     enum CodingKeys: String, CodingKey {
         case Filename = "filename"

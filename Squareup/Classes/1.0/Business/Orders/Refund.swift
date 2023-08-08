@@ -13,16 +13,16 @@ open class Refund: Codable {
     
     /// - Id: The refund's unique ID.
     /// Max Length 255
-    var Id: String?
+    public var Id: String?
     /// - LocationId: The ID of the refund's associated location.
     /// Max Length 50
-    var LocationId: String?
+    public var LocationId: String?
     /// - TransactionId: The ID of the transaction that the refunded tender is part of.
     /// Max Length 192
-    var TransactionId: String?
+    public var TransactionId: String?
     /// - TenderId: The ID of the refunded tender.
     /// Max Length  192
-    var TenderId: String?
+    public var TenderId: String?
     /// - CreatedAt: Read only The timestamp for when the refund was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -31,18 +31,18 @@ open class Refund: Codable {
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// ax Length 32
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - Reason: The reason for the refund being issued.
     /// Max Length  192
-    var Reason: String?
+    public var Reason: String?
     /// - AmountMoney: The amount of money refunded to the buyer.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - Status: The current status of the refund (PENDING, APPROVED, REJECTED, or FAILED)
-    var Status: RefundStatus?
+    public var Status: RefundStatus?
     /// - ProcessingFeeMoney: The amount of Square processing fee money refunded to the merchant.
-    var ProcessingFeeMoney: Money?
+    public var ProcessingFeeMoney: Money?
     /// - AdditionalRecipients: Additional recipients (other than the merchant) receiving a portion of this refund. For example, fees assessed on a refund of a purchase by a third party integration.
-    var AdditionalRecipients: [AdditionalRecipient]?
+    public var AdditionalRecipients: [AdditionalRecipient]?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

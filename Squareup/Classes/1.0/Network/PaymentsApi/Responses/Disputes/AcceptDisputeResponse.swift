@@ -10,7 +10,7 @@ import Foundation
 open class AcceptDisputeResponse: SquareupResponse {
     
     /// - dispute: Details about the accepted dispute.
-    var dispute: Dispute?
+    public var dispute: Dispute?
     
     enum CodingKeys: String, CodingKey {
         case dispute = "dispute"

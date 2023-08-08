@@ -14,13 +14,13 @@ open class OrderLineItemPricingBlocklistsBlockedDiscount: Codable {
     
     /// - UID: A unique ID of the BlockedDiscount within the order.
     /// Max Length 60
-    var UID: String?
+    public var UID: String?
     /// - DiscountUid: The uid of the discount that should be blocked. Use this field to block ad hoc discounts. For catalog discounts, use the discount_catalog_object_id field.
     /// Max Length 60
-    var DiscountUid: String?
+    public var DiscountUid: String?
     /// - DiscountCatalogObjectId: The catalog_object_id of the discount that should be blocked. Use this field to block catalog discounts. For ad hoc discounts, use the discount_uid field.
     /// Max Length 192
-    var DiscountCatalogObjectId: String?
+    public var DiscountCatalogObjectId: String?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

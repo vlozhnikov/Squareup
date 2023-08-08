@@ -13,33 +13,33 @@ import Foundation
 open class CashDrawerShiftSummary: Codable {
     
     /// - Id: The shift unique ID.
-    var Id: String?
+    public var Id: String?
     /// - State: The shift current state.
-    var State: CashDrawerShiftState?
+    public var State: CashDrawerShiftState?
     /// - OpenedAt: The shift start time in ISO 8601 format.
 //    var OpenedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var OpenedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var OpenedAt: Date?
     /// - EndedAt: The shift end time in ISO 8601 format.
 //    var EndedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EndedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndedAt: Date?
     /// - ClosedAt: The shift close time in ISO 8601 format.
 //    var ClosedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var ClosedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var ClosedAt: Date?
     /// - Description: An employee free-text description of a cash drawer shift.
-    var Description: String?
-    var OpenedCashMoney: Money?
+    public var Description: String?
+    public var OpenedCashMoney: Money?
     /// - ExpectedCashMoney: The amount of money that should be in the cash drawer at the end of the shift, based on the cash drawer events on the shift. The amount is correct if all shift employees accurately recorded their cash drawer shift events. Unrecorded events and events with the wrong amount result in an incorrect expected_cash_money amount that can be negative.
-    var ExpectedCashMoney: Money?
+    public var ExpectedCashMoney: Money?
     /// - ClosedCashMoney: The amount of money found in the cash drawer at the end of the shift by an auditing employee. The amount must be greater than or equal to zero.
-    var ClosedCashMoney: Money?
+    public var ClosedCashMoney: Money?
     /// - CreatedAt: Read only The shift start time in RFC 3339 format.
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The shift updated at time in RFC 3339 format
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - LocationId: Read only The ID of the location the cash drawer shift belongs to.
-    var LocationId: String?
+    public var LocationId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

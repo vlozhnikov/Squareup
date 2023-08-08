@@ -7,12 +7,12 @@
 
 import Foundation
 
-internal class ListWorkweekConfigsRequest: Codable {
+open class ListWorkweekConfigsRequest: Codable {
     
     /// - Limit: The maximum number of WorkweekConfigs results to return per page.
-    var Limit: Int?
+    public var Limit: Int?
     /// - Cursor: A pointer to the next page of WorkweekConfig results to fetch.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Limit = "limit"

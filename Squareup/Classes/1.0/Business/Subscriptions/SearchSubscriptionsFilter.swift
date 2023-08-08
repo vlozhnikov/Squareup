@@ -12,11 +12,11 @@ import Foundation
 open class SearchSubscriptionsFilter: Codable {
     
     /// - CustomerIds: A filter to select subscriptions based on the subscribing customer IDs.
-    var CustomerIds: [String]?
+    public var CustomerIds: [String]?
     /// - LocationIds: A filter to select subscriptions based on the location.
-    var LocationIds: [String]?
+    public var LocationIds: [String]?
     /// - SourceNames: A filter to select subscriptions based on the source application.
-    var SourceNames: [String]?
+    public var SourceNames: [String]?
     
     enum CodingKeys: String, CodingKey {
         case CustomerIds = "customer_ids"

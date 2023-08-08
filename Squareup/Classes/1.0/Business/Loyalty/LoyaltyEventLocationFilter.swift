@@ -12,7 +12,7 @@ import Foundation
 open class LoyaltyEventLocationFilter: Codable {
     
     /// - LocationIds: The location IDs for loyalty events to query. If multiple values are specified, the endpoint uses a logical OR to combine them.
-    var LocationIds: [String]?
+    public var LocationIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case LocationIds = "location_ids"

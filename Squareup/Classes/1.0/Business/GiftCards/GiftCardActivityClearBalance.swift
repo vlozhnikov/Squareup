@@ -12,7 +12,7 @@ import Foundation
 open class GiftCardActivityClearBalance: Codable {
     
     /// - Reason: The reason the gift card balance was cleared.
-    var Reason: String?
+    public var Reason: String?
     
     enum CodingKeys: String, CodingKey {
         case Reason = "reason"

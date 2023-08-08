@@ -12,16 +12,16 @@ import Foundation
 open class SubscriptionAction: Codable {
     
     /// - Id: The ID of an action scoped to a subscription.
-    var Id: String?
+    public var Id: String?
     /// - Type: The type of the action.
-    var type: SubscriptionActionType?
+    public var type: SubscriptionActionType?
     /// - EffectiveDate: The YYYY-MM-DD-formatted date when the action occurs on the subscription.
 //    var EffectiveDate: Date?
-    @FormattedDate<YYYYMMDD_Strategy> var EffectiveDate: Date?
+    @FormattedDate<YYYYMMDD_Strategy> public var EffectiveDate: Date?
     /// - Phases: A list of Phases, to pass phase-specific information used in the swap.
-    var Phases: [Phase]?
+    public var Phases: [Phase]?
     /// - NewPlanVariationId: The target subscription plan variation that a subscription switches to, for a SWAP_PLAN action.
-    var NewPlanVariationId: String?
+    public var NewPlanVariationId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

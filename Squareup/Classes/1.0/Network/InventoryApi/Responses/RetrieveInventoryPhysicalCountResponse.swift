@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveInventoryPhysicalCountResponse: SquareupResponse {
     
     /// - Count: The requested InventoryPhysicalCount.
-    var Count: InventoryPhysicalCount?
+    public var Count: InventoryPhysicalCount?
     
     enum CodingKeys: String, CodingKey {
         case Count = "count"

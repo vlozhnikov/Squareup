@@ -13,9 +13,9 @@ import Foundation
 open class CustomerAddressFilter: Codable {
     
     /// - PostalCode: The postal code to search for. Only an exact match is supported
-    var PostalCode: CustomerTextFilter?
+    public var PostalCode: CustomerTextFilter?
     /// - Country: The country code to search for.
-    var country: Country?
+    public var country: Country?
     
     enum CodingKeys: String, CodingKey {
         case PostalCode = "postal_code"

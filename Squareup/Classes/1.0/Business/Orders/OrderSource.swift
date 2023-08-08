@@ -12,7 +12,7 @@ import Foundation
 open class OrderSource: Codable {
     
     // - Name: The name used to identify the place (physical or digital) that an order originates. If unset, the name defaults to the name of the application that created the order.
-    var Name: String?
+    public var Name: String?
     
     enum CodingKeys: String, CodingKey {
         case Name = "name"

@@ -18,12 +18,12 @@ open class ProcessingFee: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var EffectiveAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EffectiveAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EffectiveAt: Date?
     /// - type: The type of fee assessed or adjusted. The fee type can be INITIAL or ADJUSTMENT.
-    var type: ProcessingFeeType?
+    public var type: ProcessingFeeType?
     /// - AmountMoney: The fee amount, which might be negative, that is assessed or adjusted by Square.
     /// Positive values represent funds being assessed, while negative values represent funds being returned.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case EffectiveAt = "effective_at"

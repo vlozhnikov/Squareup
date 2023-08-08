@@ -12,11 +12,11 @@ import Foundation
 open class GiftCardActivityUnlinkedActivityRefund: Codable {
     
     /// - AmountMoney: The amount added to the gift card for the refund. This value is a positive integer.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - ReferenceId: A client-specified ID that associates the gift card activity with an entity in another system.
-    var ReferenceId: String?
+    public var ReferenceId: String?
     /// - PaymentId: Read only The ID of the refunded payment. This field is not used starting in Square version 2022-06-16.
-    var PaymentId: String?
+    public var PaymentId: String?
     
     enum CodingKeys: String, CodingKey {
         case AmountMoney = "amount_money"

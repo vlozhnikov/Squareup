@@ -13,7 +13,7 @@ open class LoyaltyEventOrderFilter: Codable {
     
     /// - OrderId: The ID of the order associated with the event.
     /// Min Length 1
-    var OrderId: String?
+    public var OrderId: String?
     
     enum CodingKeys: String, CodingKey {
         case OrderId = "order_id"

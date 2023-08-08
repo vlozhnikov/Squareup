@@ -7,13 +7,13 @@
 
 import Foundation
 
-internal class SwapPlanRequest: Codable {
+open class SwapPlanRequest: Codable {
     
     /// - NewPlanVariationId: The ID of the new subscription plan variation.
     /// This field is required.
-    var NewPlanVariationId: String?
+    public var NewPlanVariationId: String?
     /// - Phases: A list of PhaseInputs, to pass phase-specific information used in the swap.
-    var Phases: [PhaseInput]?
+    public var Phases: [PhaseInput]?
     
     enum CodingKeys: String, CodingKey {
         case NewPlanVariationId = "new_plan_variation_id"

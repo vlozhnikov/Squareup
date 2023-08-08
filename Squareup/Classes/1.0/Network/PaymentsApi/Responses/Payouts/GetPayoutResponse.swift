@@ -10,7 +10,7 @@ import Foundation
 open class GetPayoutResponse: SquareupResponse {
     
     /// - payout: The requested payout.
-    var payout: Payout?
+    public var payout: Payout?
     
     enum CodingKeys: String, CodingKey {
         case payout = "payout"

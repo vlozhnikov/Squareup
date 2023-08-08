@@ -14,13 +14,13 @@ open class OrderLineItemPricingBlocklistsBlockedTax: Codable {
     
     /// - UID: A unique ID of the BlockedTax within the order.
     /// Max Length 60
-    var UID: String?
+    public var UID: String?
     /// - TaxUid: The uid of the tax that should be blocked. Use this field to block ad hoc taxes. For catalog, taxes use the tax_catalog_object_id field.
     /// Max Length 60
-    var TaxUid: String?
+    public var TaxUid: String?
     /// - TaxCatalogObjectId: The catalog_object_id of the tax that should be blocked. Use this field to block catalog taxes. For ad hoc taxes, use the tax_uid field.
     /// Max Length 192
-    var TaxCatalogObjectId: String?
+    public var TaxCatalogObjectId: String?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

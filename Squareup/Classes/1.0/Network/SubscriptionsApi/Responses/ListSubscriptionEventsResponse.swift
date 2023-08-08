@@ -10,9 +10,9 @@ import Foundation
 open class ListSubscriptionEventsResponse: SquareupResponse {
     
     /// - SubscriptionEvents: The retrieved subscription events.
-    var SubscriptionEvents: [SubscriptionEvent]?
+    public var SubscriptionEvents: [SubscriptionEvent]?
     /// - Cursor: When the total number of resulting subscription events exceeds the limit of a paged response, the response includes a cursor for you to use in a subsequent request to fetch the next set of events. If the cursor is unset, the response contains the last page of the results.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case SubscriptionEvents = "subscription_events"

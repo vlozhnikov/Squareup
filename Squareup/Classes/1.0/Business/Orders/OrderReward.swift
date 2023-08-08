@@ -14,10 +14,10 @@ open class OrderReward: Codable {
     
     /// - Id: The identifier of the reward.
     /// Min Length 1
-    var Id: String?
+    public var Id: String?
     /// - RewardTierId: The identifier of the reward tier corresponding to this reward.
     /// Min Length 1
-    var RewardTierId: String?
+    public var RewardTierId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

@@ -17,12 +17,12 @@ open class Availability: Codable {
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var StartAt: Date?
-    @FormattedDate<RFC3339_Strategy> var StartAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var StartAt: Date?
     /// - LocationId: Read only The ID of the location available for booking.
     /// Max Length 32
-    var LocationId: String?
+    public var LocationId: String?
     /// - AppointmentSegments: The list of appointment segments available for booking
-    var AppointmentSegments: [AppointmentSegment]?
+    public var AppointmentSegments: [AppointmentSegment]?
     
     enum CodingKeys: String, CodingKey {
         case StartAt = "start_at"

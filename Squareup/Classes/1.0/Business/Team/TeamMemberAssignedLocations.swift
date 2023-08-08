@@ -12,9 +12,9 @@ import Foundation
 open class TeamMemberAssignedLocations: Codable {
     
     /// - AssignmentType: The current assignment type of the team member.
-    var AssignmentType: String?
+    public var AssignmentType: String?
     /// - LocationIds: The explicit locations that the team member is assigned to.
-    var LocationIds: [String]?
+    public var LocationIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case AssignmentType = "assignment_type"

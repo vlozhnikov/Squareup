@@ -7,9 +7,9 @@
 
 import Foundation
 
-internal class UpdateWageSettingRequest: Codable {
+open class UpdateWageSettingRequest: Codable {
     
-    var wageSetting: WageSetting?
+    public var wageSetting: WageSetting?
     
     enum CodingKeys: String, CodingKey {
         case wageSetting = "wage_setting"

@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequest: Codable {
+open class BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequest: Codable {
     
     /// - Key: Read only The key of the associated custom attribute definition. Represented as a qualified key if the requesting app is not the definition owner.
-    var Key: String?
+    public var Key: String?
     
     enum CodingKeys: String, CodingKey {
         case Key = "key"

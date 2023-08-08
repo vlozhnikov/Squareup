@@ -10,7 +10,7 @@ import Foundation
 open class GetPaymentRefundResponse: SquareupResponse {
     
     /// - Refund: The requested PaymentRefund.
-    var Refund: PaymentRefund?
+    public var Refund: PaymentRefund?
     
     enum CodingKeys: String, CodingKey {
         case Refund = "refund"

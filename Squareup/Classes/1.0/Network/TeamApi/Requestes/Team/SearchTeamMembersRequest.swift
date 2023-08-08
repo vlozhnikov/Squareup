@@ -7,11 +7,11 @@
 
 import Foundation
 
-internal class SearchTeamMembersRequest: Codable {
+open class SearchTeamMembersRequest: Codable {
     
-    var Query: SearchTeamMembersQuery?
-    var Limit: Int?
-    var Cursor: String?
+    public var Query: SearchTeamMembersQuery?
+    public var Limit: Int?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Query = "query"

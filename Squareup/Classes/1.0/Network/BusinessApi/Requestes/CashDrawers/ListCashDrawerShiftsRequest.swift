@@ -7,21 +7,21 @@
 
 import Foundation
 
-internal class ListCashDrawerShiftsRequest: Codable {
+open class ListCashDrawerShiftsRequest: Codable {
     
     /// - LocationId: The ID of the location to query for a list of cash drawer shifts.
-    var LocationId: String?
+    public var LocationId: String?
     /// - sortOrder: The order in which cash drawer shifts are listed in the response, based on their opened_at field. Default value: ASC
-    var sortOrder: SortOrder?
+    public var sortOrder: SortOrder?
 //    var BeginTime: Date?
-    @FormattedDate<RFC3339_Strategy> var BeginTime: Date?
+    @FormattedDate<RFC3339_Strategy> public var BeginTime: Date?
     /// - EndTime: The exclusive end date of the query on opened_at, in ISO 8601 format.
 //    var EndTime: Date?
-    @FormattedDate<RFC3339_Strategy> var EndTime: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndTime: Date?
     /// - Limit: Number of cash drawer shift events in a page of results (200 by default, 1000 max).
-    var Limit: Int?
+    public var Limit: Int?
     /// - Cursor: Opaque cursor for fetching the next page of results.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case LocationId = "location_id"

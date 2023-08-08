@@ -12,7 +12,7 @@ import Foundation
 open class UpdateVendorResponse: SquareupResponse {
     
     /// - vendor: The Vendor that has been updated.
-    var vendor: Vendor?
+    public var vendor: Vendor?
     
     enum CodingKeys: String, CodingKey {
         case vendor = "vendor"

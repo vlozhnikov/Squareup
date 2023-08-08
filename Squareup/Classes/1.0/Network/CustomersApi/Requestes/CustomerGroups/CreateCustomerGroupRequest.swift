@@ -7,9 +7,10 @@
 
 import Foundation
 
-internal class CreateCustomerGroupRequest: Codable {
-    var IdempotencyKey: String?
-    var Group: CustomerGroup?
+open class CreateCustomerGroupRequest: Codable {
+    
+    public var IdempotencyKey: String?
+    public var Group: CustomerGroup?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

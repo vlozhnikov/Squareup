@@ -33,7 +33,7 @@ open class BusinessApi {
         /// If you know the merchant ID, you can also use the RetrieveMerchant endpoint to retrieve the merchant information.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchants-api/list-merchants
-        func listMerchants(cursor: String? = nil,
+        public func listMerchants(cursor: String? = nil,
                            accessToken: String,
                            completion: ((ListMerchantsResponse) -> Void)? = nil,
                            failed: ((Error) -> Void)? = nil) {
@@ -53,7 +53,7 @@ open class BusinessApi {
         /// - retrieveMerchants: Retrieves the Merchant object for the given merchant_id.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchants-api/retrieve-merchant
-        func retrieveMerchants(merchantId: String,
+        public func retrieveMerchants(merchantId: String,
                                accessToken: String,
                                completion: ((RetrieveMerchantsResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
@@ -78,7 +78,7 @@ open class BusinessApi {
         /// When all response pages are retrieved, the results include all custom attribute definitions that are visible to the requesting application, including those that are created by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/list-merchant-custom-attribute-definitions
-        func listMerchantCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
+        public func listMerchantCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
                                                     limit: Int?,
                                                     cursor: String?,
                                                     accessToken: String,
@@ -104,7 +104,7 @@ open class BusinessApi {
         /// Use this endpoint to define a custom attribute that can be associated with a merchant connecting to your application. A custom attribute definition specifies the key, visibility, schema, and other properties for a custom attribute. After the definition is created, you can call UpsertMerchantCustomAttribute or BulkUpsertMerchantCustomAttributes to set the custom attribute for a merchant.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/create-merchant-custom-attribute-definition
-        func createMerchantCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
+        public func createMerchantCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
                                                      IdempotencyKey: String?,
                                                      accessToken: String,
                                                      completion: ((CreateMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -127,7 +127,7 @@ open class BusinessApi {
         /// Deleting a custom attribute definition also deletes the corresponding custom attribute from the merchant. Only the definition owner can delete a custom attribute definition.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/delete-merchant-custom-attribute-definition
-        func deleteMerchantCustomAttributeDefinition(key: String,
+        public func deleteMerchantCustomAttributeDefinition(key: String,
                                                      accessToken: String,
                                                      completion: ((SquareupResponse) -> Void)? = nil,
                                                      failed: ((Error) -> Void)? = nil) {
@@ -144,7 +144,7 @@ open class BusinessApi {
         /// To retrieve a custom attribute definition created by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/retrieve-merchant-custom-attribute-definition
-        func retrieveMerchantCustomAttributeDefinition(key: String,
+        public func retrieveMerchantCustomAttributeDefinition(key: String,
                                                        version: Int?,
                                                        accessToken: String,
                                                        completion: ((RetrieveMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -166,7 +166,7 @@ open class BusinessApi {
         /// Use this endpoint to update the following fields: name, description, visibility, or the schema for a Selection data type. Only the definition owner can update a custom attribute definition.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/update-merchant-custom-attribute-definition
-        func updateMerchantCustomAttributeDefinition(key: String,
+        public func updateMerchantCustomAttributeDefinition(key: String,
                                                      customAttributeDefinition: CustomAttributeDefinition?,
                                                      IdempotencyKey: String?,
                                                      accessToken: String,
@@ -190,7 +190,7 @@ open class BusinessApi {
         /// To delete a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/bulk-delete-merchant-custom-attributes
-        func bulkDeleteMerchantCustomAttributes(values: [String: BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequest]?,
+        public func bulkDeleteMerchantCustomAttributes(values: [String: BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequest]?,
                                                      accessToken: String,
                                                 completion: ((BulkDeleteMerchantCustomAttributesResponse) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
@@ -210,7 +210,7 @@ open class BusinessApi {
         /// Use this endpoint to set the value of one or more custom attributes for a merchant. A custom attribute is based on a custom attribute definition in a Square seller account, which is created using the CreateMerchantCustomAttributeDefinition endpoint. This BulkUpsertMerchantCustomAttributes endpoint accepts a map of 1 to 25 individual upsert requests and returns a map of individual upsert responses. Each upsert request has a unique ID and provides a merchant ID and custom attribute. Each upsert response is returned with the ID of the corresponding request. To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes
-        func bulkUpsertMerchantCustomAttributes(values: [String: BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequest]?,
+        public func bulkUpsertMerchantCustomAttributes(values: [String: BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequest]?,
                                                 accessToken: String,
                                                 completion: ((BulkUpsertMerchantCustomAttributesResponse) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
@@ -230,7 +230,7 @@ open class BusinessApi {
         /// You can use the with_definitions query parameter to also retrieve custom attribute definitions in the same call. When all response pages are retrieved, the results include all custom attributes that are visible to the requesting application, including those that are owned by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/list-merchant-custom-attributes
-        func listMerchantCustomAttributes(merchantId: String,
+        public func listMerchantCustomAttributes(merchantId: String,
                                           visibilityFilter: VisibilityFilter?,
                                           limit: Int?,
                                           cursor: String?,
@@ -259,7 +259,7 @@ open class BusinessApi {
         /// To delete a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/delete-merchant-custom-attribute
-        func deleteMerchantCustomattribute(merchantId: String,
+        public func deleteMerchantCustomattribute(merchantId: String,
                                            key: String,
                                             accessToken: String,
                                             completion: ((SquareupResponse) -> Void)? = nil,
@@ -277,7 +277,7 @@ open class BusinessApi {
         /// You can use the with_definition query parameter to also retrieve the custom attribute definition in the same call. To retrieve a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/retrieve-merchant-custom-attribute
-        func retrieveMerchantCustomAttribute(merchantId: String,
+        public func retrieveMerchantCustomAttribute(merchantId: String,
                                              key: String,
                                              withDefinitions: Bool?,
                                              version: Int?,
@@ -303,7 +303,7 @@ open class BusinessApi {
         /// Use this endpoint to set the value of a custom attribute for a specified merchant. A custom attribute is based on a custom attribute definition in a Square seller account, which is created using the CreateMerchantCustomAttributeDefinition endpoint. To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/upsert-merchant-custom-attribute
-        func upsertMerchantCustomAttribute(merchantDd: String,
+        public func upsertMerchantCustomAttribute(merchantDd: String,
                                            key: String,
                                            customAttribute: CustomAttribute,
                                            idempotencyKey: String?,
@@ -335,7 +335,7 @@ open class BusinessApi {
         /// - listLocations: Provides details about all of the seller's locations, including those with an inactive status.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/locations-api/list-locations
-        func listLocations(accessToken: String,
+        public func listLocations(accessToken: String,
                            completion: ((ListLocationsResponse) -> Void)? = nil,
                            failed: ((Error) -> Void)? = nil) {
             
@@ -351,7 +351,7 @@ open class BusinessApi {
         /// Creating new locations allows for separate configuration of receipt layouts, item prices, and sales reports. Developers can use locations to separate sales activity through applications that integrate with Square from sales activity elsewhere in a seller's account. Locations created programmatically with the Locations API last forever and are visible to the seller for their own management. Therefore, ensure that each location has a sensible and unique name.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/locations-api/create-location
-        func createLocation(location: Location,
+        public func createLocation(location: Location,
                             accessToken: String,
                             completion: ((CreateLocationResponse) -> Void)? = nil,
                             failed: ((Error) -> Void)? = nil) {
@@ -371,7 +371,7 @@ open class BusinessApi {
         /// Specify "main" as the location ID to retrieve details of the main location.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/locations-api/retrieve-location
-        func retrieveLocation(locationId: String,
+        public func retrieveLocation(locationId: String,
                               accessToken: String,
                               completion: ((RetrieveLocationResponse) -> Void)? = nil,
                               failed: ((Error) -> Void)? = nil) {
@@ -387,7 +387,7 @@ open class BusinessApi {
         /// - updateLocation: Updates a location.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/locations-api/update-location
-        func updateLocation(location: Location,
+        public func updateLocation(location: Location,
                             locationId: String,
                             accessToken: String,
                             completion: ((UpdateLocationResponse) -> Void)? = nil,
@@ -416,7 +416,7 @@ open class BusinessApi {
         /// When all response pages are retrieved, the results include all custom attribute definitions that are visible to the requesting application, including those that are created by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/list-location-custom-attribute-definitions
-        func listLocationCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
+        public func listLocationCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
                                                     limit: Int?,
                                                     cursor: String?,
                                                     accessToken: String,
@@ -442,7 +442,7 @@ open class BusinessApi {
         /// Use this endpoint to define a custom attribute that can be associated with locations. A custom attribute definition specifies the key, visibility, schema, and other properties for a custom attribute. After the definition is created, you can call UpsertLocationCustomAttribute or BulkUpsertLocationCustomAttributes to set the custom attribute for locations.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/create-location-custom-attribute-definition
-        func createLocationCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
+        public func createLocationCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
                                                      idempotencyKey: String?,
                                                      accessToken: String,
                                                      completion: ((CreateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -465,7 +465,7 @@ open class BusinessApi {
         /// Deleting a custom attribute definition also deletes the corresponding custom attribute from all locations. Only the definition owner can delete a custom attribute definition.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/delete-location-custom-attribute-definition
-        func deleteLocationCustomAttributeDefinition(key: String,
+        public func deleteLocationCustomAttributeDefinition(key: String,
                                                      accessToken: String,
                                                      completion: ((SquareupResponse) -> Void)? = nil,
                                                      failed: ((Error) -> Void)? = nil) {
@@ -482,7 +482,7 @@ open class BusinessApi {
         /// To retrieve a custom attribute definition created by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/retrieve-location-custom-attribute-definition
-        func retrieveLocationCustomAttributeDefinition(key: String,
+        public func retrieveLocationCustomAttributeDefinition(key: String,
                                                        version: Int,
                                                        accessToken: String,
                                                        completion: ((RetrieveLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -504,7 +504,7 @@ open class BusinessApi {
         /// Use this endpoint to update the following fields: name, description, visibility, or the schema for a Selection data type. Only the definition owner can update a custom attribute definition.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/update-location-custom-attribute-definition
-        func updateLocationCustomAttributeDefinition(key: String,
+        public func updateLocationCustomAttributeDefinition(key: String,
                                                      customAttributeDefinition: CustomAttributeDefinition?,
                                                      accessToken: String,
                                                      completion: ((UpdateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -525,7 +525,7 @@ open class BusinessApi {
         /// To delete a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/bulk-delete-location-custom-attributes
-        func bulkDeleteLocationCustomAttributes(values: [String: BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest]?,
+        public func bulkDeleteLocationCustomAttributes(values: [String: BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest]?,
                                                 accessToken: String,
                                                 completion: ((BulkDeleteLocationCustomAttributesResponse) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
@@ -545,7 +545,7 @@ open class BusinessApi {
         /// Use this endpoint to set the value of one or more custom attributes for one or more locations. A custom attribute is based on a custom attribute definition in a Square seller account, which is created using the CreateLocationCustomAttributeDefinition endpoint. This BulkUpsertLocationCustomAttributes endpoint accepts a map of 1 to 25 individual upsert requests and returns a map of individual upsert responses. Each upsert request has a unique ID and provides a location ID and custom attribute. Each upsert response is returned with the ID of the corresponding request. To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/bulk-upsert-location-custom-attributes
-        func bulkUpsertLocationCustomAttributes(values: [String: BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest]?,
+        public func bulkUpsertLocationCustomAttributes(values: [String: BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest]?,
                                                 accessToken: String,
                                                 completion: ((BulkUpsertLocationCustomAttributesResponse) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
@@ -565,7 +565,7 @@ open class BusinessApi {
         /// You can use the with_definitions query parameter to also retrieve custom attribute definitions in the same call. When all response pages are retrieved, the results include all custom attributes that are visible to the requesting application, including those that are owned by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/list-location-custom-attributes
-        func listLocationCustomAttributes(locationId: String,
+        public func listLocationCustomAttributes(locationId: String,
                                           visibilityFilter: VisibilityFilter?,
                                           limit: Int?,
                                           cursor: String?,
@@ -594,7 +594,7 @@ open class BusinessApi {
         /// To delete a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/delete-location-custom-attribute
-        func deleteLocationCustomAttribute(locationId: String,
+        public func deleteLocationCustomAttribute(locationId: String,
                                            key: String,
                                            accessToken: String,
                                            completion: ((SquareupResponse) -> Void)? = nil,
@@ -612,7 +612,7 @@ open class BusinessApi {
         /// You can use the with_definition query parameter to also retrieve the custom attribute definition in the same call. To retrieve a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/retrieve-location-custom-attribute
-        func retrieveLocationCustomAttribute(locationId: String,
+        public func retrieveLocationCustomAttribute(locationId: String,
                                              key: String,
                                              withDefinition: Bool?,
                                              version: Int?,
@@ -638,7 +638,7 @@ open class BusinessApi {
         /// Use this endpoint to set the value of a custom attribute for a specified location. A custom attribute is based on a custom attribute definition in a Square seller account, which is created using the CreateLocationCustomAttributeDefinition endpoint. To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/upsert-location-custom-attribute
-        func upsertLocationCustomAttribute(locationId: String,
+        public func upsertLocationCustomAttribute(locationId: String,
                                            key: String,
                                            customAttribute: CustomAttribute?,
                                            idempotencyKey: String?,
@@ -669,7 +669,7 @@ open class BusinessApi {
         /// - listDeviceCodes: Lists all DeviceCodes associated with the merchant.
         /// Permissions: DEVICE_CREDENTIAL_MANAGEMENT
         /// https://developer.squareup.com/reference/square/devices-api/list-device-codes
-        func listDeviceCodes(cursor: String?,
+        public func listDeviceCodes(cursor: String?,
                              locationId: String?,
                              productType: ProductType?,
                              status: DeviceCodeStatus?,
@@ -696,7 +696,7 @@ open class BusinessApi {
         /// - createDeviceCode: Creates a DeviceCode that can be used to login to a Square Terminal device to enter the connected terminal mode.
         /// Permissions: DEVICE_CREDENTIAL_MANAGEMENT
         /// https://developer.squareup.com/reference/square/devices-api/create-device-code
-        func createDeviceCode(idempotencyKey: String,
+        public func createDeviceCode(idempotencyKey: String,
                               deviceCode: DeviceCode,
                               accessToken: String,
                               completion: ((CreateDeviceCodeResponse) -> Void)? = nil,
@@ -718,7 +718,7 @@ open class BusinessApi {
         /// - getDeviceCode: Retrieves DeviceCode with the associated ID.
         /// Permissions: DEVICE_CREDENTIAL_MANAGEMENT
         /// https://developer.squareup.com/reference/square/devices-api/get-device-code
-        func getDeviceCode(id: String,
+        public func getDeviceCode(id: String,
                            accessToken: String,
                            completion: ((GetDeviceCodeResponse) -> Void)? = nil,
                            failed: ((Error) -> Void)? = nil) {
@@ -742,7 +742,7 @@ open class BusinessApi {
         /// - listCashDrawerShifts: Provides the details for all of the cash drawer shifts for a location in a date range.
         /// Permissions: CASH_DRAWER_READ
         /// https://developer.squareup.com/reference/square/cash-drawers-api/list-cash-drawer-shifts
-        func listCashDrawerShifts(locationId: String,
+        public func listCashDrawerShifts(locationId: String,
                                   sortOrder: SortOrder?,
                                   beginTime: Date?,
                                   endTime: Date?,
@@ -774,7 +774,7 @@ open class BusinessApi {
         /// See ListCashDrawerShiftEvents for a list of cash drawer shift events.
         /// Permissions: CASH_DRAWER_READ
         /// https://developer.squareup.com/reference/square/cash-drawers-api/retrieve-cash-drawer-shift
-        func retrieveCashDrawerShift(shiftId: String,
+        public func retrieveCashDrawerShift(shiftId: String,
                                      locationId: String,
                                      accessToken: String,
                                      completion: ((RetrieveCashDrawerShiftResponse) -> Void)? = nil,
@@ -795,7 +795,7 @@ open class BusinessApi {
         /// - listCashDrawerShiftEvents: Provides a paginated list of events for a single cash drawer shift.
         /// Permissions: CASH_DRAWER_READ
         /// https://developer.squareup.com/reference/square/cash-drawers-api/list-cash-drawer-shift-events
-        func listCashDrawerShiftEvents(shiftId: String,
+        public func listCashDrawerShiftEvents(shiftId: String,
                                        locationId: String,
                                        limit: Int?,
                                        cursor: String?,
@@ -829,7 +829,7 @@ open class BusinessApi {
         /// - bulkCreateVendors: Creates one or more Vendor objects to represent suppliers to a seller.
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-create-vendors
-        func bulkCreateVendors(vendors: [String: Vendor],
+        public func bulkCreateVendors(vendors: [String: Vendor],
                                accessToken: String,
                                completion: ((BulkCreateVendorsResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
@@ -848,7 +848,7 @@ open class BusinessApi {
         /// - bulkRetrieveVendors: Retrieves one or more vendors of specified Vendor IDs.
         /// Permissions: VENDOR_READ
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-retrieve-vendors
-        func bulkRetrieveVendors(vendorIds: [String]?,
+        public func bulkRetrieveVendors(vendorIds: [String]?,
                                  accessToken: String,
                                  completion: ((BulkRetrieveVendorsResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
@@ -867,7 +867,7 @@ open class BusinessApi {
         /// - bulkUpdateVendors: Updates one or more of existing Vendor objects as suppliers to a seller.
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-update-vendors
-        func bulkUpdateVendors(vendors: [String: UpdateVendorRequest],
+        public func bulkUpdateVendors(vendors: [String: UpdateVendorRequest],
                                accessToken: String,
                                completion: ((BulkUpdateVendorsResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
@@ -886,7 +886,7 @@ open class BusinessApi {
         /// - createVendor: Creates a single Vendor object to represent a supplier to a seller.
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/create-vendor
-        func createVendor(idempotencyKey: String,
+        public func createVendor(idempotencyKey: String,
                           vendor: Vendor?,
                           accessToken: String,
                           completion: ((CreateVendorResponse) -> Void)? = nil,
@@ -908,7 +908,7 @@ open class BusinessApi {
         /// - searchVendors: Searches for vendors using a filter against supported Vendor properties and a supported sorter.
         /// Permissions: VENDOR_READ
         /// https://developer.squareup.com/reference/square/vendors-api/search-vendors
-        func searchVendors(filter: SearchVendorsRequestFilter?,
+        public func searchVendors(filter: SearchVendorsRequestFilter?,
                            sort: SearchVendorsRequestSort?,
                            cursor: String?,
                            accessToken: String,
@@ -932,7 +932,7 @@ open class BusinessApi {
         /// - retrieveVendor: Retrieves the vendor of a specified Vendor ID.
         /// Permissions: VENDOR_READ
         /// https://developer.squareup.com/reference/square/vendors-api/retrieve-vendor
-        func retrieveVendor(vendorId: String,
+        public func retrieveVendor(vendorId: String,
                             accessToken: String,
                             completion: ((RetrieveVendorResponse) -> Void)? = nil,
                             failed: ((Error) -> Void)? = nil) {
@@ -948,7 +948,7 @@ open class BusinessApi {
         /// - updateVendor: Updates an existing Vendor object as a supplier to a seller.
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/update-vendor
-        func updateVendor(vendorId: String,
+        public func updateVendor(vendorId: String,
                           idempotencyKey: String,
                           vendor: Vendor,
                           accessToken: String,

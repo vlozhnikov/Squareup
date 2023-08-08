@@ -14,11 +14,11 @@ open class CatalogQueryPrefix: Codable {
     /// - AttributeName: Required
     /// The name of the attribute to be searched.
     /// Min Length 1
-    var AttributeName: String?
+    public var AttributeName: String?
     /// - AttributePrefix: Required
     /// The desired prefix of the search attribute value.
     /// Min Length 1
-    var AttributePrefix: String?
+    public var AttributePrefix: String?
     
     enum CodingKeys: String, CodingKey {
         case AttributeName = "attribute_name"

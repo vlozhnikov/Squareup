@@ -7,34 +7,34 @@
 
 import Foundation
 
-internal class ListPaymentsRequest: Codable {
+open class ListPaymentsRequest: Codable {
     
     /// - BeginTime: Indicates the start of the time range to retrieve payments for, in RFC 3339 format.
     /// The range is determined using the created_at field for each Payment. Inclusive. Default: The current time minus one year.
 //    var BeginTime: Date?
-    @FormattedDate<RFC3339_Strategy> var BeginTime: Date?
+    @FormattedDate<RFC3339_Strategy> public var BeginTime: Date?
     /// - EndTime: Indicates the end of the time range to retrieve payments for, in RFC 3339 format. The range is determined using the created_at field for each Payment.
     /// Default: The current time.
 //    var EndTime: Date?
-    @FormattedDate<RFC3339_Strategy> var EndTime: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndTime: Date?
     /// - sortOrder: The order in which results are listed by Payment.created_at:
     /// ASC - Oldest to newest.
     /// DESC - Newest to oldest (default).
-    var sortOrder: SortOrder?
+    public var sortOrder: SortOrder?
     /// - Cursor: A pagination cursor returned by a previous call to this endpoint. Provide this cursor to retrieve the next set of results for the original query.
-    var Cursor: String?
+    public var Cursor: String?
     /// - LocationId: Limit results to the location supplied. By default, results are returned for the default (main) location associated with the seller.
-    var LocationId: String?
+    public var LocationId: String?
     /// - Total: The exact amount in the total_money for a payment.
-    var Total: Int?
+    public var Total: Int?
     /// - Last4: the last four digits of a payment card.
-    var Last4: String?
+    public var Last4: String?
     /// - CardBrand: The brand of the payment card (for example, VISA).
-    var CardBrand: String?
+    public var CardBrand: String?
     /// - Limit: The maximum number of results to be returned in a single page. It is possible to receive fewer results than the specified limit on a given page.
     /// The default value of 100 is also the maximum allowed value. If the provided value is greater than 100, it is ignored and the default value is used instead.
     /// Default: 100
-    var Limit: Int?
+    public var Limit: Int?
     
     enum CodingKeys: String, CodingKey {
         case BeginTime = "begin_time"

@@ -12,15 +12,15 @@ import Foundation
 open class WageSetting: Codable {
     
     /// - TeamMemberId: The unique ID of the TeamMember whom this wage setting describes.
-    var TeamMemberId: String?
+    public var TeamMemberId: String?
     /// - JobAssignments: Required. The ordered list of jobs that the team member is assigned to. The first job assignment is considered the team member's primary job.
     ///
     /// The minimum length is 1 and the maximum length is 12.
-    var JobAssignments: [JobAssignment]?
+    public var JobAssignments: [JobAssignment]?
     /// - IsOvertimeExempt: Whether the team member is exempt from the overtime rules of the seller's country
-    var IsOvertimeExempt: Bool?
+    public var IsOvertimeExempt: Bool?
     /// - Version: Used for resolving concurrency issues. The request fails if the version provided does not match the server version at the time of the request. If not provided, Square executes a blind write, potentially overwriting data from another write. For more information, see optimistic concurrency.
-    var Version: Int?
+    public var Version: Int?
     /// - CreatedAt: Read only The timestamp, in RFC 3339 format, describing when the wage setting object was created. For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
     ///
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -29,7 +29,7 @@ open class WageSetting: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp, in RFC 3339 format, describing when the wage setting object was last updated. For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
     ///
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -38,7 +38,7 @@ open class WageSetting: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case TeamMemberId = "team_member_id"

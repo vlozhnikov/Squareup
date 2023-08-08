@@ -7,13 +7,13 @@
 
 import Foundation
 
-internal class CreateShiftRequest: Codable {
+open class CreateShiftRequest: Codable {
     
     /// - IdempotencyKey: A unique string value to ensure the idempotency of the operation.
     /// Max Length 128
-    var IdempotencyKey: String?
+    public var IdempotencyKey: String?
     /// - shift: The Shift to be created.
-    var shift: Shift?
+    public var shift: Shift?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

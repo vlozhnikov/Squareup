@@ -12,9 +12,9 @@ import Foundation
 open class CashDrawerDevice: Codable {
     
     /// - Id: The device Square-issued ID
-    var Id: String?
+    public var Id: String?
     /// - Name: The device merchant-specified name.
-    var Name: String?
+    public var Name: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

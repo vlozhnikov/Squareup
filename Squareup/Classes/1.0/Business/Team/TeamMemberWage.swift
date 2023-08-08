@@ -12,15 +12,15 @@ import Foundation
 open class TeamMemberWage: Codable {
     
     /// - Id: The UUID for this object.
-    var Id: String?
+    public var Id: String?
     /// - TeamMemberId: The TeamMember that this wage is assigned to.
-    var TeamMemberId: String?
+    public var TeamMemberId: String?
     /// - Title: The job title that this wage relates to.
-    var Title: String?
+    public var Title: String?
     /// - HourlyRate: Can be a custom-set hourly wage or the calculated effective hourly wage based on the annual wage and hours worked per week.
-    var HourlyRate: Money?
+    public var HourlyRate: Money?
     /// - JobId: An identifier for the job that this wage relates to. This cannot be used to retrieve the job.
-    var JobId: String?
+    public var JobId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

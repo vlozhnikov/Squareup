@@ -10,7 +10,7 @@ import Foundation
 open class BatchRetrieveOrdersResponse: SquareupResponse {
     
     /// - Orders: The requested orders. This will omit any requested orders that do not exist.
-    var Orders: [Order]?
+    public var Orders: [Order]?
     
     enum CodingKeys: String, CodingKey {
         case Orders = "orders"

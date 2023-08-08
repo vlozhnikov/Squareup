@@ -13,9 +13,9 @@ import Foundation
 open class OrderPricingOptions: Codable {
     
     /// - AutoApplyDiscounts: The option to determine whether pricing rule-based discounts are automatically applied to an order.
-    var AutoApplyDiscounts: Bool?
+    public var AutoApplyDiscounts: Bool?
     /// - AutoApplyTaxes: The option to determine whether rule-based taxes are automatically applied to an order when the criteria of the corresponding rules are met.
-    var AutoApplyTaxes: Bool?
+    public var AutoApplyTaxes: Bool?
     
     enum CodingKeys: String, CodingKey {
         case AutoApplyDiscounts = "auto_apply_discounts"

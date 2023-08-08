@@ -12,9 +12,9 @@ import Foundation
 open class PaymentLinkRelatedResources: Codable {
     
     /// - Orders: The order associated with the payment link.
-    var Orders: [Order]?
+    public var Orders: [Order]?
     /// - SubscriptionPlans: The subscription plan associated with the payment link.
-    var SubscriptionPlans: [CatalogObject]?
+    public var SubscriptionPlans: [CatalogObject]?
     
     enum CodingKeys: String, CodingKey {
         case Orders = "orders"

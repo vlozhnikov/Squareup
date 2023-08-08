@@ -7,10 +7,10 @@
 
 import Foundation
 
-open class ListLocationsResponse: SquareupResponse {
+public class ListLocationsResponse: SquareupResponse {
     
     /// - locations: The business locations.
-    var locations: [Location]? = nil
+    public var locations: [Location]? = nil
     
     enum CodingKeys: String, CodingKey {
         case locations = "locations"

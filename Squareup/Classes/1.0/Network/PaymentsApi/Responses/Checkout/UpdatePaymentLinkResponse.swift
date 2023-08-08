@@ -10,7 +10,7 @@ import Foundation
 open class UpdatePaymentLinkResponse: SquareupResponse {
     
     /// - paymentLink: The updated payment link.
-    var paymentLink: PaymentLink?
+    public var paymentLink: PaymentLink?
     
     enum CodingKeys: String, CodingKey {
         case paymentLink = "payment_link"

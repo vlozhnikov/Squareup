@@ -13,16 +13,16 @@ open class SearchAvailabilityFilter: Codable {
     
     /// - StartAtRange: Required
     /// The query expression to search for buy-accessible availabilities with their starting times falling within the specified time range. The time range must be at least 24 hours and at most 32 days long. For waitlist availabilities, the time range can be 0 or more up to 367 days long.
-    var StartAtRange: TimeRange?
+    public var StartAtRange: TimeRange?
     /// - LocationId: The query expression to search for buyer-accessible availabilities with their location IDs matching the specified location ID. This query expression cannot be set if booking_id is set.
     /// Max Length 32
-    var LocationId: String?
+    public var LocationId: String?
     /// - SegmentFilters: The query expression to search for buyer-accessible availabilities matching the specified list of segment filters. If the size of the segment_filters list is n, the search returns availabilities with n segments per availability.
     /// This query expression cannot be set if booking_id is set.
-    var SegmentFilters: [SegmentFilter]?
+    public var SegmentFilters: [SegmentFilter]?
     /// - BookingId: The query expression to search for buyer-accessible availabilities for an existing booking by matching the specified booking_id value. This is commonly used to reschedule an appointment. If this expression is set, the location_id and segment_filters expressions cannot be set.
     /// Max Length 36
-    var BookingId: String?
+    public var BookingId: String?
     
     enum CodingKeys: String, CodingKey {
         case StartAtRange = "start_at_range"

@@ -8,9 +8,9 @@
 import Foundation
 import Alamofire
 
-class SquareupConfigurer {
+open class SquareupConfigurer {
     
-    static let shared = SquareupConfigurer()
+    public static let shared = SquareupConfigurer()
     
     internal init() {}
     
@@ -29,7 +29,7 @@ class SquareupConfigurer {
         }
     }
     
-    internal enum DomainType {
+    public enum DomainType {
         case dev
         case prod
     }
@@ -38,7 +38,7 @@ class SquareupConfigurer {
     
     // MARK: Methods
     
-    func setup(applicationId: String,
+    public func setup(applicationId: String,
                squareLocationId: String,
                version: String = "2023-03-15",
                type: DomainType = .dev) {

@@ -24,7 +24,7 @@ class FinancialsApi {
         /// - listBankAccounts: Returns a list of BankAccount objects linked to a Square account.
         /// Permissions: BANK_ACCOUNTS_READ
         /// https://developer.squareup.com/reference/square/bank-accounts-api/list-bank-accounts
-        func listBankAccounts(cursor: String?,
+        public func listBankAccounts(cursor: String?,
                               limit: Int?,
                               locationId: String,
                               accessToken: String,
@@ -49,7 +49,7 @@ class FinancialsApi {
         /// - getBankAccountByV1Id: Returns details of a BankAccount identified by V1 bank account ID.
         /// Permissions: BANK_ACCOUNTS_READ
         /// https://developer.squareup.com/reference/square/bank-accounts-api/get-bank-account-by-v1-id
-        func getBankAccountByV1Id(v1BankAccountId: String,
+        public func getBankAccountByV1Id(v1BankAccountId: String,
                                   accessToken: String,
                                   completion: ((GetBankAccountByV1IdResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
@@ -65,7 +65,7 @@ class FinancialsApi {
         /// - getBankAccount: Returns details of a BankAccount linked to a Square account.
         /// Permissions: BANK_ACCOUNTS_READ
         /// https://developer.squareup.com/reference/square/bank-accounts-api/get-bank-account
-        func getBankAccount(bankAccountId: String,
+        public func getBankAccount(bankAccountId: String,
                             accessToken: String,
                             completion: ((GetBankAccountResponse) -> Void)? = nil,
                             failed: ((Error) -> Void)? = nil) {

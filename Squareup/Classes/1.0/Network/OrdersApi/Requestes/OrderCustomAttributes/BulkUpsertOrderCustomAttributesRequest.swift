@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class BulkUpsertOrderCustomAttributesRequest: Codable {
+open class BulkUpsertOrderCustomAttributesRequest: Codable {
     
     /// - Values: A map of requests that correspond to individual upsert operations for custom attributes.
-    var Values: [String: BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute]?
+    public var Values: [String: BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute]?
     
     enum CodingKeys: String, CodingKey {
         case Values = "values"

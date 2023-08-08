@@ -13,7 +13,7 @@ open class SubscriptionSource: Codable {
     
     /// - Name: The name used to identify the place (physical or digital) that a subscription originates. If unset, the name defaults to the name of the application that created the subscription.
     /// Max Length 255
-    var Name: String?
+    public var Name: String?
     
     enum CodingKeys: String, CodingKey {
         case Name = "name"

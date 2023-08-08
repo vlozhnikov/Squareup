@@ -9,7 +9,7 @@ import Foundation
 
 /// -CatalogObjectType: Possible types of CatalogObjects returned from the catalog, each containing type-specific properties in the *_data field corresponding to the specfied object type.
 /// https://developer.squareup.com/reference/square/enums/CatalogObjectType
-enum CatalogObjectType: String, Codable {
+public enum CatalogObjectType: String, Codable {
     /// - Item: The CatalogObject instance is of the CatalogItem type and represents an item. The item-specific data must be set on the item_data field.
     case Item = "ITEM"
     /// - Image: The CatalogObject instance is of the CatalogImage type and represents an image. The image-specific data must be set on the image_data field.
@@ -48,7 +48,7 @@ enum CatalogObjectType: String, Codable {
 
 /// - CatalogCustomAttributeDefinitionType: Defines the possible types for a custom attribute.
 /// https://developer.squareup.com/reference/square/enums/CatalogCustomAttributeDefinitionType
-enum CatalogCustomAttributeDefinitionType: String, Codable {
+public enum CatalogCustomAttributeDefinitionType: String, Codable {
     /// - String: A free-form string containing up to 255 characters.
     case String = "STRING"
     /// - Boolend: A true or false value.
@@ -61,7 +61,7 @@ enum CatalogCustomAttributeDefinitionType: String, Codable {
 
 /// - CatalogPricingType: Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
 /// https://developer.squareup.com/reference/square/enums/CatalogPricingType
-enum CatalogPricingType: String, Codable {
+public enum CatalogPricingType: String, Codable {
     /// - FixedPricing: The catalog item variation's price is fixed.
     case FixedPricing = "FIXED_PRICING"
     /// - VariablePricing: The catalog item variation's price is entered at the time of sale.
@@ -70,7 +70,7 @@ enum CatalogPricingType: String, Codable {
 
 /// - InventoryAlertType: Indicates whether Square should alert the merchant when the inventory quantity of a CatalogItemVariation is low.
 /// https://developer.squareup.com/reference/square/enums/InventoryAlertType
-enum InventoryAlertType: String, Codable {
+public enum InventoryAlertType: String, Codable {
     /// - None: The variation does not display an alert.
     case None = "NONE"
     /// - LowQuantity: The variation generates an alert when its quantity is low.
@@ -80,7 +80,7 @@ enum InventoryAlertType: String, Codable {
 /// - CatalogItemProductType: The type of a CatalogItem.
 /// Connect V2 only allows the creation of REGULAR or APPOINTMENTS_SERVICE items.
 /// https://developer.squareup.com/reference/square/enums/CatalogItemProductType
-enum CatalogItemProductType: String, Codable {
+public enum CatalogItemProductType: String, Codable {
     /// - Reqular: An ordinary item.
     case Reqular = "REGULAR"
     /// - GiftCard: Deprecated
@@ -92,7 +92,7 @@ enum CatalogItemProductType: String, Codable {
 
 /// -TaxCalculationPhase: When to calculate the taxes due on a cart.
 /// https://developer.squareup.com/reference/square/enums/TaxCalculationPhase
-enum TaxCalculationPhase: String, CaseIterable, Codable {
+public enum TaxCalculationPhase: String, CaseIterable, Codable {
     /// - TaxSubtotalPhase: The fee is calculated based on the payment's subtotal.
     case TaxSubtotalPhase = "TAX_SUBTOTAL_PHASE"
     /// - TaxTotoalPhase: The fee is calculated based on the payment's total.
@@ -101,7 +101,7 @@ enum TaxCalculationPhase: String, CaseIterable, Codable {
 
 /// -TaxInclusionType: Whether to the tax amount should be additional to or included in the CatalogItem price.
 /// https://developer.squareup.com/reference/square/enums/TaxInclusionType
-enum TaxInclusionType: String, CaseIterable, Codable {
+public enum TaxInclusionType: String, CaseIterable, Codable {
     /// - Additive: The tax is an additive tax. The tax amount is added on top of the CatalogItemVariation price. For example, a $1.00 item with a 10% additive tax would have a total cost to the buyer of $1.10.
     case Additive = "ADDITIVE"
     /// - Inclusive: The tax is an inclusive tax. The tax amount is included in the CatalogItemVariation price. For example, a $1.00 item with a 10% inclusive tax would have a total cost to the buyer of $1.00, with $0.91 (91 cents) of that total being the cost of the item and $0.09 (9 cents) being tax.
@@ -114,7 +114,7 @@ enum TaxInclusionType: String, CaseIterable, Codable {
 
 /// CatalogDiscountType: How to apply a CatalogDiscount to a CatalogItem.
 /// https://developer.squareup.com/reference/square/enums/CatalogDiscountType
-enum CatalogDiscountType: String, Codable {
+public enum CatalogDiscountType: String, Codable {
     /// - FixedPercentage: Apply the discount as a fixed percentage (e.g., 5%) off the item price.
     case FixedPercentage = "FIXED_PERCENTAGE"
     /// - FixedAmound: Apply the discount as a fixed amount (e.g., $1.00) off the item price.
@@ -127,7 +127,7 @@ enum CatalogDiscountType: String, Codable {
 
 /// -CatalogDiscountModifyTaxBasis:
 // https://developer.squareup.com/reference/square/enums/CatalogDiscountModifyTaxBasis
-enum CatalogDiscountModifyTaxBasis: String, Codable {
+public enum CatalogDiscountModifyTaxBasis: String, Codable {
     /// -ModifyTaxBasis: Application of the discount will modify the tax basis.
     case ModifyTaxBasis = "MODIFY_TAX_BASIS"
     /// - DoNotModifyTaxBasis: Application of the discount will not modify the tax basis.
@@ -137,7 +137,7 @@ enum CatalogDiscountModifyTaxBasis: String, Codable {
 
 /// - CatalogModifierListSelectionType: Indicates whether a CatalogModifierList supports multiple selections.
 /// https://developer.squareup.com/reference/square/enums/CatalogModifierListSelectionType
-enum CatalogModifierListSelectionType: String, Codable {
+public enum CatalogModifierListSelectionType: String, Codable {
     /// - Single: Indicates that a CatalogModifierList allows only a single CatalogModifier to be selected.
     case Single = "SINGLE"
     /// - Multiple: Indicates that a CatalogModifierList allows multiple CatalogModifier to be selected.
@@ -146,7 +146,7 @@ enum CatalogModifierListSelectionType: String, Codable {
 
 /// - ExcludeStrategy: Indicates which products matched by a CatalogPricingRule will be excluded if the pricing rule uses an exclude set.
 /// https://developer.squareup.com/reference/square/enums/ExcludeStrategy
-enum ExcludeStrategy: String, Codable {
+public enum ExcludeStrategy: String, Codable {
     /// - LeastExpensive: The least expensive matched products are excluded from the pricing. If the pricing rule is set to exclude one product and multiple products in the match set qualify as least expensive, then one will be excluded at random.
     ///
     /// Excluding the least expensive product gives the best discount value to the buyer.
@@ -159,7 +159,7 @@ enum ExcludeStrategy: String, Codable {
 
 /// -MeasurementUnitArea: Unit of area used to measure a quantity.
 /// https://developer.squareup.com/reference/square/enums/MeasurementUnitArea
-enum MeasurementUnitArea: String, Codable {
+public enum MeasurementUnitArea: String, Codable {
     /// - ImperialAcre: The area is measured in acres.
     case ImperialAcre = "IMPERIAL_ACRE"
     /// - ImperialSquareInch: The area is measured in square inches.
@@ -180,7 +180,7 @@ enum MeasurementUnitArea: String, Codable {
 
 /// -MeasurementUnitLength: The unit of length used to measure a quantity.
 /// https://developer.squareup.com/reference/square/enums/MeasurementUnitLength
-enum MeasurementUnitLength: String, Codable {
+public enum MeasurementUnitLength: String, Codable {
     /// - ImperialInch: The length is measured in inches.
     case ImperialInch = "IMPERIAL_INCH"
     /// - ImperialFoot: The length is measured in feet.
@@ -201,7 +201,7 @@ enum MeasurementUnitLength: String, Codable {
 
 /// - MeasurementUnitVolume: The unit of volume used to measure a quantity.
 /// https://developer.squareup.com/reference/square/enums/MeasurementUnitVolume
-enum MeasurementUnitVolume: String, Codable {
+public enum MeasurementUnitVolume: String, Codable {
     /// - GenericFluidOunce: The volume is measured in ounces.
     case GenericFluidOunce = "GENERIC_FLUID_OUNCE"
     /// - GenericShot: The volume is measured in shots.
@@ -228,7 +228,7 @@ enum MeasurementUnitVolume: String, Codable {
 
 /// -MeasurementUnitWeight: Unit of weight used to measure a quantity.
 /// https://developer.squareup.com/reference/square/enums/MeasurementUnitWeight
-enum MeasurementUnitWeight: String, Codable {
+public enum MeasurementUnitWeight: String, Codable {
     /// - ImperialWeightOunce: The weight is measured in ounces.
     case ImperialWeightOunce = "IMPERIAL_WEIGHT_OUNCE"
     /// - ImperialPound: The weight is measured in pounds.
@@ -245,14 +245,14 @@ enum MeasurementUnitWeight: String, Codable {
 
 /// -MeasurementUnitGeneric: The generic unit.
 /// https://developer.squareup.com/reference/square/enums/MeasurementUnitGeneric
-enum MeasurementUnitGeneric: String, Codable {
+public enum MeasurementUnitGeneric: String, Codable {
     /// - Unit: The generic unit.
     case Unit = "UNIT"
 }
 
 /// - MeasurementUnitTime: Unit of time used to measure a quantity (a duration).
 /// https://developer.squareup.com/reference/square/enums/MeasurementUnitTime
-enum MeasurementUnitTime: String, Codable {
+public enum MeasurementUnitTime: String, Codable {
     /// - GenericMillisecond: The time is measured in milliseconds.
     case GenericMillisecond = "GENERIC_MILLISECOND"
     /// - GenericSecond: The time is measured in seconds.
@@ -268,7 +268,7 @@ enum MeasurementUnitTime: String, Codable {
 /// - MeasurementUnitUnitType: Describes the type of this unit and indicates which field contains the unit information.
 /// This is an ‘open’ enum.
 /// https://developer.squareup.com/reference/square/enums/MeasurementUnitUnitType
-enum MeasurementUnitUnitType: String, Codable {
+public enum MeasurementUnitUnitType: String, Codable {
     /// - Custom: The unit details are contained in the custom_unit field.
     case Custom = "TYPE_CUSTOM"
     /// - Area: The unit details are contained in the area_unit field.
@@ -285,7 +285,7 @@ enum MeasurementUnitUnitType: String, Codable {
 
 /// - SubscriptionCadence: Determines the billing cadence of a Subscription
 /// https://developer.squareup.com/reference/square/enums/SubscriptionCadence
-enum SubscriptionCadence: String, Codable {
+public enum SubscriptionCadence: String, Codable {
     /// - Daily: Once per day
     case Daily = "DAILY"
     /// - Weekly: Once per week
@@ -316,7 +316,7 @@ enum SubscriptionCadence: String, Codable {
 
 /// - Product: Indicates the Square product used to generate a change.
 /// https://developer.squareup.com/reference/square/enums/Product
-enum Product: String, Codable {
+public enum Product: String, Codable {
     /// - SquarePos: Square Point of Sale application.
     case SquarePos = "SQUARE_POS"
     /// - ExternalApi: Square Connect APIs (for example, Orders API or Checkout API).
@@ -341,7 +341,7 @@ enum Product: String, Codable {
 
 /// - CatalogCustomAttributeDefinitionSellerVisibility: Defines the visibility of a custom attribute to sellers in Square client applications, Square APIs or in Square UIs (including Square Point of Sale applications and Square Dashboard).
 /// https://developer.squareup.com/reference/square/enums/CatalogCustomAttributeDefinitionSellerVisibility
-enum CatalogCustomAttributeDefinitionSellerVisibility: String, Codable {
+public enum CatalogCustomAttributeDefinitionSellerVisibility: String, Codable {
     /// - SellerVisibilityHidden: Sellers cannot read this custom attribute in Square client applications or Square APIs.
     case SellerVisibilityHidden = "SELLER_VISIBILITY_HIDDEN"
     /// - SellerVisibilityReadWriteValues: Sellers can read and write this custom attribute value in catalog objects, but cannot edit the custom attribute definition.
@@ -350,7 +350,7 @@ enum CatalogCustomAttributeDefinitionSellerVisibility: String, Codable {
 
 /// -CatalogCustomAttributeDefinitionAppVisibility: Defines the visibility of a custom attribute to applications other than their creating application.
 /// https://developer.squareup.com/reference/square/enums/CatalogCustomAttributeDefinitionAppVisibility
-enum CatalogCustomAttributeDefinitionAppVisibility: String, Codable {
+public enum CatalogCustomAttributeDefinitionAppVisibility: String, Codable {
     /// - AppVisibilityHidden: Other applications cannot read this custom attribute.
     case AppVisibilityHidden = "APP_VISIBILITY_HIDDEN"
     /// - AppVisibilityReadOnly: Other applications can read this custom attribute definition and values.
@@ -361,7 +361,7 @@ enum CatalogCustomAttributeDefinitionAppVisibility: String, Codable {
 
 /// - CatalogQuickAmountsSettingsOption: Determines a seller's option on Quick Amounts feature.
 /// https://developer.squareup.com/reference/square/enums/CatalogQuickAmountsSettingsOption
-enum CatalogQuickAmountsSettingsOption: String, Codable {
+public enum CatalogQuickAmountsSettingsOption: String, Codable {
     /// - Disabled: Option for seller to disable Quick Amounts.
     case Disabled = "DISABLED"
     /// - Manual: Option for seller to choose manually created Quick Amounts.
@@ -372,7 +372,7 @@ enum CatalogQuickAmountsSettingsOption: String, Codable {
 
 /// - CatalogQuickAmountType: Determines the type of a specific Quick Amount.
 /// https://developer.squareup.com/reference/square/enums/CatalogQuickAmountType
-enum CatalogQuickAmountType: String, Codable {
+public enum CatalogQuickAmountType: String, Codable {
     /// - Manual: Quick Amount is created manually by the seller.
     case Manual = "QUICK_AMOUNT_TYPE_MANUAL"
     /// - Auto: Quick Amount is generated automatically by machine learning algorithms.
@@ -381,7 +381,7 @@ enum CatalogQuickAmountType: String, Codable {
 
 /// - SortOrder: The order (e.g., chronological or alphabetical) in which results from a request are returned.
 /// https://developer.squareup.com/reference/square/enums/SortOrder
-enum SortOrder: String, Codable {
+public enum SortOrder: String, Codable {
     /// - Desc: The results are returned in descending (e.g., newest-first or Z-A) order.
     case Desc = "DESC"
     /// - Asc: The results are returned in ascending (e.g., oldest-first or A-Z) order.
@@ -390,7 +390,7 @@ enum SortOrder: String, Codable {
 
 /// - SearchCatalogItemsRequestStockLevel: Defines supported stock levels of the item inventory.
 /// https://developer.squareup.com/reference/square/enums/SearchCatalogItemsRequestStockLevel
-enum SearchCatalogItemsRequestStockLevel: String, Codable {
+public enum SearchCatalogItemsRequestStockLevel: String, Codable {
     /// -Out: The item inventory is empty.
     case Out = "OUT"
     /// - Low: The item inventory is low.
@@ -399,7 +399,7 @@ enum SearchCatalogItemsRequestStockLevel: String, Codable {
 
 /// - LocationCapability: The capabilities a location might have.
 /// https://developer.squareup.com/reference/square/enums/LocationCapability
-enum LocationCapability: String, Codable {
+public enum LocationCapability: String, Codable {
     /// - CreditCardPprocessing: The capability to process credit card transactions with Square.
     case CreditCardPprocessing = "CREDIT_CARD_PROCESSING"
     /// - AutomaticTransfers: The capability to receive automatic transfers from Square.
@@ -410,7 +410,7 @@ enum LocationCapability: String, Codable {
 
 /// - LocationStatus: A location's status.
 /// https://developer.squareup.com/reference/square/enums/LocationStatus
-enum LocationStatus: String, Codable {
+public enum LocationStatus: String, Codable {
     /// - Active: A location that is active for business.
     case Active = "ACTIVE"
     /// - Inactive: A location that is not active for business. Inactive locations provide historical information. Hide inactive locations unless the user has requested to see them.
@@ -419,7 +419,7 @@ enum LocationStatus: String, Codable {
 
 /// - LocationType: A location's type.
 /// https://developer.squareup.com/reference/square/enums/LocationType
-enum LocationType: String, Codable {
+public enum LocationType: String, Codable {
     /// - Physical: A place of business with a physical location.
     case Physical = "PHYSICAL"
     /// - Mobile: A place of business that is mobile, such as a food truck or online store.
@@ -428,7 +428,7 @@ enum LocationType: String, Codable {
 
 /// - TaxIds: Identifiers for the location used by various governments for tax purposes.
 /// https://developer.squareup.com/reference/square/objects/TaxIds
-enum TaxIds: String, Codable {
+public enum TaxIds: String, Codable {
     /// - EuVat: The EU VAT number for this location. For example, IE3426675K. If the EU VAT number is present, it is well-formed and has been validated with VIES, the VAT Information Exchange System.
     case EuVat = "eu_vat"
     /// - FrSiret: The SIRET (Système d'Identification du Répertoire des Entreprises et de leurs Etablissements) number is a 14-digit code issued by the French INSEE. For example, 39922799000021.
@@ -441,7 +441,7 @@ enum TaxIds: String, Codable {
 
 /// - DayOfWeek: Indicates the specific day of the week.
 /// https://developer.squareup.com/reference/square/enums/DayOfWeek
-enum DayOfWeek: String, Codable, Comparable {
+public enum DayOfWeek: String, Codable, Comparable {
     case Sunday = "SUN"
     case Monday = "MON"
     case Tuesday = "TUE"
@@ -504,14 +504,14 @@ enum DayOfWeek: String, Codable, Comparable {
     
     // MARK: Comparable
 
-    static func < (lhs: DayOfWeek, rhs: DayOfWeek) -> Bool {
+    public static func < (lhs: DayOfWeek, rhs: DayOfWeek) -> Bool {
         lhs.intValue < rhs.intValue
     }
 }
 
 /// - Weekday: The days of the week.
 /// https://developer.squareup.com/reference/square/enums/Weekday
-enum Weekday: String, Codable {
+public enum Weekday: String, Codable {
     case Monday = "MON"
     case Tuesday = "TUE"
     case Wednesday = "WED"
@@ -523,7 +523,7 @@ enum Weekday: String, Codable {
 
 /// - MerchantStatus:
 /// https://developer.squareup.com/reference/square/enums/MerchantStatus
-enum MerchantStatus: String, Codable {
+public enum MerchantStatus: String, Codable {
     /// - Active: A fully operational merchant account. The merchant can interact with Square products and APIs.
     case Active = "ACTIVE"
     /// - Inactive: A functionally limited merchant account. The merchant can only have limited interaction via Square APIs. The merchant cannot log in or access the seller dashboard.
@@ -532,7 +532,7 @@ enum MerchantStatus: String, Codable {
 
 /// - TeamMemberStatus: Enumerates the possible statuses the team member can have within a business.
 /// https://developer.squareup.com/reference/square/enums/TeamMemberStatus
-enum TeamMemberStatus: String, Codable {
+public enum TeamMemberStatus: String, Codable {
     /// - Active: The team member can sign in to Point of Sale and the Seller Dashboard.
     case Active = "ACTIVE"
     /// - Inactive: The team member can no longer sign in to Point of Sale or the Seller Dashboard, but the team member's sales reports remain available.
@@ -541,7 +541,7 @@ enum TeamMemberStatus: String, Codable {
 
 /// - TeamMemberAssignedLocationsAssignmentType: Enumerates the possible assignment types that the team member can have.
 /// https://developer.squareup.com/reference/square/enums/TeamMemberAssignedLocationsAssignmentType
-enum TeamMemberAssignedLocationsAssignmentType: String, Codable {
+public enum TeamMemberAssignedLocationsAssignmentType: String, Codable {
     /// - AllCurrentAndFutureLocations: The team member is assigned to all current and future locations. The location_ids field is empty if the team member has this assignment type.
     case AllCurrentAndFutureLocations = "ALL_CURRENT_AND_FUTURE_LOCATIONS"
     /// - EcplicitLocations: The team member is assigned to an explicit subset of locations. The location_ids field is the list of locations that the team member is assigned to.
@@ -550,7 +550,7 @@ enum TeamMemberAssignedLocationsAssignmentType: String, Codable {
 
 /// - JobAssignmentPayType: Enumerates the possible pay types that a job can be assigned.
 /// https://developer.squareup.com/reference/square/enums/JobAssignmentPayType
-enum JobAssignmentPayType: String, Codable {
+public enum JobAssignmentPayType: String, Codable {
     /// - None: The job does not have a defined pay type.
     case None = "NONE"
     /// - Hourly: The job pays an hourly rate.
@@ -561,7 +561,7 @@ enum JobAssignmentPayType: String, Codable {
 
 /// - BookingStatus: Supported booking statuses.
 /// https://developer.squareup.com/reference/square/enums/BookingStatus
-enum BookingStatus: String, Codable {
+public enum BookingStatus: String, Codable {
     /// - Pending: An unaccepted booking. It is visible to both sellers and customers.
     case Pending = "PENDING"
     /// - CancelledByCustomer: A customer-cancelled booking. It is visible to both the seller and the customer.
@@ -578,7 +578,7 @@ enum BookingStatus: String, Codable {
 
 /// - BusinessAppointmentSettingsBookingLocationType: Supported types of location where service is provided.
 /// https://developer.squareup.com/reference/square/enums/BusinessAppointmentSettingsBookingLocationType
-enum BusinessAppointmentSettingsBookingLocationType: String, Codable {
+public enum BusinessAppointmentSettingsBookingLocationType: String, Codable {
     /// - BusinessLocation: The service is provided at a seller location.
     case BusinessLocation = "BUSINESS_LOCATION"
     /// - CustomerLocation: The service is provided at a customer location.
@@ -589,7 +589,7 @@ enum BusinessAppointmentSettingsBookingLocationType: String, Codable {
 
 /// - BookingCreatorDetailsCreatorType: Supported types of a booking creator.
 /// https://developer.squareup.com/reference/square/enums/BookingCreatorDetailsCreatorType
-enum BookingCreatorDetailsCreatorType: String, Codable {
+public enum BookingCreatorDetailsCreatorType: String, Codable {
     /// - TeamMember: The creator is of the seller type.
     case TeamMember = "TEAM_MEMBER"
     /// - Customer: The creator is of the buyer type.
@@ -598,7 +598,7 @@ enum BookingCreatorDetailsCreatorType: String, Codable {
 
 /// - BookingBookingSource: Supported sources a booking was created from.
 /// https://developer.squareup.com/reference/square/enums/BookingBookingSource
-enum BookingBookingSource: String, Codable {
+public enum BookingBookingSource: String, Codable {
     /// - FirstPartyMerchant: The booking was created by a seller from a Square Appointments application, such as the Square Appointments Dashboard or a Square Appointments mobile app.
     case FirstPartyMerchant = "FIRST_PARTY_MERCHANT"
     /// - FirtsPartyBuyer: The booking was created by a buyer from a Square Appointments application, such as Square Online Booking Site.
@@ -611,7 +611,7 @@ enum BookingBookingSource: String, Codable {
 
 /// - BusinessBookingProfileCustomerTimezoneChoice: Choices of customer-facing time zone used for bookings.
 /// https://developer.squareup.com/reference/square/enums/BusinessBookingProfileCustomerTimezoneChoice
-enum BusinessBookingProfileCustomerTimezoneChoice: String, Codable {
+public enum BusinessBookingProfileCustomerTimezoneChoice: String, Codable {
     /// - BusinessLocationTimezone: Use the time zone of the business location for bookings.
     case BusinessLocationTimezone = "BUSINESS_LOCATION_TIMEZONE"
     /// - CustomerChoice: Use the customer-chosen time zone for bookings.
@@ -620,7 +620,7 @@ enum BusinessBookingProfileCustomerTimezoneChoice: String, Codable {
 
 /// - BusinessBookingProfileBookingPolicy: Policies for accepting bookings.
 /// https://developer.squareup.com/reference/square/enums/BusinessBookingProfileBookingPolicy
-enum BusinessBookingProfileBookingPolicy: String, Codable {
+public enum BusinessBookingProfileBookingPolicy: String, Codable {
     /// - AcceptAll: The seller accepts all booking requests automatically.
     case AcceptAll = "ACCEPT_ALL"
     /// - RequestAcceptance: The seller must accept requests to complete bookings.
@@ -629,7 +629,7 @@ enum BusinessBookingProfileBookingPolicy: String, Codable {
 
 /// - BusinessAppointmentSettingsAlignmentTime: Time units of a service duration for bookings.
 /// https://developer.squareup.com/reference/square/enums/BusinessAppointmentSettingsAlignmentTime
-enum BusinessAppointmentSettingsAlignmentTime: String, Codable {
+public enum BusinessAppointmentSettingsAlignmentTime: String, Codable {
     /// - ServiceDuration: The service duration unit is one visit of a fixed time interval specified by the seller.
     case ServiceDuration = "SERVICE_DURATION"
     /// - QuarterHourly: The service duration unit is a 15-minute interval. Bookings can be scheduled every quarter hour.
@@ -642,7 +642,7 @@ enum BusinessAppointmentSettingsAlignmentTime: String, Codable {
 
 /// - BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType: Types of daily appointment limits.
 /// https://developer.squareup.com/reference/square/enums/BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType
-enum BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType: String, Codable {
+public enum BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType: String, Codable {
     /// - PerTeamMember: The maximum number of daily appointments is set on a per team member basis.
     case PerTeamMember = "PER_TEAM_MEMBER"
     /// - PerLocation: The maximum number of daily appointments is set on a per location basis.
@@ -651,7 +651,7 @@ enum BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType: String, Codable 
 
 /// - BusinessAppointmentSettingsCancellationPolicy: The category of the seller’s cancellation policy.
 /// https://developer.squareup.com/reference/square/enums/BusinessAppointmentSettingsCancellationPolicy
-enum BusinessAppointmentSettingsCancellationPolicy: String, Codable {
+public enum BusinessAppointmentSettingsCancellationPolicy: String, Codable {
     /// - CancellationTreatedAsnoShow: Cancellations are treated as no shows and may incur a fee as specified by cancellation_fee_money.
     case CancellationTreatedAsnoShow = "CANCELLATION_TREATED_AS_NO_SHOW"
     /// - CustomPolice: Cancellations follow the seller-specified policy that is described in free-form text and not enforced automatically by Square.
@@ -660,7 +660,7 @@ enum BusinessAppointmentSettingsCancellationPolicy: String, Codable {
 
 /// - InventoryState: Indicates the state of a tracked item quantity in the lifecycle of goods
 /// https://developer.squareup.com/reference/square/enums/InventoryState
-enum InventoryState: String, Codable {
+public enum InventoryState: String, Codable {
     /// - Custom: The related quantity of items are in a custom state. READ-ONLY: the Inventory API cannot move quantities to or from this state.
     case Custom = "CUSTOM"
     /// - InStock: The related quantity of items are on hand and available for sale
@@ -701,7 +701,7 @@ enum InventoryState: String, Codable {
 
 /// - InventoryChangeType: Indicates how the inventory change was applied to a tracked product quantity.
 /// https://developer.squareup.com/reference/square/enums/InventoryChangeType
-enum InventoryChangeType: String, Codable {
+public enum InventoryChangeType: String, Codable {
     /// - PhysycalCount: The change occurred as part of a physical count update.
     case PhysycalCount = "PHYSICAL_COUNT"
     /// - Adjustment: The change occurred as part of the normal lifecycle of goods (e.g., as an inventory adjustment).
@@ -712,7 +712,7 @@ enum InventoryChangeType: String, Codable {
 
 /// - CustomerSortField: Specifies customer attributes as the sort key to customer profiles returned from a search.
 /// https://developer.squareup.com/reference/square/enums/CustomerSortField
-enum CustomerSortField: String, Codable {
+public enum CustomerSortField: String, Codable {
     /// - Default: Use the default sort key. By default, customers are sorted alphanumerically by concatenating their given_name and family_name. If neither name field is set, string comparison is performed using one of the remaining fields in the following order: company_name, email, phone_number.
     case Default = "DEFAULT"
     /// - CreatedAt: Use the creation date attribute (created_at) of customer profiles as the sort key.
@@ -721,7 +721,7 @@ enum CustomerSortField: String, Codable {
 
 /// - CardBrand: Indicates a card's brand, such as VISA or MASTERCARD.
 /// https://developer.squareup.com/reference/square/enums/CardBrand
-enum CardBrand: String, Codable {
+public enum CardBrand: String, Codable {
     case OtherBrands = "OTHER_BRAND"
     case Visa = "VISA"
     case MasterCard = "MASTERCARD"
@@ -740,7 +740,7 @@ enum CardBrand: String, Codable {
 
 /// - CardType: Indicates a card's type, such as CREDIT or DEBIT.
 /// https://developer.squareup.com/reference/square/enums/CardType
-enum CardType: String, Codable {
+public enum CardType: String, Codable {
     case UnknownCardType = "UNKNOWN_CARD_TYPE"
     case Credit = "CREDIT"
     case Debit = "DEBIT"
@@ -748,7 +748,7 @@ enum CardType: String, Codable {
 
 /// - CardPrepaidType: Indicates a card's prepaid type, such as NOT_PREPAID or PREPAID.
 /// https://developer.squareup.com/reference/square/enums/CardPrepaidType
-enum CardPrepaidType: String, Codable {
+public enum CardPrepaidType: String, Codable {
     case UnknownPrepaidType = "UNKNOWN_PREPAID_TYPE"
     case NotPrepaid = "NOT_PREPAID"
     case Prepaid = "PREPAID"
@@ -756,7 +756,7 @@ enum CardPrepaidType: String, Codable {
 
 /// - CardCoBrand: Indicates the brand for a co-branded card.
 /// https://developer.squareup.com/reference/square/enums/CardCoBrand
-enum CardCoBrand: String, Codable {
+public enum CardCoBrand: String, Codable {
     case Unknown = "UNKNOWN"
     case AfterPay = "AFTERPAY"
     case ClearPay = "CLEARPAY"
@@ -764,7 +764,7 @@ enum CardCoBrand: String, Codable {
 
 /// - CustomerCreationSource: Indicates the method used to create the customer profile.
 /// https://developer.squareup.com/reference/square/enums/CustomerCreationSource
-enum CustomerCreationSource: String, Codable {
+public enum CustomerCreationSource: String, Codable {
     /// - Other: The default creation source. This source is typically used for backward/future compatibility when the original source of a customer profile is unrecognized. For example, when older clients do not support newer source types.
     case Other = "OTHER"
     /// - Appointments: The customer profile was created automatically when an appointment was scheduled.
@@ -807,7 +807,7 @@ enum CustomerCreationSource: String, Codable {
 
 /// - CustomerInclusionExclusion: Indicates whether customers should be included in, or excluded from, the result set when they match the filtering criteria.
 /// https://developer.squareup.com/reference/square/enums/CustomerInclusionExclusion
-enum CustomerInclusionExclusion: String, Codable {
+public enum CustomerInclusionExclusion: String, Codable {
     /// - Include: Customers should be included in the result set when they match the filtering criteria.
     case Include = "INCLUDE"
     /// - Exclude: Customers should be excluded from the result set when they match the filtering criteria.
@@ -816,7 +816,7 @@ enum CustomerInclusionExclusion: String, Codable {
 
 /// - OrderLineItemItemType: Represents the line item type.
 /// https://developer.squareup.com/reference/square/enums/OrderLineItemItemType
-enum OrderLineItemItemType: String, Codable {
+public enum OrderLineItemItemType: String, Codable {
     /// - Item: Indicates that the line item is an itemized sale.
     case Item = "ITEM"
     /// - CustomAmount: Indicates that the line item is a non-itemized sale.
@@ -827,7 +827,7 @@ enum OrderLineItemItemType: String, Codable {
 
 /// - OrderLineItemTaxType: Indicates how the tax is applied to the associated line item or order.
 /// https://developer.squareup.com/reference/square/enums/OrderLineItemTaxType
-enum OrderLineItemTaxType: String, Codable {
+public enum OrderLineItemTaxType: String, Codable {
     /// - UnknownTax: Used for reporting only. The original transaction tax type is currently not supported by the API.
     case UnknownTax = "UNKNOWN_TAX"
     /// - Additive: The tax is an additive tax. The tax amount is added on top of the price. For example, an item with a cost of 1.00 USD and a 10% additive tax has a total cost to the buyer of 1.10 USD.
@@ -838,7 +838,7 @@ enum OrderLineItemTaxType: String, Codable {
 
 /// - OrderLineItemDiscountType: Indicates how the discount is applied to the associated line item or order.
 /// https://developer.squareup.com/reference/square/enums/OrderLineItemDiscountType
-enum OrderLineItemDiscountType: String, Codable {
+public enum OrderLineItemDiscountType: String, Codable {
     /// - UnknownDiscount: Used for reporting only. The original transaction discount type is currently not supported by the API.
     case UnknownDiscount = "UNKNOWN_DISCOUNT"
     /// - FixedPercentage: Apply the discount as a fixed percentage (such as 5%) off the item price.
@@ -856,7 +856,7 @@ enum OrderLineItemDiscountType: String, Codable {
 /// - OrderServiceChargeCalculationPhase: Represents a phase in the process of calculating order totals.
 /// Service charges are applied after the indicated phase
 /// https://developer.squareup.com/reference/square/enums/OrderServiceChargeCalculationPhase
-enum OrderServiceChargeCalculationPhase: String, Codable {
+public enum OrderServiceChargeCalculationPhase: String, Codable {
     /// - SubtotalPhase: The service charge is applied after discounts, but before taxes.
     case SubtotalPhase = "SUBTOTAL_PHASE"
     /// - TotalPhase: The service charge is applied after all discounts and taxes are applied.
@@ -871,21 +871,21 @@ enum OrderServiceChargeCalculationPhase: String, Codable {
 
 /// - OrderServiceChargeType:
 /// https://developer.squareup.com/reference/square/enums/OrderServiceChargeType
-enum OrderServiceChargeType: String, Codable {
+public enum OrderServiceChargeType: String, Codable {
     case AutoGratuity = "AUTO_GRATUITY"
     case Custom = "CUSTOM"
 }
 
 /// - OrderServiceChargeTreatmentType: Indicates whether the service charge will be treated as a value-holding line item or apportioned toward a line item.
 /// https://developer.squareup.com/reference/square/enums/OrderServiceChargeTreatmentType
-enum OrderServiceChargeTreatmentType: String, Codable {
+public enum OrderServiceChargeTreatmentType: String, Codable {
     case LineItemTreatment = "LINE_ITEM_TREATMENT"
     case ApportionedTreatment = "APPORTIONED_TREATMENT"
 }
 
 /// - OrderServiceChargeScope: Indicates whether this is a line-item or order-level apportioned service charge.
 /// https://developer.squareup.com/reference/square/enums/OrderServiceChargeScope
-enum OrderServiceChargeScope: String, Codable {
+public enum OrderServiceChargeScope: String, Codable {
     /// - OtherServiceChargeScope: Beta
     /// Used for reporting only. The original transaction service charge scope is currently not supported by the API.
     case OtherServiceChargeScope = "OTHER_SERVICE_CHARGE_SCOPE"
@@ -899,7 +899,7 @@ enum OrderServiceChargeScope: String, Codable {
 
 /// - FulfillmentType: The type of fulfillment.
 /// https://developer.squareup.com/reference/square/enums/FulfillmentType
-enum FulfillmentType: String, Codable {
+public enum FulfillmentType: String, Codable {
     /// - Pickup: A recipient to pick up the fulfillment from a physical location.
     case Pickup = "PICKUP"
     /// - Shipment: Beta
@@ -912,7 +912,7 @@ enum FulfillmentType: String, Codable {
 
 /// - FulfillmentState: The current state of this fulfillment.
 /// https://developer.squareup.com/reference/square/enums/FulfillmentState
-enum FulfillmentState: String, Codable {
+public enum FulfillmentState: String, Codable {
     /// - Proposed: Indicates that the fulfillment has been proposed.
     case Proposed = "PROPOSED"
     /// - Reserved: Indicates that the fulfillment has been reserved.
@@ -930,7 +930,7 @@ enum FulfillmentState: String, Codable {
 /// - FulfillmentFulfillmentLineItemApplication: The line_item_application describes what order line items this fulfillment applies to.
 /// It can be ALL or ENTRY_LIST with a supplied list of fulfillment entries.
 /// https://developer.squareup.com/reference/square/enums/FulfillmentFulfillmentLineItemApplication
-enum FulfillmentFulfillmentLineItemApplication: String, Codable {
+public enum FulfillmentFulfillmentLineItemApplication: String, Codable {
     /// - All: Beta
     /// If ALL, entries must be unset.
     case All = "ALL"
@@ -941,7 +941,7 @@ enum FulfillmentFulfillmentLineItemApplication: String, Codable {
 
 /// - FulfillmentPickupDetailsScheduleType: The schedule type of the pickup fulfillment.
 /// https://developer.squareup.com/reference/square/enums/FulfillmentPickupDetailsScheduleType
-enum FulfillmentPickupDetailsScheduleType: String, Codable {
+public enum FulfillmentPickupDetailsScheduleType: String, Codable {
     /// - Scheduled: Indicates that the fulfillment will be picked up at a scheduled pickup time.
     case Scheduled = "SCHEDULED"
     /// - Asap: Indicates that the fulfillment will be picked up as soon as possible and should be prepared immediately.
@@ -950,7 +950,7 @@ enum FulfillmentPickupDetailsScheduleType: String, Codable {
 
 /// - FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType: The schedule type of the delivery fulfillment.
 /// https://developer.squareup.com/reference/square/enums/FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType
-enum FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType: String, Codable {
+public enum FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType: String, Codable {
     /// - Scheduled: Beta
     ///  Indicates the fulfillment to deliver at a scheduled deliver time.
     case Scheduled = "SCHEDULED"
@@ -960,7 +960,7 @@ enum FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType: Stri
 
 /// - OrderLineItemTaxScope: Indicates whether this is a line-item or order-level tax.
 /// https://developer.squareup.com/reference/square/enums/OrderLineItemTaxScope
-enum OrderLineItemTaxScope: String, Codable {
+public enum OrderLineItemTaxScope: String, Codable {
     /// - OtherTaxScope: Used for reporting only. The original transaction tax scope is currently not supported by the API.
     case OtherTaxScope = "OTHER_TAX_SCOPE"
     /// - LineItem: The tax should be applied only to line items specified by the OrderLineItemAppliedTax reference records.
@@ -971,7 +971,7 @@ enum OrderLineItemTaxScope: String, Codable {
 
 /// - OrderLineItemDiscountScope: Indicates whether this is a line-item or order-level discount.
 /// https://developer.squareup.com/reference/square/enums/OrderLineItemDiscountScope
-enum OrderLineItemDiscountScope: String, Codable {
+public enum OrderLineItemDiscountScope: String, Codable {
     /// - OtherDiscountScope: Used for reporting only. The original transaction discount scope is currently not supported by the API.
     case OtherDiscountScope = "OTHER_DISCOUNT_SCOPE"
     /// - LineItem: The discount should be applied to only line items specified by OrderLineItemAppliedDiscount reference records.
@@ -982,7 +982,7 @@ enum OrderLineItemDiscountScope: String, Codable {
 
 /// - TenderType: Indicates a tender's type.
 /// https://developer.squareup.com/reference/square/enums/TenderType
-enum TenderType: String, Codable {
+public enum TenderType: String, Codable {
     /// - Card: A credit card.
     case Card = "CARD"
     /// - Cash: Cash
@@ -1003,7 +1003,7 @@ enum TenderType: String, Codable {
 
 /// - TenderCardDetailsStatus: Indicates the card transaction's current status.
 /// https://developer.squareup.com/reference/square/enums/TenderCardDetailsStatus
-enum TenderCardDetailsStatus: String, Codable {
+public enum TenderCardDetailsStatus: String, Codable {
     /// - Authorized: The card transaction has been authorized but not yet captured.
     case Authorized = "AUTHORIZED"
     /// - Captured: The card transaction was authorized and subsequently captured (i.e., completed).
@@ -1016,7 +1016,7 @@ enum TenderCardDetailsStatus: String, Codable {
 
 /// - TenderCardDetailsEntryMethod: Indicates the method used to enter the card's details.
 /// https://developer.squareup.com/reference/square/enums/TenderCardDetailsEntryMethod
-enum TenderCardDetailsEntryMethod: String, Codable {
+public enum TenderCardDetailsEntryMethod: String, Codable {
     /// - Swiped: The card was swiped through a Square reader or Square stand.
     case Swiped = "SWIPED"
     /// - Keyed: The card information was keyed manually into Square Point of Sale or a Square-hosted web form.
@@ -1031,7 +1031,7 @@ enum TenderCardDetailsEntryMethod: String, Codable {
 
 /// - RefundStatus: Indicates a refund's current status.
 /// https://developer.squareup.com/reference/square/enums/RefundStatus
-enum RefundStatus: String, Codable {
+public enum RefundStatus: String, Codable {
     /// - Pending: The refund is pending.
     case Pending = "PENDING"
     /// - Approved: The refund has been approved by Square.
@@ -1044,7 +1044,7 @@ enum RefundStatus: String, Codable {
 
 /// - OrderState: The state of the order.
 /// https://developer.squareup.com/reference/square/enums/OrderState
-enum OrderState: String, Codable {
+public enum OrderState: String, Codable {
     /// - Open: Indicates that the order is open. Open orders can be updated.
     case Open = "OPEN"
     /// - Completed: Indicates that the order is completed. Completed orders are fully paid. This is a terminal state.
@@ -1058,7 +1058,7 @@ enum OrderState: String, Codable {
 
 /// - SearchOrdersSortField: Specifies which timestamp to use to sort SearchOrder results.
 /// https://developer.squareup.com/reference/square/objects/SearchOrdersSortField
-enum SearchOrdersSortField: String, Codable {
+public enum SearchOrdersSortField: String, Codable {
     /// - CreatedAt: The time when the order was created, in RFC-3339 format. If you are also filtering for a time range in this query, you must set the CREATED_AT field in your DateTimeFilter.
     case CreatedAt = "CREATED_AT"
     /// - UpdatedAt: The time when the order last updated, in RFC-3339 format. If you are also filtering for a time range in this query, you must set the UPDATED_AT field in your DateTimeFilter.
@@ -1069,14 +1069,14 @@ enum SearchOrdersSortField: String, Codable {
 
 /// - ProcessingFeeType: The type of fee assessed or adjusted. The fee type can be INITIAL or ADJUSTMENT.
 /// https://developer.squareup.com/reference/square/objects/ProcessingFee
-enum ProcessingFeeType: String, Codable {
+public enum ProcessingFeeType: String, Codable {
     case Initial = "INITIAL"
     case Adjustment = "ADJUSTMENT"
 }
 
 /// - PaymentStatus: APPROVED, PENDING, COMPLETED, CANCELED, or FAILED.
 /// https://developer.squareup.com/reference/square/objects/payment
-enum PaymentStatus: String, Codable {
+public enum PaymentStatus: String, Codable {
     case Approved = "APPROVED"
     case Pending = "PENDING"
     case Completed = "COMPLETED"
@@ -1086,13 +1086,13 @@ enum PaymentStatus: String, Codable {
 
 /// - PaymentDelayAction: The action to be applied to the payment when the delay_duration has elapsed.
 /// Current values include CANCEL and COMPLETE.
-enum PaymentDelayAction: String, Codable {
+public enum PaymentDelayAction: String, Codable {
     case Cancel = "CANCEL"
     case Complete = "COMPLETE"
 }
 
 /// - PaymentSourceType: Current values include CARD, BANK_ACCOUNT, WALLET, BUY_NOW_PAY_LATER, CASH and EXTERNAL. For information about these payment source types, see Take Payments.
-enum PaymentSourceType: String, Codable {
+public enum PaymentSourceType: String, Codable {
     case Card = "CARD"
     case BankAccount = "BANK_ACCOUNT"
     case Wallet = "WALLET"
@@ -1103,7 +1103,7 @@ enum PaymentSourceType: String, Codable {
 
 /// - CardPaymentDetailsStatus: The card payment's current state. The state can be AUTHORIZED, CAPTURED, VOIDED, or FAILED.
 /// https://developer.squareup.com/reference/square/objects/CardPaymentDetails
-enum CardPaymentDetailsStatus: String, Codable {
+public enum CardPaymentDetailsStatus: String, Codable {
     case Authorized = "AUTHORIZED"
     case Captured = "CAPTURED"
     case Voided = "VOIDED"
@@ -1112,7 +1112,7 @@ enum CardPaymentDetailsStatus: String, Codable {
 
 /// - CardPaymentDetailsEntryMethod: The method used to enter the card's details for the payment. The method can be KEYED, SWIPED, EMV, ON_FILE, or CONTACTLESS.
 /// https://developer.squareup.com/reference/square/objects/CardPaymentDetails
-enum CardPaymentDetailsEntryMethod: String, Codable {
+public enum CardPaymentDetailsEntryMethod: String, Codable {
     case Keyed = "KEYED"
     case Swiped = "SWIPED"
     case EMV = "EMV"
@@ -1122,7 +1122,7 @@ enum CardPaymentDetailsEntryMethod: String, Codable {
 
 /// - CardPaymentDetailsCvvStatus: The status code returned from the Card Verification Value (CVV) check. The code can be CVV_ACCEPTED, CVV_REJECTED, or CVV_NOT_CHECKED.
 /// https://developer.squareup.com/reference/square/objects/CardPaymentDetails
-enum CardPaymentDetailsCvvStatus: String, Codable {
+public enum CardPaymentDetailsCvvStatus: String, Codable {
     case CvvAccepted = "CVV_ACCEPTED"
     case CvvRejected = "CVV_REJECTED"
     case CvvNotChecked = "CVV_NOT_CHECKED"
@@ -1130,7 +1130,7 @@ enum CardPaymentDetailsCvvStatus: String, Codable {
 
 /// - CardPaymentDetailsAvsStatus: The status code returned from the Address Verification System (AVS) check. The code can be AVS_ACCEPTED, AVS_REJECTED, or AVS_NOT_CHECKED.
 /// https://developer.squareup.com/reference/square/objects/CardPaymentDetails
-enum CardPaymentDetailsAvsStatus: String, Codable {
+public enum CardPaymentDetailsAvsStatus: String, Codable {
     case AvsAccepted = "AVS_ACCEPTED"
     case AvsRejected = "AVS_REJECTED"
     case AvsNotChecked = "AVS_NOT_CHECKED"
@@ -1138,7 +1138,7 @@ enum CardPaymentDetailsAvsStatus: String, Codable {
 
 /// - CardPaymentDetailsVerificationMethod: For EMV payments, the method used to verify the cardholder's identity. The method can be PIN, SIGNATURE, PIN_AND_SIGNATURE, ON_DEVICE, or NONE.
 /// https://developer.squareup.com/reference/square/objects/CardPaymentDetails
-enum CardPaymentDetailsVerificationMethod: String, Codable {
+public enum CardPaymentDetailsVerificationMethod: String, Codable {
     case Pin = "PIN"
     case Signature = "SIGNATURE"
     case PinAndSignature = "PIN_AND_SIGNATURE"
@@ -1148,7 +1148,7 @@ enum CardPaymentDetailsVerificationMethod: String, Codable {
 
 /// - CardPaymentDetailsVerificationResults: For EMV payments, the results of the cardholder verification. The result can be SUCCESS, FAILURE, or UNKNOWN.
 /// https://developer.squareup.com/reference/square/objects/CardPaymentDetails
-enum CardPaymentDetailsVerificationResults: String, Codable {
+public enum CardPaymentDetailsVerificationResults: String, Codable {
     case Success = "SUCCESS"
     case Failure = "FAILURE"
     case Unknown = "UNKNOWN"
@@ -1156,14 +1156,14 @@ enum CardPaymentDetailsVerificationResults: String, Codable {
 
 /// - BankAccountPaymentDetailsTransferType: The type of the bank transfer. The type can be ACH or UNKNOWN.
 /// https://developer.squareup.com/reference/square/objects/BankAccountPaymentDetails
-enum BankAccountPaymentDetailsTransferType: String, Codable {
+public enum BankAccountPaymentDetailsTransferType: String, Codable {
     case ACH = "ACH"
     case Unknown = "UNKNOWN"
 }
 
 /// - BankAccountPaymentDetailsAccountOwnershipType: The ownership type of the bank account performing the transfer. The type can be INDIVIDUAL, COMPANY, or ACCOUNT_TYPE_UNKNOWN.
 /// https://developer.squareup.com/reference/square/objects/BankAccountPaymentDetails
-enum BankAccountPaymentDetailsAccountOwnershipType: String, Codable {
+public enum BankAccountPaymentDetailsAccountOwnershipType: String, Codable {
     case Individual = "INDIVIDUAL"
     case Company = "COMPANY"
     case AccountTypeUnknown = "ACCOUNT_TYPE_UNKNOWN"
@@ -1171,7 +1171,7 @@ enum BankAccountPaymentDetailsAccountOwnershipType: String, Codable {
 
 /// - ACHDetailsAccountType: The type of the bank account performing the transfer. The account type can be CHECKING, SAVINGS, or UNKNOWN.
 /// https://developer.squareup.com/reference/square/objects/ACHDetails
-enum ACHDetailsAccountType: String, Codable {
+public enum ACHDetailsAccountType: String, Codable {
     case Checking = "CHECKING"
     case Savings = "SAVINGS"
     case Unknown = "UNKNOWN"
@@ -1179,7 +1179,7 @@ enum ACHDetailsAccountType: String, Codable {
 
 /// - ExternalPaymentDetailsType: The type of external payment the seller received. It can be one of the following:
 /// https://developer.squareup.com/reference/square/objects/ExternalPaymentDetails
-enum ExternalPaymentDetailsType: String, Codable {
+public enum ExternalPaymentDetailsType: String, Codable {
     /// - Check: Paid using a physical check.
     case Check = "CHECK"
     /// - BankTransfer: Paid using external bank transfer.
@@ -1208,7 +1208,7 @@ enum ExternalPaymentDetailsType: String, Codable {
 
 /// - DigitalWalletDetailsStatus: The status of the WALLET payment. The status can be AUTHORIZED, CAPTURED, VOIDED, or FAILED.
 /// The status of the WALLET payment. The status can be AUTHORIZED, CAPTURED, VOIDED, or FAILED.
-enum DigitalWalletDetailsStatus: String, Codable {
+public enum DigitalWalletDetailsStatus: String, Codable {
     case Authorized = "AUTHORIZED"
     case Captured = "CAPTURED"
     case Voided = "VOIDED"
@@ -1216,7 +1216,7 @@ enum DigitalWalletDetailsStatus: String, Codable {
 }
 
 /// - DigitalWalletDetailsBrand: The brand used for the WALLET payment. The brand can be CASH_APP, PAYPAY or UNKNOWN.
-enum DigitalWalletDetailsBrand: String, Codable {
+public enum DigitalWalletDetailsBrand: String, Codable {
     case CashApp = "CASH_APP"
     case PayPal = "PAYPAY"
     case Unknown = "UNKNOWN"
@@ -1224,7 +1224,7 @@ enum DigitalWalletDetailsBrand: String, Codable {
 
 /// - BuyNowPayLaterDetailsBrand: The brand used for the Buy Now Pay Later payment. The brand can be AFTERPAY, CLEARPAY or UNKNOWN.
 /// https://developer.squareup.com/reference/square/objects/BuyNowPayLaterDetails
-enum BuyNowPayLaterDetailsBrand: String, Codable {
+public enum BuyNowPayLaterDetailsBrand: String, Codable {
     case AfterPay = "AFTERPAY"
     case ClearPay = "CLEARPAY"
     case Unknown = "UNKNOWN"
@@ -1232,7 +1232,7 @@ enum BuyNowPayLaterDetailsBrand: String, Codable {
 
 /// - RiskEvaluationRiskLevel: The risk level associated with the payment
 /// https://developer.squareup.com/reference/square/enums/RiskEvaluationRiskLevel
-enum RiskEvaluationRiskLevel: String, Codable {
+public enum RiskEvaluationRiskLevel: String, Codable {
     /// - Pending: Beta
     /// Indicates Square is still evaluating the payment.
     case Pending = "PENDING"
@@ -1249,7 +1249,7 @@ enum RiskEvaluationRiskLevel: String, Codable {
 
 /// - PaymentCapabilities: Actions that can be performed on this payment:
 /// https://developer.squareup.com/reference/square/objects/payment
-enum PaymentCapabilities: String, Codable {
+public enum PaymentCapabilities: String, Codable {
     /// - EditAmountUp: The payment amount can be edited up.
     case EditAmountUp = "EDIT_AMOUNT_UP"
     /// - EditAmountDown: The payment amount can be edited down.
@@ -1264,7 +1264,7 @@ enum PaymentCapabilities: String, Codable {
 
 /// - ApplicationDetailsExternalSquareProduct: A list of products to return to external callers.
 /// https://developer.squareup.com/reference/square/enums/ApplicationDetailsExternalSquareProduct
-enum ApplicationDetailsExternalSquareProduct: String, Codable {
+public enum ApplicationDetailsExternalSquareProduct: String, Codable {
     case Appointments = "APPOINTMENTS"
     case EcommerceApi = "ECOMMERCE_API"
     case Invoices = "INVOICES"
@@ -1280,7 +1280,7 @@ enum ApplicationDetailsExternalSquareProduct: String, Codable {
 /// - InvoiceRequestMethod: Specifies the action for Square to take for processing the invoice.
 /// For example, email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at version 2021-01-21. The corresponding request_method field is replaced by the Invoice.delivery_method and InvoicePaymentRequest.automatic_payment_source fields.
 /// https://developer.squareup.com/reference/square/enums/InvoiceRequestMethod
-enum InvoiceRequestMethod: String, Codable {
+public enum InvoiceRequestMethod: String, Codable {
     /// - Email: Deprecated
     /// Directs Square to send invoices, reminders, and receipts to the customer using email. Square sends the invoice after it is published (either immediately or at the scheduled_at time, if specified in the invoice).
     case Email = "EMAIL"
@@ -1310,7 +1310,7 @@ enum InvoiceRequestMethod: String, Codable {
 
 /// - InvoiceRequestType: Indicates the type of the payment request.For more information, see Configuring payment requests.
 /// https://developer.squareup.com/reference/square/enums/InvoiceRequestType
-enum InvoiceRequestType: String, Codable {
+public enum InvoiceRequestType: String, Codable {
     /// - Balance: A request for a balance payment. The balance amount is computed as follows:
     /// If the invoice specifies only a balance payment request, the balance amount is the total amount of the associated order.
     /// If the invoice also specifies a deposit request, the balance amount is the amount remaining after the deposit.
@@ -1325,7 +1325,7 @@ enum InvoiceRequestType: String, Codable {
 
 /// - InvoiceAutomaticPaymentSource: Indicates the automatic payment method for an invoice payment request.
 /// https://developer.squareup.com/reference/square/enums/InvoiceAutomaticPaymentSource
-enum InvoiceAutomaticPaymentSource: String, Codable {
+public enum InvoiceAutomaticPaymentSource: String, Codable {
     /// - None: An automatic payment is not configured for the payment request.
     case None = "NONE"
     /// - CardOnFile: Use a card on file as the automatic payment method. On the due date, Square charges the card for the amount of the payment request.
@@ -1339,7 +1339,7 @@ enum InvoiceAutomaticPaymentSource: String, Codable {
 
 /// - InvoicePaymentReminderStatus: The status of a payment request reminder.
 /// https://developer.squareup.com/reference/square/enums/InvoicePaymentReminderStatus
-enum InvoicePaymentReminderStatus: String, Codable {
+public enum InvoicePaymentReminderStatus: String, Codable {
     /// - Pending: The reminder will be sent on the relative_scheduled_date (if the invoice is published).
     case Pending = "PENDING"
     /// - NotApplicable: The reminder is not applicable and is not sent. The following are examples of when reminders are not applicable and are not sent:
@@ -1357,7 +1357,7 @@ enum InvoicePaymentReminderStatus: String, Codable {
 
 /// - InvoiceDeliveryMethod: Indicates how Square delivers the invoice to the customer.
 /// https://developer.squareup.com/reference/square/enums/InvoiceDeliveryMethod
-enum InvoiceDeliveryMethod: String, Codable {
+public enum InvoiceDeliveryMethod: String, Codable {
     /// - Email: Directs Square to send invoices, reminders, and receipts to the customer using email.
     case Email = "EMAIL"
     /// - ShareManually: Directs Square to take no action on the invoice. In this case, the seller or application developer follows up with the customer for payment. For example, a seller might collect a payment in the Seller Dashboard or Point of Sale (POS) application. The seller might also share the URL of the Square-hosted invoice page (public_url) with the customer to request payment.
@@ -1369,7 +1369,7 @@ enum InvoiceDeliveryMethod: String, Codable {
 
 /// - InvoiceStatus: Indicates the status of an invoice.
 /// https://developer.squareup.com/reference/square/enums/InvoiceStatus
-enum InvoiceStatus: String, Codable {
+public enum InvoiceStatus: String, Codable {
     /// - Draft: The invoice is a draft. You must publish a draft invoice before Square can process it. A draft invoice has no public_url, so it is not available to customers.
     case Draft = "DRAFT"
     /// - Unpaid: The invoice is published but not yet paid.
@@ -1395,7 +1395,7 @@ enum InvoiceStatus: String, Codable {
 
 /// - InvoiceCustomFieldPlacement: Indicates where to render a custom field on the Square-hosted invoice page and in emailed or PDF copies of the invoice.
 /// https://developer.squareup.com/reference/square/enums/InvoiceCustomFieldPlacement
-enum InvoiceCustomFieldPlacement: String, Codable {
+public enum InvoiceCustomFieldPlacement: String, Codable {
     /// - AboveLineItems: Render the custom field above the invoice line items.
     case AboveLineItems = "ABOVE_LINE_ITEMS"
     /// - BelowLineItems: Render the custom field below the invoice line items.
@@ -1404,7 +1404,7 @@ enum InvoiceCustomFieldPlacement: String, Codable {
 
 /// - InvoiceSortField: The field to use for sorting.
 /// https://developer.squareup.com/reference/square/enums/InvoiceSortField
-enum InvoiceSortField: String, Codable {
+public enum InvoiceSortField: String, Codable {
     /// - InvoiceSortDate: The field works as follows:
     ///
     /// if the invoice is a draft, it uses the invoice created_at date.
@@ -1415,7 +1415,7 @@ enum InvoiceSortField: String, Codable {
 
 /// - BankAccountType: Indicates the financial purpose of the bank account.
 /// https://developer.squareup.com/reference/square/enums/BankAccountType
-enum BankAccountType: String, Codable {
+public enum BankAccountType: String, Codable {
     /// - Checking: An account at a financial institution against which checks can be drawn by the account depositor.
     case Checking = "CHECKING"
     /// - Savings: An account at a financial institution that pays interest but cannot be used directly as money in the narrow sense of a medium of exchange.
@@ -1430,7 +1430,7 @@ enum BankAccountType: String, Codable {
 
 /// - BankAccountStatus: Indicates the current verification status of a BankAccount object
 /// https://developer.squareup.com/reference/square/enums/BankAccountStatus
-enum BankAccountStatus: String, Codable {
+public enum BankAccountStatus: String, Codable {
     /// - VerificationInProgress: Indicates that the verification process has started. Some features (for example, creditable or debitable) may be provisionally enabled on the bank account.
     case VerificationInProgress = "VERIFICATION_IN_PROGRESS"
     /// - Verified: Indicates that the bank account was successfully verified.
@@ -1441,7 +1441,7 @@ enum BankAccountStatus: String, Codable {
 
 /// - SubscriptionStatus: Supported subscription statuses.
 /// https://developer.squareup.com/reference/square/enums/SubscriptionStatus
-enum SubscriptionStatus: String, Codable {
+public enum SubscriptionStatus: String, Codable {
     /// - Pending: The subscription is pending to start in the future.
     case Pending = "PENDING"
     /// - Active: The subscription is active.
@@ -1457,7 +1457,7 @@ enum SubscriptionStatus: String, Codable {
 
 /// - SubscriptionActionType: Supported types of an action as a pending change to a subscription.
 /// https://developer.squareup.com/reference/square/enums/SubscriptionActionType
-enum SubscriptionActionType: String, Codable {
+public enum SubscriptionActionType: String, Codable {
     /// - Cancel: Beta
     /// The action to execute a scheduled cancellation of a subscription.
     case Cancel = "CANCEL"
@@ -1474,7 +1474,7 @@ enum SubscriptionActionType: String, Codable {
 
 /// - SubscriptionEventSubscriptionEventType: Supported types of an event occurred to a subscription.
 /// https://developer.squareup.com/reference/square/enums/SubscriptionEventSubscriptionEventType
-enum SubscriptionEventSubscriptionEventType: String, Codable {
+public enum SubscriptionEventSubscriptionEventType: String, Codable {
     /// - StartSubscription: The subscription was started.
     case StartSubscription = "START_SUBSCRIPTION"
     /// - PlanChange: The subscription plan was changed.
@@ -1492,7 +1492,7 @@ enum SubscriptionEventSubscriptionEventType: String, Codable {
 
 /// - SubscriptionEventInfoCode: Supported info codes of a subscription event.
 /// https://developer.squareup.com/reference/square/enums/SubscriptionEventInfoCode
-enum SubscriptionEventInfoCode: String, Codable {
+public enum SubscriptionEventInfoCode: String, Codable {
     /// - LocationNotActive: The location is not active.
     case LocationNotActive = "LOCATION_NOT_ACTIVE"
     /// - LocationCannotAcceptPayment: The location cannot accept payments.
@@ -1510,7 +1510,7 @@ enum SubscriptionEventInfoCode: String, Codable {
 
 /// - ChangeTiming: Supported timings when a pending change, as an action, takes place to a subscription.
 /// https://developer.squareup.com/reference/square/enums/ChangeTiming
-enum ChangeTiming: String, Codable {
+public enum ChangeTiming: String, Codable {
     /// - Immediate: Beta
     /// The action occurs immediately.
     case Immediate = "IMMEDIATE"
@@ -1521,7 +1521,7 @@ enum ChangeTiming: String, Codable {
 
 /// - GiftCardType: Indicates the gift card type.
 /// https://developer.squareup.com/reference/square/enums/GiftCardType
-enum GiftCardType: String, Codable {
+public enum GiftCardType: String, Codable {
     /// - Physical: A plastic gift card.
     case Physical = "PHYSICAL"
     /// - Digital: A digital gift card.
@@ -1530,7 +1530,7 @@ enum GiftCardType: String, Codable {
 
 /// - GiftCardGANSource: Indicates the source that generated the gift card account number (GAN).
 /// https://developer.squareup.com/reference/square/enums/GiftCardGANSource
-enum GiftCardGANSource: String, Codable {
+public enum GiftCardGANSource: String, Codable {
     /// - Square: The GAN is generated by Square.
     case Square = "SQUARE"
     /// - Other: The GAN is provided by a non-Square system. For more information, see Custom GANs or Third-party gift cards.
@@ -1538,7 +1538,7 @@ enum GiftCardGANSource: String, Codable {
 }
 
 /// - GiftCardStatus: Indicates the gift card state.
-enum GiftCardStatus: String, Codable {
+public enum GiftCardStatus: String, Codable {
     /// - Active: The gift card is active and can be used as a payment source.
     case Active = "ACTIVE"
     /// - Deactivated: Any activity that changes the gift card balance is permanently forbidden.
@@ -1551,7 +1551,7 @@ enum GiftCardStatus: String, Codable {
 
 /// - LoyaltyEventType: The type of the loyalty event.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyEventType
-enum LoyaltyEventType: String, Codable {
+public enum LoyaltyEventType: String, Codable {
     /// - AccumulatePoints: Points are added to a loyalty account for a purchase that qualified for points based on an accrual rule.
     case AccumulatePoints = "ACCUMULATE_POINTS"
     /// - CreateReward: A loyalty reward is created.
@@ -1572,7 +1572,7 @@ enum LoyaltyEventType: String, Codable {
 
 /// - LoyaltyEventSource: Defines whether the event was generated by the Square Point of Sale.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyEventSource
-enum LoyaltyEventSource: String, Codable {
+public enum LoyaltyEventSource: String, Codable {
     /// - Square: The event is generated by the Square Point of Sale (POS).
     case Square = "SQUARE"
     /// - LoyaltyApi: The event is generated by something other than the Square Point of Sale that used the Loyalty API.
@@ -1581,7 +1581,7 @@ enum LoyaltyEventSource: String, Codable {
 
 /// - LoyaltyProgramStatus: Indicates whether the program is currently active.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyProgramStatus
-enum LoyaltyProgramStatus: String, Codable {
+public enum LoyaltyProgramStatus: String, Codable {
     /// - Inactive: The loyalty program does not have an active subscription. Loyalty API requests fail.
     case Inactive = "INACTIVE"
     /// - Active: The program is fully functional. The program has an active subscription.
@@ -1590,7 +1590,7 @@ enum LoyaltyProgramStatus: String, Codable {
 
 /// - LoyaltyProgramRewardDefinitionScope: Indicates the scope of the reward tier.DEPRECATED at version 2020-12-16. Discount details are now defined using a catalog pricing rule and other catalog objects. For more information, see Getting discount details for a reward tier.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyProgramRewardDefinitionScope
-enum LoyaltyProgramRewardDefinitionScope: String, Codable {
+public enum LoyaltyProgramRewardDefinitionScope: String, Codable {
     /// - Order: Deprecated
     /// The discount applies to the entire order.
     case Order = "ORDER"
@@ -1605,7 +1605,7 @@ enum LoyaltyProgramRewardDefinitionScope: String, Codable {
 /// - LoyaltyProgramRewardDefinitionType: The type of discount the reward tier offers.
 /// DEPRECATED at version 2020-12-16. Discount details are now defined using a catalog pricing rule and other catalog objects. For more information, see Getting discount details for a reward tier.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyProgramRewardDefinitionType
-enum LoyaltyProgramRewardDefinitionType: String, Codable {
+public enum LoyaltyProgramRewardDefinitionType: String, Codable {
     /// - FixedAmount: Deprecated
     /// The fixed amount discounted.
     case FixedAmount = "FIXED_AMOUNT"
@@ -1616,7 +1616,7 @@ enum LoyaltyProgramRewardDefinitionType: String, Codable {
 
 /// - LoyaltyProgramAccrualRuleType: The type of the accrual rule that defines how buyers can earn points.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyProgramAccrualRuleType
-enum LoyaltyProgramAccrualRuleType: String, Codable {
+public enum LoyaltyProgramAccrualRuleType: String, Codable {
     /// - Visit: A visit-based accrual rule. A buyer earns points for each visit. You can specify the minimum purchase required.
     case Visit = "VISIT"
     /// - Spend: A spend-based accrual rule. A buyer earns points based on the amount spent.
@@ -1630,7 +1630,7 @@ enum LoyaltyProgramAccrualRuleType: String, Codable {
 /// - LoyaltyProgramAccrualRuleTaxMode: Indicates how taxes should be treated when calculating the purchase amount used for loyalty points accrual.
 /// This setting applies only to SPEND accrual rules or VISIT accrual rules that have a minimum spend requirement.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyProgramAccrualRuleTaxMode
-enum LoyaltyProgramAccrualRuleTaxMode: String, Codable {
+public enum LoyaltyProgramAccrualRuleTaxMode: String, Codable {
     /// - BeforeTax: Exclude taxes from the purchase amount used for loyalty points accrual.
     case BeforeTax = "BEFORE_TAX"
     /// - AfterTax: Include taxes in the purchase amount used for loyalty points accrual.
@@ -1638,7 +1638,7 @@ enum LoyaltyProgramAccrualRuleTaxMode: String, Codable {
 }
 
 /// - LoyaltyPromotionStatus: Indicates the status of a loyalty promotion.
-enum LoyaltyPromotionStatus: String, Codable {
+public enum LoyaltyPromotionStatus: String, Codable {
     /// - Active: The loyalty promotion is currently active. Buyers can earn points for purchases that meet the promotion conditions, such as the promotion's available_time.
     case Active = "ACTIVE"
     /// - Ended: The loyalty promotion has ended because the specified end_date was reached. ENDED is a terminal status.
@@ -1651,7 +1651,7 @@ enum LoyaltyPromotionStatus: String, Codable {
 
 /// - LoyaltyPromotionIncentiveType: Indicates the type of points incentive for a loyalty promotion, which is used to determine how buyers can earn points from the promotion.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyPromotionIncentiveType
-enum LoyaltyPromotionIncentiveType: String, Codable {
+public enum LoyaltyPromotionIncentiveType: String, Codable {
     /// - PointsMultuplier: Multiply the number of points earned from the base loyalty program. For example, "Earn double points."
     case PointsMultuplier = "POINTS_MULTIPLIER"
     /// - PointsAddition: Add a specified number of points to those earned from the base loyalty program. For example, "Earn 10 additional points."
@@ -1660,7 +1660,7 @@ enum LoyaltyPromotionIncentiveType: String, Codable {
 
 /// - LoyaltyPromotionTriggerLimitInterval: Indicates the time period that the trigger limit applies to, which is used to determine the number of times a buyer can earn points for a loyalty promotion.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyPromotionTriggerLimitInterval
-enum LoyaltyPromotionTriggerLimitInterval: String, Codable {
+public enum LoyaltyPromotionTriggerLimitInterval: String, Codable {
     /// - AllTime: The limit applies to the entire time that the promotion is active. For example, if times is set to 1 and time_period is set to ALL_TIME, a buyer can earn promotion points a maximum of one time during the promotion.
     case AllTime = "ALL_TIME"
     /// - Day: The limit applies per day, according to the available_time schedule specified for the promotion. For example, if the times field of the trigger limit is set to 1, a buyer can trigger the promotion a maximum of once per day.
@@ -1669,7 +1669,7 @@ enum LoyaltyPromotionTriggerLimitInterval: String, Codable {
 
 /// - LoyaltyRewardStatus: The status of the loyalty reward.
 /// https://developer.squareup.com/reference/square/enums/LoyaltyRewardStatus
-enum LoyaltyRewardStatus: String, Codable {
+public enum LoyaltyRewardStatus: String, Codable {
     /// - Issued: The reward is issued.
     case Issued = "ISSUED"
     /// - Redeemed: The reward is redeemed.
@@ -1681,7 +1681,7 @@ enum LoyaltyRewardStatus: String, Codable {
 /// - CustomAttributeDefinitionVisibility: The level of permission that a seller or other applications requires to view this custom attribute definition.
 /// The Visibility field controls who can read and write the custom attribute values and custom attribute definition.
 /// https://developer.squareup.com/reference/square/enums/CustomAttributeDefinitionVisibility
-enum CustomAttributeDefinitionVisibility: String, Codable {
+public enum CustomAttributeDefinitionVisibility: String, Codable {
     /// - VisibilityHidden: The custom attribute definition and values are hidden from the seller (except on export of all seller data) and other developers.
     case VisibilityHidden = "VISIBILITY_HIDDEN"
     /// - VisibilityReadOnly: The seller and other developers can read the custom attribute definition and values on resources.
@@ -1692,7 +1692,7 @@ enum CustomAttributeDefinitionVisibility: String, Codable {
 
 /// - VisibilityFilter: Enumeration of visibility-filter values used to set the ability to view custom attributes or custom attribute definitions.
 /// https://developer.squareup.com/reference/square/enums/VisibilityFilter
-enum VisibilityFilter: String, Codable {
+public enum VisibilityFilter: String, Codable {
     /// - All: All custom attributes or custom attribute definitions.
     case All = "ALL"
     /// - Read: All custom attributes or custom attribute definitions with the visibility field set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
@@ -1703,13 +1703,13 @@ enum VisibilityFilter: String, Codable {
 
 /// - ProductType:
 /// https://developer.squareup.com/reference/square/enums/ProductType
-enum ProductType: String, Codable {
+public enum ProductType: String, Codable {
     case TerminalApi = "TERMINAL_API"
 }
 
 /// - DeviceCodeStatus: DeviceCode.Status enum.
 /// https://developer.squareup.com/reference/square/enums/DeviceCodeStatus
-enum DeviceCodeStatus: String, Codable {
+public enum DeviceCodeStatus: String, Codable {
     /// - Unknown: The status cannot be determined or does not exist.
     case Unknown = "UNKNOWN"
     /// - Unpaided: The device code is just created and unpaired.
@@ -1722,7 +1722,7 @@ enum DeviceCodeStatus: String, Codable {
 
 /// - CashDrawerShiftState: The current state of a cash drawer shift.
 /// https://developer.squareup.com/reference/square/enums/CashDrawerShiftState
-enum CashDrawerShiftState: String, Codable {
+public enum CashDrawerShiftState: String, Codable {
     /// - Open: An open cash drawer shift.
     case Open = "OPEN"
     /// - Ended: A cash drawer shift that is ended but has not yet had an employee content audit.
@@ -1734,7 +1734,7 @@ enum CashDrawerShiftState: String, Codable {
 /// - CashDrawerEventType: The types of events on a CashDrawerShift.
 /// Each event type represents an employee action on the actual cash drawer represented by a CashDrawerShift.
 /// https://developer.squareup.com/reference/square/enums/CashDrawerEventType
-enum CashDrawerEventType: String, Codable {
+public enum CashDrawerEventType: String, Codable {
     /// - NoSale: Triggered when a no sale occurs on a cash drawer. A CashDrawerEvent of this type must have a zero money amount.
     case NoSale = "NO_SALE"
     /// - CashTenderPayment: Triggered when a cash tender payment occurs on a cash drawer. A CashDrawerEvent of this type can must not have a negative amount.
@@ -1757,7 +1757,7 @@ enum CashDrawerEventType: String, Codable {
 
 /// - VendorStatus: The status of the Vendor, whether a Vendor is active or inactive.
 /// https://developer.squareup.com/reference/square/enums/VendorStatus
-enum VendorStatus: String, Codable {
+public enum VendorStatus: String, Codable {
     /// - Active: Beta
     /// Vendor is active and can receive purchase orders.
     case Active = "ACTIVE"
@@ -1767,7 +1767,7 @@ enum VendorStatus: String, Codable {
 }
 
 /// - SearchVendorsRequestSortField: The field to sort the returned Vendor objects by.
-enum SearchVendorsRequestSortField: String, Codable {
+public enum SearchVendorsRequestSortField: String, Codable {
     /// - Name: Beta
     /// To sort the result by the name of the Vendor objects.
     case Name = "NAME"
@@ -1776,7 +1776,7 @@ enum SearchVendorsRequestSortField: String, Codable {
     case CreatedAt = "CREATED_AT"
 }
 
-enum PaymentRefundStatus: String, Codable {
+public enum PaymentRefundStatus: String, Codable {
     /// - Pending: Awaiting approval.
     case Pending = "PENDING"
     /// - Completed: Successfully completed.
@@ -1787,7 +1787,7 @@ enum PaymentRefundStatus: String, Codable {
     case Failed = "FAILED"
 }
 
-enum PaymentRefundDestinationType: String, Codable {
+public enum PaymentRefundDestinationType: String, Codable {
     case Card = "CARD"
     case BankAccount = "BANK_ACCOUNT"
     case Wallet = "WALLET"
@@ -1796,7 +1796,7 @@ enum PaymentRefundDestinationType: String, Codable {
     case External = "EXTERNAL"
 }
 
-enum DestinationDetailsCardRefundDetailsEntryMethod: String, Codable {
+public enum DestinationDetailsCardRefundDetailsEntryMethod: String, Codable {
     case Keyed = "KEYED"
     case Swiped = "SWIPED"
     case EMV = "EMV"
@@ -1806,7 +1806,7 @@ enum DestinationDetailsCardRefundDetailsEntryMethod: String, Codable {
 
 /// - DisputeState: The list of possible dispute states.
 /// https://developer.squareup.com/reference/square/enums/DisputeState
-enum DisputeState: String, Codable {
+public enum DisputeState: String, Codable {
     /// - InquiryEvidenceRequired: The initial state of an inquiry with evidence required
     case InquiryEvidenceRequired = "INQUIRY_EVIDENCE_REQUIRED"
     /// - InquiryProcessing: Inquiry evidence has been submitted and the bank is processing the inquiry
@@ -1827,7 +1827,7 @@ enum DisputeState: String, Codable {
 
 /// - DisputeEvidenceType: The type of the dispute evidence.
 /// https://developer.squareup.com/reference/square/enums/DisputeEvidenceType
-enum DisputeEvidenceType: String, Codable {
+public enum DisputeEvidenceType: String, Codable {
     /// - GenericEvidence: Square assumes this evidence type if you do not provide a type when uploading evidence.
     /// Use when uploading evidence as a file or string.
     case GenericEvidence = "GENERIC_EVIDENCE"
@@ -1877,7 +1877,7 @@ enum DisputeEvidenceType: String, Codable {
 
 /// - RegisterDomainResponseStatus: The status of the domain registration.
 /// https://developer.squareup.com/reference/square/enums/RegisterDomainResponseStatus
-enum RegisterDomainResponseStatus: String, Codable {
+public enum RegisterDomainResponseStatus: String, Codable {
     /// - Pending: The domain is added, but not verified.
     case Pending = "PENDING"
     /// - Verified: The domain is added and verified. It can be used to accept Apple Pay transactions.
@@ -1886,7 +1886,7 @@ enum RegisterDomainResponseStatus: String, Codable {
 
 /// - PayoutStatus: Payout status types
 /// https://developer.squareup.com/reference/square/enums/PayoutStatus
-enum PayoutStatus: String, Codable {
+public enum PayoutStatus: String, Codable {
     /// - Sent: Indicates that the payout was successfully sent to the banking destination.
     case Sent = "SENT"
     /// - Failed: Indicates that the payout was rejected by the banking destination.
@@ -1897,7 +1897,7 @@ enum PayoutStatus: String, Codable {
 
 /// - DestinationType: List of possible destinations against which a payout can be made.
 /// https://developer.squareup.com/reference/square/enums/DestinationType
-enum DestinationType: String, Codable {
+public enum DestinationType: String, Codable {
     /// - BankAccount: An external bank account outside of Square.
     case BankAccount = "BANK_ACCOUNT"
     /// - Card: An external card outside of Square used for the transfer.
@@ -1911,7 +1911,7 @@ enum DestinationType: String, Codable {
 /// - PayoutType: The type of payout: “BATCH” or “SIMPLE”.
 /// BATCH payouts include a list of payout entries that can be considered settled. SIMPLE payouts do not have any payout entries associated with them and will show up as one of the payout entries in a future BATCH payout.
 /// https://developer.squareup.com/reference/square/enums/PayoutType
-enum PayoutType: String, Codable {
+public enum PayoutType: String, Codable {
     /// - Batch: Payouts that include a list of payout entries that can be considered settled.
     case Batch = "BATCH"
     /// - Simple: Payouts that do not have any payout entries associated with them and will show up as one of the payout entries in a future BATCH payout.
@@ -1920,7 +1920,7 @@ enum PayoutType: String, Codable {
 
 /// - PayoutFeeType: Represents the type of payout fee that can incur as part of a payout.
 /// https://developer.squareup.com/reference/square/enums/PayoutFeeType
-enum PayoutFeeType: String, Codable {
+public enum PayoutFeeType: String, Codable {
     /// - TransferFee: Fee type associated with transfers.
     case TransferFee = "TRANSFER_FEE"
     /// - TaxOnTransferFee: Taxes associated with the transfer fee.
@@ -1929,7 +1929,7 @@ enum PayoutFeeType: String, Codable {
 
 /// - ActivityType:
 /// https://developer.squareup.com/reference/square/enums/ActivityType
-enum ActivityType: String, Codable {
+public enum ActivityType: String, Codable {
     /// - Adjustment: A manual adjustment applied to the seller's account by Square.
     case Adjustment = "ADJUSTMENT"
     /// - AppFeeRefund: A refund for an application fee on a payment.
@@ -2012,7 +2012,7 @@ enum ActivityType: String, Codable {
 
 /// - GiftCardActivityType: Indicates the type of gift card activity.
 /// https://developer.squareup.com/reference/square/objects/GiftCardActivityType
-enum GiftCardActivityType: String, Codable {
+public enum GiftCardActivityType: String, Codable {
     
     /// - Activate: Activated a gift card with a balance. When a gift card is activated, Square changes the gift card state from PENDING to ACTIVE. A gift card must be in the ACTIVE state to be used for other balance-changing activities.
     case Activate = "ACTIVATE"
@@ -2053,7 +2053,7 @@ enum GiftCardActivityType: String, Codable {
 /// - GiftCardActivityRedeemStatus: Indicates the status of a gift card redemption.
 /// This status is relevant only for redemptions made from Square products (such as Square Point of Sale) because Square products use a two-state process. Gift cards redeemed using the Gift Card Activities API always have a COMPLETED status.
 /// https://developer.squareup.com/reference/square/enums/GiftCardActivityRedeemStatus
-enum GiftCardActivityRedeemStatus: String, Codable {
+public enum GiftCardActivityRedeemStatus: String, Codable {
     
     /// - Pending: The gift card redemption is pending. PENDING is a temporary status that applies when a gift card is redeemed from Square Point of Sale or another Square product. A PENDING status is updated to COMPLETED if the payment is captured or CANCELED if the authorization is voided.
     case Pending = "PENDING"
@@ -2065,7 +2065,7 @@ enum GiftCardActivityRedeemStatus: String, Codable {
 
 /// - ShiftStatus: Enumerates the possible status of a Shift.
 /// https://developer.squareup.com/reference/square/enums/ShiftStatus
-enum ShiftStatus: String, Codable {
+public enum ShiftStatus: String, Codable {
     
     /// - Open: Employee started a work shift and the shift is not complete
     case Open = "OPEN"
@@ -2075,7 +2075,7 @@ enum ShiftStatus: String, Codable {
 
 /// - ShiftFilterStatus: Specifies the status of Shift records to be returned.
 /// https://developer.squareup.com/reference/square/enums/ShiftFilterStatus
-enum ShiftFilterStatus: String, Codable {
+public enum ShiftFilterStatus: String, Codable {
     
     /// - Open: Shifts that have been started and not ended.
     case Open = "OPEN"
@@ -2085,7 +2085,7 @@ enum ShiftFilterStatus: String, Codable {
 
 /// - ShiftWorkdayMatcher: Defines the logic used to apply a workday filter.
 /// https://developer.squareup.com/reference/square/enums/ShiftWorkdayMatcher
-enum ShiftWorkdayMatcher: String, Codable {
+public enum ShiftWorkdayMatcher: String, Codable {
     
     /// - StartAt: All shifts that start on or after the specified workday
     case StartAt = "START_AT"
@@ -2097,7 +2097,7 @@ enum ShiftWorkdayMatcher: String, Codable {
 
 /// - ShiftSortField: Enumerates the Shift fields to sort on.
 /// https://developer.squareup.com/reference/square/enums/ShiftSortField
-enum ShiftSortField: String, Codable {
+public enum ShiftSortField: String, Codable {
     
     /// - StartAt: The start date/time of a Shift
     case StartAt = "START_AT"

@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveSubscriptionResponse: SquareupResponse {
     
     /// - subscription: The subscription retrieved.
-    var subscription: Subscription?
+    public var subscription: Subscription?
     
     enum CodingKeys: String, CodingKey {
         case subscription = "subscription"

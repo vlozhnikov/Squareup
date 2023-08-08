@@ -12,15 +12,15 @@ import Foundation
 open class ExternalPaymentDetails: Codable {
     
     /// - type: The type of external payment the seller received. It can be one of the following:
-    var type: ExternalPaymentDetailsType?
+    public var type: ExternalPaymentDetailsType?
     /// - Source: A description of the external payment source. For example, "Food Delivery Service".
     /// Max Length 255
-    var Source: String?
+    public var Source: String?
     /// - SourceId: An ID to associate the payment to its originating source.
     /// Max Length 255
-    var SourceId: String?
+    public var SourceId: String?
     /// - SourceFeeMoney: The fees paid to the source. The amount_money minus this field is the net amount seller receives.
-    var SourceFeeMoney: Money?
+    public var SourceFeeMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case type = "type"

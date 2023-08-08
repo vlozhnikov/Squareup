@@ -14,12 +14,12 @@ open class LoyaltyEventCreateReward: Codable {
     /// - LoyaltyProgramId: Read only The ID of the loyalty program.
     /// Min Length  1
     /// Max Length 36
-    var LoyaltyProgramId: String?
+    public var LoyaltyProgramId: String?
     /// - RewardId: Read only The Square-assigned ID of the created loyalty reward. This field is returned only if the event source is LOYALTY_API.
     /// Max Length 36
-    var RewardId: String?
+    public var RewardId: String?
     /// - Points: Read only The loyalty points used to create the reward.
-    var Points: Int?
+    public var Points: Int?
     
     enum CodingKeys: String, CodingKey {
         case LoyaltyProgramId = "loyalty_program_id"

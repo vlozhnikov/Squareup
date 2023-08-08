@@ -8,12 +8,12 @@
 import Foundation
 import Alamofire
 
-internal class CreateCatalogImageRequest: Codable {
+open class CreateCatalogImageRequest: Codable {
     
-    var IdempotencyKey: String?
-    var ObjectId: String?
-    var Image: CatalogObject?
-    var IsPrimary: Bool?
+    public var IdempotencyKey: String?
+    public var ObjectId: String?
+    public var Image: CatalogObject?
+    public var IsPrimary: Bool?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

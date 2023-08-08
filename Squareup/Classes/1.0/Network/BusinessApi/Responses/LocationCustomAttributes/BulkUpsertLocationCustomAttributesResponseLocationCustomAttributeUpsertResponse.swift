@@ -10,9 +10,9 @@ import Foundation
 open class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse: SquareupResponse {
     
     /// - LocationId: The ID of the location associated with the custom attribute.
-    var LocationId: String?
+    public var LocationId: String?
     /// - customAttribute: The new or updated custom attribute.
-    var customAttribute: CustomAttribute?
+    public var customAttribute: CustomAttribute?
     
     enum CodingKeys: String, CodingKey {
         case LocationId = "location_id"

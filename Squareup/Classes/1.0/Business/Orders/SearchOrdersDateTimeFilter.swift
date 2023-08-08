@@ -18,11 +18,11 @@ import Foundation
 open class SearchOrdersDateTimeFilter: Codable {
     
     /// - CreatedAt: The time range for filtering on the created_at timestamp. If you use this value, you must set the sort_field in the OrdersSearchSort object to CREATED_AT.
-    var CreatedAt: TimeRange?
+    public var CreatedAt: TimeRange?
     /// - UpdatedAt: The time range for filtering on the updated_at timestamp. If you use this value, you must set the sort_field in the OrdersSearchSort object to UPDATED_AT.
-    var UpdatedAt: TimeRange?
+    public var UpdatedAt: TimeRange?
     /// - ClosedAt: The time range for filtering on the closed_at timestamp. If you use this value, you must set the sort_field in the OrdersSearchSort object to CLOSED_AT.
-    var ClosedAt: TimeRange?
+    public var ClosedAt: TimeRange?
     
     enum CodingKeys: String, CodingKey {
         case CreatedAt = "created_at"

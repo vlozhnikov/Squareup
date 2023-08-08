@@ -12,7 +12,7 @@ import Foundation
 open class RetrieveVendorResponse: SquareupResponse {
     
     /// - vendor: The successfully retrieved Vendor object.
-    var vendor: Vendor?
+    public var vendor: Vendor?
     
     enum CodingKeys: String, CodingKey {
         case vendor = "vendor"

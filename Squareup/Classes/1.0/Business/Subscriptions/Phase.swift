@@ -12,13 +12,13 @@ import Foundation
 open class Phase: Codable {
     
     /// - UID: id of subscription phase
-    var UID: String?
+    public var UID: String?
     /// - Ordinal: index of phase in total subscription plan
-    var Ordinal: Int?
+    public var Ordinal: Int?
     /// - OrderTemplateId: id of order to be used in billing
-    var OrderTemplateId: String?
+    public var OrderTemplateId: String?
     /// - PlanPhaseUid: the uid from the plan's phase in catalog
-    var PlanPhaseUid: String?
+    public var PlanPhaseUid: String?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

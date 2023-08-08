@@ -12,34 +12,34 @@ import Foundation
 open class CheckoutOptions: Codable {
     
     /// - AllowTipping: Indicates whether the payment allows tipping.
-    var AllowTipping: Bool?
+    public var AllowTipping: Bool?
     /// - CustomFields: The custom fields requesting information from the buyer.
-    var CustomFields: [CustomField]?
+    public var CustomFields: [CustomField]?
     /// - SubscriptionPlanId: The ID of the subscription plan for the buyer to pay and subscribe. For more information, see Subscription Plan Checkout.
     /// Max Length 255
-    var SubscriptionPlanId: String?
+    public var SubscriptionPlanId: String?
     /// - RedirectUrl: The confirmation page URL to redirect the buyer to after Square processes the payment.
     /// Max Length 2048
-    var RedirectUrl: String?
+    public var RedirectUrl: String?
     /// - MerchantSupportEmail: The email address that buyers can use to contact the seller.
     /// Max Length 256
-    var MerchantSupportEmail: String?
+    public var MerchantSupportEmail: String?
     /// - AskForShippingAddress: Indicates whether to include the address fields in the payment form.
-    var AskForShippingAddress: Bool?
+    public var AskForShippingAddress: Bool?
     /// - acceptedPaymentMethods: The methods allowed for buyers during checkout.
-    var acceptedPaymentMethods: AcceptedPaymentMethods?
+    public var acceptedPaymentMethods: AcceptedPaymentMethods?
     /// - AppFeeMoney: The amount of money that the developer is taking as a fee for facilitating the payment on behalf of the seller.
     /// The amount cannot be more than 90% of the total amount of the payment.
     /// The amount must be specified in the smallest denomination of the applicable currency (for example, US dollar amounts are specified in cents). For more information, see Working with Monetary Amounts.
     /// The fee currency code must match the currency associated with the seller that is accepting the payment. The application must be from a developer account in the same country and using the same currency code as the seller. For more information about the application fee scenario, see Take Payments and Collect Fees.
     /// To set this field, PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS OAuth permission is required. For more information, see Permissions.
-    var AppFeeMoney: Money?
+    public var AppFeeMoney: Money?
     /// - shippingFee: The fee associated with shipping to be applied to the Order as a service charge.
-    var shippingFee: ShippingFee?
+    public var shippingFee: ShippingFee?
     /// - EnableCoupon: Indicates whether to include the Add coupon section for the buyer to provide a Square marketing coupon in the payment form.
-    var EnableCoupon: Bool?
+    public var EnableCoupon: Bool?
     /// - EnableLoyalty: Indicates whether to include the REWARDS section for the buyer to opt in to loyalty, redeem rewards in the payment form, or both.
-    var EnableLoyalty: Bool?
+    public var EnableLoyalty: Bool?
     
     enum CodingKeys: String, CodingKey {
         case AllowTipping = "allow_tipping"

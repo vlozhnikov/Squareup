@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpdateWorkweekConfigRequest: Codable {
+open class UpdateWorkweekConfigRequest: Codable {
     
     /// - workweekConfig: The updated WorkweekConfig object.
-    var workweekConfig: WorkweekConfig?
+    public var workweekConfig: WorkweekConfig?
     
     enum CodingKeys: String, CodingKey {
         case workweekConfig = "workweek_config"

@@ -10,7 +10,7 @@ import Foundation
 /// - BookingCustomAttributeDeleteRequest: Represents an individual delete request in a BulkDeleteBookingCustomAttributes request.
 /// An individual request contains a booking ID, the custom attribute to delete, and an optional idempotency key.
 /// https://developer.squareup.com/reference/square/objects/BookingCustomAttributeDeleteRequest
-internal class BookingCustomAttributeDeleteRequest: Codable {
+public class BookingCustomAttributeDeleteRequest: Codable {
     
     /// - BookingId: The ID of the target booking.
     /// Min Length 1

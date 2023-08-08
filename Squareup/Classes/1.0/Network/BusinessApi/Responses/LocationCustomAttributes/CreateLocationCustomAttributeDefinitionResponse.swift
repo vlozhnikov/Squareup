@@ -10,7 +10,7 @@ import Foundation
 open class CreateLocationCustomAttributeDefinitionResponse: SquareupResponse {
     
     /// - customAttributeDefinition: The new custom attribute definition.
-    var customAttributeDefinition: CustomAttributeDefinition?
+    public var customAttributeDefinition: CustomAttributeDefinition?
     
     enum CodingKeys: String, CodingKey {
         case customAttributeDefinition = "custom_attribute_definition"

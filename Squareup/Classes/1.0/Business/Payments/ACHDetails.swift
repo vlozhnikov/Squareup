@@ -13,16 +13,16 @@ open class ACHDetails: Codable {
     
     /// - RoutingNumber: The routing number for the bank account.
     /// Max Length 50
-    var RoutingNumber: String?
+    public var RoutingNumber: String?
     /// - AccountNumberSuffix: The last few digits of the bank account number.
     /// Min Length 1
     /// Max Length 4
-    var AccountNumberSuffix: String?
+    public var AccountNumberSuffix: String?
     /// - AccountType: The type of the bank account performing the transfer. The account type can be CHECKING, SAVINGS, or UNKNOWN.
     /// Max Length 50
-    var AccountType: ACHDetailsAccountType?
+    public var AccountType: ACHDetailsAccountType?
     /// - Errors: Information about errors encountered during the request.
-    var Errors: [SquareErrorResponse]?
+    public var Errors: [SquareErrorResponse]?
     
     enum CodingKeys: String, CodingKey {
         case RoutingNumber = "routing_number"

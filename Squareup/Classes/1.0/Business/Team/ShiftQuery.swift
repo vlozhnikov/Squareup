@@ -12,9 +12,9 @@ import Foundation
 open class ShiftQuery: Codable {
     
     /// - Filter: Query filter options.
-    var Filter: ShiftFilter?
+    public var Filter: ShiftFilter?
     /// - Sort: Sort order details.
-    var Sort: ShiftSort?
+    public var Sort: ShiftSort?
     
     enum CodingKeys: String, CodingKey {
         case Filter = "filter"

@@ -12,22 +12,22 @@ import Foundation
 open class Merchant: Codable {
     
     /// - Id: The Square-issued ID of the merchant.
-    var Id: String?
+    public var Id: String?
     /// - BusinessName: The name of the merchant's overall business.
-    var BusinessName: String?
+    public var BusinessName: String?
     /// - country: The country code associated with the merchant, in the two-letter format of ISO 3166. For example, US or JP.
-    var country: Country?
+    public var country: Country?
     /// - LanguageCode: The code indicating the language preferences of the merchant, in BCP 47 format. For example, en-US or fr-CA.
-    var LanguageCode: String?
+    public var LanguageCode: String?
     /// - currency: The currency associated with the merchant, in ISO 4217 format. For example, the currency code for US dollars is USD.
-    var currency: Currency?
+    public var currency: Currency?
     /// - status: The merchant's status.
-    var status: MerchantStatus?
+    public var status: MerchantStatus?
     /// - MainLocationId: The ID of the main Location for this merchant.
-    var MainLocationId: String?
+    public var MainLocationId: String?
     /// - CreatedAt: Read only The time when the merchant was created, in RFC 3339 format
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

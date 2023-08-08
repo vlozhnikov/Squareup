@@ -9,7 +9,7 @@ import Foundation
 
 open class UpdateTeamMemberResponse: SquareupResponse {
     
-    var TeamMember: TeamMember?
+    public var TeamMember: TeamMember?
     
     enum CodingKeys: String, CodingKey {
         case TeamMember = "team_member"

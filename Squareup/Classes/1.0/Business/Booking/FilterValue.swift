@@ -14,11 +14,11 @@ import Foundation
 open class FilterValue: Codable {
     
     /// - All: A list of terms that must be present on the field of the resource.
-    var All: [String]?
+    public var All: [String]?
     /// - any: A list of terms where at least one of them must be present on the field of the resource.
-    var any: [String]?
+    public var any: [String]?
     /// - None: A list of terms that must not be present on the field the resource
-    var None: [String]?
+    public var None: [String]?
     
     enum CodingKeys: String, CodingKey {
         case All = "all"

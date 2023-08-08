@@ -13,9 +13,9 @@ import Foundation
 open class CatalogObjectReference: Codable {
     
     /// - ObjectId: The ID of the referenced object.
-    var ObjectId: String?
+    public var ObjectId: String?
     /// - CatalogVersion: The version of the object.
-    var CatalogVersion: Int?
+    public var CatalogVersion: Int?
     
     enum CodingKeys: String, CodingKey {
         case ObjectId = "object_id"

@@ -10,9 +10,9 @@ import Foundation
 open class ListPaymentsResponse: SquareupResponse {
     
     /// - Payments: he requested list of payments.
-    var Payments: [Payment]?
+    public var Payments: [Payment]?
     /// - Cursor: The pagination cursor to be used in a subsequent request. If empty, this is the final response.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Payments = "payments"

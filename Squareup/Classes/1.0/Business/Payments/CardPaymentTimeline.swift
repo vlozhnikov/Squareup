@@ -17,7 +17,7 @@ open class CardPaymentTimeline: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var AuthorizedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var AuthorizedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var AuthorizedAt: Date?
     /// - CapturedAt: The timestamp when the payment was captured, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -25,7 +25,7 @@ open class CardPaymentTimeline: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CapturedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CapturedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CapturedAt: Date?
     /// - VoidedAt: The timestamp when the payment was voided, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -33,7 +33,7 @@ open class CardPaymentTimeline: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var VoidedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var VoidedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var VoidedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case AuthorizedAt = "authorized_at"

@@ -13,7 +13,7 @@ open class SearchOrdersSourceFilter: Codable {
     
     /// - SourceNames: Filters by the Source name. The filter returns any orders with a source.name that matches any of the listed source names.
     /// Max: 10 source names.
-    var SourceNames: [String]?
+    public var SourceNames: [String]?
     
     enum CodingKeys: String, CodingKey {
         case SourceNames = "source_names"

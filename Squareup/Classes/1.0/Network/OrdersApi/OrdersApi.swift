@@ -33,7 +33,7 @@ open class OrdersApi {
         /// You can modify open orders using the UpdateOrder endpoint.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/create-order
-        func createOrder(order: Order,
+        public func createOrder(order: Order,
                          idempotencyKey: String?,
                          accessToken: String,
                          completion: ((CreateOrderResponse) -> Void)? = nil,
@@ -56,7 +56,7 @@ open class OrdersApi {
         /// If a given order ID does not exist, the ID is ignored instead of generating an error.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/orders-api/batch-retrieve-orders
-        func batchRetrieveOrders(locationId: String,
+        public func batchRetrieveOrders(locationId: String,
                                  orderIds: [String],
                                  accessToken: String,
                                  completion: ((BatchRetrieveOrdersResponse) -> Void)? = nil,
@@ -76,7 +76,7 @@ open class OrdersApi {
         
         /// - calculateOrder: Enables applications to preview order pricing without creating an order.
         /// https://developer.squareup.com/reference/square/orders-api/calculate-order
-        func calculateOrder(order: Order,
+        public func calculateOrder(order: Order,
                             proposedRewards: [OrderReward],
                             accessToken: String,
                             completion: ((CalculateOrderResponse) -> Void)? = nil,
@@ -98,7 +98,7 @@ open class OrdersApi {
         /// The newly created order has only the core fields (such as line items, taxes, and discounts) copied from the original order.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/clone-order
-        func cloneOrder(orderId: String,
+        public func cloneOrder(orderId: String,
                         version: Int?,
                         idempotencyKey: String?,
                         accessToken: String,
@@ -126,7 +126,7 @@ open class OrdersApi {
         ///
         /// Note that details for orders processed with Square Point of Sale while in offline mode might not be transmitted to Square for up to 72 hours. Offline orders have a created_at value that reflects the time the order was created, not the time it was subsequently transmitted to Square.
         /// Permissions: ORDERS_READ
-        func searchOrders(locationIds: [String],
+        public func searchOrders(locationIds: [String],
                           cursor: String?,
                           query: SearchOrdersQuery,
                           limit: Int?,
@@ -153,7 +153,7 @@ open class OrdersApi {
         /// - retrieveOrder: Retrieves an Order by ID.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/orders-api/retrieve-order
-        func retrieveOrder(orderId: String,
+        public func retrieveOrder(orderId: String,
                            accessToken: String,
                            completion: ((RetrieveOrderResponse) -> Void)? = nil,
                            failed: ((Error) -> Void)? = nil) {
@@ -179,7 +179,7 @@ open class OrdersApi {
         /// To pay for an order, see Pay for Orders.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/update-order
-        func updateOrder(orderId: String,
+        public func updateOrder(orderId: String,
                          order: Order?,
                          fieldsToClear: [String],
                          idempotencyKey: String?,
@@ -209,7 +209,7 @@ open class OrdersApi {
         /// Be approved with delayed capture. Using a delayed capture payment with PayOrder completes the approved payment.
         /// Permissions: PAYMENTS_WRITE, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/pay-order
-        func payOrder(orderId: String,
+        public func payOrder(orderId: String,
                       orderVersion: Int?,
                       paymentIds: [String],
                       idempotencyKey: String?,
@@ -242,7 +242,7 @@ open class OrdersApi {
         /// When all response pages are retrieved, the results include all custom attribute definitions that are visible to the requesting application, including those that are created by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/list-order-custom-attribute-definitions
-        func listOrderCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
+        public func listOrderCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
                                                  cursor: String?,
                                                  limit: Int?,
                                                  accessToken: String,
@@ -269,7 +269,7 @@ open class OrdersApi {
         /// After creating a custom attribute definition, you can set the custom attribute for orders in the Square seller account.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/create-order-custom-attribute-definition
-        func createOrderCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
+        public func createOrderCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
                                                   idempotencyKey: String,
                                                   accessToken: String,
                                                   completion: ((CreateOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -292,7 +292,7 @@ open class OrdersApi {
         /// Only the definition owner can delete a custom attribute definition.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/delete-order-custom-attribute-definition
-        func deleteOrderCustomAttributeDefinition(key: String,
+        public func deleteOrderCustomAttributeDefinition(key: String,
                                                   accessToken: String,
                                                   completion: ((SquareupResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
@@ -309,7 +309,7 @@ open class OrdersApi {
         /// To retrieve a custom attribute definition created by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/retrieve-order-custom-attribute-definition
-        func retrieveOrderCustomAttributeDefinition(key: String,
+        public func retrieveOrderCustomAttributeDefinition(key: String,
                                                     version: Int?,
                                                     accessToken: String,
                                                     completion: ((RetrieveOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
@@ -331,7 +331,7 @@ open class OrdersApi {
         /// Only the definition owner can update a custom attribute definition. Note that sellers can view all custom attributes in exported customer data, including those set to VISIBILITY_HIDDEN.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/update-order-custom-attribute-definition
-        func updateOrderCustomAttributeDefinition(key: String,
+        public func updateOrderCustomAttributeDefinition(key: String,
                                                   customAttributeDefinition: CustomAttributeDefinition?,
                                                   idempotencyKey: String?,
                                                   accessToken: String,
@@ -357,7 +357,7 @@ open class OrdersApi {
         /// To delete a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/bulk-delete-order-custom-attributes
-        func bulkDeleteOrderCustomAttributes(values: [String: BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute]?,
+        public func bulkDeleteOrderCustomAttributes(values: [String: BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute]?,
                                              accessToken: String,
                                              completion: ((BulkDeleteOrderCustomAttributesResponse) -> Void)? = nil,
                                              failed: ((Error) -> Void)? = nil) {
@@ -379,7 +379,7 @@ open class OrdersApi {
         /// To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/bulk-upsert-order-custom-attributes
-        func bulkUpsertOrderCustomAttributes(values: [String: BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute]?,
+        public func bulkUpsertOrderCustomAttributes(values: [String: BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute]?,
                                              accessToken: String,
                                              completion: ((BulkUpsertOrderCustomAttributesResponse) -> Void)? = nil,
                                              failed: ((Error) -> Void)? = nil) {
@@ -400,7 +400,7 @@ open class OrdersApi {
         /// When all response pages are retrieved, the results include all custom attributes that are visible to the requesting application, including those that are owned by other applications and set to VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/list-order-custom-attributes
-        func listOrderCustomAttributes(orderId: String,
+        public func listOrderCustomAttributes(orderId: String,
                                        visibilityFilter: VisibilityFilter?,
                                        cursor: String?,
                                        limit: Int?,
@@ -429,7 +429,7 @@ open class OrdersApi {
         /// To delete a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/delete-order-custom-attribute
-        func deleteOrderCustomAttribute(orderId: String,
+        public func deleteOrderCustomAttribute(orderId: String,
                                         customAttributeKey: String,
                                         accessToken: String,
                                         completion: ((SquareupResponse) -> Void)? = nil,
@@ -448,7 +448,7 @@ open class OrdersApi {
         /// To retrieve a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_ONLY or VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/retrieve-order-custom-attribute
-        func retrieveOrderCustomAttribute(orderId: String,
+        public func retrieveOrderCustomAttribute(orderId: String,
                                           customAttributeKey: String,
                                           version: Int?,
                                           withDefinitions: Bool?,
@@ -475,7 +475,7 @@ open class OrdersApi {
         /// To create or update a custom attribute owned by another application, the visibility setting must be VISIBILITY_READ_WRITE_VALUES. Note that seller-defined custom attributes (also known as custom fields) are always set to VISIBILITY_READ_WRITE_VALUES.
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/upsert-order-custom-attribute
-        func upsertOrderCustomAttribute(orderId: String,
+        public func upsertOrderCustomAttribute(orderId: String,
                                         customAttributeKey: String,
                                         customAttribute: CustomAttribute?,
                                         idempotencyKey: String?,

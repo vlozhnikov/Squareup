@@ -12,7 +12,7 @@ import Foundation
 open class LoyaltyEventDateTimeFilter: Codable {
     
     /// - CreatedAt: The created_at date time range used to filter the result.
-    var CreatedAt: TimeRange?
+    public var CreatedAt: TimeRange?
     
     enum CodingKeys: String, CodingKey {
         case CreatedAt = "created_at"

@@ -12,18 +12,18 @@ import Foundation
 open class SubscriptionEvent: Codable {
     
     /// - Id: The ID of the subscription event.
-    var Id: String?
+    public var Id: String?
     /// - SubscriptionEventType: Type of the subscription event.
-    var SubscriptionEventType: SubscriptionEventSubscriptionEventType?
+    public var SubscriptionEventType: SubscriptionEventSubscriptionEventType?
     /// - EffectiveDate: The YYYY-MM-DD-formatted date (for example, 2013-01-15) when the subscription event occurred.
 //    var EffectiveDate: Date?
-    @FormattedDate<YYYYMMDD_Strategy> var EffectiveDate: Date?
+    @FormattedDate<YYYYMMDD_Strategy> public var EffectiveDate: Date?
     /// - Info: Additional information about the subscription event.
-    var Info: SubscriptionEventInfo?
+    public var Info: SubscriptionEventInfo?
     /// - Phases: A list of Phases, to pass phase-specific information used in the swap.
-    var Phases: [Phase]?
+    public var Phases: [Phase]?
     /// - PlanVariationId: The ID of the subscription plan variation associated with the subscription.
-    var PlanVariationId: String?
+    public var PlanVariationId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

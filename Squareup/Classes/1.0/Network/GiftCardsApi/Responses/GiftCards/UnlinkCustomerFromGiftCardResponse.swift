@@ -10,7 +10,7 @@ import Foundation
 open class UnlinkCustomerFromGiftCardResponse: SquareupResponse {
     
     /// - giftCard: The gift card with the ID of the unlinked customer removed from the customer_ids field. If no other customers are linked, the customer_ids field is also removed.
-    var giftCard: GiftCard?
+    public var giftCard: GiftCard?
     
     enum CodingKeys: String, CodingKey {
         case giftCard = "gift_card"

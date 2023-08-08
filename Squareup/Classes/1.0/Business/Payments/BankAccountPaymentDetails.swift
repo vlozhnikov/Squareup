@@ -13,25 +13,25 @@ open class BankAccountPaymentDetails: Codable {
     
     /// - BankName: The name of the bank associated with the bank account.
     /// Max Length 100
-    var BankName: String?
+    public var BankName: String?
     /// - TransferType: The type of the bank transfer. The type can be ACH or UNKNOWN.
     /// Max Length 50
-    var TransferType: BankAccountPaymentDetailsTransferType?
+    public var TransferType: BankAccountPaymentDetailsTransferType?
     /// - AccountOwnershipType: The ownership type of the bank account performing the transfer. The type can be INDIVIDUAL, COMPANY, or ACCOUNT_TYPE_UNKNOWN.
     /// Max Length 50
-    var AccountOwnershipType: BankAccountPaymentDetailsAccountOwnershipType?
+    public var AccountOwnershipType: BankAccountPaymentDetailsAccountOwnershipType?
     /// - Fingerprint: Uniquely identifies the bank account for this seller and can be used to determine if payments are from the same bank account.
     /// Max Length 255
-    var Fingerprint: String?
+    public var Fingerprint: String?
     /// - country: The two-letter ISO code representing the country the bank account is located in.
     /// Min Length 2
     /// Max Length 2
-    var country: Country?
+    public var country: Country?
     /// - StatementDescription: The statement description as sent to the bank.
     /// Max Length 1000
-    var StatementDescription: String?
+    public var StatementDescription: String?
     /// - AchDetails: ACH-specific information about the transfer. The information is only populated if the transfer_type is ACH.
-    var AchDetails: ACHDetails?
+    public var AchDetails: ACHDetails?
     
     enum CodingKeys: String, CodingKey {
         case BankName = "bank_name"

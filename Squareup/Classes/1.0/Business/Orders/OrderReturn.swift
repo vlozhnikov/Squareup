@@ -13,21 +13,21 @@ open class OrderReturn: Codable {
     
     /// - UID: A unique ID that identifies the return only within this order.
     /// Max Length 60
-    var UID: String?
+    public var UID: String?
     /// - SourceOrderId: An order that contains the original sale of these return line items. This is unset for unlinked returns.
-    var SourceOrderId: String?
+    public var SourceOrderId: String?
     /// - ReturnLineItems: A collection of line items that are being returned.
-    var ReturnLineItems: [OrderReturnLineItem]?
+    public var ReturnLineItems: [OrderReturnLineItem]?
     /// - ReturnServiceCharges: Read only A collection of service charges that are being returned.
-    var ReturnServiceCharges: [OrderReturnServiceCharge]?
+    public var ReturnServiceCharges: [OrderReturnServiceCharge]?
     /// - ReturnTaxes: A collection of references to taxes being returned for an order, including the total applied tax amount to be returned. The taxes must reference a top-level tax ID from the source order.
-    var ReturnTaxes: [OrderReturnTax]?
+    public var ReturnTaxes: [OrderReturnTax]?
     /// - ReturnDiscounts: A collection of references to discounts being returned for an order, including the total applied discount amount to be returned. The discounts must reference a top-level discount ID from the source order.
-    var ReturnDiscounts: [OrderReturnDiscount]?
+    public var ReturnDiscounts: [OrderReturnDiscount]?
     /// - RoundingAdjustment: A positive or negative rounding adjustment to the total value being returned. Adjustments are commonly used to apply cash rounding when the minimum unit of the account is smaller than the lowest physical denomination of the currency.
-    var RoundingAdjustment: OrderRoundingAdjustment?
+    public var RoundingAdjustment: OrderRoundingAdjustment?
     /// - ReturnAmounts: An aggregate monetary value being returned by this return entry.
-    var ReturnAmounts: OrderMoneyAmounts?
+    public var ReturnAmounts: OrderMoneyAmounts?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

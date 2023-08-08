@@ -7,14 +7,14 @@
 
 import Foundation
 
-internal class PublishInvoiceRequest: Codable {
+open class PublishInvoiceRequest: Codable {
     
     /// - Version: The version of the invoice to publish. This must match the current version of the invoice; otherwise, the request is rejected.
-    var Version: Int?
+    public var Version: Int?
     /// - IdempotencyKey: A unique string that identifies the PublishInvoice request. If you do not provide idempotency_key (or provide an empty string as the value), the endpoint treats each request as independent.
     /// For more information, see Idempotency.
     /// Max Length 128
-    var IdempotencyKey: String?
+    public var IdempotencyKey: String?
     
     enum CodingKeys: String, CodingKey {
         case Version = "version"

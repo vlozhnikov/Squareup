@@ -14,7 +14,7 @@ open class DisputedPayment: Codable {
     /// - PaymentId: Square-generated unique ID of the payment being disputed.
     /// Min Length 1
     /// Max Length 192
-    var PaymentId: String?
+    public var PaymentId: String?
     
     enum CodingKeys: String, CodingKey {
         case PaymentId = "payment_id"

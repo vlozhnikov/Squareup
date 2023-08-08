@@ -10,9 +10,9 @@ import Foundation
 open class ListCashDrawerShiftEventsResponse: SquareupResponse {
     
     /// - Cursor: Opaque cursor for fetching the next page. Cursor is not present in the last page of results.
-    var Cursor: String?
+    public var Cursor: String?
     /// - CashDrawerShiftEvents: All of the events (payments, refunds, etc.) for a cash drawer during the shift.
-    var CashDrawerShiftEvents: [CashDrawerShiftEvent]?
+    public var CashDrawerShiftEvents: [CashDrawerShiftEvent]?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"

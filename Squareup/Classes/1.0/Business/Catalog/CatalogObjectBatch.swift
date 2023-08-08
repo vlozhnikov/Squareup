@@ -12,7 +12,7 @@ import Foundation
 open class CatalogObjectBatch: Codable {
     
     /// - Objects: A list of CatalogObjects belonging to this batch.
-    var Objects: [CatalogObject]?
+    public var Objects: [CatalogObject]?
     
     enum CodingKeys: String, CodingKey {
         case Objects = "objects"

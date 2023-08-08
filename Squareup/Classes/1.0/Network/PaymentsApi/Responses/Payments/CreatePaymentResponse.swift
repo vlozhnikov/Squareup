@@ -10,7 +10,7 @@ import Foundation
 open class CreatePaymentResponse: SquareupResponse {
     
     /// - payment: The newly created payment.
-    var payment: Payment?
+    public var payment: Payment?
     
     enum CodingKeys: String, CodingKey {
         case payment = "payment"

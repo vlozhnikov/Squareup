@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveCustomerSegmentResponse: SquareupResponse {
     
     /// - Segment: The retrieved customer segment.
-    var Segment: CustomerSegment?
+    public var Segment: CustomerSegment?
     
     enum CodingKeys: String, CodingKey {
         case Segment = "segment"

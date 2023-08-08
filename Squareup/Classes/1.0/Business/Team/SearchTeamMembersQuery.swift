@@ -12,7 +12,7 @@ import Foundation
 open class SearchTeamMembersQuery: Codable {
     
     /// - Filter: The options to filter by. 
-    var Filter: SearchTeamMembersFilter?
+    public var Filter: SearchTeamMembersFilter?
     
     enum CodingKeys: String, CodingKey {
         case Filter = "filter"

@@ -12,9 +12,9 @@ import Foundation
 open class GiftCardActivityTransferBalanceTo: Codable {
     
     /// - TransferFromGiftCardId: The ID of the gift card from which the specified amount was transferred.
-    var TransferFromGiftCardId: String?
+    public var TransferFromGiftCardId: String?
     /// - AmountMoney: The amount added to the gift card balance for the transfer. This value is a positive integer.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case TransferFromGiftCardId = "transfer_from_gift_card_id"

@@ -12,21 +12,21 @@ import Foundation
 open class DeviceCode: Codable {
     
     /// - Id: Read only The unique id for this device code.
-    var Id: String?
+    public var Id: String?
     /// - Name: An optional user-defined name for the device code.
     /// Max Length 128
-    var Name: String?
+    public var Name: String?
     /// - Code: Read only The unique code that can be used to login.
-    var Code: String?
+    public var Code: String?
     /// - DeviceId: Read only The unique id of the device that used this code. Populated when the device is paired up.
-    var DeviceId: String?
+    public var DeviceId: String?
     /// - productType: The targeting product type of the device code.
-    var productType: ProductType?
+    public var productType: ProductType?
     /// - LocationId: The location assigned to this code.
     /// Max Length 50
-    var LocationId: String?
+    public var LocationId: String?
     /// - Status: Read only The pairing status of the device code.
-    var Status: DeviceCodeStatus?
+    public var Status: DeviceCodeStatus?
     /// - PairBy: Read only When this DeviceCode will expire and no longer login. Timestamp in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -34,7 +34,7 @@ open class DeviceCode: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var PairBy: Date?
-    @FormattedDate<RFC3339_Strategy> var PairBy: Date?
+    @FormattedDate<RFC3339_Strategy> public var PairBy: Date?
     /// - CreatedAt: Read only When this DeviceCode was created. Timestamp in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -42,7 +42,7 @@ open class DeviceCode: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - StatusChangedAt: Read only When this DeviceCode's status was last changed. Timestamp in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -50,7 +50,7 @@ open class DeviceCode: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var StatusChangedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var StatusChangedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var StatusChangedAt: Date?
     /// - PairedAt: Read only When this DeviceCode was paired. Timestamp in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -58,7 +58,7 @@ open class DeviceCode: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var PairedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var PairedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var PairedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

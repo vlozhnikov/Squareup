@@ -10,9 +10,9 @@ import Foundation
 open class ListBreakTypesResponse: SquareupResponse {
     
     /// - BreakTypes: A page of BreakType results.
-    var BreakTypes: [BreakType]?
+    public var BreakTypes: [BreakType]?
     /// - Cursor: The value supplied in the subsequent request to fetch the next page of BreakType results.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case BreakTypes = "break_types"

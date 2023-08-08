@@ -26,7 +26,7 @@ open class SubscriptionsApi {
         /// For more information, see Create a subscription.
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/create-subscription
-        func createSubscription(idempotencyKey: String,
+        public func createSubscription(idempotencyKey: String,
                                 locationId: String,
                                 planId: String,
                                 planVariationId: String?,
@@ -72,7 +72,7 @@ open class SubscriptionsApi {
         /// You can also optionally specify customer_ids to search by customer. If left unset, all customers associated with the specified locations are returned. If the request specifies customer IDs, the endpoint orders results first by location, within location by customer ID, and within customer by subscription creation date.
         /// Permissions: SUBSCRIPTIONS_READ
         /// https://developer.squareup.com/reference/square/subscriptions-api/search-subscriptions
-        func searchSubscriptions(cursor: String?,
+        public func searchSubscriptions(cursor: String?,
                                  limit: Int?,
                                  query: SearchSubscriptionsQuery?,
                                  include: [String]?,
@@ -98,7 +98,7 @@ open class SubscriptionsApi {
         /// - retrieveSubscription: Retrieves a specific subscription.
         /// Permissions: SUBSCRIPTIONS_READ
         /// https://developer.squareup.com/reference/square/subscriptions-api/retrieve-subscription
-        func retrieveSubscription(subscriptionId: String,
+        public func retrieveSubscription(subscriptionId: String,
                                   include: String?,
                                   accessToken: String,
                                   completion: ((RetrieveSubscriptionResponse) -> Void)? = nil,
@@ -120,7 +120,7 @@ open class SubscriptionsApi {
         /// To clear a field, set its value to null.
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/update-subscription
-        func updateSubscription(subscriptionId: String,
+        public func updateSubscription(subscriptionId: String,
                                 subscription: Subscription?,
                                 accessToken: String,
                                 completion: ((UpdateSubscriptionResponse) -> Void)? = nil,
@@ -140,7 +140,7 @@ open class SubscriptionsApi {
         /// - deleteSubscription: Deletes a scheduled action for a subscription.
         /// Permissions: SUBSCRIPTIONS_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/delete-subscription-action
-        func deleteSubscription(subscriptionId: String,
+        public func deleteSubscription(subscriptionId: String,
                                 actionId: String,
                                 accessToken: String,
                                 completion: ((DeleteSubscriptionResponse) -> Void)? = nil,
@@ -156,7 +156,7 @@ open class SubscriptionsApi {
         /// - cancelSubscription: Schedules a CANCEL action to cancel an active subscription.
         /// This sets the canceled_date field to the end of the active billing period. After this date, the subscription status changes from ACTIVE to CANCELED.
         /// Permissions: SUBSCRIPTIONS_WRITE
-        func cancelSubscription(subscriptionId: String,
+        public func cancelSubscription(subscriptionId: String,
                                 accessToken: String,
                                 completion: ((CancelSubscriptionResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
@@ -171,7 +171,7 @@ open class SubscriptionsApi {
         /// - listSubscriptionEvents: Lists all events for a specific subscription.
         /// Permissions: SUBSCRIPTIONS_READ
         /// https://developer.squareup.com/reference/square/subscriptions-api/list-subscription-events
-        func listSubscriptionEvents(subscriptionId: String,
+        public func listSubscriptionEvents(subscriptionId: String,
                                     cursor: String?,
                                     limit: Int?,
                                     accessToken: String,
@@ -195,7 +195,7 @@ open class SubscriptionsApi {
         /// - pauseSubscription: Schedules a PAUSE action to pause an active subscription.
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/pause-subscription
-        func pauseSubscription(subscriptionId: String,
+        public func pauseSubscription(subscriptionId: String,
                                pauseEffectiveDate: Date?,
                                pauseCycleDuration: Int?,
                                resumeEffectiveDate: Date?,
@@ -224,7 +224,7 @@ open class SubscriptionsApi {
         /// - resumeSubscription: Schedules a RESUME action to resume a paused or a deactivated subscription.
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/resume-subscription
-        func resumeSubscription(subscriptionId: String,
+        public func resumeSubscription(subscriptionId: String,
                                 resumeEffectiveDate: Date?,
                                 resumeChangeTiming: ChangeTiming?,
                                 accessToken: String,
@@ -248,7 +248,7 @@ open class SubscriptionsApi {
         /// For more information, see Swap Subscription Plan Variations.
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/swap-plan
-        func swapPlan(subscriptionId: String,
+        public func swapPlan(subscriptionId: String,
                       newPlanVariationId: String,
                       phases: [PhaseInput]?,
                       accessToken: String,

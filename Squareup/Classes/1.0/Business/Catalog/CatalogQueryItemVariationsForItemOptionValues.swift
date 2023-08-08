@@ -12,7 +12,7 @@ import Foundation
 open class CatalogQueryItemVariationsForItemOptionValues: Codable {
     
     /// - ItemOptionValueIds: A set of CatalogItemOptionValue IDs to be used to find associated CatalogItemVariations. All ItemVariations that contain all of the given Item Option Values (in any order) will be returned.
-    var ItemOptionValueIds: [String]?
+    public var ItemOptionValueIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case ItemOptionValueIds = "item_option_value_ids"

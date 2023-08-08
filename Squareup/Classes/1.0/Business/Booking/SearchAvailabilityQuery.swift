@@ -13,7 +13,7 @@ open class SearchAvailabilityQuery: Codable {
     
     /// - Filter: Required
     /// The query filter to search for buyer-accessible availabilities of existing bookings.
-    var Filter: SearchAvailabilityFilter?
+    public var Filter: SearchAvailabilityFilter?
     
     enum CodingKeys: String, CodingKey {
         case Filter = "filter"

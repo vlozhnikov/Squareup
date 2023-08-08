@@ -10,9 +10,9 @@ import Foundation
 open class SearchShiftsResponse: SquareupResponse {
     
     /// - Shifts: Shifts
-    var Shifts: [Shift]?
+    public var Shifts: [Shift]?
     /// - Cursor: An opaque cursor for fetching the next page
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Shifts = "shifts"

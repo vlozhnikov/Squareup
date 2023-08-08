@@ -7,11 +7,11 @@
 
 import Foundation
 
-internal class ListCatalogRequest: Codable {
+open class ListCatalogRequest: Codable {
     
-    var Cursor: String?
-    var Types: String?
-    var CatalogVersion: Int?
+    public var Cursor: String?
+    public var Types: String?
+    public var CatalogVersion: Int?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"

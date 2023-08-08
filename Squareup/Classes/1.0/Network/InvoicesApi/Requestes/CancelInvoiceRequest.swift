@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class CancelInvoiceRequest: Codable {
+open class CancelInvoiceRequest: Codable {
     
     /// - Version: The version of the invoice to cancel. If you do not know the version, you can call GetInvoice or ListInvoices.
-    var Version: Int?
+    public var Version: Int?
     
     enum CodingKeys: String, CodingKey {
         case Version = "version"

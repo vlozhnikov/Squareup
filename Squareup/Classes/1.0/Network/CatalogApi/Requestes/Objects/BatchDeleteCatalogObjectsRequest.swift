@@ -7,9 +7,9 @@
 
 import Foundation
 
-internal class BatchDeleteCatalogObjectsRequest: Codable {
+open class BatchDeleteCatalogObjectsRequest: Codable {
     
-    var ObjectIds: [String]?
+    public var ObjectIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case ObjectIds = "object_ids"

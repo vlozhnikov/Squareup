@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveLoyaltyPromotionResponse: SquareupResponse {
     
     /// - loyaltyPromotion: The retrieved loyalty promotion
-    var loyaltyPromotion: LoyaltyPromotion?
+    public var loyaltyPromotion: LoyaltyPromotion?
     
     enum CodingKeys: String, CodingKey {
         case loyaltyPromotion = "loyalty_promotion"

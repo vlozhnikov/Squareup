@@ -7,12 +7,12 @@
 
 import Foundation
 
-internal class BatchRetrieveCatalogObjectsRequest: Codable {
+open class BatchRetrieveCatalogObjectsRequest: Codable {
     
-    var ObjectIds: [String]?
-    var IncludeRelatedObjects: Bool?
-    var CatalogVersion: Int?
-    var IncludeDeletedObjects: Bool?
+    public var ObjectIds: [String]?
+    public var IncludeRelatedObjects: Bool?
+    public var CatalogVersion: Int?
+    public var IncludeDeletedObjects: Bool?
     
     enum CodingKeys: String, CodingKey {
         case ObjectIds = "object_ids"

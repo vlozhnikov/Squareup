@@ -33,25 +33,25 @@ import Foundation
 open class CatalogQuery: Codable {
     
     /// - SortedAttributeQuery: A query expression to sort returned query result by the given attribute.
-    var SortedAttributeQuery: CatalogQuerySortedAttribute?
+    public var SortedAttributeQuery: CatalogQuerySortedAttribute?
     /// - ExactQuery: An exact query expression to return objects with attribute name and value matching the specified attribute name and value exactly. Value matching is case insensitive.
-    var ExactQuery: CatalogQueryExact?
+    public var ExactQuery: CatalogQueryExact?
     /// - SetQuery: A set query expression to return objects with attribute name and value matching the specified attribute name and any of the specified attribute values exactly. Value matching is case insensitive.
-    var SetQuery: CatalogQuerySet?
+    public var SetQuery: CatalogQuerySet?
     /// - PrefixQuery: A prefix query expression to return objects with attribute values that have a prefix matching the specified string value. Value matching is case insensitive.
-    var PrefixQuery: CatalogQueryPrefix?
+    public var PrefixQuery: CatalogQueryPrefix?
     /// - RangeQuery: A range query expression to return objects with numeric values that lie in the specified range.
-    var RangeQuery: CatalogQueryRange?
+    public var RangeQuery: CatalogQueryRange?
     /// - TextQuery: A text query expression to return objects whose searchable attributes contain all of the given keywords, irrespective of their order. For example, if a CatalogItem contains custom attribute values of {"name": "t-shirt"} and {"description": "Small, Purple"}, the query filter of {"keywords": ["shirt", "sma", "purp"]} returns this item.
-    var TextQuery: CatalogQueryText?
+    public var TextQuery: CatalogQueryText?
     /// - ItemsForTaxQuery: A query expression to return items that have any of the specified taxes (as identified by the corresponding CatalogTax object IDs) enabled.
-    var ItemsForTaxQuery: CatalogQueryItemsForTax?
+    public var ItemsForTaxQuery: CatalogQueryItemsForTax?
     /// - ItemsForModifierListQuery: A query expression to return items that have any of the given modifier list (as identified by the corresponding CatalogModifierLists IDs) enabled.
-    var ItemsForModifierListQuery: CatalogQueryItemsForModifierList?
+    public var ItemsForModifierListQuery: CatalogQueryItemsForModifierList?
     /// - ItemsForItemOptionsQuery: A query expression to return items that contains the specified item options (as identified the corresponding CatalogItemOption IDs).
-    var ItemsForItemOptionsQuery: CatalogQueryItemsForItemOptions?
+    public var ItemsForItemOptionsQuery: CatalogQueryItemsForItemOptions?
     /// - ItemVariationsForItemOptionValuesQuery: A query expression to return item variations (of the CatalogItemVariation type) that contain all of the specified CatalogItemOption IDs.
-    var ItemVariationsForItemOptionValuesQuery: CatalogQueryItemVariationsForItemOptionValues?
+    public var ItemVariationsForItemOptionValuesQuery: CatalogQueryItemVariationsForItemOptionValues?
     
     enum CodingKeys: String, CodingKey {
         case SortedAttributeQuery = "sorted_attribute_query"

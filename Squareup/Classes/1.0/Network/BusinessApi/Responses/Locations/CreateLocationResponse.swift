@@ -10,7 +10,7 @@ import Foundation
 open class CreateLocationResponse: SquareupResponse {
     
     /// - location: The newly created Location object.
-    var location: Location?
+    public var location: Location?
     
     enum CodingKeys: String, CodingKey {
         case location = "location"

@@ -10,7 +10,7 @@ import Foundation
 open class CreateLoyaltyAccountResponse: SquareupResponse {
     
     /// - loyaltyAccount: The newly created loyalty account.
-    var loyaltyAccount: LoyaltyAccount?
+    public var loyaltyAccount: LoyaltyAccount?
     
     enum CodingKeys: String, CodingKey {
         case loyaltyAccount = "loyalty_account"

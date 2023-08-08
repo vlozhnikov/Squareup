@@ -10,7 +10,7 @@ import Foundation
 open class CancelPaymentResponse: SquareupResponse {
     
     /// - payment: The successfully canceled Payment object.
-    var payment: Payment?
+    public var payment: Payment?
     
     enum CodingKeys: String, CodingKey {
         case payment = "payment"

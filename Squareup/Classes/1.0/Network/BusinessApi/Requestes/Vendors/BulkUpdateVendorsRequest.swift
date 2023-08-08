@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class BulkUpdateVendorsRequest: Codable {
+open class BulkUpdateVendorsRequest: Codable {
     
     /// - Vendors: A set of UpdateVendorRequest objects encapsulating to-be-updated Vendor objects. The set is represented by a collection of Vendor-ID/UpdateVendorRequest-object pairs.
-    var Vendors: [String: UpdateVendorRequest]?
+    public var Vendors: [String: UpdateVendorRequest]?
     
     enum CodingKeys: String, CodingKey {
         case Vendors = "vendors"

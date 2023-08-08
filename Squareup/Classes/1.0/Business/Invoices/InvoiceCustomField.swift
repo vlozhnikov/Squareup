@@ -15,12 +15,12 @@ open class InvoiceCustomField: Codable {
     
     /// - Label: The label or title of the custom field. This field is required for a custom field.
     /// Max Length 30
-    var Label: String?
+    public var Label: String?
     /// - Value: The text of the custom field. If omitted, only the label is rendered.
     /// Max Length 2000
-    var Value: String?
+    public var Value: String?
     /// - Placement: The location of the custom field on the invoice. This field is required for a custom field.
-    var Placement: InvoiceCustomFieldPlacement?
+    public var Placement: InvoiceCustomFieldPlacement?
     
     enum CodingKeys: String, CodingKey {
         case Label = "label"

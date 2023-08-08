@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class CreateTeamMemberRequest: Codable {
+open class CreateTeamMemberRequest: Codable {
     
-    var IdempotencyKey: String?
-    var TeamMember: TeamMember?
+    public var IdempotencyKey: String?
+    public var TeamMember: TeamMember?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

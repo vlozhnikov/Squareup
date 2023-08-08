@@ -7,16 +7,16 @@
 
 import Foundation
 
-internal class SearchCatalogObjectsRequest: Codable {
+open class SearchCatalogObjectsRequest: Codable {
     
-    var Cursor: String?
-    var ObjectTypes: [CatalogObjectType]?
-    var IncludeDeletedObjects: Bool?
-    var IncludeRelatedObjects: Bool?
+    public var Cursor: String?
+    public var ObjectTypes: [CatalogObjectType]?
+    public var IncludeDeletedObjects: Bool?
+    public var IncludeRelatedObjects: Bool?
 //    var BeginTime: Date?
-    @FormattedDate<RFC3339_Strategy> var BeginTime: Date?
-    var Query: CatalogQuery?
-    var Limit: Int?
+    @FormattedDate<RFC3339_Strategy> public var BeginTime: Date?
+    public var Query: CatalogQuery?
+    public var Limit: Int?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"

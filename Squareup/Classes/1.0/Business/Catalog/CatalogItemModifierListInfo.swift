@@ -12,15 +12,15 @@ import Foundation
 open class CatalogItemModifierListInfo: Codable {
     
     /// - ModifierListId: The ID of the CatalogModifierList controlled by this CatalogModifierListInfo. Min Length 1.
-    var ModifierListId: String?
+    public var ModifierListId: String?
     /// - ModifierOverrides: A set of CatalogModifierOverride objects that override whether a given CatalogModifier is enabled by default.
-    var ModifierOverrides: [CatalogModifierOverride]?
+    public var ModifierOverrides: [CatalogModifierOverride]?
     /// - MinSelectedModifiers: If 0 or larger, the smallest number of CatalogModifiers that must be selected from this CatalogModifierList.
-    var MinSelectedModifiers: Int?
+    public var MinSelectedModifiers: Int?
     /// - MaxSelectedModifiers: If 0 or larger, the largest number of CatalogModifiers that can be selected from this CatalogModifierList.
-    var MaxSelectedModifiers: Int?
+    public var MaxSelectedModifiers: Int?
     /// - Enabled: If true, enable this CatalogModifierList. The default value is true.
-    var Enabled: Bool?
+    public var Enabled: Bool?
     
     enum CodingKeys: String, CodingKey {
         case ModifierListId = "modifier_list_id"

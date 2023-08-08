@@ -12,9 +12,9 @@ import Foundation
 open class TenderCashDetails: Codable {
     
     /// - BuyerTenderedMoney: The total amount of cash provided by the buyer, before change is given.
-    var BuyerTenderedMoney: Money?
+    public var BuyerTenderedMoney: Money?
     /// - ChangeBackMoney: The amount of change returned to the buyer.
-    var ChangeBackMoney: Money?
+    public var ChangeBackMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case BuyerTenderedMoney = "buyer_tendered_money"

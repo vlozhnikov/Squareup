@@ -7,16 +7,16 @@
 
 import Foundation
 
-internal class SearchLoyaltyAccountsRequest: Codable {
+open class SearchLoyaltyAccountsRequest: Codable {
     
     /// - Query: The search criteria for the request.
-    var Query: SearchLoyaltyAccountsRequestLoyaltyAccountQuery?
+    public var Query: SearchLoyaltyAccountsRequestLoyaltyAccountQuery?
     /// - Limit: The maximum number of results to include in the response. The default value is 30.
     /// Min 1
     /// Max 200
-    var Limit: Int?
+    public var Limit: Int?
     /// - Cursor: A pagination cursor returned by a previous call to this endpoint. Provide this to retrieve the next set of results for the original query.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Query = "query"

@@ -12,11 +12,11 @@ import Foundation
 open class TenderCardDetails: Codable {
     
     /// - Status: The credit card payment's current state (such as AUTHORIZED or CAPTURED). See TenderCardDetailsStatus for possible values.
-    var Status: TenderCardDetailsStatus?
+    public var Status: TenderCardDetailsStatus?
     /// - card: he credit card's non-confidential details.
-    var card: Card?
+    public var card: Card?
     /// - EntryMethod: The method used to enter the card's details for the transaction.
-    var EntryMethod: TenderCardDetailsEntryMethod?
+    public var EntryMethod: TenderCardDetailsEntryMethod?
     
     enum CodingKeys: String, CodingKey {
         case Status = "status"

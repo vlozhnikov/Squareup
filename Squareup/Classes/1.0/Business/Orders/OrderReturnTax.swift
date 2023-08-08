@@ -14,27 +14,27 @@ open class OrderReturnTax: Codable {
     
     /// - UID: A unique ID that identifies the returned tax only within this order.
     /// Max Length 60
-    var UID: String?
+    public var UID: String?
     /// - SourceTaxUid: The tax uid from the order that contains the original tax charge.
     /// Max Length 60
-    var SourceTaxUid: String?
+    public var SourceTaxUid: String?
     /// - CatalogObjectId: The catalog object ID referencing CatalogTax.
     /// Max Length 192
-    var CatalogObjectId: String?
+    public var CatalogObjectId: String?
     /// - CatalogVersion: The version of the catalog object that this tax references.
-    var CatalogVersion: Int?
+    public var CatalogVersion: Int?
     /// - Name: The tax's name.
     /// Max Length 255
-    var Name: String?
+    public var Name: String?
     /// - type: Indicates the calculation method used to apply the tax.
-    var type: OrderLineItemTaxType?
+    public var type: OrderLineItemTaxType?
     /// - Percentage: The percentage of the tax, as a string representation of a decimal number. For example, a value of "7.25" corresponds to a percentage of 7.25%.
     /// Max Length 10
-    var Percentage: String?
+    public var Percentage: String?
     /// - AppliedMoney: The amount of money applied by the tax in an order.
-    var AppliedMoney: Money?
+    public var AppliedMoney: Money?
     /// - Scope: Indicates the level at which the OrderReturnTax applies. For ORDER scoped taxes, Square generates references in applied_taxes on all OrderReturnLineItems. For LINE_ITEM scoped taxes, the tax is only applied to OrderReturnLineItems with references in their applied_discounts field.
-    var Scope: OrderLineItemTaxScope?
+    public var Scope: OrderLineItemTaxScope?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

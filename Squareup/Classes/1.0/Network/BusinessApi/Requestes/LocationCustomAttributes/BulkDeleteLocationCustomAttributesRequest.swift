@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class BulkDeleteLocationCustomAttributesRequest: Codable {
+open class BulkDeleteLocationCustomAttributesRequest: Codable {
     
     /// - Values: The data used to update the CustomAttribute objects. The keys must be unique and are used to map to the corresponding response.
-    var Values: [String: BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest]?
+    public var Values: [String: BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest]?
     
     enum CodingKeys: String, CodingKey {
         case Values = "values"

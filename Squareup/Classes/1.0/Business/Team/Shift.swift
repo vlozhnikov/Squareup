@@ -14,29 +14,29 @@ open class Shift: Codable {
     
     /// - Id: The UUID for this object.
     /// Max Length 255
-    var Id: String?
+    public var Id: String?
     /// - EmployeeId: Deprecated
     /// The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use team_member_id instead.
-    var EmployeeId: String?
+    public var EmployeeId: String?
     /// - LocationId: The ID of the location this shift occurred at. The location should be based on where the employee clocked in.
-    var LocationId: String?
+    public var LocationId: String?
     /// - Timezone: The read-only convenience value that is calculated from the location based on the location_id. Format: the IANA timezone database identifier for the location timezone.
-    var Timezone: String?
+    public var Timezone: String?
     /// - StartAt: RFC 3339; shifted to the location timezone + offset. Precision up to the minute is respected; seconds are truncated.
     /// Min Length 1
 //    var StartAt: Date?
-    @FormattedDate<RFC3339_Strategy> var StartAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var StartAt: Date?
     /// - EndAt: RFC 3339; shifted to the timezone + offset. Precision up to the minute is respected; seconds are truncated.
 //    var EndAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EndAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndAt: Date?
     /// - Wage: Job and pay related information. If the wage is not set on create, it defaults to a wage of zero. If the title is not set on create, it defaults to the name of the role the employee is assigned to, if any.
-    var Wage: ShiftWage?
+    public var Wage: ShiftWage?
     /// - Breaks: A list of all the paid or unpaid breaks that were taken during this shift.
-    var Breaks: [Break]?
+    public var Breaks: [Break]?
     /// - Status: Describes the working state of the current Shift.
-    var Status: ShiftStatus?
+    public var Status: ShiftStatus?
     /// - Version: Used for resolving concurrency issues. The request fails if the version provided does not match the server version at the time of the request. If not provided, Square executes a blind write; potentially overwriting data from another write.
-    var Version: Int?
+    public var Version: Int?
     /// - CreatedAt: Read only The timestamp, in RFC 3339 format, describing when the team member was created. For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
     ///
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -44,7 +44,7 @@ open class Shift: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp, in RFC 3339 format, describing when the team member was last updated. For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
     ///
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -52,9 +52,9 @@ open class Shift: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - TeamMemberId: The ID of the team member this shift belongs to. Replaced employee_id at version "2020-08-26".
-    var TeamMemberId: String?
+    public var TeamMemberId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

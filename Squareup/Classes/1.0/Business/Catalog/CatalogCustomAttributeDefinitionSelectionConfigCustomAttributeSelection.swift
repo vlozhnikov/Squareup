@@ -12,12 +12,12 @@ import Foundation
 open class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection: Codable {
     
     /// - UID: Unique ID set by Square.
-    var UID: String?
+    public var UID: String?
     /// - Name: Required
     /// Selection name, unique within allowed_selections.
     ///  Min Length 1
     ///  Max Length 255
-    var Name: String?
+    public var Name: String?
     
     enum CodingKeys: String, CodingKey {
         case UID = "uid"

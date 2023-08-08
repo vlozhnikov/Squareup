@@ -13,16 +13,16 @@ open class CashAppDetails: Codable {
     
     /// - BuyerFullName: The name of the Cash App account holder.
     /// Max Length 255
-    var BuyerFullName: String?
+    public var BuyerFullName: String?
     /// - BuyerCountryCode: The country of the Cash App account holder, in ISO 3166-1-alpha-2 format.
     /// For possible values, see Country.
     /// Min Length 2
     /// Max Length 2
-    var BuyerCountryCode: Country?
+    public var BuyerCountryCode: Country?
     /// - BuyerCashtag: Read only $Cashtag of the Cash App account holder.
     /// Min Length 1
     /// Max Length 21
-    var BuyerCashtag: String?
+    public var BuyerCashtag: String?
     
     enum CodingKeys: String, CodingKey {
         case BuyerFullName = "buyer_full_name"

@@ -12,9 +12,9 @@ import Foundation
 open class FloatNumberRange: Codable {
     
     /// - StartAt: A decimal value indicating where the range starts.
-    var StartAt: String?
+    public var StartAt: String?
     /// - EndAt: A decimal value indicating where the range ends.
-    var EndAt: String?
+    public var EndAt: String?
     
     enum CodingKeys: String, CodingKey {
         case StartAt = "start_at"

@@ -12,13 +12,13 @@ import Foundation
 open class AcceptedPaymentMethods: Codable {
     
     /// - ApplePay: Whether Apple Pay is accepted at checkout.
-    var ApplePay: Bool?
+    public var ApplePay: Bool?
     /// - GooglePay: Whether Google Pay is accepted at checkout.
-    var GooglePay: Bool?
+    public var GooglePay: Bool?
     /// - CashAppPay: Whether Cash App Pay is accepted at checkout.
-    var CashAppPay: Bool?
+    public var CashAppPay: Bool?
     /// - AfterpayClearpay: Whether Afterpay/Clearpay is accepted at checkout.
-    var AfterpayClearpay: Bool?
+    public var AfterpayClearpay: Bool?
     
     enum CodingKeys: String, CodingKey {
         case ApplePay = "apple_pay"

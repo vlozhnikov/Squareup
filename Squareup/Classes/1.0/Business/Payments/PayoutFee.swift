@@ -12,7 +12,7 @@ import Foundation
 open class PayoutFee: Codable {
     
     /// - AmountMoney: The money amount of the payout fee.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - EffectiveAt: The timestamp of when the fee takes effect, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -20,7 +20,7 @@ open class PayoutFee: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var EffectiveAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EffectiveAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EffectiveAt: Date?
     /// - type: The type of fee assessed as part of the payout.
     var type: PayoutFeeType?
     

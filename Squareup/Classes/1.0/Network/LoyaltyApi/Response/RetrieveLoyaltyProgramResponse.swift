@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveLoyaltyProgramResponse: SquareupResponse {
     
     /// - Program: The loyalty program that was requested.
-    var Program: LoyaltyProgram?
+    public var Program: LoyaltyProgram?
     
     enum CodingKeys: String, CodingKey {
         case Program = "program"

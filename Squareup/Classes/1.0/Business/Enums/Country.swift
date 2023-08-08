@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Country: String, Codable, CaseIterable {
+public enum Country: String, Codable, CaseIterable {
     
     case Unknown = "ZZ"
     case Andorra = "AD"
@@ -283,7 +283,7 @@ enum Country: String, Codable, CaseIterable {
         , Country.WallisAndFutuna: "Wallis and Futuna"
     ]
     
-    static var allNames: [Country: String] {
+    public static var allNames: [Country: String] {
         var names = [Country: String]()
         
         Country.allCases.forEach { country in
@@ -294,7 +294,7 @@ enum Country: String, Codable, CaseIterable {
         return names
     }
     
-    var friendlyName: String {
+    public var friendlyName: String {
         return Country.allNames.first(where: { $0.key == self })?.value ?? "Unknown"
     }
 }

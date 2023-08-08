@@ -13,15 +13,15 @@ open class JobAssignment: Codable {
     
     /// - JobTitle: The title of the job.
     /// Min Length 1
-    var JobTitle: String?
+    public var JobTitle: String?
     /// - PayType: the current pay type for the job assignment used to calculate the pay amount in a pay period.
-    var PayType: JobAssignmentPayType?
+    public var PayType: JobAssignmentPayType?
     /// - HourlyRate: The hourly pay rate of the job.
-    var HourlyRate: Money?
+    public var HourlyRate: Money?
     /// - AnnualRate: The total pay amount for a 12-month period on the job. Set if the job PayType is SALARY
-    var AnnualRate: Money?
+    public var AnnualRate: Money?
     /// - WeeklyHours: The planned hours per week for the job. Set if the job PayType is SALARY
-    var WeeklyHours: Int?
+    public var WeeklyHours: Int?
     
     enum CodingKeys: String, CodingKey {
         case JobTitle = "job_title"

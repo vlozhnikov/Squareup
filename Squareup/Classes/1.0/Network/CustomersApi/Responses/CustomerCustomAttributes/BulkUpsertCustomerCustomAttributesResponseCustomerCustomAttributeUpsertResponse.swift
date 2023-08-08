@@ -11,9 +11,9 @@ import Foundation
 open class BulkUpsertCustomerCustomAttributesResponseCustomerCustomAttributeUpsertResponse: SquareupResponse {
     
     /// - CustomerId: The ID of the customer profile associated with the custom attribute.
-    var CustomerId: String?
+    public var CustomerId: String?
     /// - customAttribute: TThe new or updated custom attribute.
-    var customAttribute: CustomAttribute?
+    public var customAttribute: CustomAttribute?
     
     enum CodingKeys: String, CodingKey {
         case CustomerId = "customer_id"

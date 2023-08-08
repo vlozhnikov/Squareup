@@ -14,9 +14,9 @@ import Foundation
 open class CatalogIdMapping: Codable {
     
     /// - ClientObjectId: The client-supplied temporary #-prefixed ID for a new CatalogObject.
-    var ClientObjectId: String?
+    public var ClientObjectId: String?
     /// - ObjectId: The permanent ID for the CatalogObject created by the server.
-    var ObjectId: String?
+    public var ObjectId: String?
     
     enum CodingKeys: String, CodingKey {
         case ClientObjectId = "client_object_id"

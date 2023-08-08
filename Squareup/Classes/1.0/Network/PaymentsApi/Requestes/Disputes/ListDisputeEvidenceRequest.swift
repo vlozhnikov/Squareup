@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class ListDisputeEvidenceRequest: Codable {
+open class ListDisputeEvidenceRequest: Codable {
     
     /// - Cursor: A pagination cursor returned by a previous call to this endpoint. Provide this cursor to retrieve the next set of results for the original query. For more information, see Pagination.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"

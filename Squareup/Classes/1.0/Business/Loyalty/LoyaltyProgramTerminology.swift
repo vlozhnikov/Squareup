@@ -13,10 +13,10 @@ open class LoyaltyProgramTerminology: Codable {
     
     /// - One: A singular unit for a point (for example, 1 point is called 1 star).
     /// Min Length  1
-    var One: String?
+    public var One: String?
     /// - Other: A plural unit for point (for example, 10 points is called 10 stars).
     /// Min Length 1
-    var Other: String?
+    public var Other: String?
     
     enum CodingKeys: String, CodingKey {
         case One = "one"

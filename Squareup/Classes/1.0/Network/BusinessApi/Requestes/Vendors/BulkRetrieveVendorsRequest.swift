@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class BulkRetrieveVendorsRequest: Codable {
+open class BulkRetrieveVendorsRequest: Codable {
     
     /// - VendorIds: IDs of the Vendor objects to retrieve.
-    var VendorIds: [String]?
+    public var VendorIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case VendorIds = "vendor_ids"

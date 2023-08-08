@@ -14,12 +14,12 @@ open class DigitalWalletDetails: Codable {
     
     /// - Status: The status of the WALLET payment. The status can be AUTHORIZED, CAPTURED, VOIDED, or FAILED.
     /// Max Length 50
-    var Status: DigitalWalletDetailsStatus?
+    public var Status: DigitalWalletDetailsStatus?
     /// - Brand: The brand used for the WALLET payment. The brand can be CASH_APP, PAYPAY or UNKNOWN.
     /// Max Length 50
-    var Brand: DigitalWalletDetailsBrand?
+    public var Brand: DigitalWalletDetailsBrand?
     /// - CashAppDetails: Brand-specific details for payments with the brand of CASH_APP.
-    var cashAppDetails: CashAppDetails?
+    public var cashAppDetails: CashAppDetails?
     
     enum CodingKeys: String, CodingKey {
         case Status = "status"

@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveCashDrawerShiftResponse: SquareupResponse {
     
     /// - cashDrawerShift: The cash drawer shift queried for.
-    var cashDrawerShift: CashDrawerShift?
+    public var cashDrawerShift: CashDrawerShift?
     
     enum CodingKeys: String, CodingKey {
         case cashDrawerShift = "cash_drawer_shift"

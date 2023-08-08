@@ -12,9 +12,9 @@ import Foundation
 open class PaymentBalanceActivityTaxOnFeeDetail: Codable {
     
     /// - PaymentId: The ID of the payment associated with this activity.
-    var PaymentId: String?
+    public var PaymentId: String?
     /// - TaxRateDescription: The description of the tax rate being applied. For example: "GST", "HST".
-    var TaxRateDescription: String?
+    public var TaxRateDescription: String?
     
     enum CodingKeys: String, CodingKey {
         case PaymentId = "payment_id"

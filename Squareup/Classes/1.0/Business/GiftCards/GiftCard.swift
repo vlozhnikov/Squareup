@@ -12,17 +12,17 @@ import Foundation
 open class GiftCard: Codable {
     
     /// - Id: Read only The Square-assigned ID of the gift card.
-    var Id: String?
+    public var Id: String?
     /// - type: The gift card type.
-    var type: GiftCardType?
+    public var type: GiftCardType?
     /// - GanSource: The source that generated the gift card account number (GAN). The default value is SQUARE
-    var GanSource: GiftCardGANSource?
+    public var GanSource: GiftCardGANSource?
     /// - State: Read only The current gift card state.
-    var State: GiftCardStatus?
+    public var State: GiftCardStatus?
     /// - BalanceMoney: Read only The current gift card balance. This balance is always greater than or equal to zero.
-    var BalanceMoney: Money?
+    public var BalanceMoney: Money?
     /// - Gan: The gift card account number (GAN). Buyers can use the GAN to make purchases or check the gift card balance.
-    var Gan: String?
+    public var Gan: String?
     /// - CreatedAt: Read only The timestamp when the gift card was created, in RFC 3339 format. In the case of a digital gift card, it is the time when you create a card (using the Square Point of Sale application, Seller Dashboard, or Gift Cards API).
     /// In the case of a plastic gift card, it is the time when Square associates the card with the seller at the time of activation.
     ///
@@ -32,9 +32,9 @@ open class GiftCard: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - CustomerIds: Read only The IDs of the customer profiles to whom this gift card is linked.
-    var CustomerIds: [String]?
+    public var CustomerIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

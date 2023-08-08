@@ -13,10 +13,10 @@ open class CustomerSort: Codable {
     
     /// - Field: Indicates the fields to use as the sort key, which is either the default set of fields or created_at.
     /// The default value is DEFAULT.
-    var Field: CustomerSortField?
+    public var Field: CustomerSortField?
     /// - Order: Indicates the order in which results should be sorted based on the sort field value. Strings use standard alphabetic comparison to determine order. Strings representing numbers are sorted as strings.
     /// The default value is ASC
-    var Order: SortOrder?
+    public var Order: SortOrder?
     
     enum CodingKeys: String, CodingKey {
         case Field = "field"

@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveDisputeEvidenceResponse: SquareupResponse {
     
     /// - Evidence: Metadata about the dispute evidence file.
-    var Evidence: DisputeEvidence?
+    public var Evidence: DisputeEvidence?
     
     enum CodingKeys: String, CodingKey {
         case Evidence = "evidence"

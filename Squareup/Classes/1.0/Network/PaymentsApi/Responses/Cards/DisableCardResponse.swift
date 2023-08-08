@@ -10,7 +10,7 @@ import Foundation
 open class DisableCardResponse: SquareupResponse {
     
     /// - card: The retrieved card.
-    var card: Card?
+    public var card: Card?
     
     enum CodingKeys: String, CodingKey {
         case card = "card"

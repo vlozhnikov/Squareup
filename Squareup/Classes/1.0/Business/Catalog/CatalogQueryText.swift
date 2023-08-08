@@ -13,7 +13,7 @@ open class CatalogQueryText: Codable {
     
     /// - Keywords: Required
     /// A list of 1, 2, or 3 search keywords. Keywords with fewer than 3 characters are ignored.
-    var Keywords: [String]?
+    public var Keywords: [String]?
     
     enum CodingKeys: String, CodingKey {
         case Keywords = "keywords"

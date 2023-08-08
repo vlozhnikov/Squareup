@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class BatchUpsertCatalogObjectsRequest: Codable {
+open class BatchUpsertCatalogObjectsRequest: Codable {
     
-    var IdempotencyKey: String?
-    var Batches: [CatalogObjectBatch]?
+    public var IdempotencyKey: String?
+    public var Batches: [CatalogObjectBatch]?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

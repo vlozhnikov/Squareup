@@ -12,7 +12,7 @@ import Foundation
 open class BookingCustomAttributeDeleteResponse: SquareupResponse {
     
     /// - BookingId: The ID of the booking associated with the custom attribute.
-    var BookingId: String?
+    public var BookingId: String?
     
     enum CodingKeys: String, CodingKey {
         case BookingId = "booking_id"

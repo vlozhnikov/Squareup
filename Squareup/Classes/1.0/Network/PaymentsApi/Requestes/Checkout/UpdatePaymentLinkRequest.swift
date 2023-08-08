@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpdatePaymentLinkRequest: Codable {
+open class UpdatePaymentLinkRequest: Codable {
     
     /// - paymentLink: The payment_link object describing the updates to apply. For more information, see Update a payment link.
-    var paymentLink: PaymentLink?
+    public var paymentLink: PaymentLink?
     
     enum CodingKeys: String, CodingKey {
         case paymentLink = "payment_link"

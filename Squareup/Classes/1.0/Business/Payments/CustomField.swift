@@ -15,7 +15,7 @@ open class CustomField: Codable {
     /// - Title: The title of the custom field.
     /// Min Length 1
     /// Max Length 50
-    var Title: String?
+    public var Title: String?
     
     enum CodingKeys: String, CodingKey {
         case Title = "title"

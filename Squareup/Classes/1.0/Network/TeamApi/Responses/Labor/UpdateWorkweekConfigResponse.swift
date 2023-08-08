@@ -10,7 +10,7 @@ import Foundation
 open class UpdateWorkweekConfigResponse: SquareupResponse {
     
     /// - workweekConfig: The response object.
-    var workweekConfig: WorkweekConfig?
+    public var workweekConfig: WorkweekConfig?
     
     enum CodingKeys: String, CodingKey {
         case workweekConfig = "workweek_config"

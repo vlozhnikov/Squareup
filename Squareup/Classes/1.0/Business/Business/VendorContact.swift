@@ -13,20 +13,20 @@ open class VendorContact: Codable {
     
     /// - Id: A unique Square-generated ID for the VendorContact. This field is required when attempting to update a VendorContact.
     /// Max Length 100
-    var Id: String?
+    public var Id: String?
     /// - Name: The name of the VendorContact. This field is required when attempting to create a Vendor.
     /// Max Length 255
-    var Name: String?
+    public var Name: String?
     /// - EmailAddress: The email address of the VendorContact.
     /// Max Length 255
-    var EmailAddress: String?
+    public var EmailAddress: String?
     /// - PhoneNumber: The phone number of the VendorContact.
     /// Max Length 255
-    var PhoneNumber: String?
+    public var PhoneNumber: String?
     /// - Removed: The state of the VendorContact.
-    var Removed: Bool?
+    public var Removed: Bool?
     /// - Ordinal: The ordinal of the VendorContact.
-    var Ordinal: Int?
+    public var Ordinal: Int?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

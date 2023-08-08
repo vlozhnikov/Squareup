@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveGiftCardFromNonceResponse: SquareupResponse {
     
     /// - giftCard: The retrieved gift card.
-    var giftCard: GiftCard?
+    public var giftCard: GiftCard?
     
     enum CodingKeys: String, CodingKey {
         case giftCard = "gift_card"

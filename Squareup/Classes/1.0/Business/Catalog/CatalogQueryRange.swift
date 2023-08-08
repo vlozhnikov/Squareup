@@ -14,11 +14,11 @@ open class CatalogQueryRange: Codable {
     /// - AttributeName: Required
     /// The name of the attribute to be searched.
     /// Min Length 1
-    var AttributeName: String?
+    public var AttributeName: String?
     /// - AttributeMinValue: The desired minimum value for the search attribute (inclusive).
-    var AttributeMinValue: Int?
+    public var AttributeMinValue: Int?
     /// - AttributeMaxValue: The desired maximum value for the search attribute (inclusive).
-    var AttributeMaxValue: Int?
+    public var AttributeMaxValue: Int?
     
     enum CodingKeys: String, CodingKey {
         case AttributeName = "attribute_name"

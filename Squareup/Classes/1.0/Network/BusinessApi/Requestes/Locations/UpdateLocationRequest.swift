@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class UpdateLocationRequest: Codable {
+open class UpdateLocationRequest: Codable {
     
     /// - location: The Location object with only the fields to update.
-    var location: Location?
+    public var location: Location?
     
     enum CodingKeys: String, CodingKey {
         case location = "location"

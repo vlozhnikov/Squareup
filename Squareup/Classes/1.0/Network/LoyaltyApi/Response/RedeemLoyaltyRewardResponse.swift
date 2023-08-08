@@ -10,7 +10,7 @@ import Foundation
 open class RedeemLoyaltyRewardResponse: SquareupResponse {
     
     /// - Event: The LoyaltyEvent for redeeming the reward.
-    var Event: LoyaltyEvent?
+    public var Event: LoyaltyEvent?
     
     enum CodingKeys: String, CodingKey {
         case Event = "event"

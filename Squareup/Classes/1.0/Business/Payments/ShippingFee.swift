@@ -12,9 +12,9 @@ import Foundation
 open class ShippingFee: Codable {
     
     /// - Name: The name for the shipping fee.
-    var Name: String?
+    public var Name: String?
     /// - Charge: The amount and currency for the shipping fee.
-    var Charge: Money?
+    public var Charge: Money?
     
     enum CodingKeys: String, CodingKey {
         case Name = "name"

@@ -10,7 +10,7 @@ import Foundation
 open class CancelInvoiceResponse: SquareupResponse {
     
     /// - invoice: The canceled invoice
-    var invoice: Invoice?
+    public var invoice: Invoice?
     
     enum CodingKeys: String, CodingKey {
         case invoice = "invoice"

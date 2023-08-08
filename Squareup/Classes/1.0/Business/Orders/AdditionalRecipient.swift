@@ -14,15 +14,15 @@ open class AdditionalRecipient: Codable {
     /// - LocationId: The location ID for a recipient (other than the merchant) receiving a portion of this tender.
     /// Min Length 1
     /// Max Length 50
-    var LocationId: String?
+    public var LocationId: String?
     /// - Description: The description of the additional recipient.
     /// Max Length 100
-    var Description: String?
+    public var Description: String?
     /// - AmountMoney: he amount of money distributed to the recipient.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - ReceivableId: The unique ID for the RETIRED AdditionalRecipientReceivable object. This field should be empty for any AdditionalRecipient objects created after the retirement.
     /// Max Length 192
-    var ReceivableId: String?
+    public var ReceivableId: String?
     
     enum CodingKeys: String, CodingKey {
         case LocationId = "location_id"

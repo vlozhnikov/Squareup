@@ -13,10 +13,10 @@ import Foundation
 open class CustomerCreationSourceFilter: Codable {
     
     /// - Values: The list of creation sources used as filtering criteria.
-    var Values: CustomerCreationSource?
+    public var Values: CustomerCreationSource?
     /// - Rule: ndicates whether a customer profile matching the filter criteria should be included in the result or excluded from the result.
     /// Default: INCLUDE.
-    var Rule: CustomerInclusionExclusion?
+    public var Rule: CustomerInclusionExclusion?
     
     enum CodingKeys: String, CodingKey {
         case Values = "values"

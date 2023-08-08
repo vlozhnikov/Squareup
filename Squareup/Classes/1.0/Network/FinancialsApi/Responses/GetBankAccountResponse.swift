@@ -10,7 +10,7 @@ import Foundation
 open class GetBankAccountResponse: SquareupResponse {
     
     /// - BankAccount: The requested BankAccount object.
-    var BankAccount: BankAccount?
+    public var BankAccount: BankAccount?
     
     enum CodingKeys: String, CodingKey {
         case BankAccount = "bank_account"

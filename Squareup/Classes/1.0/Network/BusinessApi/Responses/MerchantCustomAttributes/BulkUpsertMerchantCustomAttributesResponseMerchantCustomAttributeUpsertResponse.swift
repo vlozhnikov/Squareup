@@ -10,9 +10,9 @@ import Foundation
 open class BulkUpsertMerchantCustomAttributesResponseMerchantCustomAttributeUpsertResponse: SquareupResponse {
     
     /// - MerchantId: The ID of the merchant associated with the custom attribute.
-    var MerchantId: String?
+    public var MerchantId: String?
     /// - customAttribute: The new or updated custom attribute.
-    var customAttribute: CustomAttribute?
+    public var customAttribute: CustomAttribute?
     
     enum CodingKeys: String, CodingKey {
         case MerchantId = "merchant_id"

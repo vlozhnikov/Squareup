@@ -12,9 +12,9 @@ import Foundation
 open class BookingCustomAttributeUpsertResponse: SquareupResponse {
     
     /// - BookingId: The ID of the booking associated with the custom attribute.
-    var BookingId: String?
+    public var BookingId: String?
     /// - customAttribute: The new or updated custom attribute.
-    var customAttribute: CustomAttribute?
+    public var customAttribute: CustomAttribute?
     
     enum CodingKeys: String, CodingKey {
         case BookingId = "booking_id"

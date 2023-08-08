@@ -12,60 +12,60 @@ import Foundation
 open class Location: Codable {
     
     /// Read only A short generated string of letters and numbers that uniquely identifies this location instance. Max Length 32.
-    var Id: String?
+    public var Id: String?
     /// The name of the location. This information appears in the Seller Dashboard as the nickname. A location name must be unique within a seller account. Max Length 255.
-    var Name: String?
+    public var Name: String?
     /// The physical address of the location.
-    var address: Address?
+    public var address: Address?
     /// The IANA time zone identifier for the time zone of the location. For example, America/Los_Angeles.  Max Length 30.
-    var Timezone: String?
+    public var Timezone: String?
     /// Read only The Square features that are enabled for the location.
-    var Capabilities: [LocationCapability]?
+    public var Capabilities: [LocationCapability]?
     /// The status of the location.
-    var Status: LocationStatus?
+    public var Status: LocationStatus?
     /// Read only The time when the location was created, in RFC 3339 format.  Min Length 20. Max Length 25
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// Read only The ID of the merchant that owns the location. Max Length 32.
-    var MerchantId: String?
+    public var MerchantId: String?
     /// Read only The country of the location, in the two-letter format of ISO 3166. For example, US or JP.
-    var country: Country?
+    public var country: Country?
     /// The language associated with the location, in BCP 47 format. Min Length 2. Max Length 5.
-    var LanguageCode: String?
+    public var LanguageCode: String?
     /// Read only The currency used for all transactions at this location, in ISO 4217 format. For example, the currency code for US dollars is USD.
-    var currency: Currency?
+    public var currency: Currency?
     /// The phone number of the location. For example, +1 855-700-6000. Max Length 17.
-    var PhoneNumber: String?
+    public var PhoneNumber: String?
     /// The name of the location's overall business. This name is present on receipts and other customer-facing branding. Max Length 255./
-    var BusinessName: String?
+    public var BusinessName: String?
     /// The type of the location.
-    var type: LocationType?
+    public var type: LocationType?
     /// The website URL of the location. For example, https://squareup.com. Max Length 255.
-    var WebsiteUrl: String?
+    public var WebsiteUrl: String?
     /// The hours of operation for the location.
-    var businessHours: BusinessHours?
+    public var businessHours: BusinessHours?
     /// The email address of the location. This can be unique to the location and is not always the email address for the business owner or administrator. Max Length 255.
-    var BusinessEmail: String?
+    public var BusinessEmail: String?
     /// The description of the location. For example, Main Street location. Max Length 1024.
-    var Description: String?
+    public var Description: String?
     /// The Twitter username of the location without the '@' symbol. For example, Square. Min Length 1. Max Length 15.
-    var TwitterUsername: String?
+    public var TwitterUsername: String?
     /// The Instagram username of the location without the '@' symbol. For example, square. Min Length 1. Max Length 30.
-    var InstagrammUsername: String?
+    public var InstagrammUsername: String?
     /// The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. For example, https://www.facebook.com/square. Max Length 255.
-    var FacebookUrl: String?
+    public var FacebookUrl: String?
     /// The physical coordinates (latitude and longitude) of the location.
-    var coordinates: Coordinates?
+    public var coordinates: Coordinates?
     /// Read only The URL of the logo image for the location. When configured in the Seller Dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices) that Square generates on behalf of the seller. This image should have a roughly square (1:1) aspect ratio and should be at least 200x200 pixels. Max Length 255.
-    var LogoUrl: String?
+    public var LogoUrl: String?
     /// Read only The URL of the Point of Sale background image for the location. Max Length 255.
-    var PosBackgroundUrl: String?
+    public var PosBackgroundUrl: String?
     /// A four-digit number that describes the kind of goods or services sold at the location. The merchant category code (MCC) of the location as standardized by ISO 18245. For example, 5045, for a location that sells computer goods and software. Min Length 4. Max Length 4.
-    var MCC: String?
+    public var MCC: String?
     /// Read only The URL of a full-format logo image for the location. When configured in the Seller Dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices) that Square generates on behalf of the seller. This image can be wider than it is tall and should be at least 1280x648 pixels.
-    var FullFormatLogoUrl: String?
+    public var FullFormatLogoUrl: String?
     /// The tax IDs for this location.
-    var taxIds: TaxIds?
+    public var taxIds: TaxIds?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

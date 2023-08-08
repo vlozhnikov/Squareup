@@ -12,9 +12,9 @@ import Foundation
 open class PaymentBalanceActivityDisputeDetail: Codable {
     
     /// - PaymentId: The ID of the payment associated with this activity.
-    var PaymentId: String?
+    public var PaymentId: String?
     /// - DisputeId: The ID of the dispute associated with this activity.
-    var DisputeId: String?
+    public var DisputeId: String?
     
     enum CodingKeys: String, CodingKey {
         case PaymentId = "payment_id"

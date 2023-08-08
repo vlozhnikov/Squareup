@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Serializer {
+public class Serializer {
     
     class func deserialize<T>(_ object: T.Type, _ json: [String: Any]?, _ id: String = "") -> T! where T : Decodable {
         

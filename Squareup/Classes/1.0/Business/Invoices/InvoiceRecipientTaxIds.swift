@@ -13,7 +13,7 @@ import Foundation
 open class InvoiceRecipientTaxIds: Codable {
     
     /// - EuVat: Read only The EU VAT identification number for the invoice recipient. For example, IE3426675K.
-    var EuVat: String?
+    public var EuVat: String?
     
     enum CodingKeys: String, CodingKey {
         case EuVat = "eu_vat"

@@ -13,7 +13,7 @@ open class LoyaltyEventLoyaltyAccountFilter: Codable {
     
     /// - LoyaltyAccountid: The ID of the loyalty account associated with loyalty events.
     /// Min Length 1
-    var LoyaltyAccountid: String?
+    public var LoyaltyAccountid: String?
     
     enum CodingKeys: String, CodingKey {
         case LoyaltyAccountid = "loyalty_account_id"

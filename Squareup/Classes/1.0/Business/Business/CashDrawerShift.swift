@@ -13,52 +13,52 @@ import Foundation
 open class CashDrawerShift: Codable {
     
     /// - Id: The shift unique ID.
-    var Id: String?
+    public var Id: String?
     /// - State: The shift current state.
-    var State: CashDrawerShiftState?
+    public var State: CashDrawerShiftState?
     /// - OpenedAt: The time when the shift began, in ISO 8601 format.
 //    var OpenedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var OpenedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var OpenedAt: Date?
     /// - EndedAt: The time when the shift ended, in ISO 8601 format.
 //    var EndedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var EndedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var EndedAt: Date?
     /// - ClosedAt: The time when the shift was closed, in ISO 8601 format.
 //    var ClosedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var ClosedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var ClosedAt: Date?
     /// - Description: The free-form text description of a cash drawer by an employee.
-    var Description: String?
+    public var Description: String?
     /// - OpenedCashMoney: The amount of money in the cash drawer at the start of the shift. The amount must be greater than or equal to zero.
-    var OpenedCashMoney: Money?
+    public var OpenedCashMoney: Money?
     /// - CashPaymentMoney: The amount of money added to the cash drawer from cash payments. This is computed by summing all events with the types CASH_TENDER_PAYMENT and CASH_TENDER_CANCELED_PAYMENT. The amount is always greater than or equal to zero.
-    var CashPaymentMoney: Money?
+    public var CashPaymentMoney: Money?
     /// - CashRefundsMoney: The amount of money removed from the cash drawer from cash refunds. It is computed by summing the events of type CASH_TENDER_REFUND. The amount is always greater than or equal to zero.
-    var CashRefundsMoney: Money?
+    public var CashRefundsMoney: Money?
     /// - CashPaidInMoney: The amount of money added to the cash drawer for reasons other than cash payments. It is computed by summing the events of type PAID_IN. The amount is always greater than or equal to zero.
-    var CashPaidInMoney: Money?
+    public var CashPaidInMoney: Money?
     /// - CashPaidOutMoney: The amount of money removed from the cash drawer for reasons other than cash refunds. It is computed by summing the events of type PAID_OUT. The amount is always greater than or equal to zero.
-    var CashPaidOutMoney: Money?
+    public var CashPaidOutMoney: Money?
     /// - ExpectedCashMoney: The amount of money that should be in the cash drawer at the end of the shift, based on the shift's other money amounts. This can be negative if employees have not correctly recorded all the events on the cash drawer. cash_paid_out_money is a summation of amounts from cash_payment_money (zero or positive), cash_refunds_money (zero or negative), cash_paid_in_money (zero or positive), and cash_paid_out_money (zero or negative) event types.
-    var ExpectedCashMoney: Money?
+    public var ExpectedCashMoney: Money?
     /// - ClosedCashMoney: The amount of money found in the cash drawer at the end of the shift by an auditing employee. The amount should be positive.
-    var ClosedCashMoney: Money?
+    public var ClosedCashMoney: Money?
     /// - Device: The device running Square Point of Sale that was connected to the cash drawer.
-    var Device: CashDrawerDevice?
+    public var Device: CashDrawerDevice?
     /// - CreatedAt: Read only The shift start time in RFC 3339 format.
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The shift updated at time in RFC 3339 format
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - LocationId: Read only The ID of the location the cash drawer shift belongs to.
-    var LocationId: String?
+    public var LocationId: String?
     /// - TeamMemberIds: Read only The IDs of all team members that were logged into Square Point of Sale at any point while the cash drawer shift was open.
-    var TeamMemberIds: [String]?
+    public var TeamMemberIds: [String]?
     /// - OpeningTeamMemberId: Read only The ID of the team member that started the cash drawer shift.
-    var OpeningTeamMemberId: String?
+    public var OpeningTeamMemberId: String?
     /// - EndingTeamMemberId: Read only The ID of the team member that ended the cash drawer shift.
-    var EndingTeamMemberId: String?
+    public var EndingTeamMemberId: String?
     /// - ClosingTeamMemberId: Read only The ID of the team member that closed the cash drawer shift by auditing the cash drawer contents.
-    var ClosingTeamMemberId: String?
+    public var ClosingTeamMemberId: String?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

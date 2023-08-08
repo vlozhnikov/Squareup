@@ -7,10 +7,10 @@
 
 import Foundation
 
-internal class RetrieveCatalogObjectRequest: Codable {
+open class RetrieveCatalogObjectRequest: Codable {
     
-    var IncludeRelatedObjects: Bool?
-    var CatalogVersion: Int?
+    public var IncludeRelatedObjects: Bool?
+    public var CatalogVersion: Int?
     
     enum CodingKeys: String, CodingKey {
         case IncludeRelatedObjects = "include_related_objects"

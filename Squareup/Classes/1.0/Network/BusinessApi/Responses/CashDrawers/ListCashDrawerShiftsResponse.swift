@@ -10,9 +10,9 @@ import Foundation
 open class ListCashDrawerShiftsResponse: SquareupResponse {
     
     /// - Cursor: Opaque cursor for fetching the next page of results. Cursor is not present in the last page of results.
-    var Cursor: String?
+    public var Cursor: String?
     /// - CashDrawerShifts: A collection of CashDrawerShiftSummary objects for shifts that match the query.
-    var CashDrawerShifts: [CashDrawerShiftSummary]?
+    public var CashDrawerShifts: [CashDrawerShiftSummary]?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"

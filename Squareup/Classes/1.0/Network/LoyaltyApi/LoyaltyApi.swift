@@ -28,7 +28,7 @@ open class LoyaltyApi {
         /// To create a loyalty account, you must provide the program_id and a mapping with the phone_number of the buyer.
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/create-loyalty-account
-        func createLoyaltyAccount(idempotencyKey: String,
+        public func createLoyaltyAccount(idempotencyKey: String,
                                   loyaltyAccount: LoyaltyAccount,
                                   accessToken: String,
                                   completion: ((CreateLoyaltyAccountResponse) -> Void)? = nil,
@@ -52,7 +52,7 @@ open class LoyaltyApi {
         /// Search results are sorted by created_at in ascending order.
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/search-loyalty-accounts
-        func searchLoyaltyAccounts(query: SearchLoyaltyAccountsRequestLoyaltyAccountQuery?,
+        public func searchLoyaltyAccounts(query: SearchLoyaltyAccountsRequestLoyaltyAccountQuery?,
                                    limit: Int?,
                                    cursor: String?,
                                    accessToken: String,
@@ -76,7 +76,7 @@ open class LoyaltyApi {
         /// - retrieveLoyaltyAccount: Retrieves a loyalty account.
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-account
-        func retrieveLoyaltyAccount(accountId: String,
+        public func retrieveLoyaltyAccount(accountId: String,
                                     accessToken: String,
                                     completion: ((RetrieveLocationResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
@@ -94,7 +94,7 @@ open class LoyaltyApi {
         /// If you are not using the Orders API to manage orders, provide points with the number of points to add. You must first perform a client-side computation of the points earned from the loyalty program and loyalty promotion. For spend-based and visit-based programs, you can call CalculateLoyaltyPoints to compute the points earned from the base loyalty program. For information about computing points earned from a loyalty promotion, see Calculating promotion points.
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/accumulate-loyalty-points
-        func accumulateLoyaltyPoints(accountId: String,
+        public func accumulateLoyaltyPoints(accountId: String,
                                      accumulatePoints: LoyaltyEventAccumulatePoints,
                                      idempotencyKey: String,
                                      locationId: String,
@@ -120,7 +120,7 @@ open class LoyaltyApi {
         /// Use this endpoint only when you need to manually adjust points. Otherwise, in your application flow, you call AccumulateLoyaltyPoints to add points when a buyer pays for the purchase.
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/adjust-loyalty-points
-        func adjustLoyaltyPoints(accountId: String,
+        public func adjustLoyaltyPoints(accountId: String,
                                  idempotencyKey: String,
                                  adjustPoints: LoyaltyEventAdjustPoints,
                                  allowNegativeBalance: Bool?,
@@ -147,7 +147,7 @@ open class LoyaltyApi {
         /// Search results are sorted by created_at in descending order.
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/search-loyalty-events
-        func searchLoyaltyEvents(query: LoyaltyEventQuery?,
+        public func searchLoyaltyEvents(query: LoyaltyEventQuery?,
                                  limit: Int?,
                                  cursor: String?,
                                  accessToken: String,
@@ -172,7 +172,7 @@ open class LoyaltyApi {
         /// Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see Loyalty Program Overview.
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-program
-        func retrieveLoyaltyProgram(programId: String,
+        public func retrieveLoyaltyProgram(programId: String,
                                     accessToken: String,
                                     completion: ((RetrieveLoyaltyProgramResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
@@ -194,7 +194,7 @@ open class LoyaltyApi {
         ///
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/calculate-loyalty-points
-        func calculateLoyaltyPoints(programId: String,
+        public func calculateLoyaltyPoints(programId: String,
                                     orderId: String?,
                                     transactionAmountMoney: Money?,
                                     loyaltyAccountId: String?,
@@ -220,7 +220,7 @@ open class LoyaltyApi {
         /// Results are sorted by the created_at date in descending order (newest to oldest).
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/list-loyalty-promotions
-        func listLoyaltyPromotions(programId: String,
+        public func listLoyaltyPromotions(programId: String,
                                    status: LoyaltyPromotionStatus?,
                                    cursor: String?,
                                    limit: Int?,
@@ -248,7 +248,7 @@ open class LoyaltyApi {
         /// This endpoint sets the loyalty promotion to the ACTIVE or SCHEDULED status, depending on the available_time setting. A loyalty program can have a maximum of 10 loyalty promotions with an ACTIVE or SCHEDULED status.
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/create-loyalty-promotion
-        func createLoyaltyPromotion(programId: String,
+        public func createLoyaltyPromotion(programId: String,
                                     loyaltyPromotion: LoyaltyPromotion,
                                     idempotencyKey: String,
                                     accessToken: String,
@@ -271,7 +271,7 @@ open class LoyaltyApi {
         /// - retrieveLoyaltyPromotion: Retrieves a loyalty promotion.
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-promotion
-        func retrieveLoyaltyPromotion(promotionId: String,
+        public func retrieveLoyaltyPromotion(promotionId: String,
                                       programId: String,
                                       accessToken: String,
                                       completion: ((RetrieveLoyaltyPromotionResponse) -> Void)? = nil,
@@ -290,7 +290,7 @@ open class LoyaltyApi {
         /// This endpoint sets the loyalty promotion to the CANCELED state
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/cancel-loyalty-promotion
-        func cancelLoyaltyPromotion(promotionId: String,
+        public func cancelLoyaltyPromotion(promotionId: String,
                                     programId: String,
                                     accessToken: String,
                                     completion: ((CancelLoyaltyPromotionResponse) -> Void)? = nil,
@@ -310,7 +310,7 @@ open class LoyaltyApi {
         /// After a reward is created, the points are locked and not available for the buyer to redeem another reward.
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/create-loyalty-reward
-        func createLoyaltyReward(reward: LoyaltyReward,
+        public func createLoyaltyReward(reward: LoyaltyReward,
                                  idempotencyKey: String,
                                  accessToken: String,
                                  completion: ((CreateLoyaltyRewardResponse) -> Void)? = nil,
@@ -335,7 +335,7 @@ open class LoyaltyApi {
         /// Search results are sorted by updated_at in descending order.
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/search-loyalty-rewards
-        func searchLoyaltyRewards(query: SearchLoyaltyRewardsRequestLoyaltyRewardQuery?,
+        public func searchLoyaltyRewards(query: SearchLoyaltyRewardsRequestLoyaltyRewardQuery?,
                                   limit: Int?,
                                   cursor: String?,
                                   accessToken: String,
@@ -362,7 +362,7 @@ open class LoyaltyApi {
         /// You cannot delete a reward that has reached the terminal state (REDEEMED).
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/delete-loyalty-reward
-        func deleteLoyaltyReward(rewardId: String,
+        public func deleteLoyaltyReward(rewardId: String,
                                  accessToken: String,
                                  completion: ((SquareupResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
@@ -378,7 +378,7 @@ open class LoyaltyApi {
         /// - retrieveLoyaltyReward: Retrieves a loyalty reward.
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-reward
-        func retrieveLoyaltyReward(rewardId: String,
+        public func retrieveLoyaltyReward(rewardId: String,
                                    accessToken: String,
                                    completion: ((RetrieveLoyaltyRewardResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
@@ -397,7 +397,7 @@ open class LoyaltyApi {
         /// After the reward reaches the terminal state, it cannot be deleted. In other words, points used for the reward cannot be returned to the account.
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/redeem-loyalty-reward
-        func redeemLoyaltyReward(rewardId: String,
+        public func redeemLoyaltyReward(rewardId: String,
                                  idempotencyKey: String,
                                  locationId: String,
                                  accessToken: String,

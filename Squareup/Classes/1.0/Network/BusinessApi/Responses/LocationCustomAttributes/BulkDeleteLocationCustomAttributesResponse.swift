@@ -10,7 +10,7 @@ import Foundation
 open class BulkDeleteLocationCustomAttributesResponse: SquareupResponse {
     
     /// - Values: A map of responses that correspond to individual delete requests. Each response has the same key as the corresponding request.
-    var Values: [String: BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteResponse]?
+    public var Values: [String: BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteResponse]?
     
     enum CodingKeys: String, CodingKey {
         case Values = "values"

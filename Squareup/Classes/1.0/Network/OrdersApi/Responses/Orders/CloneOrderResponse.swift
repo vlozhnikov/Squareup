@@ -10,7 +10,7 @@ import Foundation
 open class CloneOrderResponse: SquareupResponse {
     
     /// - order: The cloned order.
-    var order: Order?
+    public var order: Order?
     
     enum CodingKeys: String, CodingKey {
         case order = "order"

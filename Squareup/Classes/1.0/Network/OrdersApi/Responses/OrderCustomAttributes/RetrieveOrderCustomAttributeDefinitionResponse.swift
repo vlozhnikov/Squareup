@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveOrderCustomAttributeDefinitionResponse: SquareupResponse {
     
     /// - customAttributeDefinition: The retrieved custom attribute definition.
-    var customAttributeDefinition: CustomAttributeDefinition?
+    public var customAttributeDefinition: CustomAttributeDefinition?
     
     enum CodingKeys: String, CodingKey {
         case customAttributeDefinition = "custom_attribute_definition"

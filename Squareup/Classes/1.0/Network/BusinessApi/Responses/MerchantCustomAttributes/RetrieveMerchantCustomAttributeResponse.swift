@@ -10,7 +10,7 @@ import Foundation
 open class RetrieveMerchantCustomAttributeResponse: SquareupResponse {
     
     /// - customAttribute: The retrieved custom attribute. If with_definition was set to true in the request, the custom attribute definition is returned in the definition field.
-    var customAttribute: CustomAttribute?
+    public var customAttribute: CustomAttribute?
     
     enum CodingKeys: String, CodingKey {
         case customAttribute = "custom_attribute"

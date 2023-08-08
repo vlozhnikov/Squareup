@@ -10,9 +10,9 @@ import Foundation
 open class CreatePaymentLinkResponse: SquareupResponse {
     
     /// - paymentLink: The created payment link.
-    var paymentLink: PaymentLink?
+    public var paymentLink: PaymentLink?
     /// - RelatedResources: The list of related objects.
-    var RelatedResources: PaymentLinkRelatedResources?
+    public var RelatedResources: PaymentLinkRelatedResources?
     
     enum CodingKeys: String, CodingKey {
         case paymentLink = "payment_link"

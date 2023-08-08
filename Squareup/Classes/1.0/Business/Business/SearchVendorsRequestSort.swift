@@ -12,9 +12,9 @@ import Foundation
 open class SearchVendorsRequestSort: Codable {
     
     /// - Field: Specifies the sort key to sort the returned vendors.
-    var Field: SearchVendorsRequestSortField?
+    public var Field: SearchVendorsRequestSortField?
     /// - Order: Specifies the sort order for the returned vendors.
-    var Order: SortOrder?
+    public var Order: SortOrder?
     
     enum CodingKeys: String, CodingKey {
         case Field = "field"

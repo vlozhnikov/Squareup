@@ -14,17 +14,17 @@ open class LoyaltyProgram: Codable {
     
     /// - Id: Read only The Square-assigned ID of the loyalty program. Updates to the loyalty program do not modify the identifier.
     /// Max Length 36
-    var Id: String?
+    public var Id: String?
     /// - Status: Whether the program is currently active.
-    var Status: LoyaltyProgramStatus?
+    public var Status: LoyaltyProgramStatus?
     /// RewardTiers: The list of rewards for buyers, sorted by ascending points.
-    var RewardTiers: [LoyaltyProgramRewardTier]?
+    public var RewardTiers: [LoyaltyProgramRewardTier]?
     /// - ExpirationPolicy: f present, details for how points expire.
-    var ExpirationPolicy: LoyaltyProgramExpirationPolicy?
+    public var ExpirationPolicy: LoyaltyProgramExpirationPolicy?
     /// - Terminology: A cosmetic name for the “points” currency.
-    var Terminology: LoyaltyProgramTerminology?
+    public var Terminology: LoyaltyProgramTerminology?
     /// - LocationIds: The locations at which the program is active.
-    var LocationIds: [String]?
+    public var LocationIds: [String]?
     /// - CreatedAt: Read only The timestamp when the program was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -32,7 +32,7 @@ open class LoyaltyProgram: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var CreatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var CreatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp when the reward was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     ///
@@ -40,9 +40,9 @@ open class LoyaltyProgram: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
 //    var UpdatedAt: Date?
-    @FormattedDate<RFC3339_Strategy> var UpdatedAt: Date?
+    @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - AccrualRules: Defines how buyers can earn loyalty points from the base loyalty program. To check for associated loyalty promotions that enable buyers to earn extra points, call ListLoyaltyPromotions.
-    var AccrualRules: [LoyaltyProgramAccrualRule]?
+    public var AccrualRules: [LoyaltyProgramAccrualRule]?
     
     enum CodingKeys: String, CodingKey {
         case Id = "id"

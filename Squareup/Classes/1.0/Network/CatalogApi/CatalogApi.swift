@@ -27,7 +27,7 @@ open class CatalogApi {
         /// While one (batch or non-batch) update request is being processed, other (batched and non-batched) update requests are rejected with the 429 error code.
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/upsert-catalog-object
-        func upsertCatalogObject(object: CatalogObject,
+        public func upsertCatalogObject(object: CatalogObject,
                                  idempotencyKey: String?,
                                  accessToken: String,
                                  completion: ((CatalogObjectResponse) -> Void)? = nil,
@@ -52,7 +52,7 @@ open class CatalogApi {
         /// While one (batch or non-batch) update request is being processed, other (batched and non-batched) update requests are rejected with the 429 error code.
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/batch-upsert-catalog-objects
-        func batchUpsertCatalogObjects(objects: [CatalogObject],
+        public func batchUpsertCatalogObjects(objects: [CatalogObject],
                                        idempotencyKey: String?,
                                        accessToken: String,
                                        completion: ((CatalogObjectsResponse) -> Void)? = nil,
@@ -90,7 +90,7 @@ open class CatalogApi {
         ///
         /// The following steps are generally applicable to creating catalog objects of other types, except for uploading an image object. For information about how to upload an image to a catalog and attach it to an item, item variation, or category, see Work with Images.
         /// https://developer.squareup.com/docs/catalog-api/build-with-catalog
-        func updateItemModifierLists(itemIds: [String],
+        public func updateItemModifierLists(itemIds: [String],
                                      modifierListsToDisable: [String],
                                      modifierListsToEnable: [String],
                                      accessToken: String,
@@ -119,7 +119,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/list-catalog
-        func listCatalog(cursor: String? = nil,
+        public func listCatalog(cursor: String? = nil,
                          types: [String] = [],
                          catalog_version: Int? = nil,
                          accessToken: String,
@@ -152,7 +152,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/search-catalog-items
-        func searchCatalogItems(textFilter: String? = nil,
+        public func searchCatalogItems(textFilter: String? = nil,
                                 categoryIds: [String] = [],
                                 stockLevels: [SearchCatalogItemsRequestStockLevel]? = nil,
                                 enabledLocationIds: [String] = [],
@@ -196,7 +196,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/search-catalog-objects
-        func searchCatalogObjects(cursor: String? = nil,
+        public func searchCatalogObjects(cursor: String? = nil,
                                   objectTypes: [CatalogObjectType]? = nil,
                                   includeDeletedObjects: Bool? = nil,
                                   includeRelatedObjects: Bool? = nil,
@@ -231,7 +231,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/retrieve-catalog-object
-        func retrieveCatalogObject(objectId: String,
+        public func retrieveCatalogObject(objectId: String,
                                    includeRelatedObjects: Bool = false,
                                    catalogVersion: Int? = nil,
                                    accessToken: String,
@@ -258,7 +258,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/batch-retrieve-catalog-objects
-        func batchRetrieveCatalogObjects(objectIds: [String],
+        public func batchRetrieveCatalogObjects(objectIds: [String],
                                          includeRelatedObjects: Bool = false,
                                          catalogVersion: Int? = nil,
                                          includeDeletedObjects: Bool? = nil,
@@ -290,7 +290,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/delete-catalog-object
-        func deleteCatalogObject(objectId: String,
+        public func deleteCatalogObject(objectId: String,
                                  accessToken: String,
                                  completion: ((DeleteCatalogObjectResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
@@ -313,7 +313,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/batch-delete-catalog-objects
-        func batchDeleteCatalogObjects(objectIds: [String],
+        public func batchDeleteCatalogObjects(objectIds: [String],
                                        accessToken: String,
                                        completion: ((BatchDeleteCatalogObjectsResponse?) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
@@ -337,7 +337,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/create-catalog-image
-        func createCatalogImage(objectId: String? = nil,
+        public func createCatalogImage(objectId: String? = nil,
                                 isPrimary: Bool? = nil,
                                 image: UIImage,
                                 idempotencyKey: String?,
@@ -371,7 +371,7 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/update-catalog-image
-        func updateCatalogImage(imageId: String,
+        public func updateCatalogImage(imageId: String,
                                 imageObject: CatalogObject,
                                 image: UIImage,
                                 idempotencyKey: String?,

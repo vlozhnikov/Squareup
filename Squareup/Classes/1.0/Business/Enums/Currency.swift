@@ -10,7 +10,7 @@ import Foundation
 /// - Currency: Indicates the associated currency for an amount of money.
 /// Values correspond to ISO 4217.
 /// https://developer.squareup.com/reference/square/objects/Location
-enum Currency: String, CaseIterable, Codable {
+public enum Currency: String, CaseIterable, Codable {
     
     case Unknown_currency = "UNKNOWN_CURRENCY"
     case United_Arab_Emirates_dirham = "AED"
@@ -192,11 +192,11 @@ enum Currency: String, CaseIterable, Codable {
     case Zambian_kwacha = "ZMK"
     case Bitcoin = "BTC"
     
-    static var allNames: [String] {
+    public static var allNames: [String] {
         return Currency.allCases.map { $0.rawValue }
     }
     
-    var friendlyName: String {
+    public var friendlyName: String {
         return self.rawValue
     }
 }

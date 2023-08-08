@@ -10,7 +10,7 @@ import Foundation
 open class UpdateSubscriptionResponse: SquareupResponse {
     
     /// - subscription: The updated subscription.
-    var subscription: Subscription?
+    public var subscription: Subscription?
     
     enum CodingKeys: String, CodingKey {
         case subscription = "subscription"

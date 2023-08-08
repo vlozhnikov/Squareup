@@ -10,7 +10,7 @@ import Foundation
 open class UpdateBreakTypeResponse: SquareupResponse {
     
     /// - breakType: The response object.
-    var breakType: BreakType?
+    public var breakType: BreakType?
     
     enum CodingKeys: String, CodingKey {
         case breakType = "break_type"

@@ -13,20 +13,20 @@ import Foundation
 open class ShiftFilter: Codable {
     
     /// - LocationIds: Fetch shifts for the specified location.
-    var LocationIds: [String]?
+    public var LocationIds: [String]?
     /// - EmployeeIds: Deprecated
     /// Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use team_member_ids instead.
-    var EmployeeIds: [String]?
+    public var EmployeeIds: [String]?
     /// - Status: Fetch a Shift instance by Shift.status.
-    var Status: ShiftFilterStatus?
+    public var Status: ShiftFilterStatus?
     /// - Start: Fetch Shift instances that start in the time range - Inclusive.
-    var Start: TimeRange?
+    public var Start: TimeRange?
     /// - End: Fetch the Shift instances that end in the time range - Inclusive.
-    var End: TimeRange?
+    public var End: TimeRange?
     /// - Workday: Fetch the Shift instances based on the workday date range.
-    var Workday: ShiftWorkday?
+    public var Workday: ShiftWorkday?
     /// - TeamMemberIds: Fetch shifts for the specified team members. Replaced employee_ids at version "2020-08-26".
-    var TeamMemberIds: [String]?
+    public var TeamMemberIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case LocationIds = "location_ids"

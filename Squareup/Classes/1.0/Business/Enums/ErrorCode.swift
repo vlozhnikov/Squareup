@@ -9,7 +9,7 @@ import Foundation
 
 /// - ErrorCode: Indicates the specific error that occurred during a request to a Square API.
 /// https://developer.squareup.com/reference/square/enums/ErrorCode
-enum ErrorCode: String, Codable {
+public enum ErrorCode: String, Codable {
     
     /// - InternalServerError: A general server error occurred.
     case InternalServerError = "INTERNAL_SERVER_ERROR"

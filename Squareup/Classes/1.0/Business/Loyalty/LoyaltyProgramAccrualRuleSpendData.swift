@@ -12,15 +12,15 @@ import Foundation
 open class LoyaltyProgramAccrualRuleSpendData: Codable {
     
     /// - AmountMoney: The amount that buyers must spend to earn points. For example, given an "Earn 1 point for every $10 spent" accrual rule, a buyer who spends $105 earns 10 points.
-    var AmountMoney: Money?
+    public var AmountMoney: Money?
     /// - ExcludedCategoryIds: The IDs of any CATEGORY catalog objects that are excluded from points accrual.
     /// You can use the BatchRetrieveCatalogObjects endpoint to retrieve information about the excluded categories.
-    var ExcludedCategoryIds: [String]?
+    public var ExcludedCategoryIds: [String]?
     /// - ExcludedItemVariationIds: The IDs of any ITEM_VARIATION catalog objects that are excluded from points accrual.
     /// You can use the BatchRetrieveCatalogObjects endpoint to retrieve information about the excluded item variations.
-    var ExcludedItemVariationIds: [String]?
+    public var ExcludedItemVariationIds: [String]?
     /// - TaxMode: Indicates how taxes should be treated when calculating the purchase amount used for points accrual.
-    var TaxMode: LoyaltyProgramAccrualRuleTaxMode?
+    public var TaxMode: LoyaltyProgramAccrualRuleTaxMode?
     
     enum CodingKeys: String, CodingKey {
         case AmountMoney = "amount_money"

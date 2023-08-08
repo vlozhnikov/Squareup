@@ -12,15 +12,15 @@ import Foundation
 open class OrderMoneyAmounts: Codable {
     
     /// - TotalMoney: The total money.
-    var TotalMoney: Money?
+    public var TotalMoney: Money?
     /// - TaxMoney: The money associated with taxes.
-    var TaxMoney: Money?
+    public var TaxMoney: Money?
     /// - DiscountMoney: The money associated with discounts.
-    var DiscountMoney: Money?
+    public var DiscountMoney: Money?
     /// - TipMoney: The money associated with tips.
-    var TipMoney: Money?
+    public var TipMoney: Money?
     /// - ServiceChargeMoney: The money associated with service charges.
-    var ServiceChargeMoney: Money?
+    public var ServiceChargeMoney: Money?
     
     enum CodingKeys: String, CodingKey {
         case TotalMoney = "total_money"

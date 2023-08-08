@@ -7,9 +7,9 @@
 
 import Foundation
 
-internal class BulkCreateTeamMembersRequest: Codable {
+open class BulkCreateTeamMembersRequest: Codable {
     
-    var TeamMembers: [String: CreateTeamMemberRequest]?
+    public var TeamMembers: [String: CreateTeamMemberRequest]?
     
     enum CodingKeys: String, CodingKey {
         case TeamMembers = "team_members"

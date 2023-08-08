@@ -16,9 +16,9 @@ open class LoyaltyPromotionTriggerLimit: Codable {
     /// - Times: The maximum number of times a buyer can trigger the promotion during the specified interval.
     /// Min 1
     /// Max 30
-    var Times: Int?
+    public var Times: Int?
     /// - Interval: The time period the limit applies to.
-    var Interval: LoyaltyPromotionTriggerLimitInterval?
+    public var Interval: LoyaltyPromotionTriggerLimitInterval?
     
     enum CodingKeys: String, CodingKey {
         case Times = "times"

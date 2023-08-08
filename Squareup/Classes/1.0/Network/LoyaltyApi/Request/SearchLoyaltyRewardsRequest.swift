@@ -7,16 +7,16 @@
 
 import Foundation
 
-internal class SearchLoyaltyRewardsRequest: Codable {
+open class SearchLoyaltyRewardsRequest: Codable {
     
     /// - Query: The search criteria for the request. If empty, the endpoint retrieves all loyalty rewards in the loyalty program.
-    var Query: SearchLoyaltyRewardsRequestLoyaltyRewardQuery?
+    public var Query: SearchLoyaltyRewardsRequestLoyaltyRewardQuery?
     /// - Limit: The maximum number of results to return in the response. The default value is 30.
     /// Min 1
     /// Max 30
-    var Limit: Int?
+    public var Limit: Int?
     /// - Cursor: A pagination cursor returned by a previous call to this endpoint. Provide this to retrieve the next set of results for the original query. For more information, see Pagination.
-    var Cursor: String?
+    public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {
         case Query = "query"

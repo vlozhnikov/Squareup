@@ -13,9 +13,9 @@ open class SearchLoyaltyRewardsRequestLoyaltyRewardQuery: Codable {
     
     /// - LoyaltyAccountId: The ID of the loyalty account to which the loyalty reward belongs.
     /// Min Length 1
-    var LoyaltyAccountId: String?
+    public var LoyaltyAccountId: String?
     /// - Status: The status of the loyalty reward.
-    var Status: LoyaltyRewardStatus?
+    public var Status: LoyaltyRewardStatus?
     
     enum CodingKeys: String, CodingKey {
         case LoyaltyAccountId = "loyalty_account_id"

@@ -7,9 +7,10 @@
 
 import Foundation
 
-internal class ListCustomerGroupsRequest: Codable {
-    var Cursor: String?
-    var Limit: Int?
+open class ListCustomerGroupsRequest: Codable {
+    
+    public var Cursor: String?
+    public var Limit: Int?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"
