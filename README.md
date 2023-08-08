@@ -28,7 +28,7 @@ BusinessApi.locations.listLocations(accessToken: ACCESS_TOKEN, completion: { res
 }
 ```
 
-More examples you can find in an *Tests* folder.
+More examples you can find in *Tests* folder.
 
 ### Installation
 
