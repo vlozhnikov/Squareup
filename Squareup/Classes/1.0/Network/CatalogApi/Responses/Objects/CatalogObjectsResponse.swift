@@ -9,7 +9,7 @@ import Foundation
 
 open class CatalogObjectsResponse: SquareupResponse {
     
-    var Objects: [CatalogObject]?
+    public var Objects: [CatalogObject]?
     var UpdatedAt: Date?
     var IdMappings: [CatalogIdMapping]?
     
