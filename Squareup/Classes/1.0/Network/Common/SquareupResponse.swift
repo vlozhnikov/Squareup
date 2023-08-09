@@ -1,8 +1,8 @@
 //
 //  SquareResponse.swift
-//  Business Calendar
+//  Squareup
 //
-//  Created by user on 4.04.23.
+//  Created by Vladimir Lozhnikov on 4.04.23.
 //
 
 import Foundation

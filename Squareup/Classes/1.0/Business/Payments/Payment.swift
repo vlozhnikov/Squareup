@@ -2,7 +2,7 @@
 //  Payment.swift
 //  Squareup
 //
-//  Created by user on 12.06.23.
+//  Created by Vladimir Lozhnikov on 12.06.23.
 //
 
 import Foundation

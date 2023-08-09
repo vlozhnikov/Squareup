@@ -2,7 +2,7 @@
 //  CreateVendorResponse.swift
 //  Squareup
 //
-//  Created by user on 1.07.23.
+//  Created by Vladimir Lozhnikov on 1.07.23.
 //
 
 import Foundation

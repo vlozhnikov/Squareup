@@ -2,7 +2,7 @@
 //  StringError.swift
 //  lockdown
 //
-//  Created by user on 28.06.22.
+//  Created by Vladimir Lozhnikov on 28.06.22.
 //
 
 import Foundation

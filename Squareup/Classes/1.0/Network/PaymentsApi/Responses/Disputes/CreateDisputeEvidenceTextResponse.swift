@@ -2,7 +2,7 @@
 //  CreateDisputeEvidenceTextResponse.swift
 //  Squareup
 //
-//  Created by user on 3.07.23.
+//  Created by Vladimir Lozhnikov on 3.07.23.
 //
 
 import Foundation

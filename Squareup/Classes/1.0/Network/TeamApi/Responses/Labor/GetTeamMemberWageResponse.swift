@@ -2,7 +2,7 @@
 //  GetTeamMemberWageResponse.swift
 //  Squareup
 //
-//  Created by user on 4.08.23.
+//  Created by Vladimir Lozhnikov on 4.08.23.
 //
 
 import Foundation

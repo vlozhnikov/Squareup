@@ -2,7 +2,7 @@
 //  GiftCardActivityTransferBalanceFrom.swift
 //  Squareup
 //
-//  Created by user on 3.08.23.
+//  Created by Vladimir Lozhnikov on 3.08.23.
 //
 
 import Foundation

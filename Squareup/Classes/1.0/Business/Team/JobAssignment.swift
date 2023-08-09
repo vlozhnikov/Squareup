@@ -2,7 +2,7 @@
 //  JobAssignment.swift
 //  Squareup
 //
-//  Created by user on 6.06.23.
+//  Created by Vladimir Lozhnikov on 6.06.23.
 //
 
 import Foundation

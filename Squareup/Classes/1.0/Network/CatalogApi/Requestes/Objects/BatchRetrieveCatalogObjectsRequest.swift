@@ -1,8 +1,8 @@
 //
 //  BatchRetrieveCatalogObjectsRequest.swift
-//  Business Calendar
+//  Squareup
 //
-//  Created by user on 4.05.23.
+//  Created by Vladimir Lozhnikov on 4.05.23.
 //
 
 import Foundation

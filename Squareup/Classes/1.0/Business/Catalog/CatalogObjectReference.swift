@@ -2,7 +2,7 @@
 //  CatalogObjectReference.swift
 //  
 //
-//  Created by user on 5.06.23.
+//  Created by Vladimir Lozhnikov on 5.06.23.
 //
 
 import Foundation

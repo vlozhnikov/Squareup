@@ -1,8 +1,8 @@
 //
 //  CatalogCustomAttributeValue.swift
-//  Business Calendar
+//  Squareup
 //
-//  Created by user on 29.04.23.
+//  Created by Vladimir Lozhnikov on 29.04.23.
 //
 
 import Foundation

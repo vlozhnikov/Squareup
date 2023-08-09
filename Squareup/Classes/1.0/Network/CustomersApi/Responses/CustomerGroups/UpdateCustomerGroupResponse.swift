@@ -1,8 +1,8 @@
 //
 //  UpdateCustomerGroupResponse.swift
-//  Business Calendar
+//  Squareup
 //
-//  Created by user on 5.05.23.
+//  Created by Vladimir Lozhnikov on 5.05.23.
 //
 
 import Foundation

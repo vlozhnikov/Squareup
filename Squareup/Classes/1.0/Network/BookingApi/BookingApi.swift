@@ -2,7 +2,7 @@
 //  BookingApi.swift
 //  Squareup
 //
-//  Created by user on 7.06.23.
+//  Created by Vladimir Lozhnikov on 7.06.23.
 //
 
 import Foundation

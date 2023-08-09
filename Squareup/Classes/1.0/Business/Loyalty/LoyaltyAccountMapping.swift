@@ -2,7 +2,7 @@
 //  LoyaltyAccountMapping.swift
 //  Squareup
 //
-//  Created by user on 26.06.23.
+//  Created by Vladimir Lozhnikov on 26.06.23.
 //
 
 import Foundation

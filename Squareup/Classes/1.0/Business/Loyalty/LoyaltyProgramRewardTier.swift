@@ -2,7 +2,7 @@
 //  LoyaltyProgramRewardTier.swift
 //  Squareup
 //
-//  Created by user on 27.06.23.
+//  Created by Vladimir Lozhnikov on 27.06.23.
 //
 
 import Foundation

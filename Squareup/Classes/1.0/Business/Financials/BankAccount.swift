@@ -2,7 +2,7 @@
 //  BankAccount.swift
 //  Squareup
 //
-//  Created by user on 19.06.23.
+//  Created by Vladimir Lozhnikov on 19.06.23.
 //
 
 import Foundation

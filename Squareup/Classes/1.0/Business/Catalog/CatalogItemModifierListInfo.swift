@@ -1,8 +1,8 @@
 //
 //  CatalogItemModifierListInfo.swift
-//  Business Calendar
+//  Squareup
 //
-//  Created by user on 1.05.23.
+//  Created by Vladimir Lozhnikov on 1.05.23.
 //
 
 import Foundation

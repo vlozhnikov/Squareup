@@ -2,7 +2,7 @@
 //  CreateInvoiceResponse.swift
 //  Squareup
 //
-//  Created by user on 17.06.23.
+//  Created by Vladimir Lozhnikov on 17.06.23.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  BatchRetrieveOrdersRequest.swift
 //  Squareup
 //
-//  Created by user on 11.06.23.
+//  Created by Vladimir Lozhnikov on 11.06.23.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  OrderLineItemDiscount.swift
 //  Squareup
 //
-//  Created by user on 9.06.23.
+//  Created by Vladimir Lozhnikov on 9.06.23.
 //
 
 import Foundation

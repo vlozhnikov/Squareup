@@ -1,8 +1,8 @@
 //
 //  Currency.swift
-//  Business Calendar
+//  Squareup
 //
-//  Created by user on 31.03.23.
+//  Created by Vladimir Lozhnikov on 31.03.23.
 //
 
 import Foundation

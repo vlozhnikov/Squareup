@@ -2,7 +2,7 @@
 //  CancelSubscriptionResponse.swift
 //  Squareup
 //
-//  Created by user on 23.06.23.
+//  Created by Vladimir Lozhnikov on 23.06.23.
 //
 
 import Foundation

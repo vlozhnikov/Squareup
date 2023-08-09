@@ -2,7 +2,7 @@
 //  ListPaymentRefundsRequest.swift
 //  Squareup
 //
-//  Created by user on 2.07.23.
+//  Created by Vladimir Lozhnikov on 2.07.23.
 //
 
 import Foundation

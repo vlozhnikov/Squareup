@@ -2,7 +2,7 @@
 //  CompletePaymentResponse.swift
 //  Squareup
 //
-//  Created by user on 15.06.23.
+//  Created by Vladimir Lozhnikov on 15.06.23.
 //
 
 import Foundation

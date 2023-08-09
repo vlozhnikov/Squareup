@@ -1,8 +1,8 @@
 //
 //  AppointmentSegment.swift
-//  Business Calendar
+//  Squareup
 //
-//  Created by user on 2.06.23.
+//  Created by Vladimir Lozhnikov on 2.06.23.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse.swift
 //  Squareup
 //
-//  Created by user on 30.06.23.
+//  Created by Vladimir Lozhnikov on 30.06.23.
 //
 
 import Foundation

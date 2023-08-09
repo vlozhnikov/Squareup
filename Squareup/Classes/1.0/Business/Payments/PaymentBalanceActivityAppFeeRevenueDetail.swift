@@ -2,7 +2,7 @@
 //  PaymentBalanceActivityAppFeeRevenueDetail.swift
 //  Squareup
 //
-//  Created by user on 4.07.23.
+//  Created by Vladimir Lozhnikov on 4.07.23.
 //
 
 import Foundation

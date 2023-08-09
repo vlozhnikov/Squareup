@@ -2,7 +2,7 @@
 //  RetrieveMerchantCustomAttributeDefinitionResponse.swift
 //  Squareup
 //
-//  Created by user on 28.06.23.
+//  Created by Vladimir Lozhnikov on 28.06.23.
 //
 
 import Foundation
