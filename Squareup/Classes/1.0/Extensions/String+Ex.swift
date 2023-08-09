@@ -14,7 +14,7 @@ public extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespaces)
     }
     
-    func decode_RFC3339_Date<K>(_ container: KeyedDecodingContainer<K>, forKey key: K) throws -> Foundation.Date! where K : CodingKey {
+    func decode_RFC3339_Date() throws -> Foundation.Date! {
         
         if self.isEmpty {
             return nil
@@ -24,11 +24,11 @@ public extension String {
         if let date = formatter.date(from: self) {
             return date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: key, in: container, debugDescription: "Date string does not match format expected by formatter.")
+            throw StringError("Date string does not match format expected by formatter.")
         }
     }
     
-    func decode_YYYYMMDD_Date<K>(_ container: KeyedDecodingContainer<K>, forKey key: K) throws -> Foundation.Date! where K : CodingKey {
+    func decode_YYYYMMDD_Date() throws -> Foundation.Date! {
         
         if self.isEmpty {
             return nil
@@ -38,11 +38,11 @@ public extension String {
         if let date = formatter.date(from: self) {
             return date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: key, in: container, debugDescription: "Date string does not match format expected by formatter.")
+            throw StringError("Date string does not match format expected by formatter.")
         }
     }
     
-    func decode_HHMMSS_Date<K>(_ container: KeyedDecodingContainer<K>, forKey key: K) throws -> Foundation.Date! where K : CodingKey {
+    func decode_HHMMSS_Date() throws -> Foundation.Date! {
         
         if self.isEmpty {
             return nil
@@ -52,7 +52,7 @@ public extension String {
         if let date = formatter.date(from: self) {
             return date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: key, in: container, debugDescription: "Date string does not match format expected by formatter.")
+            throw StringError("Date string does not match format expected by formatter.")
         }
     }
     

@@ -24,7 +24,7 @@ open class DeleteCatalogObjectResponse: SquareupResponse {
         
         self.DeletedObjectIds = try container.decodeIfPresent([String].self, forKey: .DeletedObjectIds)
         if let dateString = try? container.decodeIfPresent(String.self, forKey: .DeletedAt), !dateString.isEmpty {
-            self.DeletedAt = try dateString.decode_RFC3339_Date(container, forKey: .DeletedAt)
+            self.DeletedAt = try dateString.decode_RFC3339_Date()
         }
     }
 }

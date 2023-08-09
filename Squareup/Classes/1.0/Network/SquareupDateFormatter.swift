@@ -25,7 +25,11 @@ public struct FormattedDate<Formatter: DateValueCodableStrategy>: Codable {
     }
     
     public init(from decoder: Decoder) throws {
-        self.wrappedValue = try Formatter.RawValue(from: decoder) as? Date
+        
+        let container = try decoder.singleValueContainer()
+        if let dateString = try? container.decode(String.self), !dateString.isEmpty {
+            self.wrappedValue = try dateString.decode_RFC3339_Date()
+        }
     }
     
     public func encode(to encoder: Encoder) throws {

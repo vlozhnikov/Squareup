@@ -27,7 +27,7 @@ open class CatalogObjectsResponse: SquareupResponse {
         
         self.Objects = try container.decodeIfPresent([CatalogObject].self, forKey: .Objects)
         if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
+            self.UpdatedAt = try dateString.decode_RFC3339_Date()
         }
         self.IdMappings = try container.decodeIfPresent([CatalogIdMapping].self, forKey: .IdMappings)
     }

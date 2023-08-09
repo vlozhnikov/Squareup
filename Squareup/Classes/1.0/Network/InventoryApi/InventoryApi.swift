@@ -175,7 +175,7 @@ open class InventoryApi {
                                     completion: ((RetrieveInventoryCountResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
             
-            var retrieveInventoryCountRequest = Serializer.deserialize(RetrieveInventoryCountRequest.self, [:])!
+            let retrieveInventoryCountRequest = Serializer.deserialize(RetrieveInventoryCountRequest.self, [:])!
             retrieveInventoryCountRequest.LocationIds = locationIds
             retrieveInventoryCountRequest.Cursor = cursor
             

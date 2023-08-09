@@ -20,7 +20,7 @@ open class UpdatedResponse: SquareupResponse {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
+            self.UpdatedAt = try dateString.decode_RFC3339_Date()
         }
     }
 }

@@ -3,14 +3,14 @@ import XCTest
 
 class Tests: XCTestCase {
     
-    private let accessToken = "EAAAEMtberzJmhus1KGKQuPM03GaemtBhdA3LDJ3YNXhC1u2Wbrqp0kpOZo5L5p3"
+    private let accessToken = "<#accessToken#>"
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        let APPLICATION_ID = "L5HXJCY39G6ZC"
-        let SQUARE_LOCATION_ID = "sandbox-sq0idb-6vx7hwAFizH4Yk4VT0RIpQ"
+        let APPLICATION_ID = "<#APPLICATION_ID#>"
+        let SQUARE_LOCATION_ID = "<#SQUARE_LOCATION_ID#>"
         
         SquareupConfigurer.shared.setup(applicationId: APPLICATION_ID,
                                         squareLocationId: SQUARE_LOCATION_ID,
@@ -25,22 +25,20 @@ class Tests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         
-        let semaphore = DispatchSemaphore(value: 0)
+        let listLocations = XCTestExpectation(description: "listLocations")
         
         BusinessApi.locations.listLocations(accessToken: self.accessToken, completion: { response in
-            print(response.Locations)
             
             XCTAssert(true, "Pass")
-            semaphore.signal()
+            listLocations.fulfill()
         }) { error in
             print(error.localizedDescription)
             
-            XCTAssert(true, "Pass")
-            semaphore.signal()
+            XCTAssert(false, "Pass")
+            listLocations.fulfill()
         }
         
-        // Wait for the async request to complete
-        semaphore.wait()
+        wait(for: [listLocations], timeout: 50.0)
     }
     
     func testPerformanceExample() {

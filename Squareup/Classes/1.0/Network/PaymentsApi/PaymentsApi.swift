@@ -864,7 +864,7 @@ open class PaymentsApi {
             
             let listPayoutEntriesRequest = Serializer.deserialize(ListPayoutEntriesRequest.self, [:])!
             
-            listPayoutEntriesRequest.sortOrder
+            listPayoutEntriesRequest.sortOrder = sortOrder
             listPayoutEntriesRequest.Cursor = cursor
             listPayoutEntriesRequest.Limit = limit
             
