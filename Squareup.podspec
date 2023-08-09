@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-The Squareup framework was developed to support the platform for iOS-based devices. It provides full support for the squareup API, implementing all functions except for the terminal/online/auth API.
+'The Squareup framework was developed to support the platform for iOS-based devices. It provides full support for the squareup API, implementing all functions except for the terminal/online/auth API.'
                        DESC
 
   s.homepage         = 'https://github.com/vlozhnikov/Squareup'
@@ -29,17 +29,7 @@ The Squareup framework was developed to support the platform for iOS-based devic
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
-
-  s.source_files = 'Squareup/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Squareup' => ['Squareup/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-#  s.dependency 'SquareInAppPaymentsSDK'
-#  s.dependency 'SquareBuyerVerificationSDK'
+  s.source_files = 'Squareup/Classes/1.0/**/*.swift'
   s.dependency 'Alamofire'
   
 end
