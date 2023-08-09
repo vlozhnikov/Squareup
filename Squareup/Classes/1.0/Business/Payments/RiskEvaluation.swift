@@ -18,7 +18,6 @@ open class RiskEvaluation: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - RiskLevel: The risk level associated with the payment
     public var RiskLevel: RiskEvaluationRiskLevel?
@@ -27,13 +26,4 @@ open class RiskEvaluation: Codable {
         case CreatedAt = "created_at"
         case RiskLevel = "risk_level"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.RiskLevel = try container.decodeIfPresent(RiskEvaluationRiskLevel.self, forKey: .RiskLevel)
-//    }
 }

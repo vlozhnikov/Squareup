@@ -33,7 +33,6 @@ open class DeviceCode: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var PairBy: Date?
     @FormattedDate<RFC3339_Strategy> public var PairBy: Date?
     /// - CreatedAt: Read only When this DeviceCode was created. Timestamp in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -41,7 +40,6 @@ open class DeviceCode: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - StatusChangedAt: Read only When this DeviceCode's status was last changed. Timestamp in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -49,7 +47,6 @@ open class DeviceCode: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var StatusChangedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var StatusChangedAt: Date?
     /// - PairedAt: Read only When this DeviceCode was paired. Timestamp in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -57,7 +54,6 @@ open class DeviceCode: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var PairedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var PairedAt: Date?
     
     enum CodingKeys: String, CodingKey {
@@ -73,28 +69,4 @@ open class DeviceCode: Codable {
         case StatusChangedAt = "status_changed_at"
         case PairedAt = "paired_at"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.Name = try container.decodeIfPresent(String.self, forKey: .Name)
-//        self.Code = try container.decodeIfPresent(String.self, forKey: .Code)
-//        self.DeviceId = try container.decodeIfPresent(String.self, forKey: .DeviceId)
-//        self.productType = try container.decodeIfPresent(ProductType.self, forKey: .productType)
-//        self.Status = try container.decodeIfPresent(DeviceCodeStatus.self, forKey: .Status)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .PairBy), !dateString.isEmpty {
-//            self.PairBy = try dateString.decode_RFC3339_Date(container, forKey: .PairBy)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .StatusChangedAt), !dateString.isEmpty {
-//            self.StatusChangedAt = try dateString.decode_RFC3339_Date(container, forKey: .StatusChangedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .PairedAt), !dateString.isEmpty {
-//            self.PairedAt = try dateString.decode_RFC3339_Date(container, forKey: .PairedAt)
-//        }
-//    }
 }

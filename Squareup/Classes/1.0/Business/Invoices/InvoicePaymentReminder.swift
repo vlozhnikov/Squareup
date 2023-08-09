@@ -30,7 +30,6 @@ open class InvoicePaymentReminder: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     ///  Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var SentAt: Date?
     @FormattedDate<RFC3339_Strategy> public var SentAt: Date?
     
     enum CodingKeys: String, CodingKey {
@@ -40,17 +39,4 @@ open class InvoicePaymentReminder: Codable {
         case Status = "status"
         case SentAt = "sent_at"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.UID = try container.decodeIfPresent(String.self, forKey: .UID)
-//        self.RelativeScheduledDays = try container.decodeIfPresent(Int.self, forKey: .RelativeScheduledDays)
-//        self.Message = try container.decodeIfPresent(String.self, forKey: .Message)
-//        self.Status = try container.decodeIfPresent(InvoicePaymentReminderStatus.self, forKey: .Status)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .SentAt), !dateString.isEmpty {
-//            self.SentAt = try dateString.decode_RFC3339_Date(container, forKey: .SentAt)
-//        }
-//    }
 }

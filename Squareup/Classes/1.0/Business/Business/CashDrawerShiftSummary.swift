@@ -17,13 +17,10 @@ open class CashDrawerShiftSummary: Codable {
     /// - State: The shift current state.
     public var State: CashDrawerShiftState?
     /// - OpenedAt: The shift start time in ISO 8601 format.
-//    var OpenedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var OpenedAt: Date?
     /// - EndedAt: The shift end time in ISO 8601 format.
-//    var EndedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var EndedAt: Date?
     /// - ClosedAt: The shift close time in ISO 8601 format.
-//    var ClosedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var ClosedAt: Date?
     /// - Description: An employee free-text description of a cash drawer shift.
     public var Description: String?
@@ -33,10 +30,8 @@ open class CashDrawerShiftSummary: Codable {
     /// - ClosedCashMoney: The amount of money found in the cash drawer at the end of the shift by an auditing employee. The amount must be greater than or equal to zero.
     public var ClosedCashMoney: Money?
     /// - CreatedAt: Read only The shift start time in RFC 3339 format.
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The shift updated at time in RFC 3339 format
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - LocationId: Read only The ID of the location the cash drawer shift belongs to.
     public var LocationId: String?
@@ -55,32 +50,4 @@ open class CashDrawerShiftSummary: Codable {
         case UpdatedAt = "updated_at"
         case LocationId = "location_id"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.State = try container.decodeIfPresent(CashDrawerShiftState.self, forKey: .State)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .OpenedAt), !dateString.isEmpty {
-//            self.OpenedAt = try dateString.decode_RFC3339_Date(container, forKey: .OpenedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EndedAt), !dateString.isEmpty {
-//            self.EndedAt = try dateString.decode_RFC3339_Date(container, forKey: .EndedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .ClosedAt), !dateString.isEmpty {
-//            self.ClosedAt = try dateString.decode_RFC3339_Date(container, forKey: .ClosedAt)
-//        }
-//        self.Description = try container.decodeIfPresent(String.self, forKey: .Description)
-//        self.OpenedCashMoney = try container.decodeIfPresent(Money.self, forKey: .OpenedCashMoney)
-//        self.ExpectedCashMoney = try container.decodeIfPresent(Money.self, forKey: .ExpectedCashMoney)
-//        self.ClosedCashMoney = try container.decodeIfPresent(Money.self, forKey: .ClosedCashMoney)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//    }
 }

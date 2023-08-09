@@ -24,10 +24,8 @@ open class Shift: Codable {
     public var Timezone: String?
     /// - StartAt: RFC 3339; shifted to the location timezone + offset. Precision up to the minute is respected; seconds are truncated.
     /// Min Length 1
-//    var StartAt: Date?
     @FormattedDate<RFC3339_Strategy> public var StartAt: Date?
     /// - EndAt: RFC 3339; shifted to the timezone + offset. Precision up to the minute is respected; seconds are truncated.
-//    var EndAt: Date?
     @FormattedDate<RFC3339_Strategy> public var EndAt: Date?
     /// - Wage: Job and pay related information. If the wage is not set on create, it defaults to a wage of zero. If the title is not set on create, it defaults to the name of the role the employee is assigned to, if any.
     public var Wage: ShiftWage?
@@ -43,7 +41,6 @@ open class Shift: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp, in RFC 3339 format, describing when the team member was last updated. For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
     ///
@@ -51,7 +48,6 @@ open class Shift: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - TeamMemberId: The ID of the team member this shift belongs to. Replaced employee_id at version "2020-08-26".
     public var TeamMemberId: String?
@@ -71,31 +67,4 @@ open class Shift: Codable {
         case UpdatedAt = "updated_at"
         case TeamMemberId = "team_member_id"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.EmployeeId = try container.decodeIfPresent(String.self, forKey: .EmployeeId)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.Timezone = try container.decodeIfPresent(String.self, forKey: .Timezone)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .StartAt), !dateString.isEmpty {
-//            self.StartAt = try dateString.decode_RFC3339_Date(container, forKey: .StartAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EndAt), !dateString.isEmpty {
-//            self.EndAt = try dateString.decode_RFC3339_Date(container, forKey: .EndAt)
-//        }
-//        self.Wage = try container.decodeIfPresent(ShiftWage.self, forKey: .Wage)
-//        self.Breaks = try container.decodeIfPresent([Break].self, forKey: .Breaks)
-//        self.Status = try container.decodeIfPresent(ShiftStatus.self, forKey: .Status)
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.TeamMemberId = try container.decodeIfPresent(String.self, forKey: .TeamMemberId)
-//    }
 }

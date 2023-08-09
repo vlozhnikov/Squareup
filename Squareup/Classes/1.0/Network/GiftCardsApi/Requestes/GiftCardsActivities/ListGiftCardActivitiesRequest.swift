@@ -21,7 +21,6 @@ open class ListGiftCardActivitiesRequest: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var BeginTime: Date?
     @FormattedDate<RFC3339_Strategy> public var BeginTime: Date?
     /// - EndTime: The timestamp for the end of the reporting period, in RFC 3339 format. This end time is inclusive. The default value is the current time.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -29,7 +28,6 @@ open class ListGiftCardActivitiesRequest: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var EndTime: Date?
     @FormattedDate<RFC3339_Strategy> public var EndTime: Date?
     /// - Limit: If a limit is provided, the endpoint returns the specified number of results (or fewer) per page. The maximum value is 100. The default value is 50. For more information, see Pagination.
     public var Limit: Int?
@@ -51,22 +49,4 @@ open class ListGiftCardActivitiesRequest: Codable {
         case Cursor = "cursor"
         case sortOrder = "sort_order"
     }
-    
-//    required init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.GiftCardId = try container.decodeIfPresent(String.self, forKey: .GiftCardId)
-//        self.type = try container.decodeIfPresent(GiftCardActivityType.self, forKey: .type)
-//        self.LocationLd = try container.decodeIfPresent(String.self, forKey: .LocationLd)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .BeginTime), !dateString.isEmpty {
-//            self.BeginTime = try dateString.decode_RFC3339_Date(container, forKey: .BeginTime)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EndTime), !dateString.isEmpty {
-//            self.EndTime = try dateString.decode_RFC3339_Date(container, forKey: .EndTime)
-//        }
-//        self.Limit = try container.decodeIfPresent(Int.self, forKey: .Limit)
-//        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
-//        self.sortOrder = try container.decodeIfPresent(SortOrder.self, forKey: .sortOrder)
-//    }
 }

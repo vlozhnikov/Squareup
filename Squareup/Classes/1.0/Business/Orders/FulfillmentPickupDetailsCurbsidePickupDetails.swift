@@ -20,21 +20,10 @@ open class FulfillmentPickupDetailsCurbsidePickupDetails: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var BuyerArrivedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var BuyerArrivedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case CurbsideDetails = "curbside_details"
         case BuyerArrivedAt = "buyer_arrived_at"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.CurbsideDetails = try container.decodeIfPresent(String.self, forKey: .CurbsideDetails)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .BuyerArrivedAt), !dateString.isEmpty {
-//            self.BuyerArrivedAt = try dateString.decode_RFC3339_Date(container, forKey: .BuyerArrivedAt)
-//        }
-//    }
 }

@@ -21,7 +21,6 @@ open class Payment: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 32
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp of when the payment was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -30,7 +29,6 @@ open class Payment: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 32
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - AmountMoney: The amount processed for this payment, not including tip_money.
     /// The amount is specified in the smallest denomination of the applicable currency (for example, US dollar amounts are specified in cents). For more information, see Working with Monetary Amounts
@@ -181,53 +179,4 @@ open class Payment: Codable {
         case applicationDetails = "application_details"
         case VersionToken = "version_token"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.AmountMoney = try container.decodeIfPresent(Money.self, forKey: .AmountMoney)
-//        self.TipMoney = try container.decodeIfPresent(Money.self, forKey: .TipMoney)
-//        self.TotalMoney = try container.decodeIfPresent(Money.self, forKey: .TotalMoney)
-//        self.AppFeeMoney = try container.decodeIfPresent(Money.self, forKey: .AppFeeMoney)
-//        self.ApprovedMoney = try container.decodeIfPresent(Money.self, forKey: .ApprovedMoney)
-//        self.ProcessingFees = try container.decodeIfPresent([ProcessingFee].self, forKey: .ProcessingFees)
-//        self.RefundedMoney = try container.decodeIfPresent(Money.self, forKey: .RefundedMoney)
-//        self.Status = try container.decodeIfPresent(PaymentStatus.self, forKey: .Status)
-//        self.DelayDuration = try container.decodeIfPresent(String.self, forKey: .DelayDuration)
-//        self.DelayAction = try container.decodeIfPresent(PaymentDelayAction.self, forKey: .DelayAction)
-//        self.SourceType = try container.decodeIfPresent(PaymentSourceType.self, forKey: .SourceType)
-//        self.CardDetails = try container.decodeIfPresent(CardPaymentDetails.self, forKey: .CardDetails)
-//        self.CashDetails = try container.decodeIfPresent(CashPaymentDetails.self, forKey: .CashDetails)
-//        self.BankAccountDetails = try container.decodeIfPresent(BankAccountPaymentDetails.self, forKey: .BankAccountDetails)
-//        self.ExternalDetails = try container.decodeIfPresent(ExternalPaymentDetails.self, forKey: .ExternalDetails)
-//        self.WalletDetails = try container.decodeIfPresent(DigitalWalletDetails.self, forKey: .WalletDetails)
-//        self.BuyNowpayLaterDetails = try container.decodeIfPresent(BuyNowPayLaterDetails.self, forKey: .BuyNowpayLaterDetails)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.OrderId = try container.decodeIfPresent(String.self, forKey: .OrderId)
-//        self.ReferenceId = try container.decodeIfPresent(String.self, forKey: .ReferenceId)
-//        self.CustomerId = try container.decodeIfPresent(String.self, forKey: .CustomerId)
-//        self.EmployeeId = try container.decodeIfPresent(String.self, forKey: .EmployeeId)
-//        self.TeamMemberId = try container.decodeIfPresent(String.self, forKey: .TeamMemberId)
-//        self.RefundIds = try container.decodeIfPresent([String].self, forKey: .RefundIds)
-//        self.riskEvaluation = try container.decodeIfPresent(RiskEvaluation.self, forKey: .riskEvaluation)
-//        self.BuyerEmailAddress = try container.decodeIfPresent(String.self, forKey: .BuyerEmailAddress)
-//        self.BillingAddress = try container.decodeIfPresent(Address.self, forKey: .BillingAddress)
-//        self.ShippingAddress = try container.decodeIfPresent(Address.self, forKey: .ShippingAddress)
-//        self.Note = try container.decodeIfPresent(String.self, forKey: .Note)
-//        self.StatementDescriptionIdentifier = try container.decodeIfPresent(String.self, forKey: .StatementDescriptionIdentifier)
-//        self.Capabilities = try container.decodeIfPresent([PaymentCapabilities].self, forKey: .Capabilities)
-//        self.ReceiptNumber = try container.decodeIfPresent(String.self, forKey: .ReceiptNumber)
-//        self.ReceiptUrl = try container.decodeIfPresent(String.self, forKey: .ReceiptUrl)
-//        self.deviceDetails = try container.decodeIfPresent(DeviceDetails.self, forKey: .deviceDetails)
-//        self.applicationDetails = try container.decodeIfPresent(ApplicationDetails.self, forKey: .applicationDetails)
-//        self.VersionToken = try container.decodeIfPresent(String.self, forKey: .VersionToken)
-//    }
 }

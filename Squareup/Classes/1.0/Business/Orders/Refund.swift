@@ -30,7 +30,6 @@ open class Refund: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// ax Length 32
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - Reason: The reason for the refund being issued.
     /// Max Length  192
@@ -56,21 +55,4 @@ open class Refund: Codable {
         case ProcessingFeeMoney = "processing_fee_money"
         case AdditionalRecipients = "additional_recipients"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.TransactionId = try container.decodeIfPresent(String.self, forKey: .TransactionId)
-//        self.TenderId = try container.decodeIfPresent(String.self, forKey: .TenderId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.Reason = try container.decodeIfPresent(String.self, forKey: .Reason)
-//        self.AmountMoney = try container.decodeIfPresent(Money.self, forKey: .AmountMoney)
-//        self.ProcessingFeeMoney = try container.decodeIfPresent(Money.self, forKey: .ProcessingFeeMoney)
-//        self.AdditionalRecipients = try container.decodeIfPresent([AdditionalRecipient].self, forKey: .AdditionalRecipients)
-//    }
 }

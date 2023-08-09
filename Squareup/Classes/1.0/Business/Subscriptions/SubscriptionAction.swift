@@ -16,7 +16,6 @@ open class SubscriptionAction: Codable {
     /// - Type: The type of the action.
     public var type: SubscriptionActionType?
     /// - EffectiveDate: The YYYY-MM-DD-formatted date when the action occurs on the subscription.
-//    var EffectiveDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var EffectiveDate: Date?
     /// - Phases: A list of Phases, to pass phase-specific information used in the swap.
     public var Phases: [Phase]?
@@ -30,17 +29,4 @@ open class SubscriptionAction: Codable {
         case Phases = "phases"
         case NewPlanVariationId = "new_plan_variation_id"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.type = try container.decodeIfPresent(SubscriptionActionType.self, forKey: .type)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EffectiveDate), !dateString.isEmpty {
-//            self.EffectiveDate = try dateString.decode_YYYYMMDD_Date(container, forKey: .EffectiveDate)
-//        }
-//        self.Phases = try container.decodeIfPresent([Phase].self, forKey: .Phases)
-//        self.NewPlanVariationId = try container.decodeIfPresent(String.self, forKey: .NewPlanVariationId)
-//    }
 }

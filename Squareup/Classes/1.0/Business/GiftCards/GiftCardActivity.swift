@@ -24,7 +24,6 @@ open class GiftCardActivity: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - GiftCardId: The gift card ID. When creating a gift card activity, gift_card_id is not required if gift_card_gan is specified.
     public var GiftCardId: String?
@@ -89,34 +88,4 @@ open class GiftCardActivity: Codable {
         case TransferBalanceToActivityDetails = "transfer_balance_to_activity_details"
         case TransferBalanceFromActivityDetails = "transfer_balance_from_activity_details"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.type = try container.decodeIfPresent(GiftCardActivityType.self, forKey: .type)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.GiftCardId = try container.decodeIfPresent(String.self, forKey: .GiftCardId)
-//        self.GiftCardGan = try container.decodeIfPresent(String.self, forKey: .GiftCardGan)
-//        self.GiftCardBalanceMoney = try container.decodeIfPresent(Money.self, forKey: .GiftCardBalanceMoney)
-//        self.LoadActivityDetails = try container.decodeIfPresent(GiftCardActivityLoad.self, forKey: .LoadActivityDetails)
-//        self.ActivateActivityDetails = try container.decodeIfPresent(GiftCardActivityActivate.self, forKey: .ActivateActivityDetails)
-//        self.RedeemActivityDetails = try container.decodeIfPresent(GiftCardActivityRedeem.self, forKey: .RedeemActivityDetails)
-//        self.ClearBalanceActivityDetails = try container.decodeIfPresent(GiftCardActivityClearBalance.self, forKey: .ClearBalanceActivityDetails)
-//        self.DeactivateActivityDetails = try container.decodeIfPresent(GiftCardActivityDeactivate.self, forKey: .DeactivateActivityDetails)
-//        self.AdjustIncrementActivityDetails = try container.decodeIfPresent(GiftCardActivityAdjustIncrement.self, forKey: .AdjustIncrementActivityDetails)
-//        self.AdjustDecrementActivityDetails = try container.decodeIfPresent(GiftCardActivityAdjustDecrement.self, forKey: .AdjustDecrementActivityDetails)
-//        self.RefundActivityDetails = try container.decodeIfPresent(GiftCardActivityRefund.self, forKey: .RefundActivityDetails)
-//        self.UnlinkedActivityRefundActivityDetails = try container.decodeIfPresent(GiftCardActivityUnlinkedActivityRefund.self, forKey: .UnlinkedActivityRefundActivityDetails)
-//        self.ImportActivityDetails = try container.decodeIfPresent(GiftCardActivityImport.self, forKey: .ImportActivityDetails)
-//        self.BlockActivityDetails = try container.decodeIfPresent(GiftCardActivityBlock.self, forKey: .BlockActivityDetails)
-//        self.UnblockActivityDetails = try container.decodeIfPresent(GiftCardActivityUnblock.self, forKey: .UnblockActivityDetails)
-//        self.ImportReversalActivityDetails = try container.decodeIfPresent(GiftCardActivityImportReversal.self, forKey: .ImportReversalActivityDetails)
-//        self.TransferBalanceToActivityDetails = try container.decodeIfPresent(GiftCardActivityTransferBalanceTo.self, forKey: .TransferBalanceToActivityDetails)
-//        self.TransferBalanceFromActivityDetails = try container.decodeIfPresent(GiftCardActivityTransferBalanceFrom.self, forKey: .TransferBalanceFromActivityDetails)
-//    }
 }

@@ -23,12 +23,10 @@ open class CreateSubscriptionRequest: Codable {
     /// Min Length 1
     public var CustomerId: String?
     /// - StartDate: The YYYY-MM-DD-formatted date to start the subscription. If it is unspecified, the subscription starts immediately.
-//    var StartDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var StartDate: Date?
     /// - CanceledDate: The YYYY-MM-DD-formatted date when the newly created subscription is scheduled for cancellation.
     /// This date overrides the cancellation date set in the plan variation configuration. If the cancellation date is earlier than the end date of a subscription cycle, the subscription stops at the canceled date and the subscriber is sent a prorated invoice at the beginning of the canceled cycle.
     /// When the subscription plan of the newly created subscription has a fixed number of cycles and the canceled_date occurs before the subscription plan expires, the specified canceled_date sets the date when the subscription stops through the end of the last cycle.
-//    var CanceledDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var CanceledDate: Date?
     /// - TaxPercentage: The tax to add when billing the subscription. The percentage is expressed in decimal form, using a '.' as the decimal separator and without a '%' sign. For example, a value of 7.5 corresponds to 7.5%.
     /// Max Length 10
@@ -59,27 +57,4 @@ open class CreateSubscriptionRequest: Codable {
         case Source = "source"
         case Phases = "phases"
     }
-//    
-//    required init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.IdempotencyKey = try container.decodeIfPresent(String.self, forKey: .IdempotencyKey)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.PlanId = try container.decodeIfPresent(String.self, forKey: .PlanId)
-//        self.PlanVariationId = try container.decodeIfPresent(String.self, forKey: .PlanVariationId)
-//        self.CustomerId = try container.decodeIfPresent(String.self, forKey: .CustomerId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .StartDate), !dateString.isEmpty {
-//            self.StartDate = try dateString.decode_YYYYMMDD_Date(container, forKey: .StartDate)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CanceledDate), !dateString.isEmpty {
-//            self.CanceledDate = try dateString.decode_YYYYMMDD_Date(container, forKey: .CanceledDate)
-//        }
-//        self.TaxPercentage = try container.decodeIfPresent(String.self, forKey: .TaxPercentage)
-//        self.PriceOverrideMoney = try container.decodeIfPresent(Money.self, forKey: .PriceOverrideMoney)
-//        self.CardId = try container.decodeIfPresent(String.self, forKey: .CardId)
-//        self.Timezone = try container.decodeIfPresent(String.self, forKey: .Timezone)
-//        self.Source = try container.decodeIfPresent(SubscriptionSource.self, forKey: .Source)
-//        self.Phases = try container.decodeIfPresent([Phase].self, forKey: .Phases)
-//    }
 }

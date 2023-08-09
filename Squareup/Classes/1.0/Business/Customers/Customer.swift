@@ -21,7 +21,6 @@ open class Customer: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 34
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp when the customer profile was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -29,7 +28,6 @@ open class Customer: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - Cards: Payment details of the credit, debit, and gift cards stored on file for the customer profile.
     /// DEPRECATED at version 2021-06-16. Replaced by calling ListCards (for credit and debit cards on file) or ListGiftCards (for gift cards on file) and including the customer_id query parameter. For more information, see Migration notes.
@@ -49,7 +47,6 @@ open class Customer: Codable {
     /// - PhoneNumber: The phone number associated with the customer profile.
     public var PhoneNumber: String?
     /// - Birthday: The birthday associated with the customer profile, in YYYY-MM-DD format. For example, 1998-09-21 represents September 21, 1998, and 0000-09-21 represents September 21 (without a birth year).
-//    var Birthday: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var Birthday: Date?
     /// - ReferenceId: An optional second ID used to associate the customer profile with an entity in another system.
     public var ReferenceId: String?
@@ -90,36 +87,4 @@ open class Customer: Codable {
         case Version = "version"
         case TaxIds = "tax_ids"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.Cards = try container.decodeIfPresent([Card].self, forKey: .Cards)
-//        self.GivenName = try container.decodeIfPresent(String.self, forKey: .GivenName)
-//        self.FamilyName = try container.decodeIfPresent(String.self, forKey: .FamilyName)
-//        self.NickName = try container.decodeIfPresent(String.self, forKey: .NickName)
-//        self.CompanyName = try container.decodeIfPresent(String.self, forKey: .CompanyName)
-//        self.EmailAddress = try container.decodeIfPresent(String.self, forKey: .EmailAddress)
-//        self.address = try container.decodeIfPresent(Address.self, forKey: .address)
-//        self.PhoneNumber = try container.decodeIfPresent(String.self, forKey: .PhoneNumber)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .Birthday), !dateString.isEmpty {
-//            self.Birthday = try dateString.decode_YYYYMMDD_Date(container, forKey: .Birthday)
-//        }
-//        self.ReferenceId = try container.decodeIfPresent(String.self, forKey: .ReferenceId)
-//        self.Note = try container.decodeIfPresent(String.self, forKey: .Note)
-//        self.Preferences = try container.decodeIfPresent(CustomerPreferences.self, forKey: .Preferences)
-//        self.CreationSource = try container.decodeIfPresent(CustomerCreationSource.self, forKey: .CreationSource)
-//        self.GroupIds = try container.decodeIfPresent([String].self, forKey: .GroupIds)
-//        self.SegmentIds = try container.decodeIfPresent([String].self, forKey: .SegmentIds)
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        self.TaxIds = try container.decodeIfPresent(CustomerTaxIds.self, forKey: .TaxIds)
-//    }
 }

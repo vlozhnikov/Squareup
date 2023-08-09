@@ -19,21 +19,10 @@ open class LoyaltyAccountExpiringPointDeadline: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Min Length 1
-//    var ExpiresAt: Date?
     @FormattedDate<RFC3339_Strategy> public var ExpiresAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case Points = "points"
         case ExpiresAt = "expires_at"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Points = try container.decodeIfPresent(Int.self, forKey: .Points)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .ExpiresAt), !dateString.isEmpty {
-//            self.ExpiresAt = try dateString.decode_RFC3339_Date(container, forKey: .ExpiresAt)
-//        }
-//    }
 }

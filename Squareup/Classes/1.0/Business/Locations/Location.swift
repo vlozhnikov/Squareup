@@ -24,7 +24,6 @@ open class Location: Codable {
     /// The status of the location.
     public var Status: LocationStatus?
     /// Read only The time when the location was created, in RFC 3339 format.  Min Length 20. Max Length 25
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// Read only The ID of the merchant that owns the location. Max Length 32.
     public var MerchantId: String?
@@ -96,39 +95,4 @@ open class Location: Codable {
         case FullFormatLogoUrl = "full_format_logo_url"
         case taxIds = "tax_ids"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.Name = try container.decodeIfPresent(String.self, forKey: .Name)
-//        self.address = try container.decodeIfPresent(Address.self, forKey: .address)
-//        self.Timezone = try container.decodeIfPresent(String.self, forKey: .Timezone)
-//        self.Capabilities = try container.decodeIfPresent([LocationCapability].self, forKey: .Capabilities)
-//        self.Status = try container.decodeIfPresent(LocationStatus.self, forKey: .Status)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.MerchantId = try container.decodeIfPresent(String.self, forKey: .MerchantId)
-//        self.country = try container.decodeIfPresent(Country.self, forKey: .country)
-//        self.LanguageCode = try container.decodeIfPresent(String.self, forKey: .LanguageCode)
-//        self.currency = try container.decodeIfPresent(Currency.self, forKey: .currency)
-//        self.PhoneNumber = try container.decodeIfPresent(String.self, forKey: .PhoneNumber)
-//        self.BusinessName = try container.decodeIfPresent(String.self, forKey: .BusinessName)
-//        self.type = try container.decodeIfPresent(LocationType.self, forKey: .type)
-//        self.WebsiteUrl = try container.decodeIfPresent(String.self, forKey: .WebsiteUrl)
-//        self.businessHours = try container.decodeIfPresent(BusinessHours.self, forKey: .businessHours)
-//        self.BusinessEmail = try container.decodeIfPresent(String.self, forKey: .BusinessEmail)
-//        self.Description = try container.decodeIfPresent(String.self, forKey: .Description)
-//        self.TwitterUsername = try container.decodeIfPresent(String.self, forKey: .TwitterUsername)
-//        self.InstagrammUsername = try container.decodeIfPresent(String.self, forKey: .InstagrammUsername)
-//        self.FacebookUrl = try container.decodeIfPresent(String.self, forKey: .FacebookUrl)
-//        self.coordinates = try container.decodeIfPresent(Coordinates.self, forKey: .coordinates)
-//        self.LogoUrl = try container.decodeIfPresent(String.self, forKey: .LogoUrl)
-//        self.PosBackgroundUrl = try container.decodeIfPresent(String.self, forKey: .PosBackgroundUrl)
-//        self.MCC = try container.decodeIfPresent(String.self, forKey: .MCC)
-//        self.FullFormatLogoUrl = try container.decodeIfPresent(String.self, forKey: .FullFormatLogoUrl)
-//        self.taxIds = try container.decodeIfPresent(TaxIds.self, forKey: .taxIds)
-//    }
 }

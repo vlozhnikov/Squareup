@@ -31,7 +31,6 @@ open class GiftCard: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - CustomerIds: Read only The IDs of the customer profiles to whom this gift card is linked.
     public var CustomerIds: [String]?
@@ -46,20 +45,4 @@ open class GiftCard: Codable {
         case CreatedAt = "created_at"
         case CustomerIds = "customer_ids"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.type = try container.decodeIfPresent(GiftCardType.self, forKey: .type)
-//        self.GanSource = try container.decodeIfPresent(GiftCardGANSource.self, forKey: .GanSource)
-//        self.State = try container.decodeIfPresent(GiftCardStatus.self, forKey: .State)
-//        self.BalanceMoney = try container.decodeIfPresent(Money.self, forKey: .BalanceMoney)
-//        self.Gan = try container.decodeIfPresent(String.self, forKey: .Gan)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.CustomerIds = try container.decodeIfPresent([String].self, forKey: .CustomerIds)
-//    }
 }

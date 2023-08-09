@@ -35,7 +35,6 @@ open class LoyaltyAccount: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var EnrolledAt: Date?
     @FormattedDate<RFC3339_Strategy> public var EnrolledAt: Date?
     /// - CreatedAt: Read only The timestamp when the loyalty account was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -43,7 +42,6 @@ open class LoyaltyAccount: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp when the loyalty account was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -51,7 +49,6 @@ open class LoyaltyAccount: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - Mapping: The mapping that associates the loyalty account with a buyer. Currently, a loyalty account can only be mapped to a buyer by phone number.
     /// To create a loyalty account, you must specify the mapping field, with the buyer's phone number in the phone_number field.
@@ -72,26 +69,4 @@ open class LoyaltyAccount: Codable {
         case Mapping = "mapping"
         case ExpiringPointDeadlines = "expiring_point_deadlines"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.ProgramId = try container.decodeIfPresent(String.self, forKey: .ProgramId)
-//        self.Balance = try container.decodeIfPresent(Int.self, forKey: .Balance)
-//        self.LifetimePoints = try container.decodeIfPresent(Int.self, forKey: .LifetimePoints)
-//        self.CustomerId = try container.decodeIfPresent(String.self, forKey: .CustomerId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EnrolledAt), !dateString.isEmpty {
-//            self.EnrolledAt = try dateString.decode_RFC3339_Date(container, forKey: .EnrolledAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.Mapping = try container.decodeIfPresent(LoyaltyAccountMapping.self, forKey: .Mapping)
-//        self.ExpiringPointDeadlines = try container.decodeIfPresent([LoyaltyAccountExpiringPointDeadline].self, forKey: .ExpiringPointDeadlines)
-//    }
 }

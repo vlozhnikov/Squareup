@@ -19,7 +19,6 @@ open class ListPayoutsRequest: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var BeginTime: Date?
     @FormattedDate<RFC3339_Strategy> public var BeginTime: Date?
     /// - EndTime: The timestamp for the end of the payout creation time, in RFC 3339 format. Default: The current time.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -27,7 +26,6 @@ open class ListPayoutsRequest: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var EndTime: Date?
     @FormattedDate<RFC3339_Strategy> public var EndTime: Date?
     /// - sortOrder: The order in which payouts are listed.
     public var sortOrder: SortOrder?
@@ -45,21 +43,4 @@ open class ListPayoutsRequest: Codable {
         case Cursor = "cursor"
         case Limit = "limit"
     }
-    
-//    required init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.Status = try container.decodeIfPresent(PayoutStatus.self, forKey: .Status)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .BeginTime), !dateString.isEmpty {
-//            self.BeginTime = try dateString.decode_RFC3339_Date(container, forKey: .BeginTime)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EndTime), !dateString.isEmpty {
-//            self.EndTime = try dateString.decode_RFC3339_Date(container, forKey: .EndTime)
-//        }
-//        self.sortOrder = try container.decodeIfPresent(SortOrder.self, forKey: .sortOrder)
-//        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
-//        self.Limit = try container.decodeIfPresent(Int.self, forKey: .Limit)
-//    }
 }

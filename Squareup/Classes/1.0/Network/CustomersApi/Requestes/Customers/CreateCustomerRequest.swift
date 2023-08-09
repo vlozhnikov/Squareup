@@ -36,7 +36,6 @@ open class CreateCustomerRequest: Codable {
     /// - Note: A custom note associated with the customer profile.
     public var Note: String?
     /// - Birthday: The birthday associated with the customer profile, in YYYY-MM-DD or MM-DD format. For example, specify 1998-09-21 for September 21, 1998, or 09-21 for September 21. Birthdays are returned in YYYY-MM-DD format, where YYYY is the specified birth year or 0000 if a birth year is not specified.
-//    var Birthday: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var Birthday: Date?
     /// - TaxIds: The tax ID associated with the customer profile. This field is available only for customers of sellers in EU countries or the United Kingdom. In other countries, this field is ignored when included in a CreateCustomer request. For more information, see Customer tax IDs.
     public var TaxIds: CustomerTaxIds?
@@ -55,24 +54,4 @@ open class CreateCustomerRequest: Codable {
         case Birthday = "birthday"
         case TaxIds = "tax_ids"
     }
-    
-//    required init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.IdempotencyKey = try container.decodeIfPresent(String.self, forKey: .IdempotencyKey)
-//        self.GivenName = try container.decodeIfPresent(String.self, forKey: .GivenName)
-//        self.FamilyName = try container.decodeIfPresent(String.self, forKey: .FamilyName)
-//        self.CompanyName = try container.decodeIfPresent(String.self, forKey: .CompanyName)
-//        self.Nickname = try container.decodeIfPresent(String.self, forKey: .Nickname)
-//        self.EmailAddress = try container.decodeIfPresent(String.self, forKey: .EmailAddress)
-//        self.address = try container.decodeIfPresent(Address.self, forKey: .address)
-//        self.PhoneNumber = try container.decodeIfPresent(String.self, forKey: .PhoneNumber)
-//        self.ReferenceId = try container.decodeIfPresent(String.self, forKey: .ReferenceId)
-//        self.Note = try container.decodeIfPresent(String.self, forKey: .Note)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .Birthday), !dateString.isEmpty {
-//            self.Birthday = try dateString.decode_YYYYMMDD_Date(container, forKey: .Birthday)
-//        }
-//        self.TaxIds = try container.decodeIfPresent(CustomerTaxIds.self, forKey: .TaxIds)
-//    }
 }

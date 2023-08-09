@@ -18,7 +18,6 @@ open class WorkweekConfig: Codable {
     public var StartOfWeek: Weekday?
     /// - StartOfDayLocalTime: The local time at which a business week starts. Represented as a string in HH:MM format (HH:MM:SS is also accepted, but seconds are truncated).
     /// Min Length 1
-//    var StartOfDayLocalTime: Date?
     @FormattedDate<HHMMSS_Strategy> public var StartOfDayLocalTime: Date?
     /// - Version: Used for resolving concurrency issues. The request fails if the version provided does not match the server version at the time of the request. If not provided, Square executes a blind write; potentially overwriting data from another write.
     public var Version: Int?
@@ -28,7 +27,6 @@ open class WorkweekConfig: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp, in RFC 3339 format, describing when the team member was last updated. For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
     ///
@@ -36,7 +34,6 @@ open class WorkweekConfig: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
@@ -47,22 +44,4 @@ open class WorkweekConfig: Codable {
         case CreatedAt = "created_at"
         case UpdatedAt = "updated_at"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.StartOfWeek = try container.decodeIfPresent(Weekday.self, forKey: .StartOfWeek)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .StartOfDayLocalTime), !dateString.isEmpty {
-//            self.StartOfDayLocalTime = try dateString.decode_HHMMSS_Date(container, forKey: .StartOfDayLocalTime)
-//        }
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//    }
 }

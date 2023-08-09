@@ -33,7 +33,6 @@ open class DisputeEvidence: Codable {
     /// - UploadedAt: The time when the evidence was uploaded, in RFC 3339 format.
     /// Min Length 1
     /// Max Length 40
-//    var UploadedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UploadedAt: Date?
     /// - EvidenceType: The type of the evidence.
     public var EvidenceType: DisputeEvidenceType?
@@ -47,19 +46,4 @@ open class DisputeEvidence: Codable {
         case UploadedAt = "uploaded_at"
         case EvidenceType = "evidence_type"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.EvidenceId = try container.decodeIfPresent(String.self, forKey: .EvidenceId)
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.DisputeId = try container.decodeIfPresent(String.self, forKey: .DisputeId)
-//        self.EvidenceFile = try container.decodeIfPresent(DisputeEvidenceFile.self, forKey: .EvidenceFile)
-//        self.EvidenceText = try container.decodeIfPresent(String.self, forKey: .EvidenceText)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UploadedAt), !dateString.isEmpty {
-//            self.UploadedAt = try dateString.decode_RFC3339_Date(container, forKey: .UploadedAt)
-//        }
-//        self.EvidenceType = try container.decodeIfPresent(DisputeEvidenceType.self, forKey: .EvidenceType)
-//    }
 }

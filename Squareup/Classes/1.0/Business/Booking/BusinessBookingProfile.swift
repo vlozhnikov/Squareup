@@ -18,7 +18,6 @@ open class BusinessBookingProfile: Codable {
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
     /// UTC: 2020-01-26T02:25:34Z
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - BookingEnabled: Indicates whether the seller is open for booking.
     public var BookingEnabled: Bool?
@@ -43,20 +42,4 @@ open class BusinessBookingProfile: Codable {
         case businessAppointmentSettings = "business_appointment_settings"
         case SupportSellerLevelWrites = "support_seller_level_writes"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.SellerId = try container.decodeIfPresent(String.self, forKey: .SellerId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.BookingEnabled = try container.decodeIfPresent(Bool.self, forKey: .BookingEnabled)
-//        self.CustomerTimezoneChoice = try container.decodeIfPresent(BusinessBookingProfileCustomerTimezoneChoice.self, forKey: .CustomerTimezoneChoice)
-//        self.BookingPolicy = try container.decodeIfPresent(BusinessBookingProfileBookingPolicy.self, forKey: .BookingPolicy)
-//        self.AllowUserCancel = try container.decodeIfPresent(Bool.self, forKey: .AllowUserCancel)
-//        self.businessAppointmentSettings = try container.decodeIfPresent(BusinessAppointmentSettings.self, forKey: .businessAppointmentSettings)
-//        self.SupportSellerLevelWrites = try container.decodeIfPresent(Bool.self, forKey: .SupportSellerLevelWrites)
-//    }
 }

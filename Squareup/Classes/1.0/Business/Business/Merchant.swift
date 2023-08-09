@@ -26,7 +26,6 @@ open class Merchant: Codable {
     /// - MainLocationId: The ID of the main Location for this merchant.
     public var MainLocationId: String?
     /// - CreatedAt: Read only The time when the merchant was created, in RFC 3339 format
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
@@ -39,20 +38,4 @@ open class Merchant: Codable {
         case MainLocationId = "main_location_id"
         case CreatedAt = "created_at"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.BusinessName = try container.decodeIfPresent(String.self, forKey: .BusinessName)
-//        self.country = try container.decodeIfPresent(Country.self, forKey: .country)
-//        self.LanguageCode = try container.decodeIfPresent(String.self, forKey: .LanguageCode)
-//        self.currency = try container.decodeIfPresent(Currency.self, forKey: .currency)
-//        self.status = try container.decodeIfPresent(MerchantStatus.self, forKey: .status)
-//        self.MainLocationId = try container.decodeIfPresent(String.self, forKey: .MainLocationId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//    }
 }

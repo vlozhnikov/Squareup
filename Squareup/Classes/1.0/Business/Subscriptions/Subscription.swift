@@ -21,16 +21,13 @@ open class Subscription: Codable {
     /// - CustomerId: Read only The ID of the subscribing customer profile.
     public var CustomerId: String?
     /// - StartDate: Read only The YYYY-MM-DD-formatted date (for example, 2013-01-15) to start the subscription.
-//    var StartDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var StartDate: Date?
     /// - CanceledDate: The YYYY-MM-DD-formatted date (for example, 2013-01-15) to cancel the subscription, when the subscription status changes to CANCELED and the subscription billing stops.
     /// If this field is not set, the subscription ends according its subscription plan.
     /// This field cannot be updated, other than being cleared.
-//    var CanceledDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var CanceledDate: Date?
     /// - ChargedThroughDate: Read only The YYYY-MM-DD-formatted date up to when the subscriber is invoiced for the subscription.
     /// After the invoice is sent for a given billing period, this date will be the last day of the billing period. For example, suppose for the month of May a subscriber gets an invoice (or charged the card) on May 1. For the monthly billing scenario, this date is then set to May 31.
-//    var ChargedThroughDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var ChargedThroughDate: Date?
     /// - Status: Read only The current status of the subscription.
     public var Status: SubscriptionStatus?
@@ -48,7 +45,6 @@ open class Subscription: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - CardId: The ID of the subscriber's card used to charge for the subscription.
     public var CardId: String?
@@ -82,36 +78,4 @@ open class Subscription: Codable {
         case Actions = "actions"
         case Phases = "phases"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.PlanVariationId = try container.decodeIfPresent(String.self, forKey: .PlanVariationId)
-//        self.CustomerId = try container.decodeIfPresent(String.self, forKey: .CustomerId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .StartDate), !dateString.isEmpty {
-//            self.StartDate = try dateString.decode_YYYYMMDD_Date(container, forKey: .StartDate)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CanceledDate), !dateString.isEmpty {
-//            self.CanceledDate = try dateString.decode_YYYYMMDD_Date(container, forKey: .CanceledDate)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .ChargedThroughDate), !dateString.isEmpty {
-//            self.ChargedThroughDate = try dateString.decode_YYYYMMDD_Date(container, forKey: .ChargedThroughDate)
-//        }
-//        self.Status = try container.decodeIfPresent(SubscriptionStatus.self, forKey: .Status)
-//        self.TaxPercentage = try container.decodeIfPresent(String.self, forKey: .TaxPercentage)
-//        self.InvoiceIds = try container.decodeIfPresent([String].self, forKey: .InvoiceIds)
-//        self.PriceOverrideMoney = try container.decodeIfPresent(Money.self, forKey: .PriceOverrideMoney)
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.CardId = try container.decodeIfPresent(String.self, forKey: .CardId)
-//        self.Timezone = try container.decodeIfPresent(String.self, forKey: .Timezone)
-//        self.Source = try container.decodeIfPresent(SubscriptionSource.self, forKey: .Source)
-//        self.Actions = try container.decodeIfPresent([SubscriptionAction].self, forKey: .Actions)
-//        self.Phases = try container.decodeIfPresent([Phase].self, forKey: .Phases)
-//    }
 }

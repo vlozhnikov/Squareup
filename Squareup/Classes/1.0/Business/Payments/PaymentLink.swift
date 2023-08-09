@@ -38,7 +38,6 @@ open class PaymentLink: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: The timestamp when the payment link was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -46,7 +45,6 @@ open class PaymentLink: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - PaymentNote: An optional note. After Square processes the payment, this note is added to the resulting Payment.
     /// Max Length 500
@@ -65,25 +63,4 @@ open class PaymentLink: Codable {
         case UpdatedAt = "updated_at"
         case PaymentNote = "payment_note"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        self.Description = try container.decodeIfPresent(String.self, forKey: .Description)
-//        self.OrderId = try container.decodeIfPresent(String.self, forKey: .OrderId)
-//        self.checkoutOptions = try container.decodeIfPresent(CheckoutOptions.self, forKey: .checkoutOptions)
-//        self.prePopulatedData = try container.decodeIfPresent(PrePopulatedData.self, forKey: .prePopulatedData)
-//        self.Url = try container.decodeIfPresent(String.self, forKey: .Url)
-//        self.LongUrl = try container.decodeIfPresent(String.self, forKey: .LongUrl)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.PaymentNote = try container.decodeIfPresent(String.self, forKey: .PaymentNote)
-//    }
 }

@@ -21,7 +21,6 @@ open class LoyaltyAccountMapping: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - PhoneNumber: The phone number of the buyer, in E.164 format. For example, "+14155551111".
     var PhoneNumber: String?
@@ -31,15 +30,4 @@ open class LoyaltyAccountMapping: Codable {
         case CreatedAt = "created_at"
         case PhoneNumber = "phone_number"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.PhoneNumber = try container.decodeIfPresent(String.self, forKey: .PhoneNumber)
-//    }
 }

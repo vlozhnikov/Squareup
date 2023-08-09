@@ -51,7 +51,6 @@ open class PaymentRefund: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 32
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp of when the refund was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -60,7 +59,6 @@ open class PaymentRefund: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 32
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - TeamMemberId: Read only An optional ID of the team member associated with taking the payment.
     /// Max Length 192
@@ -83,28 +81,4 @@ open class PaymentRefund: Codable {
         case UpdatedAt = "updated_at"
         case TeamMemberId = "team_member_id"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.Status = try container.decodeIfPresent(PaymentRefundStatus.self, forKey: .Status)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.DestinationType = try container.decodeIfPresent(PaymentRefundDestinationType.self, forKey: .DestinationType)
-//        self.destinationDetails = try container.decodeIfPresent(DestinationDetails.self, forKey: .destinationDetails)
-//        self.AmountMoney = try container.decodeIfPresent(Money.self, forKey: .AmountMoney)
-//        self.AppFeeMoney = try container.decodeIfPresent(Money.self, forKey: .AppFeeMoney)
-//        self.processingFee = try container.decodeIfPresent(ProcessingFee.self, forKey: .processingFee)
-//        self.PaymentId = try container.decodeIfPresent(String.self, forKey: .PaymentId)
-//        self.OrderId = try container.decodeIfPresent(String.self, forKey: .OrderId)
-//        self.Reason = try container.decodeIfPresent(String.self, forKey: .Reason)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.TeamMemberId = try container.decodeIfPresent(String.self, forKey: .TeamMemberId)
-//    }
 }

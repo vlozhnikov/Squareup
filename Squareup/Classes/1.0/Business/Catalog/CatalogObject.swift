@@ -20,7 +20,6 @@ open class CatalogObject: Codable {
     /// - Id: An identifier to reference this object in the catalog. When a new CatalogObject is inserted, the client should set the id to a temporary identifier starting with a "#" character. Other objects being inserted or updated within the same request may use this identifier to refer to the new object. When the server receives the new object, it will supply a unique identifier that replaces the temporary identifier for all future references. Min Length 1
     public var Id: String?
     /// - UpdatedAt: Read only Last modification timestamp in RFC 3339 format, e.g., "2016-08-15T23:59:33.123Z" would indicate the UTC time (denoted by Z) of August 15, 2016 at 23:59:33 and 123 milliseconds. Examples for January 25th, 2020 6:25:34pm Pacific Standard Time: UTC: 2020-01-26T02:25:34Z. Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - Version: The version of the object. When updating an object, the version supplied must match the version in the database, otherwise the write will be rejected as conflicting.
     public var Version: Int?
@@ -100,38 +99,4 @@ open class CatalogObject: Codable {
         case CustomAttributeDefinitionData = "custom_attribute_definition_data"
         case QuickAmountsSettingsData = "quick_amounts_settings_data"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//
-//        self.type = try container.decodeIfPresent(CatalogObjectType.self, forKey: .type)
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        self.IsDeleted = try container.decodeIfPresent(Bool.self, forKey: .IsDeleted)
-//        self.CustomAttributeValues = try container.decodeIfPresent([String: CatalogCustomAttributeValue].self, forKey: .CustomAttributeValues)
-//        self.CatalogV1Ids = try container.decodeIfPresent([CatalogV1Id].self, forKey: .CatalogV1Ids)
-//        self.PresentAtAllLocations = try container.decodeIfPresent(Bool.self, forKey: .PresentAtAllLocations)
-//        self.PresentAtLocationIds = try container.decodeIfPresent([String].self, forKey: .PresentAtLocationIds)
-//        self.ItemData = try container.decodeIfPresent(CatalogItem.self, forKey: .ItemData)
-//        self.CategoryData = try container.decodeIfPresent(CatalogCategory.self, forKey: .CategoryData)
-//        self.ItemVariationData = try container.decodeIfPresent(CatalogItemVariation.self, forKey: .ItemVariationData)
-//        self.TaxData = try container.decodeIfPresent(CatalogTax.self, forKey: .TaxData)
-//        self.DiscountData = try container.decodeIfPresent(CatalogDiscount.self, forKey: .DiscountData)
-//        self.ModifierListData = try container.decodeIfPresent(CatalogModifierList.self, forKey: .ModifierListData)
-//        self.ModifierData = try container.decodeIfPresent(CatalogModifier.self, forKey: .ModifierData)
-//        self.TimePeriodData = try container.decodeIfPresent(CatalogTimePeriod.self, forKey: .TimePeriodData)
-//        self.ProductSetData = try container.decodeIfPresent(CatalogProductSet.self, forKey: .ProductSetData)
-//        self.PricingRuleData = try container.decodeIfPresent(CatalogPricingRule.self, forKey: .PricingRuleData)
-//        self.ImageData = try container.decodeIfPresent(CatalogImage.self, forKey: .ImageData)
-//        self.MeasurementUnitData = try container.decodeIfPresent(CatalogMeasurementUnit.self, forKey: .MeasurementUnitData)
-//        self.SubscriptionPlanData = try container.decodeIfPresent(CatalogSubscriptionPlan.self, forKey: .SubscriptionPlanData)
-//        self.ItemOptionData = try container.decodeIfPresent(CatalogItemOption.self, forKey: .ItemOptionData)
-//        self.ItemOptionValueData = try container.decodeIfPresent(CatalogItemOptionValue.self, forKey: .ItemOptionValueData)
-//        self.CustomAttributeDefinitionData = try container.decodeIfPresent(CatalogCustomAttributeDefinition.self, forKey: .CustomAttributeDefinitionData)
-//        self.QuickAmountsSettingsData = try container.decodeIfPresent(CatalogQuickAmountsSettings.self, forKey: .QuickAmountsSettingsData)
-//    }
 }

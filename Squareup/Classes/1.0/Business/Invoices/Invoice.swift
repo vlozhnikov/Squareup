@@ -66,7 +66,6 @@ open class Invoice: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var ScheduledAt: Date?
     @FormattedDate<RFC3339_Strategy> public var ScheduledAt: Date?
     /// - PublicUrl: Read only The URL of the Square-hosted invoice page. After you publish the invoice using the PublishInvoice endpoint, Square hosts the invoice page and returns the page URL in the response.
     public var PublicUrl: String?
@@ -76,7 +75,6 @@ open class Invoice: Codable {
     public var Status: InvoiceStatus?
     /// - Timezone: Read only The time zone used to interpret calendar dates on the invoice, such as due_date. When an invoice is created, this field is set to the timezone specified for the seller location. The value cannot be changed.
     /// For example, a payment due_date of 2021-03-09 with a timezone of America/Los_Angeles becomes overdue at midnight on March 9 in America/Los_Angeles (which equals a UTC timestamp of 2021-03-10T08:00:00Z).
-//    var Timezone: Date?
     @FormattedDate<RFC3339_Strategy> public var Timezone: Date?
     /// - CreatedAt: Read only The timestamp when the invoice was created, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -84,7 +82,6 @@ open class Invoice: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp when the invoice was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -92,7 +89,6 @@ open class Invoice: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - AcceptedPaymentMethods: The payment methods that customers can use to pay the invoice on the Square-hosted invoice page. This setting is independent of any automatic payment requests for the invoice.
     /// This field is required when creating an invoice and must set at least one payment method to true.
@@ -104,7 +100,6 @@ open class Invoice: Codable {
     /// - SubscriptionId: Read only The ID of the subscription associated with the invoice. This field is present only on subscription billing invoices.
     public var SubscriptionId: String?
     /// - SaleOrServiceDate: The date of the sale or the date that the service is rendered, in YYYY-MM-DD format. This field can be used to specify a past or future date which is displayed on the invoice.
-//    var SaleOrServiceDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var SaleOrServiceDate: Date?
     /// - PaymentConditions: France only. The payment terms and conditions that are displayed on the invoice. For more information, see Payment conditions.
     /// For countries other than France, Square returns an INVALID_REQUEST_ERROR with a BAD_REQUEST code and "Payment conditions are not supported for this location's country" detail if this field is included in CreateInvoice or UpdateInvoice requests.
@@ -139,43 +134,4 @@ open class Invoice: Codable {
         case PaymentConditions = "payment_conditions"
         case StorePaymentMethodEnabled = "store_payment_method_enabled"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.OrderId = try container.decodeIfPresent(String.self, forKey: .OrderId)
-//        self.PrimaryRecipient = try container.decodeIfPresent(InvoiceRecipient.self, forKey: .PrimaryRecipient)
-//        self.PaymentRequests = try container.decodeIfPresent([InvoicePaymentRequest].self, forKey: .PaymentRequests)
-//        self.DeliveryMethod = try container.decodeIfPresent(InvoiceDeliveryMethod.self, forKey: .DeliveryMethod)
-//        self.InvoiceNumber = try container.decodeIfPresent(String.self, forKey: .InvoiceNumber)
-//        self.Title = try container.decodeIfPresent(String.self, forKey: .Title)
-//        self.Description = try container.decodeIfPresent(String.self, forKey: .Description)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .ScheduledAt), !dateString.isEmpty {
-//            self.ScheduledAt = try dateString.decode_RFC3339_Date(container, forKey: .ScheduledAt)
-//        }
-//        self.PublicUrl = try container.decodeIfPresent(String.self, forKey: .PublicUrl)
-//        self.NextPaymentAmountMoney = try container.decodeIfPresent(Money.self, forKey: .NextPaymentAmountMoney)
-//        self.Status = try container.decodeIfPresent(InvoiceStatus.self, forKey: .Status)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .Timezone), !dateString.isEmpty {
-//            self.Timezone = try dateString.decode_RFC3339_Date(container, forKey: .Timezone)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.AcceptedPaymentMethods = try container.decodeIfPresent(InvoiceAcceptedPaymentMethods.self, forKey: .AcceptedPaymentMethods)
-//        self.CustomFields = try container.decodeIfPresent([InvoiceCustomField].self, forKey: .CustomFields)
-//        self.SubscriptionId = try container.decodeIfPresent(String.self, forKey: .SubscriptionId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .SaleOrServiceDate), !dateString.isEmpty {
-//            self.SaleOrServiceDate = try dateString.decode_YYYYMMDD_Date(container, forKey: .SaleOrServiceDate)
-//        }
-//        self.PaymentConditions = try container.decodeIfPresent(String.self, forKey: .PaymentConditions)
-//        self.StorePaymentMethodEnabled = try container.decodeIfPresent(Bool.self, forKey: .StorePaymentMethodEnabled)
-//    }
 }

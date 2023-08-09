@@ -17,13 +17,10 @@ open class CashDrawerShift: Codable {
     /// - State: The shift current state.
     public var State: CashDrawerShiftState?
     /// - OpenedAt: The time when the shift began, in ISO 8601 format.
-//    var OpenedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var OpenedAt: Date?
     /// - EndedAt: The time when the shift ended, in ISO 8601 format.
-//    var EndedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var EndedAt: Date?
     /// - ClosedAt: The time when the shift was closed, in ISO 8601 format.
-//    var ClosedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var ClosedAt: Date?
     /// - Description: The free-form text description of a cash drawer by an employee.
     public var Description: String?
@@ -44,10 +41,8 @@ open class CashDrawerShift: Codable {
     /// - Device: The device running Square Point of Sale that was connected to the cash drawer.
     public var Device: CashDrawerDevice?
     /// - CreatedAt: Read only The shift start time in RFC 3339 format.
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The shift updated at time in RFC 3339 format
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - LocationId: Read only The ID of the location the cash drawer shift belongs to.
     public var LocationId: String?
@@ -83,41 +78,4 @@ open class CashDrawerShift: Codable {
         case EndingTeamMemberId = "ending_team_member_id"
         case ClosingTeamMemberId = "closing_team_member_id"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.State = try container.decodeIfPresent(CashDrawerShiftState.self, forKey: .State)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .OpenedAt), !dateString.isEmpty {
-//            self.OpenedAt = try dateString.decode_RFC3339_Date(container, forKey: .OpenedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EndedAt), !dateString.isEmpty {
-//            self.EndedAt = try dateString.decode_RFC3339_Date(container, forKey: .EndedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .ClosedAt), !dateString.isEmpty {
-//            self.ClosedAt = try dateString.decode_RFC3339_Date(container, forKey: .ClosedAt)
-//        }
-//        self.Description = try container.decodeIfPresent(String.self, forKey: .Description)
-//        self.OpenedCashMoney = try container.decodeIfPresent(Money.self, forKey: .OpenedCashMoney)
-//        self.CashPaymentMoney = try container.decodeIfPresent(Money.self, forKey: .CashPaymentMoney)
-//        self.CashRefundsMoney = try container.decodeIfPresent(Money.self, forKey: .CashRefundsMoney)
-//        self.CashPaidInMoney = try container.decodeIfPresent(Money.self, forKey: .CashPaidInMoney)
-//        self.CashPaidOutMoney = try container.decodeIfPresent(Money.self, forKey: .CashPaidOutMoney)
-//        self.ExpectedCashMoney = try container.decodeIfPresent(Money.self, forKey: .ExpectedCashMoney)
-//        self.ClosedCashMoney = try container.decodeIfPresent(Money.self, forKey: .ClosedCashMoney)
-//        self.Device = try container.decodeIfPresent(CashDrawerDevice.self, forKey: .Device)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.TeamMemberIds = try container.decodeIfPresent([String].self, forKey: .TeamMemberIds)
-//        self.OpeningTeamMemberId = try container.decodeIfPresent(String.self, forKey: .OpeningTeamMemberId)
-//        self.EndingTeamMemberId = try container.decodeIfPresent(String.self, forKey: .EndingTeamMemberId)
-//        self.ClosingTeamMemberId = try container.decodeIfPresent(String.self, forKey: .ClosingTeamMemberId)
-//    }
 }

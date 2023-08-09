@@ -11,11 +11,9 @@ open class ListPaymentRefundsRequest: Codable {
     
     /// - BeginTime: Indicates the start of the time range to retrieve each PaymentRefundfor, in RFC 3339 format. The range is determined using thecreated_atfield for eachPaymentRefund`.
     /// Default: The current time minus one year.
-//    var BeginTime: Date?
     @FormattedDate<RFC3339_Strategy> public var BeginTime: Date?
     /// - EndTime: Indicates the end of the time range to retrieve each PaymentRefund for, in RFC 3339 format. The range is determined using the created_at field for each PaymentRefund.
     /// Default: The current time.
-//    var EndTime: Date?
     @FormattedDate<RFC3339_Strategy> public var EndTime: Date?
     /// - sortOrder: The order in which results are listed by PaymentRefund.created_at:
     /// ASC - Oldest to newest.
@@ -47,22 +45,4 @@ open class ListPaymentRefundsRequest: Codable {
         case SourceType = "source_type"
         case Limit = "limit"
     }
-    
-//    required init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .BeginTime), !dateString.isEmpty {
-//            self.BeginTime = try dateString.decode_RFC3339_Date(container, forKey: .BeginTime)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .EndTime), !dateString.isEmpty {
-//            self.EndTime = try dateString.decode_RFC3339_Date(container, forKey: .EndTime)
-//        }
-//        self.sortOrder = try container.decodeIfPresent(SortOrder.self, forKey: .sortOrder)
-//        self.Cursor = try container.decodeIfPresent(String.self, forKey: .Cursor)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.Status = try container.decodeIfPresent(PaymentRefundStatus.self, forKey: .Status)
-//        self.SourceType = try container.decodeIfPresent(PaymentRefundDestinationType.self, forKey: .SourceType)
-//        self.Limit = try container.decodeIfPresent(Int.self, forKey: .Limit)
-//    }
 }

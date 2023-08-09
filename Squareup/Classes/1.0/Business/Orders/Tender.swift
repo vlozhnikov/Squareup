@@ -27,7 +27,6 @@ open class Tender: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 32
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - Note: An optional note associated with the tender at the time of payment.
     /// Max Length 500
@@ -72,26 +71,4 @@ open class Tender: Codable {
         case AdditionalRecipients = "additional_recipients"
         case PaymentId = "payment_id"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.TransactionId = try container.decodeIfPresent(String.self, forKey: .TransactionId)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.Note = try container.decodeIfPresent(String.self, forKey: .Note)
-//        self.AmountMoney = try container.decodeIfPresent(Money.self, forKey: .AmountMoney)
-//        self.TipMoney = try container.decodeIfPresent(Money.self, forKey: .TipMoney)
-//        self.ProcessingFeeMoney = try container.decodeIfPresent(Money.self, forKey: .ProcessingFeeMoney)
-//        self.CustomerId = try container.decodeIfPresent(String.self, forKey: .CustomerId)
-//        self.type = try container.decodeIfPresent(TenderType.self, forKey: .type)
-//        self.CardDetails = try container.decodeIfPresent(TenderCardDetails.self, forKey: .CardDetails)
-//        self.CashDetails = try container.decodeIfPresent(TenderCashDetails.self, forKey: .CashDetails)
-//        self.AdditionalRecipients = try container.decodeIfPresent([AdditionalRecipient].self, forKey: .AdditionalRecipients)
-//        self.PaymentId = try container.decodeIfPresent(String.self, forKey: .PaymentId)
-//    }
 }

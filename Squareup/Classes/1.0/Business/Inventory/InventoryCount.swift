@@ -33,7 +33,6 @@ open class InventoryCount: Codable {
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
     /// Max Length 34
-//    var CalculatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CalculatedAt: Date?
     /// - IsEstimated: Read only Whether the inventory count is for composed variation (TRUE) or not (FALSE). If true, the inventory count will not be present in the response of any of these endpoints:
     public var IsEstimated: Bool?
@@ -47,19 +46,4 @@ open class InventoryCount: Codable {
         case CalculatedAt = "calculated_at"
         case IsEstimated = "is_estimated"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.CatalogObjectId = try container.decodeIfPresent(String.self, forKey: .CatalogObjectId)
-//        self.catalogObjectType = try container.decodeIfPresent(CatalogObjectType.self, forKey: .catalogObjectType)
-//        self.State = try container.decodeIfPresent(InventoryState.self, forKey: .State)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.Quantity = try container.decodeIfPresent(String.self, forKey: .Quantity)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CalculatedAt), !dateString.isEmpty {
-//            self.CalculatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CalculatedAt)
-//        }
-//        self.IsEstimated = try container.decodeIfPresent(Bool.self, forKey: .IsEstimated)
-//    }
 }

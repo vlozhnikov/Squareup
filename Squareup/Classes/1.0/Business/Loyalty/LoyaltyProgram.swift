@@ -31,7 +31,6 @@ open class LoyaltyProgram: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp when the reward was last updated, in RFC 3339 format.
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -39,7 +38,6 @@ open class LoyaltyProgram: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - AccrualRules: Defines how buyers can earn loyalty points from the base loyalty program. To check for associated loyalty promotions that enable buyers to earn extra points, call ListLoyaltyPromotions.
     public var AccrualRules: [LoyaltyProgramAccrualRule]?
@@ -55,23 +53,4 @@ open class LoyaltyProgram: Codable {
         case UpdatedAt = "updated_at"
         case AccrualRules = "accrual_rules"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.Status = try container.decodeIfPresent(LoyaltyProgramStatus.self, forKey: .Status)
-//        self.RewardTiers = try container.decodeIfPresent([LoyaltyProgramRewardTier].self, forKey: .RewardTiers)
-//        self.ExpirationPolicy = try container.decodeIfPresent(LoyaltyProgramExpirationPolicy.self, forKey: .ExpirationPolicy)
-//        self.Terminology = try container.decodeIfPresent(LoyaltyProgramTerminology.self, forKey: .Terminology)
-//        self.LocationIds = try container.decodeIfPresent([String].self, forKey: .LocationIds)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        self.AccrualRules = try container.decodeIfPresent([LoyaltyProgramAccrualRule].self, forKey: .AccrualRules)
-//    }
 }

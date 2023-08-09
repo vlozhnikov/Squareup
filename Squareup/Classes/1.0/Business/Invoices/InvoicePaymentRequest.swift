@@ -27,7 +27,6 @@ open class InvoicePaymentRequest: Codable {
     public var RequestType: InvoiceRequestType?
     /// - DueDate: The due date (in the invoice's time zone) for the payment request, in YYYY-MM-DD format. This field is required to create a payment request. If an automatic_payment_source is defined for the request, Square charges the payment source on this date.
     /// After this date, the invoice becomes overdue. For example, a payment due_date of 2021-03-09 with a timezone of America/Los_Angeles becomes overdue at midnight on March 9 in America/Los_Angeles (which equals a UTC timestamp of 2021-03-10T08:00:00Z).
-//    var DueDate: Date?
     @FormattedDate<YYYYMMDD_Strategy> public var DueDate: Date?
     /// - FixedAmountRequestedMoney: If the payment request specifies DEPOSIT or INSTALLMENT as the request_type, this indicates the request amount. You cannot specify this when request_type is BALANCE or when the payment request includes the percentage_requested field.
     public var FixedAmountRequestedMoney: Money?
@@ -72,25 +71,4 @@ open class InvoicePaymentRequest: Codable {
         case TotalCompletedAmountMoney = "total_completed_amount_money"
         case RoundingAdjustmentIncludedMoney = "rounding_adjustment_included_money"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.UID = try container.decodeIfPresent(String.self, forKey: .UID)
-//        self.RequestMethod = try container.decodeIfPresent(InvoiceRequestMethod.self, forKey: .RequestMethod)
-//        self.RequestType = try container.decodeIfPresent(InvoiceRequestType.self, forKey: .RequestType)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .DueDate), !dateString.isEmpty {
-//            self.DueDate = try dateString.decode_RFC3339_Date(container, forKey: .DueDate)
-//        }
-//        self.FixedAmountRequestedMoney = try container.decodeIfPresent(Money.self, forKey: .FixedAmountRequestedMoney)
-//        self.PercentageRequested = try container.decodeIfPresent(String.self, forKey: .PercentageRequested)
-//        self.TippingEnabled = try container.decodeIfPresent(Bool.self, forKey: .TippingEnabled)
-//        self.AutomaticPaymentSource = try container.decodeIfPresent(InvoiceAutomaticPaymentSource.self, forKey: .AutomaticPaymentSource)
-//        self.CardId = try container.decodeIfPresent(String.self, forKey: .CardId)
-//        self.Reminders = try container.decodeIfPresent([InvoicePaymentReminder].self, forKey: .Reminders)
-//        self.ComputedAmountMoney = try container.decodeIfPresent(Money.self, forKey: .ComputedAmountMoney)
-//        self.TotalCompletedAmountMoney = try container.decodeIfPresent(Money.self, forKey: .TotalCompletedAmountMoney)
-//        self.RoundingAdjustmentIncludedMoney = try container.decodeIfPresent(Money.self, forKey: .RoundingAdjustmentIncludedMoney)
-//    }
 }

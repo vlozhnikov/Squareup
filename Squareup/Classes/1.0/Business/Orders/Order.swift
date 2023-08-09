@@ -76,7 +76,6 @@ open class Order: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - UpdatedAt: Read only The timestamp for when the order was last updated, in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -84,7 +83,6 @@ open class Order: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var UpdatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var UpdatedAt: Date?
     /// - ClosedAt: Read only The timestamp for when the order reached a terminal state, in RFC 3339 format (for example "2016-09-04T23:59:33.123Z").
     /// Examples for January 25th, 2020 6:25:34pm Pacific Standard Time:
@@ -92,7 +90,6 @@ open class Order: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var ClosedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var ClosedAt: Date?
     /// - State: The current state of the order.
     public var State: OrderState?
@@ -152,47 +149,4 @@ open class Order: Codable {
         case Rewards = "rewards"
         case NetAmountDueMoney = "net_amount_due_money"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.ReferenceId = try container.decodeIfPresent(String.self, forKey: .ReferenceId)
-//        self.Source = try container.decodeIfPresent(OrderSource.self, forKey: .Source)
-//        self.CustomerId = try container.decodeIfPresent(String.self, forKey: .CustomerId)
-//        self.LineItems = try container.decodeIfPresent([OrderLineItem].self, forKey: .LineItems)
-//        self.Taxes = try container.decodeIfPresent([OrderLineItemTax].self, forKey: .Taxes)
-//        self.Discounts = try container.decodeIfPresent([OrderLineItemDiscount].self, forKey: .Discounts)
-//        self.ServiceCharges = try container.decodeIfPresent([OrderServiceCharge].self, forKey: .ServiceCharges)
-//        self.Fulfillments = try container.decodeIfPresent([Fulfillment].self, forKey: .Fulfillments)
-//        self.Returns = try container.decodeIfPresent([OrderReturn].self, forKey: .Returns)
-//        self.ReturnAmounts = try container.decodeIfPresent(OrderMoneyAmounts.self, forKey: .ReturnAmounts)
-//        self.NetAmounts = try container.decodeIfPresent(OrderMoneyAmounts.self, forKey: .NetAmounts)
-//        self.RoundingAdjustment = try container.decodeIfPresent(OrderRoundingAdjustment.self, forKey: .RoundingAdjustment)
-//        self.Tenders = try container.decodeIfPresent([Tender].self, forKey: .Tenders)
-//        self.Refunds = try container.decodeIfPresent([Refund].self, forKey: .Refunds)
-//        self.Metadata = try container.decodeIfPresent([String: String].self, forKey: .Metadata)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .UpdatedAt), !dateString.isEmpty {
-//            self.UpdatedAt = try dateString.decode_RFC3339_Date(container, forKey: .UpdatedAt)
-//        }
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .ClosedAt), !dateString.isEmpty {
-//            self.ClosedAt = try dateString.decode_RFC3339_Date(container, forKey: .ClosedAt)
-//        }
-//        self.State = try container.decodeIfPresent(OrderState.self, forKey: .State)
-//        self.Version = try container.decodeIfPresent(Int.self, forKey: .Version)
-//        self.TotalMoney = try container.decodeIfPresent(Money.self, forKey: .TotalMoney)
-//        self.TotalTaxMoney = try container.decodeIfPresent(Money.self, forKey: .TotalTaxMoney)
-//        self.TotalDiscountMoney = try container.decodeIfPresent(Money.self, forKey: .TotalDiscountMoney)
-//        self.TotalTipMoney = try container.decodeIfPresent(Money.self, forKey: .TotalTipMoney)
-//        self.TotalServiceChargeMoney = try container.decodeIfPresent(Money.self, forKey: .TotalServiceChargeMoney)
-//        self.TicketName = try container.decodeIfPresent(String.self, forKey: .TicketName)
-//        self.PricingOptions = try container.decodeIfPresent(OrderPricingOptions.self, forKey: .PricingOptions)
-//        self.Rewards = try container.decodeIfPresent([OrderReward].self, forKey: .Rewards)
-//        self.NetAmountDueMoney = try container.decodeIfPresent(Money.self, forKey: .NetAmountDueMoney)
-//    }
 }

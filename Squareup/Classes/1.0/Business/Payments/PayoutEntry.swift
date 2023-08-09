@@ -24,7 +24,6 @@ open class PayoutEntry: Codable {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-//    var EffectiveAt: Date?
     @FormattedDate<RFC3339_Strategy> public var EffectiveAt: Date?
     /// - type: The type of activity associated with this payout entry.
     public var type: ActivityType?
@@ -110,98 +109,4 @@ open class PayoutEntry: Codable {
         case TypeThirdPartyFeeDetails = "type_third_party_fee_details"
         case TypeThirdPartyFeeRefundDetails = "type_third_party_fee_refund_details"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        if container.contains(.Id) {
-//            self.Id = try container.decode(String?.self, forKey: .Id)
-//        }
-//        if container.contains(.PayoutId) {
-//            self.PayoutId = try container.decode(String?.self, forKey: .PayoutId)
-//        }
-//        if container.contains(.EffectiveAt) {
-//            if let dateString = try? container.decode(String.self, forKey: .EffectiveAt), !dateString.isEmpty {
-//                self.EffectiveAt = try dateString.decode_RFC3339_Date(container, forKey: .EffectiveAt)
-//            }
-//        }
-//        if container.contains(.type) {
-//            self.type = try container.decode(ActivityType?.self, forKey: .type)
-//        }
-//        if container.contains(.GrossAmountMoney) {
-//            self.GrossAmountMoney = try container.decode(Money?.self, forKey: .GrossAmountMoney)
-//        }
-//        if container.contains(.FeeAmountMoney) {
-//            self.FeeAmountMoney = try container.decode(Money?.self, forKey: .FeeAmountMoney)
-//        }
-//        if container.contains(.NetAmountMoney) {
-//            self.NetAmountMoney = try container.decode(Money?.self, forKey: .NetAmountMoney)
-//        }
-//        if container.contains(.TypeAppFeeRevenueDetails) {
-//            self.TypeAppFeeRevenueDetails = try container.decode(PaymentBalanceActivityAppFeeRevenueDetail?.self, forKey: .TypeAppFeeRevenueDetails)
-//        }
-//        if container.contains(.TypeAppFeeRefundDetails) {
-//            self.TypeAppFeeRefundDetails = try container.decode(PaymentBalanceActivityAppFeeRefundDetail?.self, forKey: .TypeAppFeeRefundDetails)
-//        }
-//        if container.contains(.TypeAutomaticSavingsDetails) {
-//            self.TypeAutomaticSavingsDetails = try container.decode(PaymentBalanceActivityAutomaticSavingsDetail?.self, forKey: .TypeAutomaticSavingsDetails)
-//        }
-//        if container.contains(.TypeAutomaticSavingsReversedDetails) {
-//            self.TypeAutomaticSavingsReversedDetails = try container.decode(PaymentBalanceActivityAutomaticSavingsReversedDetail?.self, forKey: .TypeAutomaticSavingsReversedDetails)
-//        }
-//        if container.contains(.TypeChargeDetails) {
-//            self.TypeChargeDetails = try container.decode(PaymentBalanceActivityChargeDetail?.self, forKey: .TypeChargeDetails)
-//        }
-//        if container.contains(.TypeDepositFeeDetails) {
-//            self.TypeDepositFeeDetails = try container.decode(PaymentBalanceActivityDepositFeeDetail?.self, forKey: .TypeDepositFeeDetails)
-//        }
-//        if container.contains(.TypeDisputeDetails) {
-//            self.TypeDisputeDetails = try container.decode(PaymentBalanceActivityDisputeDetail?.self, forKey: .TypeDisputeDetails)
-//        }
-//        if container.contains(.TypeFeeDetails) {
-//            self.TypeFeeDetails = try container.decode(PaymentBalanceActivityFeeDetail?.self, forKey: .TypeFeeDetails)
-//        }
-//        if container.contains(.TypeFreeProcessingDetails) {
-//            self.TypeFreeProcessingDetails = try container.decode(PaymentBalanceActivityFreeProcessingDetail?.self, forKey: .TypeFreeProcessingDetails)
-//        }
-//        if container.contains(.TypeHoldAdjustmentDetails) {
-//            self.TypeHoldAdjustmentDetails = try container.decode(PaymentBalanceActivityHoldAdjustmentDetail?.self, forKey: .TypeHoldAdjustmentDetails)
-//        }
-//        if container.contains(.TypeOpenDisputeDetails) {
-//            self.TypeOpenDisputeDetails = try container.decode(PaymentBalanceActivityOpenDisputeDetail?.self, forKey: .TypeOpenDisputeDetails)
-//        }
-//        if container.contains(.TypeOtherDetails) {
-//            self.TypeOtherDetails = try container.decode(PaymentBalanceActivityOtherDetail?.self, forKey: .TypeOtherDetails)
-//        }
-//        if container.contains(.TypeOtherAdjustmentDetails) {
-//            self.TypeOtherAdjustmentDetails = try container.decode(PaymentBalanceActivityOtherAdjustmentDetail?.self, forKey: .TypeOtherAdjustmentDetails)
-//        }
-//        if container.contains(.TypeRefundDetails) {
-//            self.TypeRefundDetails = try container.decode(PaymentBalanceActivityRefundDetail?.self, forKey: .TypeRefundDetails)
-//        }
-//        if container.contains(.TypeReleaseAdjustmentDetails) {
-//            self.TypeReleaseAdjustmentDetails = try container.decode(PaymentBalanceActivityReleaseAdjustmentDetail?.self, forKey: .TypeReleaseAdjustmentDetails)
-//        }
-//        if container.contains(.TypeReserveHoldDetails) {
-//            self.TypeReserveHoldDetails = try container.decode(PaymentBalanceActivityReserveHoldDetail?.self, forKey: .TypeReserveHoldDetails)
-//        }
-//        if container.contains(.TypeReserveReleaseDetails) {
-//            self.TypeReserveReleaseDetails = try container.decode(PaymentBalanceActivityReserveReleaseDetail?.self, forKey: .TypeReserveReleaseDetails)
-//        }
-//        if container.contains(.TypeSquareCapitalPaymentDetails) {
-//            self.TypeSquareCapitalPaymentDetails = try container.decode(PaymentBalanceActivitySquareCapitalPaymentDetail?.self, forKey: .TypeSquareCapitalPaymentDetails)
-//        }
-//        if container.contains(.TypeSquareCapitalReversedPaymentDetails) {
-//            self.TypeSquareCapitalReversedPaymentDetails = try container.decode(PaymentBalanceActivitySquareCapitalReversedPaymentDetail?.self, forKey: .TypeSquareCapitalReversedPaymentDetails)
-//        }
-//        if container.contains(.TypeTaxOnFeeDetails) {
-//            self.TypeTaxOnFeeDetails = try container.decode(PaymentBalanceActivityTaxOnFeeDetail?.self, forKey: .TypeTaxOnFeeDetails)
-//        }
-//        if container.contains(.TypeThirdPartyFeeDetails) {
-//            self.TypeThirdPartyFeeDetails = try container.decode(PaymentBalanceActivityThirdPartyFeeDetail?.self, forKey: .TypeThirdPartyFeeDetails)
-//        }
-//        if container.contains(.TypeThirdPartyFeeRefundDetails) {
-//            self.TypeThirdPartyFeeRefundDetails = try container.decode(PaymentBalanceActivityThirdPartyFeeRefundDetail?.self, forKey: .TypeThirdPartyFeeRefundDetails)
-//        }
-//    }
 }

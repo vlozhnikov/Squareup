@@ -22,7 +22,6 @@ open class LoyaltyEvent: Codable {
     ///  UTC: 2020-01-26T02:25:34Z
     ///
     ///Min Length 1
-//    var CreatedAt: Date?
     @FormattedDate<RFC3339_Strategy> public var CreatedAt: Date?
     /// - AccumulatePoints: Read only Provides metadata when the event type is ACCUMULATE_POINTS.
     public var AccumulatePoints: LoyaltyEventAccumulatePoints?
@@ -65,26 +64,4 @@ open class LoyaltyEvent: Codable {
         case OtherEvent = "other_event"
         case AccumulatePromotionPoints = "accumulate_promotion_points"
     }
-    
-//    required public init(from decoder: Decoder) throws {
-//        
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.Id = try container.decodeIfPresent(String.self, forKey: .Id)
-//        self.type = try container.decodeIfPresent(LoyaltyEventType.self, forKey: .type)
-//        if let dateString = try? container.decodeIfPresent(String.self, forKey: .CreatedAt), !dateString.isEmpty {
-//            self.CreatedAt = try dateString.decode_RFC3339_Date(container, forKey: .CreatedAt)
-//        }
-//        self.AccumulatePoints = try container.decodeIfPresent(LoyaltyEventAccumulatePoints.self, forKey: .AccumulatePoints)
-//        self.CreateReward = try container.decodeIfPresent(LoyaltyEventCreateReward.self, forKey: .CreateReward)
-//        self.RedeemReward = try container.decodeIfPresent(LoyaltyEventRedeemReward.self, forKey: .RedeemReward)
-//        self.DeleteReward = try container.decodeIfPresent(LoyaltyEventDeleteReward.self, forKey: .DeleteReward)
-//        self.AdjustPoints = try container.decodeIfPresent(LoyaltyEventAdjustPoints.self, forKey: .AdjustPoints)
-//        self.LoyaltyAccountId = try container.decodeIfPresent(String.self, forKey: .LoyaltyAccountId)
-//        self.LocationId = try container.decodeIfPresent(String.self, forKey: .LocationId)
-//        self.Source = try container.decodeIfPresent(LoyaltyEventSource.self, forKey: .Source)
-//        self.ExpirePoints = try container.decodeIfPresent(LoyaltyEventExpirePoints.self, forKey: .ExpirePoints)
-//        self.OtherEvent = try container.decodeIfPresent(LoyaltyEventOther.self, forKey: .OtherEvent)
-//        self.AccumulatePromotionPoints = try container.decodeIfPresent(LoyaltyEventAccumulatePromotionPoints.self, forKey: .AccumulatePromotionPoints)
-//    }
 }
