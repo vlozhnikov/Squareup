@@ -34,10 +34,10 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/create-order
         public func createOrder(order: Order,
-                         idempotencyKey: String?,
-                         accessToken: String,
-                         completion: ((CreateOrderResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+                                idempotencyKey: String?,
+                                accessToken: String,
+                                completion: ((CreateOrderResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             let createOrderRequest = Serializer.deserialize(CreateOrderRequest.self, [:])!
             
@@ -57,10 +57,10 @@ open class OrdersApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/orders-api/batch-retrieve-orders
         public func batchRetrieveOrders(locationId: String,
-                                 orderIds: [String],
-                                 accessToken: String,
-                                 completion: ((BatchRetrieveOrdersResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        orderIds: [String],
+                                        accessToken: String,
+                                        completion: ((BatchRetrieveOrdersResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             let batchRetrieveOrdersRequest = Serializer.deserialize(BatchRetrieveOrdersRequest.self, [:])!
             
             batchRetrieveOrdersRequest.LocationId = locationId
@@ -77,10 +77,10 @@ open class OrdersApi {
         /// - calculateOrder: Enables applications to preview order pricing without creating an order.
         /// https://developer.squareup.com/reference/square/orders-api/calculate-order
         public func calculateOrder(order: Order,
-                            proposedRewards: [OrderReward],
-                            accessToken: String,
-                            completion: ((CalculateOrderResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   proposedRewards: [OrderReward],
+                                   accessToken: String,
+                                   completion: ((CalculateOrderResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             let calculateOrderRequest = Serializer.deserialize(CalculateOrderRequest.self, [:])!
             
             calculateOrderRequest.order = order
@@ -99,11 +99,11 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/clone-order
         public func cloneOrder(orderId: String,
-                        version: Int?,
-                        idempotencyKey: String?,
-                        accessToken: String,
-                        completion: ((CloneOrderResponse) -> Void)? = nil,
-                        failed: ((Error) -> Void)? = nil) {
+                               version: Int?,
+                               idempotencyKey: String?,
+                               accessToken: String,
+                               completion: ((CloneOrderResponse) -> Void)? = nil,
+                               failed: ((Error) -> Void)? = nil) {
             let cloneOrderRequest = Serializer.deserialize(CloneOrderRequest.self, [:])!
             
             cloneOrderRequest.OrderId = orderId
@@ -127,13 +127,13 @@ open class OrdersApi {
         /// Note that details for orders processed with Square Point of Sale while in offline mode might not be transmitted to Square for up to 72 hours. Offline orders have a created_at value that reflects the time the order was created, not the time it was subsequently transmitted to Square.
         /// Permissions: ORDERS_READ
         public func searchOrders(locationIds: [String],
-                          cursor: String?,
-                          query: SearchOrdersQuery,
-                          limit: Int?,
-                          returnEntries: Bool?,
-                          accessToken: String,
-                          completion: ((SearchOrdersResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 cursor: String?,
+                                 query: SearchOrdersQuery,
+                                 limit: Int?,
+                                 returnEntries: Bool?,
+                                 accessToken: String,
+                                 completion: ((SearchOrdersResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             let searchOrdersRequest = Serializer.deserialize(SearchOrdersRequest.self, [:])!
             
             searchOrdersRequest.LocationIds = locationIds
@@ -154,9 +154,9 @@ open class OrdersApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/orders-api/retrieve-order
         public func retrieveOrder(orderId: String,
-                           accessToken: String,
-                           completion: ((RetrieveOrderResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  accessToken: String,
+                                  completion: ((RetrieveOrderResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "orders/\(orderId)",
                     method: .get,
@@ -180,12 +180,12 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/update-order
         public func updateOrder(orderId: String,
-                         order: Order?,
-                         fieldsToClear: [String],
-                         idempotencyKey: String?,
-                         accessToken: String,
-                         completion: ((UpdateOrderResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+                                order: Order?,
+                                fieldsToClear: [String],
+                                idempotencyKey: String?,
+                                accessToken: String,
+                                completion: ((UpdateOrderResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             let updateOrderRequest = Serializer.deserialize(UpdateOrderRequest.self, [:])!
             
             updateOrderRequest.order = order
@@ -210,12 +210,12 @@ open class OrdersApi {
         /// Permissions: PAYMENTS_WRITE, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/orders-api/pay-order
         public func payOrder(orderId: String,
-                      orderVersion: Int?,
-                      paymentIds: [String],
-                      idempotencyKey: String?,
-                      accessToken: String,
-                      completion: ((PayOrderResponse) -> Void)? = nil,
-                      failed: ((Error) -> Void)? = nil) {
+                             orderVersion: Int?,
+                             paymentIds: [String],
+                             idempotencyKey: String?,
+                             accessToken: String,
+                             completion: ((PayOrderResponse) -> Void)? = nil,
+                             failed: ((Error) -> Void)? = nil) {
             let payOrderRequest = Serializer.deserialize(PayOrderRequest.self, [:])!
             
             payOrderRequest.OrderVersion = orderVersion
@@ -243,11 +243,11 @@ open class OrdersApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/list-order-custom-attribute-definitions
         public func listOrderCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
-                                                 cursor: String?,
-                                                 limit: Int?,
-                                                 accessToken: String,
-                                                 completion: ((ListPrderCustomAttributeDefinitionsResponse) -> Void)? = nil,
-                                                 failed: ((Error) -> Void)? = nil) {
+                                                        cursor: String?,
+                                                        limit: Int?,
+                                                        accessToken: String,
+                                                        completion: ((ListPrderCustomAttributeDefinitionsResponse) -> Void)? = nil,
+                                                        failed: ((Error) -> Void)? = nil) {
             
             let listPrderCustomAttributeDefinitionsRequest = Serializer.deserialize(ListPrderCustomAttributeDefinitionsRequest.self, [:])!
             
@@ -270,10 +270,10 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/create-order-custom-attribute-definition
         public func createOrderCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
-                                                  idempotencyKey: String,
-                                                  accessToken: String,
-                                                  completion: ((CreateOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                  failed: ((Error) -> Void)? = nil) {
+                                                         idempotencyKey: String,
+                                                         accessToken: String,
+                                                         completion: ((CreateOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                         failed: ((Error) -> Void)? = nil) {
             
             let createOrderCustomAttributeDefinitionRequest = Serializer.deserialize(CreateOrderCustomAttributeDefinitionRequest.self, [:])!
             
@@ -293,9 +293,9 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/delete-order-custom-attribute-definition
         public func deleteOrderCustomAttributeDefinition(key: String,
-                                                  accessToken: String,
-                                                  completion: ((SquareupResponse) -> Void)? = nil,
-                                                  failed: ((Error) -> Void)? = nil) {
+                                                         accessToken: String,
+                                                         completion: ((SquareupResponse) -> Void)? = nil,
+                                                         failed: ((Error) -> Void)? = nil) {
             
             request(to: "orders/custom-attribute-definitions/\(key)",
                     method: .delete,
@@ -310,10 +310,10 @@ open class OrdersApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/retrieve-order-custom-attribute-definition
         public func retrieveOrderCustomAttributeDefinition(key: String,
-                                                    version: Int?,
-                                                    accessToken: String,
-                                                    completion: ((RetrieveOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                    failed: ((Error) -> Void)? = nil) {
+                                                           version: Int?,
+                                                           accessToken: String,
+                                                           completion: ((RetrieveOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                           failed: ((Error) -> Void)? = nil) {
             
             let retrieveOrderCustomAttributeDefinitionRequest = Serializer.deserialize(RetrieveOrderCustomAttributeDefinitionRequest.self, [:])!
             retrieveOrderCustomAttributeDefinitionRequest.Version = version
@@ -332,11 +332,11 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/update-order-custom-attribute-definition
         public func updateOrderCustomAttributeDefinition(key: String,
-                                                  customAttributeDefinition: CustomAttributeDefinition?,
-                                                  idempotencyKey: String?,
-                                                  accessToken: String,
-                                                  completion: ((UpdateOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                  failed: ((Error) -> Void)? = nil) {
+                                                         customAttributeDefinition: CustomAttributeDefinition?,
+                                                         idempotencyKey: String?,
+                                                         accessToken: String,
+                                                         completion: ((UpdateOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                         failed: ((Error) -> Void)? = nil) {
             
             let updateOrderCustomAttributeDefinitionRequest = Serializer.deserialize(UpdateOrderCustomAttributeDefinitionRequest.self, [:])!
             
@@ -358,9 +358,9 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/bulk-delete-order-custom-attributes
         public func bulkDeleteOrderCustomAttributes(values: [String: BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute]?,
-                                             accessToken: String,
-                                             completion: ((BulkDeleteOrderCustomAttributesResponse) -> Void)? = nil,
-                                             failed: ((Error) -> Void)? = nil) {
+                                                    accessToken: String,
+                                                    completion: ((BulkDeleteOrderCustomAttributesResponse) -> Void)? = nil,
+                                                    failed: ((Error) -> Void)? = nil) {
             
             let bulkDeleteOrderCustomAttributesRequest = Serializer.deserialize(BulkDeleteOrderCustomAttributesRequest.self, [:])!
             bulkDeleteOrderCustomAttributesRequest.Values = values
@@ -380,9 +380,9 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/bulk-upsert-order-custom-attributes
         public func bulkUpsertOrderCustomAttributes(values: [String: BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute]?,
-                                             accessToken: String,
-                                             completion: ((BulkUpsertOrderCustomAttributesResponse) -> Void)? = nil,
-                                             failed: ((Error) -> Void)? = nil) {
+                                                    accessToken: String,
+                                                    completion: ((BulkUpsertOrderCustomAttributesResponse) -> Void)? = nil,
+                                                    failed: ((Error) -> Void)? = nil) {
             
             let bulkUpsertOrderCustomAttributesRequest = Serializer.deserialize(BulkUpsertOrderCustomAttributesRequest.self, [:])!
             bulkUpsertOrderCustomAttributesRequest.Values = values
@@ -401,13 +401,13 @@ open class OrdersApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/list-order-custom-attributes
         public func listOrderCustomAttributes(orderId: String,
-                                       visibilityFilter: VisibilityFilter?,
-                                       cursor: String?,
-                                       limit: Int?,
-                                       withDefinitions: Bool?,
-                                       accessToken: String,
-                                       completion: ((ListOrderCustomAttributesResponse) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              visibilityFilter: VisibilityFilter?,
+                                              cursor: String?,
+                                              limit: Int?,
+                                              withDefinitions: Bool?,
+                                              accessToken: String,
+                                              completion: ((ListOrderCustomAttributesResponse) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             let listOrderCustomAttributesRequest = Serializer.deserialize(ListOrderCustomAttributesRequest.self, [:])!
             
@@ -430,10 +430,10 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/delete-order-custom-attribute
         public func deleteOrderCustomAttribute(orderId: String,
-                                        customAttributeKey: String,
-                                        accessToken: String,
-                                        completion: ((SquareupResponse) -> Void)? = nil,
-                                        failed: ((Error) -> Void)? = nil) {
+                                               customAttributeKey: String,
+                                               accessToken: String,
+                                               completion: ((SquareupResponse) -> Void)? = nil,
+                                               failed: ((Error) -> Void)? = nil) {
             
             request(to: "orders/\(orderId)/custom-attributes/\(customAttributeKey)",
                     method: .delete,
@@ -449,12 +449,12 @@ open class OrdersApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/retrieve-order-custom-attribute
         public func retrieveOrderCustomAttribute(orderId: String,
-                                          customAttributeKey: String,
-                                          version: Int?,
-                                          withDefinitions: Bool?,
-                                          accessToken: String,
-                                          completion: ((RetrieveOrderCustomAttributeResponse) -> Void)? = nil,
-                                          failed: ((Error) -> Void)? = nil) {
+                                                 customAttributeKey: String,
+                                                 version: Int?,
+                                                 withDefinitions: Bool?,
+                                                 accessToken: String,
+                                                 completion: ((RetrieveOrderCustomAttributeResponse) -> Void)? = nil,
+                                                 failed: ((Error) -> Void)? = nil) {
             
             let retrieveOrderCustomAttributeRequest = Serializer.deserialize(RetrieveOrderCustomAttributeRequest.self, [:])!
             
@@ -476,12 +476,12 @@ open class OrdersApi {
         /// Permissions: ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/upsert-order-custom-attribute
         public func upsertOrderCustomAttribute(orderId: String,
-                                        customAttributeKey: String,
-                                        customAttribute: CustomAttribute?,
-                                        idempotencyKey: String?,
-                                        accessToken: String,
-                                        completion: ((UpsertOrderCustomAttributeResponse) -> Void)? = nil,
-                                        failed: ((Error) -> Void)? = nil) {
+                                               customAttributeKey: String,
+                                               customAttribute: CustomAttribute?,
+                                               idempotencyKey: String?,
+                                               accessToken: String,
+                                               completion: ((UpsertOrderCustomAttributeResponse) -> Void)? = nil,
+                                               failed: ((Error) -> Void)? = nil) {
             
             let upsertOrderCustomAttributeRequest = Serializer.deserialize(UpsertOrderCustomAttributeRequest.self, [:])!
             

@@ -29,12 +29,12 @@ open class CustomersApi {
         /// Permissions: CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customers-api/list-customers
         public func listCustomers(cursor: String?,
-                           limit: Int?,
-                           sortField: CustomerSortField = .Default,
-                           sortOrder: SortOrder = .Asc,
-                           accessToken: String,
-                           completion: ((ListCustomersResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  limit: Int?,
+                                  sortField: CustomerSortField,
+                                  sortOrder: SortOrder,
+                                  accessToken: String,
+                                  completion: ((ListCustomersResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let listCustomersRequest = Serializer.deserialize(ListCustomersRequest.self, [:])!
             
@@ -64,20 +64,20 @@ open class CustomersApi {
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/create-customer
         public func createCustomer(givenName: String?,
-                            familyName: String?,
-                            companyName: String?,
-                            nickname: String?,
-                            emailAddress: String?,
-                            address: Address?,
-                            phoneNumber: String?,
-                            referenceId: String?,
-                            note: String?,
-                            birthday: Date?,
-                            taxIds: CustomerTaxIds?,
-                            idempotencyKey: String?,
-                            accessToken: String,
-                            completion: ((CreateCustomersResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   familyName: String?,
+                                   companyName: String?,
+                                   nickname: String?,
+                                   emailAddress: String?,
+                                   address: Address?,
+                                   phoneNumber: String?,
+                                   referenceId: String?,
+                                   note: String?,
+                                   birthday: Date?,
+                                   taxIds: CustomerTaxIds?,
+                                   idempotencyKey: String?,
+                                   accessToken: String,
+                                   completion: ((CreateCustomersResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let createCustomersRequest = Serializer.deserialize(CreateCustomerRequest.self, [:])!
             
@@ -108,11 +108,11 @@ open class CustomersApi {
         /// Under normal operating conditions, newly created or updated customer profiles become available for the search operation in well under 30 seconds. Occasionally, propagation of the new or updated profiles can take closer to one minute or longer, especially during network incidents and outages.
         /// Permissions: CUSTOMERS_READ
         public func searchCustomers(cursor: String?,
-                             limit: Int?,
-                             query: CustomerQuery?,
-                             accessToken: String,
-                             completion: ((SearchCustomersResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    limit: Int?,
+                                    query: CustomerQuery?,
+                                    accessToken: String,
+                                    completion: ((SearchCustomersResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             let searchCustomerRequest = Serializer.deserialize(SearchCustomersRequest.self, [:])!
             searchCustomerRequest.Cursor = cursor
@@ -136,10 +136,10 @@ open class CustomersApi {
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/delete-customer
         public func deleteCustomer(customerId: String,
-                            version: Int?,
-                            accessToken: String,
-                            completion: ((SquareupResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   version: Int?,
+                                   accessToken: String,
+                                   completion: ((SquareupResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let deleteCustomerRequest = Serializer.deserialize(DeleteCustomerRequest.self, [:])!
             deleteCustomerRequest.Version = version
@@ -156,9 +156,9 @@ open class CustomersApi {
         /// - retrieveCustomer: Returns details for a single customer.
         /// Permissions: CUSTOMERS_READ
         public func retrieveCustomer(customerId: String,
-                              accessToken: String,
-                              completion: ((RetrieveCustomerResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     accessToken: String,
+                                     completion: ((RetrieveCustomerResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/\(customerId)",
                     method: .get,
@@ -178,21 +178,21 @@ open class CustomersApi {
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/update-customer
         public func updateCustomer(customerId: String,
-                            givenName: String?,
-                            familyName: String?,
-                            companyName: String?,
-                            nickname: String?,
-                            emailAddress: String?,
-                            address: Address?,
-                            phoneNumber: String?,
-                            referenceId: String?,
-                            note: String?,
-                            birthday: Date?,
-                            version: Int?,
-                            taxIds: CustomerTaxIds?,
-                            accessToken: String,
-                            completion: ((UpdateCustomerResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   givenName: String?,
+                                   familyName: String?,
+                                   companyName: String?,
+                                   nickname: String?,
+                                   emailAddress: String?,
+                                   address: Address?,
+                                   phoneNumber: String?,
+                                   referenceId: String?,
+                                   note: String?,
+                                   birthday: Date?,
+                                   version: Int?,
+                                   taxIds: CustomerTaxIds?,
+                                   accessToken: String,
+                                   completion: ((UpdateCustomerResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let updateCustomerRequest = Serializer.deserialize(UpdateCustomerRequest.self, [:])!
             
@@ -222,10 +222,10 @@ open class CustomersApi {
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/remove-group-from-customer
         public func removeGroupFromCustomer(customerId: String,
-                                     groupId: String,
-                                     accessToken: String,
-                                     completion: ((SquareupResponse) -> Void)? = nil,
-                                     failed: ((Error) -> Void)? = nil) {
+                                            groupId: String,
+                                            accessToken: String,
+                                            completion: ((SquareupResponse) -> Void)? = nil,
+                                            failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/\(customerId)/groups/\(groupId)",
                     method: .delete,
@@ -240,10 +240,10 @@ open class CustomersApi {
         /// Permissions: CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customers-api/add-group-to-customer
         public func addGroupFromCustomer(customerId: String,
-                                  groupId: String,
-                                  accessToken: String,
-                                  completion: ((SquareupResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         groupId: String,
+                                         accessToken: String,
+                                         completion: ((SquareupResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/\(customerId)/groups/\(groupId)",
                     method: .put,
@@ -266,10 +266,10 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-custom-attributes-api/list-customer-custom-attribute-definitions
         public func listCustomerCustomAttributeDefinitions(limit: Int?,
-                                                    cursor: String?,
-                                                    accessToken: String,
-                                                    completion: ((ListCustomerCustomAttributeDefinitionsResponse) -> Void)? = nil,
-                                                    failed: ((Error) -> Void)? = nil) {
+                                                           cursor: String?,
+                                                           accessToken: String,
+                                                           completion: ((ListCustomerCustomAttributeDefinitionsResponse) -> Void)? = nil,
+                                                           failed: ((Error) -> Void)? = nil) {
             
             let listCustomerCustomAttributeDefinitionsRequest = Serializer.deserialize(ListCustomerCustomAttributeDefinitionsRequest.self, [:])!
             
@@ -295,10 +295,10 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/create-customer-custom-attribute-definition
         public func createCustomerCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
-                                                     idempotencyKey: String?,
-                                                     accessToken: String,
-                                                     completion: ((CreateCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            idempotencyKey: String?,
+                                                            accessToken: String,
+                                                            completion: ((CreateCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             let createCustomerCustomAttributeDefinitionRequest = Serializer.deserialize(CreateCustomerCustomAttributeDefinitionRequest.self, [:])!
             
@@ -320,9 +320,9 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/delete-customer-custom-attribute-definition
         public func deleteCustomerCustomAttributeDefinition(key: String,
-                                                     accessToken: String,
-                                                     completion: ((SquareupResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            accessToken: String,
+                                                            completion: ((SquareupResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/custom-attribute-definitions/\(key)",
                     method: .delete,
@@ -337,10 +337,10 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/retrieve-customer-custom-attribute-definition
         public func retrieveCustomerCustomAttributeDefinition(key: String,
-                                                       version: Int?,
-                                                       accessToken: String,
-                                                       completion: ((RetrieveCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                       failed: ((Error) -> Void)? = nil) {
+                                                              version: Int?,
+                                                              accessToken: String,
+                                                              completion: ((RetrieveCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                              failed: ((Error) -> Void)? = nil) {
             
             let retrieveCustomerCustomAttributeDefinitionRequest = Serializer.deserialize(RetrieveCustomerCustomAttributeDefinitionRequest.self, [:])!
             retrieveCustomerCustomAttributeDefinitionRequest.Version = version
@@ -361,11 +361,11 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/update-customer-custom-attribute-definition
         public func updateCustomerCustomAttributeDefinition(key: String,
-                                                     customAttributeDefinition: CustomAttributeDefinition?,
-                                                     idempotencyKey: String?,
-                                                     accessToken: String,
-                                                     completion: ((UpdateCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            customAttributeDefinition: CustomAttributeDefinition?,
+                                                            idempotencyKey: String?,
+                                                            accessToken: String,
+                                                            completion: ((UpdateCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             let updateCustomerCustomAttributeDefinitionRequest = Serializer.deserialize(UpdateCustomerCustomAttributeDefinitionRequest.self, [:])!
             
@@ -389,9 +389,9 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes
         public func bulkUpsertCustomerCustomAttributes(value: [String: BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest]?,
-                                                accessToken: String,
-                                                completion: ((BulkUpsertCustomerCustomAttributesResponse) -> Void)? = nil,
-                                                failed: ((Error) -> Void)? = nil) {
+                                                       accessToken: String,
+                                                       completion: ((BulkUpsertCustomerCustomAttributesResponse) -> Void)? = nil,
+                                                       failed: ((Error) -> Void)? = nil) {
             
             let bulkUpsertCustomerCustomAttributesRequest = Serializer.deserialize(BulkUpsertCustomerCustomAttributesRequest.self, [:])!
             bulkUpsertCustomerCustomAttributesRequest.Value = value
@@ -411,12 +411,12 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/list-customer-custom-attributes
         public func listCustomerCustomAttributes(customerId: String,
-                                          limit: Int?,
-                                          cursor: String?,
-                                          withDefinitions: Bool?,
-                                          accessToken: String,
-                                          completion: ((ListCustomerCustomAttributesResponse) -> Void)? = nil,
-                                          failed: ((Error) -> Void)? = nil) {
+                                                 limit: Int?,
+                                                 cursor: String?,
+                                                 withDefinitions: Bool?,
+                                                 accessToken: String,
+                                                 completion: ((ListCustomerCustomAttributesResponse) -> Void)? = nil,
+                                                 failed: ((Error) -> Void)? = nil) {
             
             let listCustomerCustomAttributesRequest = Serializer.deserialize(ListCustomerCustomAttributesRequest.self, [:])!
             
@@ -438,10 +438,10 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/delete-customer-custom-attribute
         public func deleteCustomerCustomAttribute(customerId: String,
-                                           key: String,
-                                           accessToken: String,
-                                           completion: ((SquareupResponse) -> Void)? = nil,
-                                           failed: ((Error) -> Void)? = nil) {
+                                                  key: String,
+                                                  accessToken: String,
+                                                  completion: ((SquareupResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/\(customerId)/custom-attributes/\(key)",
                     method: .delete,
@@ -457,12 +457,12 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/retrieve-customer-custom-attribute
         public func retrieveCustomerCustomAttribute(customerId: String,
-                                             key: String,
-                                             withDefinitions: Bool?,
-                                             version: Int?,
-                                             accessToken: String,
-                                             completion: ((RetrieveCustomerCustomAttributeResponse) -> Void)? = nil,
-                                             failed: ((Error) -> Void)? = nil) {
+                                                    key: String,
+                                                    withDefinitions: Bool?,
+                                                    version: Int?,
+                                                    accessToken: String,
+                                                    completion: ((RetrieveCustomerCustomAttributeResponse) -> Void)? = nil,
+                                                    failed: ((Error) -> Void)? = nil) {
             
             let retrieveCustomerCustomAttributeRequest = Serializer.deserialize(RetrieveCustomerCustomAttributeRequest.self, [:])!
             
@@ -485,12 +485,12 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/upsert-customer-custom-attribute
         public func upsertCustomerCustomAttribute(customerId: String,
-                                           key: String,
-                                           customAttribute: CustomAttribute?,
-                                           idempotencyKey: String?,
-                                           accessToken: String,
-                                           completion: ((UpsertCustomerCustomAttributeResponse) -> Void)? = nil,
-                                           failed: ((Error) -> Void)? = nil) {
+                                                  key: String,
+                                                  customAttribute: CustomAttribute?,
+                                                  idempotencyKey: String?,
+                                                  accessToken: String,
+                                                  completion: ((UpsertCustomerCustomAttributeResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             let upsertCustomerCustomAttributeRequest = Serializer.deserialize(UpsertCustomerCustomAttributeRequest.self, [:])!
             
@@ -519,10 +519,10 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         ///  https://developer.squareup.com/reference/square/customer-groups-api/list-customer-groups
         public func listCustomerGroups(cursor: String?,
-                                limit: Int?,
-                                accessToken: String,
-                                completion: ((ListCustomerGroupsResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       limit: Int?,
+                                       accessToken: String,
+                                       completion: ((ListCustomerGroupsResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let listCustomerGroupsRequest = Serializer.deserialize(ListCustomerGroupsRequest.self, [:])!
             
@@ -541,12 +541,12 @@ open class CustomersApi {
         /// - createCustomerGroup: Creates a new customer group for a business.
         /// The request must include the name value of the group.
         /// Permissions:CUSTOMERS_WRITE
-        ///  https://developer.squareup.com/reference/square/customer-groups-api/create-customer-group
+        /// https://developer.squareup.com/reference/square/customer-groups-api/create-customer-group
         public func createCustomerGroup(idempotencyKey: String?,
-                                 group: CustomerGroup,
-                                 accessToken: String,
-                                 completion: ((CreateCustomerGroupResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        group: CustomerGroup,
+                                        accessToken: String,
+                                        completion: ((CreateCustomerGroupResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let createCustomerGroupRequest = Serializer.deserialize(CreateCustomerGroupRequest.self, [:])!
             
@@ -565,9 +565,9 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customer-groups-api/delete-customer-group
         public func deleteCustomerGroup(groupId: String,
-                                 accessToken: String,
-                                 completion: ((SquareupResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        accessToken: String,
+                                        completion: ((SquareupResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/groups/\(groupId)",
                     method: .delete,
@@ -581,9 +581,9 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-groups-api/retrieve-customer-group
         public func retrieveCustomerGroup(groupId: String,
-                                   accessToken: String,
-                                   completion: ((RetrieveCustomerGroupResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          accessToken: String,
+                                          completion: ((RetrieveCustomerGroupResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/groups/\(groupId)",
                     method: .get,
@@ -597,10 +597,10 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_WRITE
         /// https://developer.squareup.com/reference/square/customer-groups-api/update-customer-group
         public func updateCustomerGroup(groupId: String,
-                                 group: CustomerGroup?,
-                                 accessToken: String,
-                                 completion: ((UpdateCustomerGroupResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        group: CustomerGroup?,
+                                        accessToken: String,
+                                        completion: ((UpdateCustomerGroupResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let updateCustomerGroupRequest = Serializer.deserialize(UpdateCustomerGroupRequest.self, [:])!
             updateCustomerGroupRequest.Group = group
@@ -626,10 +626,10 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-segments-api/list-customer-segments
         public func listCustomerSegments(cursor: String?,
-                                  limit: Int?,
-                                  accessToken: String,
-                                  completion: ((ListCustomerSegmentsResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         limit: Int?,
+                                         accessToken: String,
+                                         completion: ((ListCustomerSegmentsResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             let listCustomerSegmentsRequest = Serializer.deserialize(ListCustomerSegmentsRequest.self, [:])!
             
@@ -649,9 +649,9 @@ open class CustomersApi {
         /// Permissions:CUSTOMERS_READ
         /// https://developer.squareup.com/reference/square/customer-segments-api/retrieve-customer-segment
         public func retrieveCustomerSegment(segmentId: String,
-                                     accessToken: String,
-                                     completion: ((RetrieveCustomerSegmentResponse) -> Void)? = nil,
-                                     failed: ((Error) -> Void)? = nil) {
+                                            accessToken: String,
+                                            completion: ((RetrieveCustomerSegmentResponse) -> Void)? = nil,
+                                            failed: ((Error) -> Void)? = nil) {
             
             request(to: "customers/segments/\(segmentId)",
                     method: .get,

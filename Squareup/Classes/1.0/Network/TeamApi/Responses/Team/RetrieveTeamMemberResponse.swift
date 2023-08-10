@@ -9,6 +9,7 @@ import Foundation
 
 open class RetrieveTeamMemberResponse: SquareupResponse {
     
+    /// - teamMember: The successfully retrieved TeamMember object.
     public var teamMember: TeamMember?
     
     enum CodingKeys: String, CodingKey {

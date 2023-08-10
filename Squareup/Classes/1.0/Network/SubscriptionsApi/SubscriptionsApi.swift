@@ -27,21 +27,21 @@ open class SubscriptionsApi {
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/create-subscription
         public func createSubscription(idempotencyKey: String,
-                                locationId: String,
-                                planId: String,
-                                planVariationId: String?,
-                                customerId: String,
-                                startDate: Date?,
-                                canceledDate: Date?,
-                                taxPercentage: String?,
-                                priceOverrideMoney: Money?,
-                                cardId: String?,
-                                timezone: String?,
-                                source: SubscriptionSource?,
-                                phases: [Phase]?,
-                                accessToken: String,
-                                completion: ((CreateSubscriptionResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       locationId: String,
+                                       planId: String,
+                                       planVariationId: String?,
+                                       customerId: String,
+                                       startDate: Date?,
+                                       canceledDate: Date?,
+                                       taxPercentage: String?,
+                                       priceOverrideMoney: Money?,
+                                       cardId: String?,
+                                       timezone: String?,
+                                       source: SubscriptionSource?,
+                                       phases: [Phase]?,
+                                       accessToken: String,
+                                       completion: ((CreateSubscriptionResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let createSubscriptionRequest = Serializer.deserialize(CreateSubscriptionRequest.self, [:])!
             
@@ -73,12 +73,12 @@ open class SubscriptionsApi {
         /// Permissions: SUBSCRIPTIONS_READ
         /// https://developer.squareup.com/reference/square/subscriptions-api/search-subscriptions
         public func searchSubscriptions(cursor: String?,
-                                 limit: Int?,
-                                 query: SearchSubscriptionsQuery?,
-                                 include: [String]?,
-                                 accessToken: String,
-                                 completion: ((SearchSubscriptionsResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        limit: Int?,
+                                        query: SearchSubscriptionsQuery?,
+                                        include: [String]?,
+                                        accessToken: String,
+                                        completion: ((SearchSubscriptionsResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let searchSubscriptionsRequest = Serializer.deserialize(SearchSubscriptionsRequest.self, [:])!
             
@@ -99,10 +99,10 @@ open class SubscriptionsApi {
         /// Permissions: SUBSCRIPTIONS_READ
         /// https://developer.squareup.com/reference/square/subscriptions-api/retrieve-subscription
         public func retrieveSubscription(subscriptionId: String,
-                                  include: String?,
-                                  accessToken: String,
-                                  completion: ((RetrieveSubscriptionResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         include: String?,
+                                         accessToken: String,
+                                         completion: ((RetrieveSubscriptionResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
              
             let retrieveSubscriptionRequest = Serializer.deserialize(RetrieveSubscriptionRequest.self, [:])!
             retrieveSubscriptionRequest.Include = include
@@ -121,10 +121,10 @@ open class SubscriptionsApi {
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/update-subscription
         public func updateSubscription(subscriptionId: String,
-                                subscription: Subscription?,
-                                accessToken: String,
-                                completion: ((UpdateSubscriptionResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       subscription: Subscription?,
+                                       accessToken: String,
+                                       completion: ((UpdateSubscriptionResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let updateSubscriptionRequest = Serializer.deserialize(UpdateSubscriptionRequest.self, [:])!
             updateSubscriptionRequest.subscription = subscription
@@ -141,10 +141,10 @@ open class SubscriptionsApi {
         /// Permissions: SUBSCRIPTIONS_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/delete-subscription-action
         public func deleteSubscription(subscriptionId: String,
-                                actionId: String,
-                                accessToken: String,
-                                completion: ((DeleteSubscriptionResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       actionId: String,
+                                       accessToken: String,
+                                       completion: ((DeleteSubscriptionResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
            
             request(to: "subscriptions/\(subscriptionId)/actions/\(actionId)",
                     method: .delete,
@@ -157,9 +157,9 @@ open class SubscriptionsApi {
         /// This sets the canceled_date field to the end of the active billing period. After this date, the subscription status changes from ACTIVE to CANCELED.
         /// Permissions: SUBSCRIPTIONS_WRITE
         public func cancelSubscription(subscriptionId: String,
-                                accessToken: String,
-                                completion: ((CancelSubscriptionResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       accessToken: String,
+                                       completion: ((CancelSubscriptionResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
            
             request(to: "subscriptions/\(subscriptionId)/cancel",
                     method: .post,
@@ -172,11 +172,11 @@ open class SubscriptionsApi {
         /// Permissions: SUBSCRIPTIONS_READ
         /// https://developer.squareup.com/reference/square/subscriptions-api/list-subscription-events
         public func listSubscriptionEvents(subscriptionId: String,
-                                    cursor: String?,
-                                    limit: Int?,
-                                    accessToken: String,
-                                    completion: ((ListSubscriptionEventsResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           cursor: String?,
+                                           limit: Int?,
+                                           accessToken: String,
+                                           completion: ((ListSubscriptionEventsResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             let listSubscriptionEventsRequest = Serializer.deserialize(ListSubscriptionEventsRequest.self, [:])!
             
@@ -196,14 +196,14 @@ open class SubscriptionsApi {
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/pause-subscription
         public func pauseSubscription(subscriptionId: String,
-                               pauseEffectiveDate: Date?,
-                               pauseCycleDuration: Int?,
-                               resumeEffectiveDate: Date?,
-                               resumeChangeTiming: ChangeTiming?,
-                               pauseReason: String?,
-                               accessToken: String,
-                               completion: ((PauseSubscriptionResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      pauseEffectiveDate: Date?,
+                                      pauseCycleDuration: Int?,
+                                      resumeEffectiveDate: Date?,
+                                      resumeChangeTiming: ChangeTiming?,
+                                      pauseReason: String?,
+                                      accessToken: String,
+                                      completion: ((PauseSubscriptionResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let pauseSubscriptionRequest = Serializer.deserialize(PauseSubscriptionRequest.self, [:])!
             
@@ -225,11 +225,11 @@ open class SubscriptionsApi {
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/resume-subscription
         public func resumeSubscription(subscriptionId: String,
-                                resumeEffectiveDate: Date?,
-                                resumeChangeTiming: ChangeTiming?,
-                                accessToken: String,
-                                completion: ((ResumeSubscriptionResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       resumeEffectiveDate: Date?,
+                                       resumeChangeTiming: ChangeTiming?,
+                                       accessToken: String,
+                                       completion: ((ResumeSubscriptionResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let resumeSubscriptionRequest = Serializer.deserialize(ResumeSubscriptionRequest.self, [:])!
             
@@ -249,11 +249,11 @@ open class SubscriptionsApi {
         /// Permissions: CUSTOMERS_READ, PAYMENTS_WRITE, SUBSCRIPTIONS_WRITE, ITEMS_READ, ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/subscriptions-api/swap-plan
         public func swapPlan(subscriptionId: String,
-                      newPlanVariationId: String,
-                      phases: [PhaseInput]?,
-                      accessToken: String,
-                      completion: ((SwapPlanResponse) -> Void)? = nil,
-                      failed: ((Error) -> Void)? = nil) {
+                             newPlanVariationId: String,
+                             phases: [PhaseInput]?,
+                             accessToken: String,
+                             completion: ((SwapPlanResponse) -> Void)? = nil,
+                             failed: ((Error) -> Void)? = nil) {
             
             let swapPlanRequest = Serializer.deserialize(SwapPlanRequest.self, [:])!
             

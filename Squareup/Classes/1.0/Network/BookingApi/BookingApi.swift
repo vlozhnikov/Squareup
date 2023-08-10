@@ -26,15 +26,15 @@ open class BookingApi {
         /// To call this endpoint with buyer-level permissions, set APPOINTMENTS_READ for the OAuth scope. To call this endpoint with seller-level permissions, set APPOINTMENTS_ALL_READ and APPOINTMENTS_READ for the OAuth scope.
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/list-bookings
-        public func listBooking(limit: Int? = nil,
-                         cursor: String? = nil,
-                         teamMemberId: String? = nil,
-                         locationId: String?,
-                         startAtMin: Date? = nil,
-                         startAtMax: Date? = nil,
-                         accessToken: String,
-                         completion: ((ListBookingResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+        public func listBooking(limit: Int?,
+                                cursor: String?,
+                                teamMemberId: String?,
+                                locationId: String?,
+                                startAtMin: Date?,
+                                startAtMax: Date?,
+                                accessToken: String,
+                                completion: ((ListBookingResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             let listBookingRequest = Serializer.deserialize(ListBookingRequest.self, [:])!
             
@@ -68,10 +68,10 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/bookings-api/create-booking
         public func createBooking(booking: Booking,
-                           idempotencyKey: String?,
-                           accessToken: String,
-                           completion: ((CreateBookingResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  idempotencyKey: String?,
+                                  accessToken: String,
+                                  completion: ((CreateBookingResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let createBookingRequest = Serializer.deserialize(CreateBookingRequest.self, [:])!
             
@@ -91,9 +91,9 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/search-availability
         public func searchaAvailability(query: SearchAvailabilityQuery,
-                                 accessToken: String,
-                                 completion: ((SearchAvailabilityResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        accessToken: String,
+                                        completion: ((SearchAvailabilityResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let searchAvailabilityRequest = Serializer.deserialize(SearchAvailabilityRequest.self, [:])!
             searchAvailabilityRequest.Query = query
@@ -110,8 +110,8 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_BUSINESS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-business-booking-profile
         public func retrieveBusinessBookingProfile(accessToken: String,
-                                            completion: ((RetrieveBusinessBookingProfileResponse) -> Void)? = nil,
-                                            failed: ((Error) -> Void)? = nil) {
+                                                   completion: ((RetrieveBusinessBookingProfileResponse) -> Void)? = nil,
+                                                   failed: ((Error) -> Void)? = nil) {
             
             request(to: "bookings/business-booking-profile",
                     method: .get,
@@ -124,13 +124,13 @@ open class BookingApi {
         /// - listTeamMemberBookingProfiles: Lists booking profiles for team members.
         /// Permissions: APPOINTMENTS_BUSINESS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/list-team-member-booking-profiles
-        public func listTeamMemberBookingProfiles(bookableOnly: Bool? = nil,
-                                           limit: Int? = nil,
-                                           cursor: String? = nil,
-                                           locationId: String,
-                                           accessToken: String,
-                                           completion: ((ListTeamMemberBookingProfilesResponse) -> Void)? = nil,
-                                           failed: ((Error) -> Void)? = nil) {
+        public func listTeamMemberBookingProfiles(bookableOnly: Bool?,
+                                                  limit: Int?,
+                                                  cursor: String?,
+                                                  locationId: String,
+                                                  accessToken: String,
+                                                  completion: ((ListTeamMemberBookingProfilesResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             let listTeamMemberBookingProfilesRequest = Serializer.deserialize(ListTeamMemberBookingProfilesRequest.self, [:])!
             
@@ -152,9 +152,9 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_BUSINESS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-team-member-booking-profile
         public func retriveTeamMemberBookingProfile(teamMemberId: String,
-                                             accessToken: String,
-                                             completion: ((RetriveTeamMemberBookingProfileResponse) -> Void)? = nil,
-                                             failed: ((Error) -> Void)? = nil) {
+                                                    accessToken: String,
+                                                    completion: ((RetriveTeamMemberBookingProfileResponse) -> Void)? = nil,
+                                                    failed: ((Error) -> Void)? = nil) {
             
             request(to: "bookings/team-member-booking-profiles/\(teamMemberId)",
                     method: .get,
@@ -169,9 +169,9 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-booking
         public func retriveBoooking(bookingId: String,
-                             accessToken: String,
-                             completion: ((RetrieveBookingResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    accessToken: String,
+                                    completion: ((RetrieveBookingResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             request(to: "bookings/\(bookingId)",
                     method: .get,
@@ -188,11 +188,11 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/bookings-api/update-booking
         public func updateBoooking(bookingId: String,
-                            booking: Booking,
-                            idempotencyKey: String?,
-                            accessToken: String,
-                            completion: ((UpdateBookingResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   booking: Booking,
+                                   idempotencyKey: String?,
+                                   accessToken: String,
+                                   completion: ((UpdateBookingResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let updateBookingRequest = Serializer.deserialize(UpdateBookingRequest.self, [:])!
             updateBookingRequest.IdempotencyKey = idempotencyKey
@@ -213,11 +213,11 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/bookings-api/cancel-booking
         public func cancelBoooking(bookingId: String,
-                            bookingVersion: Int,
-                            idempotencyKey: String?,
-                            accessToken: String,
-                            completion: ((CancelBookingResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   bookingVersion: Int,
+                                   idempotencyKey: String?,
+                                   accessToken: String,
+                                   completion: ((CancelBookingResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let cancelBookingRequest = Serializer.deserialize(CancelBookingRequest.self, [:])!
             cancelBookingRequest.IdempotencyKey = idempotencyKey
@@ -244,10 +244,10 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/list-booking-custom-attribute-definitions
         public func listBookingCustomAttributeDefinitions(limit: Int?,
-                                                   cursor: String?,
-                                                   accessToken: String,
-                                                   completion: ((ListBookingCustomAttributeDefinitionsResponse) -> Void)? = nil,
-                                                   failed: ((Error) -> Void)? = nil) {
+                                                          cursor: String?,
+                                                          accessToken: String,
+                                                          completion: ((ListBookingCustomAttributeDefinitionsResponse) -> Void)? = nil,
+                                                          failed: ((Error) -> Void)? = nil) {
             
             let listBookingCustomAttributeDefinitionsRequest = Serializer.deserialize(ListBookingCustomAttributeDefinitionsRequest.self, [:])!
             
@@ -269,10 +269,10 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/create-booking-custom-attribute-definition
         public func createBookingCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
-                                                    idempotencyKey: String,
-                                                    accessToken: String,
-                                                    completion: ((CreateBookingCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                    failed: ((Error) -> Void)? = nil) {
+                                                           idempotencyKey: String,
+                                                           accessToken: String,
+                                                           completion: ((CreateBookingCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                           failed: ((Error) -> Void)? = nil) {
             
             let createBookingCustomAttributeDefinitionRequest = Serializer.deserialize(CreateBookingCustomAttributeDefinitionRequest.self, [:])!
             
@@ -293,9 +293,9 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/delete-booking-custom-attribute-definition
         public func deleteBookingCustomAttributeDefinition(key: String,
-                                                    accessToken: String,
-                                                    completion: ((SquareupResponse) -> Void)? = nil,
-                                                    failed: ((Error) -> Void)? = nil) {
+                                                           accessToken: String,
+                                                           completion: ((SquareupResponse) -> Void)? = nil,
+                                                           failed: ((Error) -> Void)? = nil) {
             
             request(to: "bookings/custom-attribute-definitions/\(key)",
                     method: .delete,
@@ -310,10 +310,10 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/retrieve-booking-custom-attribute-definition
         public func retrieveBookingCustomAttributeDefinition(key: String,
-                                                      version: Int,
-                                                      accessToken: String,
-                                                      completion: ((RetrieveBookingCustomAttributeDefinition) -> Void)? = nil,
-                                                      failed: ((Error) -> Void)? = nil) {
+                                                             version: Int,
+                                                             accessToken: String,
+                                                             completion: ((RetrieveBookingCustomAttributeDefinition) -> Void)? = nil,
+                                                             failed: ((Error) -> Void)? = nil) {
             
             let retrieveBookingCustomAttributeDefinitionRequest = Serializer.deserialize(RetrieveBookingCustomAttributeDefinitionRequest.self, [:])!
             retrieveBookingCustomAttributeDefinitionRequest.Version = version
@@ -333,11 +333,11 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/update-booking-custom-attribute-definition
         public func updateBookingCustomAttributeDefinition(key: String,
-                                                    customAttributeDefinition: CustomAttributeDefinition,
-                                                    idempotencyKey: String?,
-                                                    accessToken: String,
-                                                    completion: ((UpdateBookingCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                    failed: ((Error) -> Void)? = nil) {
+                                                           customAttributeDefinition: CustomAttributeDefinition,
+                                                           idempotencyKey: String?,
+                                                           accessToken: String,
+                                                           completion: ((UpdateBookingCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                           failed: ((Error) -> Void)? = nil) {
             
             let updateBookingCustomAttributeDefinitionRequest = Serializer.deserialize(UpdateBookingCustomAttributeDefinitionRequest.self, [:])!
             
@@ -358,9 +358,9 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/bulk-delete-booking-custom-attributes
         public func bulkDeleteBookingCustomAttributes(values: [String: BookingCustomAttributeDeleteRequest],
-                                               accessToken: String,
-                                               completion: ((BulkDeleteBookingCustomAttributesResponse) -> Void)? = nil,
-                                               failed: ((Error) -> Void)? = nil) {
+                                                      accessToken: String,
+                                                      completion: ((BulkDeleteBookingCustomAttributesResponse) -> Void)? = nil,
+                                                      failed: ((Error) -> Void)? = nil) {
             
             let bulkDeleteBookingCustomAttributesRequest = Serializer.deserialize(BulkDeleteBookingCustomAttributesRequest.self, [:])!
             bulkDeleteBookingCustomAttributesRequest.Values = values
@@ -379,9 +379,9 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/bulk-upsert-booking-custom-attributes
         public func bulkUpsertBookingCustomAttributes(values: [String: BookingCustomAttributeUpsertRequest],
-                                               accessToken: String,
-                                               completion: ((BulkUpsertBookingCustomAttributesResponse) -> Void)? = nil,
-                                               failed: ((Error) -> Void)? = nil) {
+                                                      accessToken: String,
+                                                      completion: ((BulkUpsertBookingCustomAttributesResponse) -> Void)? = nil,
+                                                      failed: ((Error) -> Void)? = nil) {
             
             let bulkUpsertBookingCustomAttributesRequest = Serializer.deserialize(BulkUpsertBookingCustomAttributesRequest.self, [:])!
             bulkUpsertBookingCustomAttributesRequest.Values = values
@@ -399,12 +399,12 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/list-booking-custom-attributes
         public func listBookingCustomAttributes(bookingId: String,
-                                         limit: Int?,
-                                         cursor: String?,
-                                         withDefinitions: Bool?,
-                                         accessToken: String,
-                                         completion: ((ListBookingCustomAttributes) -> Void)? = nil,
-                                         failed: ((Error) -> Void)? = nil) {
+                                                limit: Int?,
+                                                cursor: String?,
+                                                withDefinitions: Bool?,
+                                                accessToken: String,
+                                                completion: ((ListBookingCustomAttributes) -> Void)? = nil,
+                                                failed: ((Error) -> Void)? = nil) {
             
             let listBookingCustomAttributesRequest = Serializer.deserialize(ListBookingCustomAttributesRequest.self, [:])!
             
@@ -427,10 +427,10 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/delete-booking-custom-attribute
         public func deleteBookingCustomAttribute(bookingId: String,
-                                          key: String,
-                                          accessToken: String,
-                                          completion: ((SquareupResponse) -> Void)? = nil,
-                                          failed: ((Error) -> Void)? = nil) {
+                                                 key: String,
+                                                 accessToken: String,
+                                                 completion: ((SquareupResponse) -> Void)? = nil,
+                                                 failed: ((Error) -> Void)? = nil) {
             
             request(to: "bookings/\(bookingId)/custom-attributes/\(key)",
                     method: .delete,
@@ -445,12 +445,12 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_READ
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/retrieve-booking-custom-attribute
         public func retrieveBookingCustomAttribute(bookingId: String,
-                                            key: String,
-                                            withDefinitions: Bool?,
-                                            version: Int?,
-                                            accessToken: String,
-                                            completion: ((RetrieveBookingCustomAttributeResponse) -> Void)? = nil,
-                                            failed: ((Error) -> Void)? = nil) {
+                                                   key: String,
+                                                   withDefinitions: Bool?,
+                                                   version: Int?,
+                                                   accessToken: String,
+                                                   completion: ((RetrieveBookingCustomAttributeResponse) -> Void)? = nil,
+                                                   failed: ((Error) -> Void)? = nil) {
             
             let retrieveBookingCustomAttributeRequest = Serializer.deserialize(RetrieveBookingCustomAttributeRequest.self, [:])!
             
@@ -472,12 +472,12 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_WRITE
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/upsert-booking-custom-attribute
         public func upsertBookingCustomAttribute(bookingId: String,
-                                          key: String,
-                                          customAttribute: CustomAttribute?,
-                                          idempotencyKey: String?,
-                                          accessToken: String,
-                                          completion: ((UpsertBookingCustomAttributeResponse) -> Void)? = nil,
-                                          failed: ((Error) -> Void)? = nil) {
+                                                 key: String,
+                                                 customAttribute: CustomAttribute?,
+                                                 idempotencyKey: String?,
+                                                 accessToken: String,
+                                                 completion: ((UpsertBookingCustomAttributeResponse) -> Void)? = nil,
+                                                 failed: ((Error) -> Void)? = nil) {
             
             let upsertBookingCustomAttributeRequest = Serializer.deserialize(UpsertBookingCustomAttributeRequest.self, [:])!
             

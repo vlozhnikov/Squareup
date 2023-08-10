@@ -17,7 +17,7 @@ open class BatchChangeInventoryRequest: Codable {
     /// - Counts: Changes created for the request.
     public var Changes: [InventoryChange]?
     /// - IgnoreUnchangedCounts: Indicates whether the current physical count should be ignored if the quantity is unchanged since the last physical count. Default: true.
-    public var IgnoreUnchangedCounts = true
+    public var IgnoreUnchangedCounts: Bool?
     
     enum CodingKeys: String, CodingKey {
         case IdempotencyKey = "idempotency_key"

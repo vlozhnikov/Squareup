@@ -9,6 +9,7 @@ import Foundation
 
 open class BulkUpdateTeamMembersResponse: SquareupResponse {
     
+    /// - TeamMembers: The successfully updated TeamMember objects. Each key is the team_member_id that maps to the UpdateTeamMemberRequest.
     public var TeamMembers: [String: CreateTeamMemberRequest]?
     
     enum CodingKeys: String, CodingKey {

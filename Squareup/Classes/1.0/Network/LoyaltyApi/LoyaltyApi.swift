@@ -29,10 +29,10 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/create-loyalty-account
         public func createLoyaltyAccount(idempotencyKey: String,
-                                  loyaltyAccount: LoyaltyAccount,
-                                  accessToken: String,
-                                  completion: ((CreateLoyaltyAccountResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         loyaltyAccount: LoyaltyAccount,
+                                         accessToken: String,
+                                         completion: ((CreateLoyaltyAccountResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             let createLoyaltyAccountRequest = Serializer.deserialize(CreateLoyaltyAccountRequest.self, [:])!
             
@@ -53,11 +53,11 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/search-loyalty-accounts
         public func searchLoyaltyAccounts(query: SearchLoyaltyAccountsRequestLoyaltyAccountQuery?,
-                                   limit: Int?,
-                                   cursor: String?,
-                                   accessToken: String,
-                                   completion: ((SearchLoyaltyAccountsResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          limit: Int?,
+                                          cursor: String?,
+                                          accessToken: String,
+                                          completion: ((SearchLoyaltyAccountsResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             let searchLoyaltyAccountsRequest = Serializer.deserialize(SearchLoyaltyAccountsRequest.self, [:])!
             
@@ -77,9 +77,9 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-account
         public func retrieveLoyaltyAccount(accountId: String,
-                                    accessToken: String,
-                                    completion: ((RetrieveLocationResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           accessToken: String,
+                                           completion: ((RetrieveLocationResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             request(to: "loyalty/accounts/\(accountId)",
                     method: .get,
@@ -95,12 +95,12 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/accumulate-loyalty-points
         public func accumulateLoyaltyPoints(accountId: String,
-                                     accumulatePoints: LoyaltyEventAccumulatePoints,
-                                     idempotencyKey: String,
-                                     locationId: String,
-                                     accessToken: String,
-                                     completion: ((AccumulateLoyaltyPointsResponse) -> Void)? = nil,
-                                     failed: ((Error) -> Void)? = nil) {
+                                            accumulatePoints: LoyaltyEventAccumulatePoints,
+                                            idempotencyKey: String,
+                                            locationId: String,
+                                            accessToken: String,
+                                            completion: ((AccumulateLoyaltyPointsResponse) -> Void)? = nil,
+                                            failed: ((Error) -> Void)? = nil) {
             
             let accumulateLoyaltyPointsRequest = Serializer.deserialize(AccumulateLoyaltyPointsRequest.self, [:])!
             
@@ -121,12 +121,12 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/adjust-loyalty-points
         public func adjustLoyaltyPoints(accountId: String,
-                                 idempotencyKey: String,
-                                 adjustPoints: LoyaltyEventAdjustPoints,
-                                 allowNegativeBalance: Bool?,
-                                 accessToken: String,
-                                 completion: ((AdjustLoyaltyPointsResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        idempotencyKey: String,
+                                        adjustPoints: LoyaltyEventAdjustPoints,
+                                        allowNegativeBalance: Bool?,
+                                        accessToken: String,
+                                        completion: ((AdjustLoyaltyPointsResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let adjustLoyaltyPointsRequest = Serializer.deserialize(AdjustLoyaltyPointsRequest.self, [:])!
             
@@ -148,11 +148,11 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/search-loyalty-events
         public func searchLoyaltyEvents(query: LoyaltyEventQuery?,
-                                 limit: Int?,
-                                 cursor: String?,
-                                 accessToken: String,
-                                 completion: ((SearchLoyaltyEventsResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        limit: Int?,
+                                        cursor: String?,
+                                        accessToken: String,
+                                        completion: ((SearchLoyaltyEventsResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let searchLoyaltyEventsRequest = Serializer.deserialize(SearchLoyaltyEventsRequest.self, [:])!
             
@@ -173,9 +173,9 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-program
         public func retrieveLoyaltyProgram(programId: String,
-                                    accessToken: String,
-                                    completion: ((RetrieveLoyaltyProgramResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           accessToken: String,
+                                           completion: ((RetrieveLoyaltyProgramResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             request(to: "loyalty/programs/\(programId)",
                     method: .get,
@@ -195,12 +195,12 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/calculate-loyalty-points
         public func calculateLoyaltyPoints(programId: String,
-                                    orderId: String?,
-                                    transactionAmountMoney: Money?,
-                                    loyaltyAccountId: String?,
-                                    accessToken: String,
-                                    completion: ((CalculateLoyaltyPointsResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           orderId: String?,
+                                           transactionAmountMoney: Money?,
+                                           loyaltyAccountId: String?,
+                                           accessToken: String,
+                                           completion: ((CalculateLoyaltyPointsResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             let calculateLoyaltyPointsRequest = Serializer.deserialize(CalculateLoyaltyPointsRequest.self, [:])!
             
@@ -221,12 +221,12 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/list-loyalty-promotions
         public func listLoyaltyPromotions(programId: String,
-                                   status: LoyaltyPromotionStatus?,
-                                   cursor: String?,
-                                   limit: Int?,
-                                   accessToken: String,
-                                   completion: ((ListLoyaltyPromotionsResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          status: LoyaltyPromotionStatus?,
+                                          cursor: String?,
+                                          limit: Int?,
+                                          accessToken: String,
+                                          completion: ((ListLoyaltyPromotionsResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             let listLoyaltyPromotionsRequest = Serializer.deserialize(ListLoyaltyPromotionsRequest.self, [:])!
             
@@ -249,11 +249,11 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/create-loyalty-promotion
         public func createLoyaltyPromotion(programId: String,
-                                    loyaltyPromotion: LoyaltyPromotion,
-                                    idempotencyKey: String,
-                                    accessToken: String,
-                                    completion: ((CreateLoyaltyPromotionResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           loyaltyPromotion: LoyaltyPromotion,
+                                           idempotencyKey: String,
+                                           accessToken: String,
+                                           completion: ((CreateLoyaltyPromotionResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             let createLoyaltyPromotionRequest = Serializer.deserialize(CreateLoyaltyPromotionRequest.self, [:])!
             
@@ -272,10 +272,10 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-promotion
         public func retrieveLoyaltyPromotion(promotionId: String,
-                                      programId: String,
-                                      accessToken: String,
-                                      completion: ((RetrieveLoyaltyPromotionResponse) -> Void)? = nil,
-                                      failed: ((Error) -> Void)? = nil) {
+                                             programId: String,
+                                             accessToken: String,
+                                             completion: ((RetrieveLoyaltyPromotionResponse) -> Void)? = nil,
+                                             failed: ((Error) -> Void)? = nil) {
             
             request(to: "loyalty/programs/\(programId)/promotions/\(promotionId)",
                     method: .get,
@@ -291,10 +291,10 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/cancel-loyalty-promotion
         public func cancelLoyaltyPromotion(promotionId: String,
-                                    programId: String,
-                                    accessToken: String,
-                                    completion: ((CancelLoyaltyPromotionResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           programId: String,
+                                           accessToken: String,
+                                           completion: ((CancelLoyaltyPromotionResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             request(to: "loyalty/programs/\(programId)/promotions/\(promotionId)/cancel",
                     method: .post,
@@ -311,10 +311,10 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/create-loyalty-reward
         public func createLoyaltyReward(reward: LoyaltyReward,
-                                 idempotencyKey: String,
-                                 accessToken: String,
-                                 completion: ((CreateLoyaltyRewardResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        idempotencyKey: String,
+                                        accessToken: String,
+                                        completion: ((CreateLoyaltyRewardResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let createLoyaltyRewardRequest = Serializer.deserialize(CreateLoyaltyRewardRequest.self, [:])!
             
@@ -336,11 +336,11 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/search-loyalty-rewards
         public func searchLoyaltyRewards(query: SearchLoyaltyRewardsRequestLoyaltyRewardQuery?,
-                                  limit: Int?,
-                                  cursor: String?,
-                                  accessToken: String,
-                                  completion: ((SearchLoyaltyRewardsResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         limit: Int?,
+                                         cursor: String?,
+                                         accessToken: String,
+                                         completion: ((SearchLoyaltyRewardsResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             let searchLoyaltyRewardsRequest = Serializer.deserialize(SearchLoyaltyRewardsRequest.self, [:])!
             
@@ -363,9 +363,9 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/delete-loyalty-reward
         public func deleteLoyaltyReward(rewardId: String,
-                                 accessToken: String,
-                                 completion: ((SquareupResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        accessToken: String,
+                                        completion: ((SquareupResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             request(to: "loyalty/rewards/\(rewardId)",
                     method: .delete,
@@ -379,9 +379,9 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_READ
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-reward
         public func retrieveLoyaltyReward(rewardId: String,
-                                   accessToken: String,
-                                   completion: ((RetrieveLoyaltyRewardResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          accessToken: String,
+                                          completion: ((RetrieveLoyaltyRewardResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             request(to: "loyalty/rewards/\(rewardId)",
                     method: .get,
@@ -398,11 +398,11 @@ open class LoyaltyApi {
         /// Permissions: LOYALTY_WRITE
         /// https://developer.squareup.com/reference/square/loyalty-api/redeem-loyalty-reward
         public func redeemLoyaltyReward(rewardId: String,
-                                 idempotencyKey: String,
-                                 locationId: String,
-                                 accessToken: String,
-                                 completion: ((RedeemLoyaltyRewardResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        idempotencyKey: String,
+                                        locationId: String,
+                                        accessToken: String,
+                                        completion: ((RedeemLoyaltyRewardResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let redeemLoyaltyRewardRequest = Serializer.deserialize(RedeemLoyaltyRewardRequest.self, [:])!
             

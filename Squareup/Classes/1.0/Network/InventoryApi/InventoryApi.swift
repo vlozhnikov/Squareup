@@ -25,9 +25,9 @@ open class InventoryApi {
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-adjustment
         public func retrieveInventoryAdjustment(adjustmentId: String,
-                                         accessToken: String,
-                                         completion: ((RetrieveInventoryAdjustmentResponse) -> Void)? = nil,
-                                         failed: ((Error) -> Void)? = nil) {
+                                                accessToken: String,
+                                                completion: ((RetrieveInventoryAdjustmentResponse) -> Void)? = nil,
+                                                failed: ((Error) -> Void)? = nil) {
             
             request(to: "inventory/adjustments/\(adjustmentId)",
                     method: .get,
@@ -42,11 +42,11 @@ open class InventoryApi {
         /// Permissions: INVENTORY_WRITE
         /// https://developer.squareup.com/reference/square/inventory-api/batch-change-inventory
         public func batchChangeInventory(changes: [InventoryChange],
-                                  ignoreUnchangedCounts: Bool = true,
-                                  idempotencyKey: String?,
-                                  accessToken: String,
-                                  completion: ((BatchChangeInventoryResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         ignoreUnchangedCounts: Bool?,
+                                         idempotencyKey: String?,
+                                         accessToken: String,
+                                         completion: ((BatchChangeInventoryResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             let batchChangeInventoryRequest = Serializer.deserialize(BatchChangeInventoryRequest.self, [:])!
             
@@ -68,16 +68,16 @@ open class InventoryApi {
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/batch-retrieve-inventory-changes
         public func batchRetrieveInventoryChanges(catalogObjectIds: [String],
-                                           locationIds: [String],
-                                           types: [InventoryChangeType],
-                                           states: [InventoryState],
-                                           updatedAfter: Date?,
-                                           updatedBefore: Date?,
-                                           cursor: String?,
-                                           limit: Int?,
-                                           accessToken: String,
-                                           completion: ((BatchRetrieveInventoryChangesResponse) -> Void)? = nil,
-                                           failed: ((Error) -> Void)? = nil) {
+                                                  locationIds: [String],
+                                                  types: [InventoryChangeType],
+                                                  states: [InventoryState],
+                                                  updatedAfter: Date?,
+                                                  updatedBefore: Date?,
+                                                  cursor: String?,
+                                                  limit: Int?,
+                                                  accessToken: String,
+                                                  completion: ((BatchRetrieveInventoryChangesResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             let batchRetrieveInventoryChangesRequest = Serializer.deserialize(BatchRetrieveInventoryChangesRequest.self, [:])!
             
@@ -106,14 +106,14 @@ open class InventoryApi {
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/batch-retrieve-inventory-counts
         public func batchRetrieveInventoryCounts(catalogObjectIds: [String],
-                                          locationIds: [String],
-                                          updatedAfter: Date?,
-                                          cursor: String?,
-                                          states: [InventoryState],
-                                          limit: Int?,
-                                          accessToken: String,
-                                          completion: ((BatchRetrieveInventoryCountsResponse) -> Void)? = nil,
-                                          failed: ((Error) -> Void)? = nil) {
+                                                 locationIds: [String],
+                                                 updatedAfter: Date?,
+                                                 cursor: String?,
+                                                 states: [InventoryState],
+                                                 limit: Int?,
+                                                 accessToken: String,
+                                                 completion: ((BatchRetrieveInventoryCountsResponse) -> Void)? = nil,
+                                                 failed: ((Error) -> Void)? = nil) {
             
             let batchRetrieveInventoryCountsRequest = Serializer.deserialize(BatchRetrieveInventoryCountsRequest.self, [:])!
             
@@ -136,9 +136,9 @@ open class InventoryApi {
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-physical-count
         public func retrieveInventoryPhysicalCount(physicalCountId: String,
-                                            accessToken: String,
-                                            completion: ((RetrieveInventoryPhysicalCountResponse) -> Void)? = nil,
-                                            failed: ((Error) -> Void)? = nil) {
+                                                   accessToken: String,
+                                                   completion: ((RetrieveInventoryPhysicalCountResponse) -> Void)? = nil,
+                                                   failed: ((Error) -> Void)? = nil) {
             
             request(to: "inventory/physical-counts/\(physicalCountId)",
                     method: .get,
@@ -152,9 +152,9 @@ open class InventoryApi {
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-transfer
         public func retrieveInventoryTransfer(transferId: String,
-                                       accessToken: String,
-                                       completion: ((RetrieveInventoryTransferResponse) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              accessToken: String,
+                                              completion: ((RetrieveInventoryTransferResponse) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             request(to: "inventory/transfers/\(transferId)",
                     method: .get,
@@ -169,11 +169,11 @@ open class InventoryApi {
         /// Permissions: INVENTORY_READ
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-count
         public func retrieveInventoryCount(catalogObjectId: String,
-                                    locationIds: [String],
-                                    cursor: String?,
-                                    accessToken: String,
-                                    completion: ((RetrieveInventoryCountResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           locationIds: [String],
+                                           cursor: String?,
+                                           accessToken: String,
+                                           completion: ((RetrieveInventoryCountResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             let retrieveInventoryCountRequest = Serializer.deserialize(RetrieveInventoryCountRequest.self, [:])!
             retrieveInventoryCountRequest.LocationIds = locationIds

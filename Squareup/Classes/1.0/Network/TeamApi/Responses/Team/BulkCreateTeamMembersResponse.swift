@@ -9,6 +9,7 @@ import Foundation
 
 open class BulkCreateTeamMembersResponse: SquareupResponse {
     
+    /// - TeamMembers: The successfully created TeamMember objects. Each key is the idempotency_key that maps to the CreateTeamMemberRequest.
     public var TeamMembers: [String: CreateTeamMemberRequest]?
     
     enum CodingKeys: String, CodingKey {

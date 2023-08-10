@@ -9,6 +9,7 @@ import Foundation
 
 /// - OrderRoundingAdjustment: A rounding adjustment of the money being returned.
 /// Commonly used to apply cash rounding when the minimum unit of the account is smaller than the lowest physical denomination of the currency.
+/// https://developer.squareup.com/reference/square/objects/OrderRoundingAdjustment
 open class OrderRoundingAdjustment: Codable {
     
     /// - UID: A unique ID that identifies the rounding adjustment only within this order.

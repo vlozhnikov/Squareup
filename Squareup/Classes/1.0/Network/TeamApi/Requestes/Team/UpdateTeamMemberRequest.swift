@@ -9,9 +9,10 @@ import Foundation
 
 open class UpdateTeamMemberRequest: Codable {
     
-    public var TeamMember: TeamMember?
+    /// - TeamMember: The data used to update the TeamMember object.
+    public var teamMember: TeamMember?
     
     enum CodingKeys: String, CodingKey {
-        case TeamMember = "team_member"
+        case teamMember = "team_member"
     }
 }

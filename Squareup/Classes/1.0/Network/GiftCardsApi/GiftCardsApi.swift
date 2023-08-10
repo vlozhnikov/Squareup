@@ -27,14 +27,14 @@ open class GiftCardsApi {
         /// You can specify optional filters to retrieve a subset of the gift cards. Results are sorted by created_at in ascending order.
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/list-gift-cards
-        public func listGiftCards(type: GiftCardType? = nil,
-                           state: GiftCardStatus? = nil,
-                           limit: Int? = nil,
-                           cursor: String?,
-                           customer_id: String? = nil,
-                           accessToken: String,
-                           completion: ((ListGiftCardsResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+        public func listGiftCards(type: GiftCardType?,
+                                  state: GiftCardStatus?,
+                                  limit: Int?,
+                                  cursor: String?,
+                                  customer_id: String?,
+                                  accessToken: String,
+                                  completion: ((ListGiftCardsResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let listGiftCardsRequest = Serializer.deserialize(ListGiftCardsRequest.self, [:])!
             
@@ -57,11 +57,11 @@ open class GiftCardsApi {
         /// Permissions: GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-cards-api/create-gift-card
         public func createGiftCard(idempotencyKey: String,
-                            locationId: String,
-                            giftCard: GiftCard,
-                            accessToken: String,
-                            completion: ((CreateGiftCardResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   locationId: String,
+                                   giftCard: GiftCard,
+                                   accessToken: String,
+                                   completion: ((CreateGiftCardResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let createGiftCardRequest = Serializer.deserialize(CreateGiftCardRequest.self, [:])!
             
@@ -81,9 +81,9 @@ open class GiftCardsApi {
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card-from-gan
         public func retrieveGiftCardFromGAN(gan: String,
-                                     accessToken: String,
-                                     completion: ((RetrieveGiftCardFromGANResponse) -> Void)? = nil,
-                                     failed: ((Error) -> Void)? = nil) {
+                                            accessToken: String,
+                                            completion: ((RetrieveGiftCardFromGANResponse) -> Void)? = nil,
+                                            failed: ((Error) -> Void)? = nil) {
             
             let retrieveGiftCardFromGANRequest = Serializer.deserialize(RetrieveGiftCardFromGANRequest.self, [:])!
             retrieveGiftCardFromGANRequest.Gan = gan
@@ -100,9 +100,9 @@ open class GiftCardsApi {
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card-from-nonce
         public func retrieveGiftCardFromNonce(nonce: String,
-                                       accessToken: String,
-                                       completion: ((RetrieveGiftCardFromNonceResponse) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              accessToken: String,
+                                              completion: ((RetrieveGiftCardFromNonceResponse) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             let retrieveGiftCardFromNonceRequest = Serializer.deserialize(RetrieveGiftCardFromNonceRequest.self, [:])!
             retrieveGiftCardFromNonceRequest.Nonce = nonce
@@ -119,10 +119,10 @@ open class GiftCardsApi {
         /// Permissions: GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-cards-api/link-customer-to-gift-card
         public func linkCustomerToGiftCard(giftCardId: String,
-                                    customerId: String,
-                                    accessToken: String,
-                                    completion: ((LinkCustomerToGiftCardResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           customerId: String,
+                                           accessToken: String,
+                                           completion: ((LinkCustomerToGiftCardResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             let linkCustomerToGiftCardRequest = Serializer.deserialize(LinkCustomerToGiftCardRequest.self, [:])!
             linkCustomerToGiftCardRequest.CustomerId = customerId
@@ -139,10 +139,10 @@ open class GiftCardsApi {
         /// Permissions: GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-cards-api/unlink-customer-from-gift-card
         public func uplinkCustomerFromGiftCard(giftCardId: String,
-                                        customerId: String,
-                                        accessToken: String,
-                                        completion: ((UnlinkCustomerFromGiftCardResponse) -> Void)? = nil,
-                                        failed: ((Error) -> Void)? = nil) {
+                                               customerId: String,
+                                               accessToken: String,
+                                               completion: ((UnlinkCustomerFromGiftCardResponse) -> Void)? = nil,
+                                               failed: ((Error) -> Void)? = nil) {
             
             let unlinkCustomerFromGiftCardRequest = Serializer.deserialize(UnlinkCustomerFromGiftCardRequest.self, [:])!
             unlinkCustomerFromGiftCardRequest.CustomerId = customerId
@@ -159,9 +159,9 @@ open class GiftCardsApi {
         /// Permissions: GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card
         public func retrieveGiftCard(id: String,
-                              accessToken: String,
-                              completion: ((RetrieveGiftCardResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     accessToken: String,
+                                     completion: ((RetrieveGiftCardResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             request(to: "gift-cards/\(id)",
                     method: .get,
@@ -184,16 +184,16 @@ open class GiftCardsApi {
         /// Permissions:GIFTCARDS_READ
         /// https://developer.squareup.com/reference/square/gift-card-activities-api/list-gift-card-activities
         public func listGiftCardActivities(giftCardId: String?,
-                                    type: GiftCardActivityType?,
-                                    locationId: String?,
-                                    beginTime: Date?,
-                                    endTime: Date?,
-                                    limit: Int?,
-                                    cursor: String?,
-                                    sortOrder: SortOrder?,
-                                    accessToken: String,
-                                    completion: ((ListGiftCardActivitiesResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           type: GiftCardActivityType?,
+                                           locationId: String?,
+                                           beginTime: Date?,
+                                           endTime: Date?,
+                                           limit: Int?,
+                                           cursor: String?,
+                                           sortOrder: SortOrder?,
+                                           accessToken: String,
+                                           completion: ((ListGiftCardActivitiesResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             let listGiftCardActivitiesRequest = Serializer.deserialize(ListGiftCardActivitiesRequest.self, [:])!
             
@@ -220,10 +220,10 @@ open class GiftCardsApi {
         /// Permissions:GIFTCARDS_WRITE
         /// https://developer.squareup.com/reference/square/gift-card-activities-api/create-gift-card-activity
         public func createGiftCardActivity(idempotencyKey: String,
-                                    giftCardActivity: GiftCardActivity,
-                                    accessToken: String,
-                                    completion: ((CreateGiftCardActivityResponse) -> Void)? = nil,
-                                    failed: ((Error) -> Void)? = nil) {
+                                           giftCardActivity: GiftCardActivity,
+                                           accessToken: String,
+                                           completion: ((CreateGiftCardActivityResponse) -> Void)? = nil,
+                                           failed: ((Error) -> Void)? = nil) {
             
             let createGiftCardActivityRequest = Serializer.deserialize(CreateGiftCardActivityRequest.self, [:])!
             

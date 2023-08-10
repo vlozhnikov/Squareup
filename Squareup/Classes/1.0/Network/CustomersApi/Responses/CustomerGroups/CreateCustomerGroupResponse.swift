@@ -9,6 +9,7 @@ import Foundation
 
 open class CreateCustomerGroupResponse: SquareupResponse {
     
+    /// - Group: The successfully created customer group.
     public var Group: CustomerGroup?
     
     enum CodingKeys: String, CodingKey {

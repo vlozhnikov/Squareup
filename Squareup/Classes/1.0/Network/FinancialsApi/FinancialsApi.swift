@@ -25,11 +25,11 @@ class FinancialsApi {
         /// Permissions: BANK_ACCOUNTS_READ
         /// https://developer.squareup.com/reference/square/bank-accounts-api/list-bank-accounts
         public func listBankAccounts(cursor: String?,
-                              limit: Int?,
-                              locationId: String,
-                              accessToken: String,
-                              completion: ((ListBankAccountsResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     limit: Int?,
+                                     locationId: String,
+                                     accessToken: String,
+                                     completion: ((ListBankAccountsResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
                 
             let listBankAccountsRequest = Serializer.deserialize(ListBankAccountsRequest.self, [:])!
         
@@ -50,9 +50,9 @@ class FinancialsApi {
         /// Permissions: BANK_ACCOUNTS_READ
         /// https://developer.squareup.com/reference/square/bank-accounts-api/get-bank-account-by-v1-id
         public func getBankAccountByV1Id(v1BankAccountId: String,
-                                  accessToken: String,
-                                  completion: ((GetBankAccountByV1IdResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         accessToken: String,
+                                         completion: ((GetBankAccountByV1IdResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             request(to: "bank-accounts/by-v1-id/\(v1BankAccountId)",
                     method: .get,
@@ -66,9 +66,9 @@ class FinancialsApi {
         /// Permissions: BANK_ACCOUNTS_READ
         /// https://developer.squareup.com/reference/square/bank-accounts-api/get-bank-account
         public func getBankAccount(bankAccountId: String,
-                            accessToken: String,
-                            completion: ((GetBankAccountResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   accessToken: String,
+                                   completion: ((GetBankAccountResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             request(to: "bank-accounts/\(bankAccountId)",
                     method: .get,

@@ -40,7 +40,7 @@ open class TeamApi {
             
             let createTeamMemberRequest = Serializer.deserialize(CreateTeamMemberRequest.self, [:])!
             createTeamMemberRequest.IdempotencyKey = idempotencyKey
-            createTeamMemberRequest.TeamMember = teamMember
+            createTeamMemberRequest.teamMember = teamMember
             
             request(to: "team-members",
                     method: .post,
@@ -66,7 +66,7 @@ open class TeamApi {
             var dict = [String: CreateTeamMemberRequest]()
             teamMembers.forEach { teamMember in
                 if let teamRequest = Serializer.deserialize(CreateTeamMemberRequest.self, [:]) {
-                    teamRequest.TeamMember = teamMember
+                    teamRequest.teamMember = teamMember
                     dict[UUID().uuidString] = teamRequest
                 }
             }
@@ -95,7 +95,7 @@ open class TeamApi {
             var dict = [String: CreateTeamMemberRequest]()
             teamMembers.forEach { teamMember in
                 if let teamRequest = Serializer.deserialize(CreateTeamMemberRequest.self, [:]) {
-                    teamRequest.TeamMember = teamMember
+                    teamRequest.teamMember = teamMember
                     dict[UUID().uuidString] = teamRequest
                 }
             }
@@ -168,7 +168,7 @@ open class TeamApi {
                               failed: ((Error) -> Void)? = nil) {
             
             let updateTeamMemberRequest = Serializer.deserialize(UpdateTeamMemberRequest.self, [:])!
-            updateTeamMemberRequest.TeamMember = teamMember
+            updateTeamMemberRequest.teamMember = teamMember
             
             request(to: "team-members/\(teamMemberId)",
                     method: .put,

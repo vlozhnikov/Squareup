@@ -9,6 +9,7 @@ import Foundation
 
 open class CreateCatalogImageResponse: SquareupResponse {
     
+    /// - Image: The newly created CatalogImage including a Square-generated URL for the encapsulated image file.
     public var Image: CatalogObject?
     
     enum CodingKeys: String, CodingKey {

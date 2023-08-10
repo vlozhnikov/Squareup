@@ -9,6 +9,7 @@ import Foundation
 
 open class RetrieveWageSettingResponse: SquareupResponse {
     
+    /// - wageSetting: The successfully retrieved WageSetting object.
     public var wageSetting: WageSetting?
     
     enum CodingKeys: String, CodingKey {

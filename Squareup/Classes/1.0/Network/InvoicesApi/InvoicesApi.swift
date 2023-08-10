@@ -28,11 +28,11 @@ open class InvoicesApi {
         /// use in a subsequent request to retrieve the next set of invoices.
         /// Permissions: INVOICES_READ
         public func listInvoices(locationId: String,
-                          cursor: String?,
-                          limit: Int?,
-                          accessToken: String,
-                          completion: ((ListInvoicesResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 cursor: String?,
+                                 limit: Int?,
+                                 accessToken: String,
+                                 completion: ((ListInvoicesResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             let listInvoicesRequest = Serializer.deserialize(ListInvoicesRequest.self, [:])!
             listInvoicesRequest.Cursor = cursor
@@ -52,10 +52,10 @@ open class InvoicesApi {
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/create-invoice
         public func createInvoice(invoice: Invoice,
-                           idempotencyKey: String?,
-                           accessToken: String,
-                           completion: ((CreateInvoiceResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  idempotencyKey: String?,
+                                  accessToken: String,
+                                  completion: ((CreateInvoiceResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let createInvoiceRequest = Serializer.deserialize(CreateInvoiceRequest.self, [:])!
             createInvoiceRequest.invoice = invoice
@@ -75,11 +75,11 @@ open class InvoicesApi {
         /// Permissions: INVOICES_READ
         /// https://developer.squareup.com/reference/square/invoices-api/search-invoices
         public func searchInvoices(query: InvoiceQuery,
-                            limit: Int?,
-                            cursor: String?,
-                            accessToken: String,
-                            completion: ((SearchInvoicesResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   limit: Int?,
+                                   cursor: String?,
+                                   accessToken: String,
+                                   completion: ((SearchInvoicesResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let searchInvoicesRequest = Serializer.deserialize(SearchInvoicesRequest.self, [:])!
             
@@ -100,10 +100,10 @@ open class InvoicesApi {
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/delete-invoice
         public func deleteInvoice(invoiceId: String,
-                           version: Int?,
-                           accessToken: String,
-                           completion: ((SquareupResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  version: Int?,
+                                  accessToken: String,
+                                  completion: ((SquareupResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let deleteInvoiceRequest = Serializer.deserialize(DeleteInvoiceRequest.self, [:])!
             deleteInvoiceRequest.Version = version
@@ -120,9 +120,9 @@ open class InvoicesApi {
         /// Permissions: INVOICES_READ
         /// https://developer.squareup.com/reference/square/invoices-api/get-invoice
         public func getInvoice(invoiceId: String,
-                        accessToken: String,
-                        completion: ((GetInvoiceResponse) -> Void)? = nil,
-                        failed: ((Error) -> Void)? = nil) {
+                               accessToken: String,
+                               completion: ((GetInvoiceResponse) -> Void)? = nil,
+                               failed: ((Error) -> Void)? = nil) {
             
             request(to: "invoices/\(invoiceId)",
                     method: .get,
@@ -137,12 +137,12 @@ open class InvoicesApi {
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/update-invoice
         public func updateInvoice(invoiceId: String,
-                           invoice: Invoice,
-                           idempotencyKey: String?,
-                           fieldsToClear: [String]?,
-                           accessToken: String,
-                           completion: ((UpdateInvoiceResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  invoice: Invoice,
+                                  idempotencyKey: String?,
+                                  fieldsToClear: [String]?,
+                                  accessToken: String,
+                                  completion: ((UpdateInvoiceResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let updateInvoiceRequest = Serializer.deserialize(UpdateInvoiceRequest.self, [:])!
             
@@ -164,10 +164,10 @@ open class InvoicesApi {
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/cancel-invoice
         public func cancelInvoice(invoiceId: String,
-                           version: Int,
-                           accessToken: String,
-                           completion: ((CancelInvoiceResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  version: Int,
+                                  accessToken: String,
+                                  completion: ((CancelInvoiceResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let cancelInvoiceRequest = Serializer.deserialize(CancelInvoiceRequest.self, [:])!
             cancelInvoiceRequest.Version = version
@@ -187,11 +187,11 @@ open class InvoicesApi {
         /// Permissions: ORDERS_WRITE, INVOICES_WRITE
         /// https://developer.squareup.com/reference/square/invoices-api/publish-invoice
         public func publishInvoice(invoiceId: String,
-                            version: Int,
-                            idempotencyKey: String?,
-                            accessToken: String,
-                            completion: ((PublishInvoiceResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   version: Int,
+                                   idempotencyKey: String?,
+                                   accessToken: String,
+                                   completion: ((PublishInvoiceResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let publishInvoiceRequest = Serializer.deserialize(PublishInvoiceRequest.self, [:])!
             

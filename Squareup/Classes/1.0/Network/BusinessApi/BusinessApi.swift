@@ -33,10 +33,10 @@ open class BusinessApi {
         /// If you know the merchant ID, you can also use the RetrieveMerchant endpoint to retrieve the merchant information.
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchants-api/list-merchants
-        public func listMerchants(cursor: String? = nil,
-                           accessToken: String,
-                           completion: ((ListMerchantsResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+        public func listMerchants(cursor: String?,
+                                  accessToken: String,
+                                  completion: ((ListMerchantsResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let listMerchantsRequest = Serializer.deserialize(ListMerchantsRequest.self, [:])!
             listMerchantsRequest.Cursor = cursor
@@ -54,9 +54,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchants-api/retrieve-merchant
         public func retrieveMerchants(merchantId: String,
-                               accessToken: String,
-                               completion: ((RetrieveMerchantsResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      accessToken: String,
+                                      completion: ((RetrieveMerchantsResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             request(to: "merchants\(merchantId)",
                     method: .get,
@@ -79,11 +79,11 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/list-merchant-custom-attribute-definitions
         public func listMerchantCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
-                                                    limit: Int?,
-                                                    cursor: String?,
-                                                    accessToken: String,
-                                                    completion: ((ListMerchantCustomAttributeDefinitionsResponse) -> Void)? = nil,
-                                                    failed: ((Error) -> Void)? = nil) {
+                                                           limit: Int?,
+                                                           cursor: String?,
+                                                           accessToken: String,
+                                                           completion: ((ListMerchantCustomAttributeDefinitionsResponse) -> Void)? = nil,
+                                                           failed: ((Error) -> Void)? = nil) {
             
             let listMerchantCustomAttributeDefinitionsRequest = Serializer.deserialize(ListMerchantCustomAttributeDefinitionsRequest.self, [:])!
             
@@ -105,10 +105,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/create-merchant-custom-attribute-definition
         public func createMerchantCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
-                                                     IdempotencyKey: String?,
-                                                     accessToken: String,
-                                                     completion: ((CreateMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            IdempotencyKey: String?,
+                                                            accessToken: String,
+                                                            completion: ((CreateMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             let createMerchantCustomAttributeDefinitionRequest = Serializer.deserialize(CreateMerchantCustomAttributeDefinitionRequest.self, [:])!
             
@@ -128,9 +128,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/delete-merchant-custom-attribute-definition
         public func deleteMerchantCustomAttributeDefinition(key: String,
-                                                     accessToken: String,
-                                                     completion: ((SquareupResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            accessToken: String,
+                                                            completion: ((SquareupResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             request(to: "merchants/custom-attribute-definitions/\(key)",
                     method: .delete,
@@ -145,10 +145,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/retrieve-merchant-custom-attribute-definition
         public func retrieveMerchantCustomAttributeDefinition(key: String,
-                                                       version: Int?,
-                                                       accessToken: String,
-                                                       completion: ((RetrieveMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                       failed: ((Error) -> Void)? = nil) {
+                                                              version: Int?,
+                                                              accessToken: String,
+                                                              completion: ((RetrieveMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                              failed: ((Error) -> Void)? = nil) {
             
             let retrieveMerchantCustomAttributeDefinitionRequest = Serializer.deserialize(RetrieveMerchantCustomAttributeDefinitionRequest.self, [:])!
             retrieveMerchantCustomAttributeDefinitionRequest.Version = version
@@ -167,11 +167,11 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/update-merchant-custom-attribute-definition
         public func updateMerchantCustomAttributeDefinition(key: String,
-                                                     customAttributeDefinition: CustomAttributeDefinition?,
-                                                     IdempotencyKey: String?,
-                                                     accessToken: String,
-                                                     completion: ((UpdateMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            customAttributeDefinition: CustomAttributeDefinition?,
+                                                            IdempotencyKey: String?,
+                                                            accessToken: String,
+                                                            completion: ((UpdateMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             let updateMerchantCustomAttributeDefinitionRequest = Serializer.deserialize(UpdateMerchantCustomAttributeDefinitionRequest.self, [:])!
             
@@ -191,9 +191,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/bulk-delete-merchant-custom-attributes
         public func bulkDeleteMerchantCustomAttributes(values: [String: BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequest]?,
-                                                     accessToken: String,
-                                                completion: ((BulkDeleteMerchantCustomAttributesResponse) -> Void)? = nil,
-                                                failed: ((Error) -> Void)? = nil) {
+                                                       accessToken: String,
+                                                       completion: ((BulkDeleteMerchantCustomAttributesResponse) -> Void)? = nil,
+                                                       failed: ((Error) -> Void)? = nil) {
             
             let bulkDeleteMerchantCustomAttributesRequest = Serializer.deserialize(BulkDeleteMerchantCustomAttributesRequest.self, [:])!
             bulkDeleteMerchantCustomAttributesRequest.Values = values
@@ -211,9 +211,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes
         public func bulkUpsertMerchantCustomAttributes(values: [String: BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequest]?,
-                                                accessToken: String,
-                                                completion: ((BulkUpsertMerchantCustomAttributesResponse) -> Void)? = nil,
-                                                failed: ((Error) -> Void)? = nil) {
+                                                       accessToken: String,
+                                                       completion: ((BulkUpsertMerchantCustomAttributesResponse) -> Void)? = nil,
+                                                       failed: ((Error) -> Void)? = nil) {
             
             let bulkUpsertMerchantCustomAttributesRequest = Serializer.deserialize(BulkUpsertMerchantCustomAttributesRequest.self, [:])!
             bulkUpsertMerchantCustomAttributesRequest.Values = values
@@ -231,13 +231,13 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/list-merchant-custom-attributes
         public func listMerchantCustomAttributes(merchantId: String,
-                                          visibilityFilter: VisibilityFilter?,
-                                          limit: Int?,
-                                          cursor: String?,
-                                          withDefinitions: Bool?,
-                                          accessToken: String,
-                                          completion: ((ListMerchantCustomAttributesResponse) -> Void)? = nil,
-                                          failed: ((Error) -> Void)? = nil) {
+                                                 visibilityFilter: VisibilityFilter?,
+                                                 limit: Int?,
+                                                 cursor: String?,
+                                                 withDefinitions: Bool?,
+                                                 accessToken: String,
+                                                 completion: ((ListMerchantCustomAttributesResponse) -> Void)? = nil,
+                                                 failed: ((Error) -> Void)? = nil) {
             
             let listMerchantCustomAttributesRequest = Serializer.deserialize(ListMerchantCustomAttributesRequest.self, [:])!
             
@@ -260,10 +260,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/delete-merchant-custom-attribute
         public func deleteMerchantCustomattribute(merchantId: String,
-                                           key: String,
-                                            accessToken: String,
-                                            completion: ((SquareupResponse) -> Void)? = nil,
-                                            failed: ((Error) -> Void)? = nil) {
+                                                  key: String,
+                                                  accessToken: String,
+                                                  completion: ((SquareupResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "merchants/\(merchantId)/custom-attributes/\(key)",
                     method: .delete,
@@ -278,12 +278,12 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/retrieve-merchant-custom-attribute
         public func retrieveMerchantCustomAttribute(merchantId: String,
-                                             key: String,
-                                             withDefinitions: Bool?,
-                                             version: Int?,
-                                             accessToken: String,
-                                             completion: ((RetrieveMerchantCustomAttributeResponse) -> Void)? = nil,
-                                             failed: ((Error) -> Void)? = nil) {
+                                                    key: String,
+                                                    withDefinitions: Bool?,
+                                                    version: Int?,
+                                                    accessToken: String,
+                                                    completion: ((RetrieveMerchantCustomAttributeResponse) -> Void)? = nil,
+                                                    failed: ((Error) -> Void)? = nil) {
             
             let retrieveMerchantCustomAttributeRequest = Serializer.deserialize(RetrieveMerchantCustomAttributeRequest.self, [:])!
             
@@ -304,12 +304,12 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/upsert-merchant-custom-attribute
         public func upsertMerchantCustomAttribute(merchantDd: String,
-                                           key: String,
-                                           customAttribute: CustomAttribute,
-                                           idempotencyKey: String?,
-                                           accessToken: String,
-                                           completion: ((UpsertMerchantCustomAttributeResponse) -> Void)? = nil,
-                                           failed: ((Error) -> Void)? = nil) {
+                                                  key: String,
+                                                  customAttribute: CustomAttribute,
+                                                  idempotencyKey: String?,
+                                                  accessToken: String,
+                                                  completion: ((UpsertMerchantCustomAttributeResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             let upsertMerchantCustomAttributeRequest = Serializer.deserialize(UpsertMerchantCustomAttributeRequest.self, [:])!
             
@@ -336,8 +336,8 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/locations-api/list-locations
         public func listLocations(accessToken: String,
-                           completion: ((ListLocationsResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  completion: ((ListLocationsResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "locations",
                     method: .get,
@@ -352,9 +352,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/locations-api/create-location
         public func createLocation(location: Location,
-                            accessToken: String,
-                            completion: ((CreateLocationResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   accessToken: String,
+                                   completion: ((CreateLocationResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let createLocationRequest = Serializer.deserialize(CreateLocationRequest.self, [:])!
             createLocationRequest.location = location
@@ -372,9 +372,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/locations-api/retrieve-location
         public func retrieveLocation(locationId: String,
-                              accessToken: String,
-                              completion: ((RetrieveLocationResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     accessToken: String,
+                                        completion: ((RetrieveLocationResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             request(to: "locations/\(locationId)",
                     method: .get,
@@ -388,10 +388,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/locations-api/update-location
         public func updateLocation(location: Location,
-                            locationId: String,
-                            accessToken: String,
-                            completion: ((UpdateLocationResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   locationId: String,
+                                   accessToken: String,
+                                   completion: ((UpdateLocationResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let updateLocationRequest = Serializer.deserialize(UpdateLocationRequest.self, [:])!
             updateLocationRequest.location = location
@@ -417,11 +417,11 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/list-location-custom-attribute-definitions
         public func listLocationCustomAttributeDefinitions(visibilityFilter: VisibilityFilter?,
-                                                    limit: Int?,
-                                                    cursor: String?,
-                                                    accessToken: String,
-                                                    completion: ((ListLocationCustomAttributeDefinitionsResponse) -> Void)? = nil,
-                                                    failed: ((Error) -> Void)? = nil) {
+                                                           limit: Int?,
+                                                           cursor: String?,
+                                                           accessToken: String,
+                                                           completion: ((ListLocationCustomAttributeDefinitionsResponse) -> Void)? = nil,
+                                                           failed: ((Error) -> Void)? = nil) {
             
             let listLocationCustomAttributeDefinitionsRequest = Serializer.deserialize(ListLocationCustomAttributeDefinitionsRequest.self, [:])!
             
@@ -443,10 +443,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/create-location-custom-attribute-definition
         public func createLocationCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
-                                                     idempotencyKey: String?,
-                                                     accessToken: String,
-                                                     completion: ((CreateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            idempotencyKey: String?,
+                                                            accessToken: String,
+                                                            completion: ((CreateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             let createLocationCustomAttributeDefinitionRequest = Serializer.deserialize(CreateLocationCustomAttributeDefinitionRequest.self, [:])!
             
@@ -466,9 +466,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/delete-location-custom-attribute-definition
         public func deleteLocationCustomAttributeDefinition(key: String,
-                                                     accessToken: String,
-                                                     completion: ((SquareupResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            accessToken: String,
+                                                            completion: ((SquareupResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             request(to: "locations/custom-attribute-definitions/\(key)",
                     method: .delete,
@@ -483,10 +483,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/retrieve-location-custom-attribute-definition
         public func retrieveLocationCustomAttributeDefinition(key: String,
-                                                       version: Int,
-                                                       accessToken: String,
-                                                       completion: ((RetrieveLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                       failed: ((Error) -> Void)? = nil) {
+                                                              version: Int,
+                                                              accessToken: String,
+                                                              completion: ((RetrieveLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                              failed: ((Error) -> Void)? = nil) {
             
             let retrieveLocationCustomAttributeDefinitionRequest = Serializer.deserialize(RetrieveLocationCustomAttributeDefinitionRequest.self, [:])!
             retrieveLocationCustomAttributeDefinitionRequest.Version = version
@@ -505,10 +505,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/update-location-custom-attribute-definition
         public func updateLocationCustomAttributeDefinition(key: String,
-                                                     customAttributeDefinition: CustomAttributeDefinition?,
-                                                     accessToken: String,
-                                                     completion: ((UpdateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
-                                                     failed: ((Error) -> Void)? = nil) {
+                                                            customAttributeDefinition: CustomAttributeDefinition?,
+                                                            accessToken: String,
+                                                            completion: ((UpdateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
+                                                            failed: ((Error) -> Void)? = nil) {
             
             let updateLocationCustomAttributeDefinitionRequest = Serializer.deserialize(UpdateLocationCustomAttributeDefinitionRequest.self, [:])!
             updateLocationCustomAttributeDefinitionRequest.customAttributeDefinition = customAttributeDefinition
@@ -526,9 +526,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/bulk-delete-location-custom-attributes
         public func bulkDeleteLocationCustomAttributes(values: [String: BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest]?,
-                                                accessToken: String,
-                                                completion: ((BulkDeleteLocationCustomAttributesResponse) -> Void)? = nil,
-                                                failed: ((Error) -> Void)? = nil) {
+                                                       accessToken: String,
+                                                       completion: ((BulkDeleteLocationCustomAttributesResponse) -> Void)? = nil,
+                                                       failed: ((Error) -> Void)? = nil) {
             
             let bulkDeleteLocationCustomAttributesRequest = Serializer.deserialize(BulkDeleteLocationCustomAttributesRequest.self, [:])!
             bulkDeleteLocationCustomAttributesRequest.Values = values
@@ -546,9 +546,9 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/bulk-upsert-location-custom-attributes
         public func bulkUpsertLocationCustomAttributes(values: [String: BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest]?,
-                                                accessToken: String,
-                                                completion: ((BulkUpsertLocationCustomAttributesResponse) -> Void)? = nil,
-                                                failed: ((Error) -> Void)? = nil) {
+                                                       accessToken: String,
+                                                       completion: ((BulkUpsertLocationCustomAttributesResponse) -> Void)? = nil,
+                                                       failed: ((Error) -> Void)? = nil) {
             
             let bulkUpsertLocationCustomAttributesRequest = Serializer.deserialize(BulkUpsertLocationCustomAttributesRequest.self, [:])!
             bulkUpsertLocationCustomAttributesRequest.Values = values
@@ -566,13 +566,13 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/list-location-custom-attributes
         public func listLocationCustomAttributes(locationId: String,
-                                          visibilityFilter: VisibilityFilter?,
-                                          limit: Int?,
-                                          cursor: String?,
-                                          withDefinitions: Bool?,
-                                          accessToken: String,
-                                          completion: ((ListLocationCustomAttributesResponse) -> Void)? = nil,
-                                          failed: ((Error) -> Void)? = nil) {
+                                                 visibilityFilter: VisibilityFilter?,
+                                                 limit: Int?,
+                                                 cursor: String?,
+                                                 withDefinitions: Bool?,
+                                                 accessToken: String,
+                                                 completion: ((ListLocationCustomAttributesResponse) -> Void)? = nil,
+                                                 failed: ((Error) -> Void)? = nil) {
             
             let listLocationCustomAttributesRequest = Serializer.deserialize(ListLocationCustomAttributesRequest.self, [:])!
             
@@ -595,10 +595,10 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/delete-location-custom-attribute
         public func deleteLocationCustomAttribute(locationId: String,
-                                           key: String,
-                                           accessToken: String,
-                                           completion: ((SquareupResponse) -> Void)? = nil,
-                                           failed: ((Error) -> Void)? = nil) {
+                                                  key: String,
+                                                  accessToken: String,
+                                                  completion: ((SquareupResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "locations/\(locationId)/custom-attributes/\(key)",
                     method: .delete,
@@ -613,12 +613,12 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/retrieve-location-custom-attribute
         public func retrieveLocationCustomAttribute(locationId: String,
-                                             key: String,
-                                             withDefinition: Bool?,
-                                             version: Int?,
-                                             accessToken: String,
-                                             completion: ((RetrieveLocationCustomAttributeResponse) -> Void)? = nil,
-                                             failed: ((Error) -> Void)? = nil) {
+                                                    key: String,
+                                                    withDefinition: Bool?,
+                                                    version: Int?,
+                                                    accessToken: String,
+                                                    completion: ((RetrieveLocationCustomAttributeResponse) -> Void)? = nil,
+                                                    failed: ((Error) -> Void)? = nil) {
             
             let retrieveLocationCustomAttributeRequest = Serializer.deserialize(RetrieveLocationCustomAttributeRequest.self, [:])!
             
@@ -639,12 +639,12 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_WRITE
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/upsert-location-custom-attribute
         public func upsertLocationCustomAttribute(locationId: String,
-                                           key: String,
-                                           customAttribute: CustomAttribute?,
-                                           idempotencyKey: String?,
-                                           accessToken: String,
-                                           completion: ((UpsertLocationCustomAttributeResponse) -> Void)? = nil,
-                                           failed: ((Error) -> Void)? = nil) {
+                                                  key: String,
+                                                  customAttribute: CustomAttribute?,
+                                                  idempotencyKey: String?,
+                                                  accessToken: String,
+                                                  completion: ((UpsertLocationCustomAttributeResponse) -> Void)? = nil,
+                                                  failed: ((Error) -> Void)? = nil) {
             
             let upsertLocationCustomAttributeRequest = Serializer.deserialize(UpsertLocationCustomAttributeRequest.self, [:])!
             
@@ -670,12 +670,12 @@ open class BusinessApi {
         /// Permissions: DEVICE_CREDENTIAL_MANAGEMENT
         /// https://developer.squareup.com/reference/square/devices-api/list-device-codes
         public func listDeviceCodes(cursor: String?,
-                             locationId: String?,
-                             productType: ProductType?,
-                             status: DeviceCodeStatus?,
-                             accessToken: String,
-                             completion: ((ListDeviceCodesResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    locationId: String?,
+                                    productType: ProductType?,
+                                    status: DeviceCodeStatus?,
+                                    accessToken: String,
+                                    completion: ((ListDeviceCodesResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             let listDeviceCodesRequest = Serializer.deserialize(ListDeviceCodesRequest.self, [:])!
             
@@ -697,10 +697,10 @@ open class BusinessApi {
         /// Permissions: DEVICE_CREDENTIAL_MANAGEMENT
         /// https://developer.squareup.com/reference/square/devices-api/create-device-code
         public func createDeviceCode(idempotencyKey: String,
-                              deviceCode: DeviceCode,
-                              accessToken: String,
-                              completion: ((CreateDeviceCodeResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     deviceCode: DeviceCode,
+                                     accessToken: String,
+                                     completion: ((CreateDeviceCodeResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             let createDeviceCodeRequest = Serializer.deserialize(CreateDeviceCodeRequest.self, [:])!
             
@@ -719,9 +719,9 @@ open class BusinessApi {
         /// Permissions: DEVICE_CREDENTIAL_MANAGEMENT
         /// https://developer.squareup.com/reference/square/devices-api/get-device-code
         public func getDeviceCode(id: String,
-                           accessToken: String,
-                           completion: ((GetDeviceCodeResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  accessToken: String,
+                                  completion: ((GetDeviceCodeResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "devices/codes/\(id)",
                     method: .get,
@@ -743,14 +743,14 @@ open class BusinessApi {
         /// Permissions: CASH_DRAWER_READ
         /// https://developer.squareup.com/reference/square/cash-drawers-api/list-cash-drawer-shifts
         public func listCashDrawerShifts(locationId: String,
-                                  sortOrder: SortOrder?,
-                                  beginTime: Date?,
-                                  endTime: Date?,
-                                  limit: Int?,
-                                  cursor: String?,
-                                  accessToken: String,
-                                  completion: ((ListCashDrawerShiftsResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         sortOrder: SortOrder?,
+                                         beginTime: Date?,
+                                         endTime: Date?,
+                                         limit: Int?,
+                                         cursor: String?,
+                                         accessToken: String,
+                                         completion: ((ListCashDrawerShiftsResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             let listCashDrawerShiftsRequest = Serializer.deserialize(ListCashDrawerShiftsRequest.self, [:])!
             
@@ -775,10 +775,10 @@ open class BusinessApi {
         /// Permissions: CASH_DRAWER_READ
         /// https://developer.squareup.com/reference/square/cash-drawers-api/retrieve-cash-drawer-shift
         public func retrieveCashDrawerShift(shiftId: String,
-                                     locationId: String,
-                                     accessToken: String,
-                                     completion: ((RetrieveCashDrawerShiftResponse) -> Void)? = nil,
-                                     failed: ((Error) -> Void)? = nil) {
+                                            locationId: String,
+                                            accessToken: String,
+                                            completion: ((RetrieveCashDrawerShiftResponse) -> Void)? = nil,
+                                            failed: ((Error) -> Void)? = nil) {
             
             let retrieveCashDrawerShiftRequest = Serializer.deserialize(RetrieveCashDrawerShiftRequest.self, [:])!
             retrieveCashDrawerShiftRequest.LocationId = locationId
@@ -796,12 +796,12 @@ open class BusinessApi {
         /// Permissions: CASH_DRAWER_READ
         /// https://developer.squareup.com/reference/square/cash-drawers-api/list-cash-drawer-shift-events
         public func listCashDrawerShiftEvents(shiftId: String,
-                                       locationId: String,
-                                       limit: Int?,
-                                       cursor: String?,
-                                       accessToken: String,
-                                       completion: ((ListCashDrawerShiftEventsResponse) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              locationId: String,
+                                              limit: Int?,
+                                              cursor: String?,
+                                              accessToken: String,
+                                              completion: ((ListCashDrawerShiftEventsResponse) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             let listCashDrawerShiftEventsRequest = Serializer.deserialize(ListCashDrawerShiftEventsRequest.self, [:])!
             
@@ -830,9 +830,9 @@ open class BusinessApi {
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-create-vendors
         public func bulkCreateVendors(vendors: [String: Vendor],
-                               accessToken: String,
-                               completion: ((BulkCreateVendorsResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      accessToken: String,
+                                      completion: ((BulkCreateVendorsResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let bulkCreateVendorsRequest = Serializer.deserialize(BulkCreateVendorsRequest.self, [:])!
             bulkCreateVendorsRequest.Vendors = vendors
@@ -849,9 +849,9 @@ open class BusinessApi {
         /// Permissions: VENDOR_READ
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-retrieve-vendors
         public func bulkRetrieveVendors(vendorIds: [String]?,
-                                 accessToken: String,
-                                 completion: ((BulkRetrieveVendorsResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        accessToken: String,
+                                        completion: ((BulkRetrieveVendorsResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let bulkRetrieveVendorsRequest = Serializer.deserialize(BulkRetrieveVendorsRequest.self, [:])!
             bulkRetrieveVendorsRequest.VendorIds = vendorIds
@@ -868,9 +868,9 @@ open class BusinessApi {
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-update-vendors
         public func bulkUpdateVendors(vendors: [String: UpdateVendorRequest],
-                               accessToken: String,
-                               completion: ((BulkUpdateVendorsResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      accessToken: String,
+                                      completion: ((BulkUpdateVendorsResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let bulkUpdateVendorsRequest = Serializer.deserialize(BulkUpdateVendorsRequest.self, [:])!
             bulkUpdateVendorsRequest.Vendors = vendors
@@ -887,10 +887,10 @@ open class BusinessApi {
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/create-vendor
         public func createVendor(idempotencyKey: String,
-                          vendor: Vendor?,
-                          accessToken: String,
-                          completion: ((CreateVendorResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 vendor: Vendor?,
+                                 accessToken: String,
+                                 completion: ((CreateVendorResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             let createVendorRequest = Serializer.deserialize(CreateVendorRequest.self, [:])!
             
@@ -909,11 +909,11 @@ open class BusinessApi {
         /// Permissions: VENDOR_READ
         /// https://developer.squareup.com/reference/square/vendors-api/search-vendors
         public func searchVendors(filter: SearchVendorsRequestFilter?,
-                           sort: SearchVendorsRequestSort?,
-                           cursor: String?,
-                           accessToken: String,
-                           completion: ((BulkUpdateVendorsResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  sort: SearchVendorsRequestSort?,
+                                  cursor: String?,
+                                  accessToken: String,
+                                  completion: ((BulkUpdateVendorsResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let searchVendorsRequest = Serializer.deserialize(SearchVendorsRequest.self, [:])!
             
@@ -933,9 +933,9 @@ open class BusinessApi {
         /// Permissions: VENDOR_READ
         /// https://developer.squareup.com/reference/square/vendors-api/retrieve-vendor
         public func retrieveVendor(vendorId: String,
-                            accessToken: String,
-                            completion: ((RetrieveVendorResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   accessToken: String,
+                                   completion: ((RetrieveVendorResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             request(to: "vendors/\(vendorId)",
                     method: .get,
@@ -949,11 +949,11 @@ open class BusinessApi {
         /// Permissions: VENDOR_WRITE
         /// https://developer.squareup.com/reference/square/vendors-api/update-vendor
         public func updateVendor(vendorId: String,
-                          idempotencyKey: String,
-                          vendor: Vendor,
-                          accessToken: String,
-                          completion: ((UpdateVendorResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 idempotencyKey: String,
+                                 vendor: Vendor,
+                                 accessToken: String,
+                                 completion: ((UpdateVendorResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             let updateVendorRequest = Serializer.deserialize(UpdateVendorRequest.self, [:])!
             

@@ -28,10 +28,10 @@ open class CatalogApi {
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/upsert-catalog-object
         public func upsertCatalogObject(object: CatalogObject,
-                                 idempotencyKey: String?,
-                                 accessToken: String,
-                                 completion: ((CatalogObjectResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        idempotencyKey: String?,
+                                        accessToken: String,
+                                        completion: ((CatalogObjectResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let upsertCatalogRequest = Serializer.deserialize(UpsertCatalogObjectRequest.self, [:])!
             upsertCatalogRequest.Object = object
@@ -53,10 +53,10 @@ open class CatalogApi {
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/batch-upsert-catalog-objects
         public func batchUpsertCatalogObjects(objects: [CatalogObject],
-                                       idempotencyKey: String?,
-                                       accessToken: String,
-                                       completion: ((CatalogObjectsResponse) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              idempotencyKey: String?,
+                                              accessToken: String,
+                                              completion: ((CatalogObjectsResponse) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             let batchUpsertCatalogRequest = Serializer.deserialize(BatchUpsertCatalogObjectsRequest.self, [:])!
             
@@ -91,11 +91,11 @@ open class CatalogApi {
         /// The following steps are generally applicable to creating catalog objects of other types, except for uploading an image object. For information about how to upload an image to a catalog and attach it to an item, item variation, or category, see Work with Images.
         /// https://developer.squareup.com/docs/catalog-api/build-with-catalog
         public func updateItemModifierLists(itemIds: [String],
-                                     modifierListsToDisable: [String],
-                                     modifierListsToEnable: [String],
-                                     accessToken: String,
-                                     completion: ((UpdatedResponse) -> Void)? = nil,
-                                     failed: ((Error) -> Void)? = nil) {
+                                            modifierListsToDisable: [String],
+                                            modifierListsToEnable: [String],
+                                            accessToken: String,
+                                            completion: ((UpdatedItemModifierListsResponse) -> Void)? = nil,
+                                            failed: ((Error) -> Void)? = nil) {
             
             let updateItemModifierListsRequest = Serializer.deserialize(UpdateItemModifierListsRequest.self, [:])!
             
@@ -119,17 +119,17 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/list-catalog
-        public func listCatalog(cursor: String? = nil,
-                         types: [String] = [],
-                         catalog_version: Int? = nil,
-                         accessToken: String,
-                         completion: ((ListCatalogResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+        public func listCatalog(cursor: String?,
+                                types: [CatalogObjectType]?,
+                                catalog_version: Int?,
+                                accessToken: String,
+                                completion: ((ListCatalogResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             let listCatalogRequest = Serializer.deserialize(ListCatalogRequest.self, [:])!
             
             listCatalogRequest.Cursor = cursor
-            listCatalogRequest.Types = types.joined(separator: ",")
+            listCatalogRequest.Types = types
             listCatalogRequest.CatalogVersion = catalog_version
             
             request(to: "catalog/list",
@@ -152,18 +152,18 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/search-catalog-items
-        public func searchCatalogItems(textFilter: String? = nil,
-                                categoryIds: [String] = [],
-                                stockLevels: [SearchCatalogItemsRequestStockLevel]? = nil,
-                                enabledLocationIds: [String] = [],
-                                cursor: String? = nil,
-                                limit: Int? = nil,
-                                sortOrder: SortOrder? = nil,
-                                productTypes: [CatalogItemProductType] = [],
-                                customAttributeFilters: [CustomAttributeFilter]? = nil,
-                                accessToken: String,
-                                completion: ((SearchCatalogItemsResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+        public func searchCatalogItems(textFilter: String?,
+                                       categoryIds: [String]?,
+                                       stockLevels: [SearchCatalogItemsRequestStockLevel]?,
+                                       enabledLocationIds: [String]?,
+                                       cursor: String?,
+                                       limit: Int?,
+                                       sortOrder: SortOrder?,
+                                       productTypes: [CatalogItemProductType]?,
+                                       customAttributeFilters: [CustomAttributeFilter]?,
+                                       accessToken: String,
+                                       completion: ((SearchCatalogItemsResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let searchCatalogItemsRequest = Serializer.deserialize(SearchCatalogItemsRequest.self, [:])!
             
@@ -196,16 +196,16 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/search-catalog-objects
-        public func searchCatalogObjects(cursor: String? = nil,
-                                  objectTypes: [CatalogObjectType]? = nil,
-                                  includeDeletedObjects: Bool? = nil,
-                                  includeRelatedObjects: Bool? = nil,
-                                  beginTime: Date? = nil,
-                                  query: CatalogQuery? = nil,
-                                  limit: Int? = nil,
-                                  accessToken: String,
-                                  completion: ((SearchCatalogObjectsResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+        public func searchCatalogObjects(cursor: String?,
+                                         objectTypes: [CatalogObjectType]?,
+                                         includeDeletedObjects: Bool?,
+                                         includeRelatedObjects: Bool?,
+                                         beginTime: Date?,
+                                         query: CatalogQuery?,
+                                         limit: Int?,
+                                         accessToken: String,
+                                         completion: ((SearchCatalogObjectsResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             let searchCatalogObjectsRequest = Serializer.deserialize(SearchCatalogObjectsRequest.self, [:])!
             
@@ -232,11 +232,11 @@ open class CatalogApi {
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/retrieve-catalog-object
         public func retrieveCatalogObject(objectId: String,
-                                   includeRelatedObjects: Bool = false,
-                                   catalogVersion: Int? = nil,
-                                   accessToken: String,
-                                   completion: ((RetrieveCatalogObjectResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          includeRelatedObjects: Bool?,
+                                          catalogVersion: Int?,
+                                          accessToken: String,
+                                          completion: ((RetrieveCatalogObjectResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             let retrieveCatalogObjectRequest = Serializer.deserialize(RetrieveCatalogObjectRequest.self, [:])!
             
@@ -259,12 +259,12 @@ open class CatalogApi {
         /// Permissions:ITEMS_READ
         /// https://developer.squareup.com/reference/square/catalog-api/batch-retrieve-catalog-objects
         public func batchRetrieveCatalogObjects(objectIds: [String],
-                                         includeRelatedObjects: Bool = false,
-                                         catalogVersion: Int? = nil,
-                                         includeDeletedObjects: Bool? = nil,
-                                         accessToken: String,
-                                         completion: ((BatchRetrieveCatalogObjectsResponse) -> Void)? = nil,
-                                         failed: ((Error) -> Void)? = nil) {
+                                                includeRelatedObjects: Bool?,
+                                                catalogVersion: Int?,
+                                                includeDeletedObjects: Bool?,
+                                                accessToken: String,
+                                                completion: ((BatchRetrieveCatalogObjectsResponse) -> Void)? = nil,
+                                                failed: ((Error) -> Void)? = nil) {
             
             let batchRetrieveCatalogObjectsRequest = Serializer.deserialize(BatchRetrieveCatalogObjectsRequest.self, [:])!
             
@@ -291,9 +291,9 @@ open class CatalogApi {
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/delete-catalog-object
         public func deleteCatalogObject(objectId: String,
-                                 accessToken: String,
-                                 completion: ((DeleteCatalogObjectResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        accessToken: String,
+                                        completion: ((DeleteCatalogObjectResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             request(to: "catalog/object/\(objectId)",
                     method: .delete,
@@ -314,9 +314,9 @@ open class CatalogApi {
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/batch-delete-catalog-objects
         public func batchDeleteCatalogObjects(objectIds: [String],
-                                       accessToken: String,
-                                       completion: ((BatchDeleteCatalogObjectsResponse?) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              accessToken: String,
+                                              completion: ((BatchDeleteCatalogObjectsResponse?) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             let batchDeleteCatalogObjectsRequest = Serializer.deserialize(BatchDeleteCatalogObjectsRequest.self, [:])!
             batchDeleteCatalogObjectsRequest.ObjectIds = objectIds
@@ -337,13 +337,13 @@ open class CatalogApi {
         ///
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/create-catalog-image
-        public func createCatalogImage(objectId: String? = nil,
-                                isPrimary: Bool? = nil,
-                                image: UIImage,
-                                idempotencyKey: String?,
-                                accessToken: String,
-                                completion: ((CreateCatalogImageResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+        public func createCatalogImage(objectId: String?,
+                                       isPrimary: Bool?,
+                                       image: UIImage,
+                                       idempotencyKey: String?,
+                                       accessToken: String,
+                                       completion: ((CreateCatalogImageResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let createCatalogImageRequest = Serializer.deserialize(CreateCatalogImageRequest.self, [:])!
             let imageObject = Serializer.deserialize(CatalogObject.self, [
@@ -372,20 +372,19 @@ open class CatalogApi {
         /// Permissions:ITEMS_WRITE
         /// https://developer.squareup.com/reference/square/catalog-api/update-catalog-image
         public func updateCatalogImage(imageId: String,
-                                imageObject: CatalogObject,
-                                image: UIImage,
-                                idempotencyKey: String?,
-                                accessToken: String,
-                                completion: ((UpdateCatalogImageResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       imageObject: CatalogObject,
+                                       image: UIImage,
+                                       idempotencyKey: String?,
+                                       accessToken: String,
+                                       completion: ((UpdateCatalogImageResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let updateCatalogImageRequest = Serializer.deserialize(UpdateCatalogImageRequest.self, [:])!
             
             updateCatalogImageRequest.IdempotencyKey = idempotencyKey
-            updateCatalogImageRequest.ImageId = imageId
             updateCatalogImageRequest.Image = imageObject
             
-            upload(to: "catalog/images",
+            upload(to: "catalog/images/\(imageId)",
                    method: .put,
                    image: image,
                    imageName: "\(UUID().uuidString)_update_catalog_image.jpg",

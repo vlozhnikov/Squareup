@@ -9,11 +9,13 @@ import Foundation
 
 open class CatalogObjectResponse: SquareupResponse {
     
-    var Object: CatalogObject?
+    /// - catalogObject: The successfully created or updated CatalogObject.
+    var catalogObject: CatalogObject?
+    /// - IdMappings: The mapping between client and server IDs for this upsert.
     var IdMappings: [CatalogIdMapping]?
     
     enum CodingKeys: String, CodingKey {
-        case Object = "catalog_object"
+        case catalogObject = "catalog_object"
         case IdMappings = "id_mappings"
     }
     
@@ -23,7 +25,7 @@ open class CatalogObjectResponse: SquareupResponse {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.Object = try container.decodeIfPresent(CatalogObject.self, forKey: .Object)
+        self.catalogObject = try container.decodeIfPresent(CatalogObject.self, forKey: .catalogObject)
         self.IdMappings = try container.decodeIfPresent([CatalogIdMapping].self, forKey: .IdMappings)
     }
 }

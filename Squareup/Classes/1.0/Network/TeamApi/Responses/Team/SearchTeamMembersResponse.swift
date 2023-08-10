@@ -9,7 +9,9 @@ import Foundation
 
 open class SearchTeamMembersResponse: SquareupResponse {
     
+    /// - TeamMembers: The filtered list of TeamMember objects.
     public var TeamMembers: [TeamMember]?
+    /// - Cursor: The opaque cursor for fetching the next page. For more information, see pagination.
     public var Cursor: String?
     
     enum CodingKeys: String, CodingKey {

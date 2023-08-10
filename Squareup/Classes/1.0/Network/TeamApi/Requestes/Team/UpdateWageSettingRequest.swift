@@ -9,6 +9,7 @@ import Foundation
 
 open class UpdateWageSettingRequest: Codable {
     
+    /// - wageSetting: The new WageSetting object that completely replaces the existing one.
     public var wageSetting: WageSetting?
     
     enum CodingKeys: String, CodingKey {

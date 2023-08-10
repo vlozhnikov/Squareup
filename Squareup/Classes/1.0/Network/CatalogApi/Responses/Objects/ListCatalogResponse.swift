@@ -9,7 +9,9 @@ import Foundation
 
 open class ListCatalogResponse: SquareupResponse {
     
+    /// - Cursor: The pagination cursor to be used in a subsequent request. If unset, this is the final response. See Pagination for more information.
     var Cursor: String?
+    /// - Objects: The CatalogObjects returned.
     var Objects: [CatalogObject]?
     
     enum CodingKeys: String, CodingKey {

@@ -9,6 +9,7 @@ import Foundation
 
 /// - SearchOrdersSort: Sorting criteria for a SearchOrders request.
 /// Results can only be sorted by a timestamp field.
+/// https://developer.squareup.com/reference/square/objects/SearchOrdersSort
 open class SearchOrdersSort: Codable {
     
     /// - SortField: The field to sort by.

@@ -39,17 +39,17 @@ open class PaymentsApi {
         /// Permissions:PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/payments-api/list-payments
         public func listPayments(beginTime: Date?,
-                          endTime: Date?,
-                          sortOrder: SortOrder?,
-                          cursor: String?,
-                          locationId: String?,
-                          total: Int?,
-                          last4: String?,
-                          cardBrand: String?,
-                          limit: Int?,
-                          accessToken: String,
-                          completion: ((ListPaymentsResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 endTime: Date?,
+                                 sortOrder: SortOrder?,
+                                 cursor: String?,
+                                 locationId: String?,
+                                 total: Int?,
+                                 last4: String?,
+                                 cardBrand: String?,
+                                 limit: Int?,
+                                 accessToken: String,
+                                 completion: ((ListPaymentsResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             let listPaymentsRequest = Serializer.deserialize(ListPaymentsRequest.self, [:])!
             
@@ -79,30 +79,30 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/create-payment
         public func createPayment(sourceId: String?,
-                           idempotencyKey: String?,
-                           amountMoney: Money?,
-                           tipMoney: Money?,
-                           appFeeMoney: Money?,
-                           delayDuration: String?,
-                           delayAction: PaymentDelayAction?,
-                           autocomplete: Bool?,
-                           orderId: String?,
-                           customerId: String?,
-                           locationId: String?,
-                           teamMemberId: String?,
-                           referenceId: String?,
-                           verificationToken: String?,
-                           acceptPartialAuthorization: Bool?,
-                           buyerEmailAddress: String?,
-                           billingAddress: Address?,
-                           shippingAddress: Address?,
-                           note: String?,
-                           statementDescriptionIdentifier: String?,
-                           cashDetails: CashPaymentDetails?,
-                           externalDetails: ExternalPaymentDetails?,
-                           accessToken: String,
-                           completion: ((CreatePaymentResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  idempotencyKey: String?,
+                                  amountMoney: Money?,
+                                  tipMoney: Money?,
+                                  appFeeMoney: Money?,
+                                  delayDuration: String?,
+                                  delayAction: PaymentDelayAction?,
+                                  autocomplete: Bool?,
+                                  orderId: String?,
+                                  customerId: String?,
+                                  locationId: String?,
+                                  teamMemberId: String?,
+                                  referenceId: String?,
+                                  verificationToken: String?,
+                                  acceptPartialAuthorization: Bool?,
+                                  buyerEmailAddress: String?,
+                                  billingAddress: Address?,
+                                  shippingAddress: Address?,
+                                  note: String?,
+                                  statementDescriptionIdentifier: String?,
+                                  cashDetails: CashPaymentDetails?,
+                                  externalDetails: ExternalPaymentDetails?,
+                                  accessToken: String,
+                                  completion: ((CreatePaymentResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let createPaymentRequest = Serializer.deserialize(CreatePaymentRequest.self, [:])!
             
@@ -143,9 +143,9 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/cancel-payment-by-idempotency-key
         public func cancelPayment(idempotencyKey: String?,
-                           accessToken: String,
-                           completion: ((SquareupResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  accessToken: String,
+                                  completion: ((SquareupResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let cancelPaymentRequest = Serializer.deserialize(CancelPaymentRequest.self, [:])!
             cancelPaymentRequest.IdempotencyKey = idempotencyKey
@@ -161,9 +161,9 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/payments-api/get-payment
         public func getPayment(paymentId: String,
-                        accessToken: String,
-                        completion: ((GetPaymentResponse) -> Void)? = nil,
-                        failed: ((Error) -> Void)? = nil) {
+                               accessToken: String,
+                               completion: ((GetPaymentResponse) -> Void)? = nil,
+                               failed: ((Error) -> Void)? = nil) {
             
             request(to: "payments/\(paymentId)",
                     method: .get,
@@ -178,11 +178,11 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/update-payment
         public func updatePayment(paymentId: String,
-                           payment: Payment,
-                           idempotencyKey: String,
-                           accessToken: String,
-                           completion: ((UpdatePaymentResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  payment: Payment,
+                                  idempotencyKey: String,
+                                  accessToken: String,
+                                  completion: ((UpdatePaymentResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let updatePaymentRequest = Serializer.deserialize(UpdatePaymentRequest.self, [:])!
             
@@ -202,9 +202,9 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/cancel-payment
         public func cancelPayment(paymentId: String,
-                           accessToken: String,
-                           completion: ((CancelPaymentResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  accessToken: String,
+                                  completion: ((CancelPaymentResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "payments/\(paymentId)/cancel",
                     method: .post,
@@ -219,10 +219,10 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/payments-api/complete-payment
         public func completePayment(paymentId: String,
-                             versionToken: String,
-                             accessToken: String,
-                             completion: ((CompletePaymentResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    versionToken: String,
+                                    accessToken: String,
+                                    completion: ((CompletePaymentResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             let completePaymentRequest = Serializer.deserialize(CompletePaymentRequest.self, [:])!
             completePaymentRequest.VersionToken = versionToken
@@ -255,16 +255,16 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/refunds-api/list-payment-refunds
         public func listPaymentRefunds(beginTime: Date?,
-                                endTime: Date?,
-                                sortOrder: SortOrder?,
-                                cursor: String?,
-                                locationId: String?,
-                                status: PaymentRefundStatus?,
-                                sourceType: PaymentRefundDestinationType?,
-                                limit: Int?,
-                                accessToken: String,
-                                completion: ((ListPaymentRefundsResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       endTime: Date?,
+                                       sortOrder: SortOrder?,
+                                       cursor: String?,
+                                       locationId: String?,
+                                       status: PaymentRefundStatus?,
+                                       sourceType: PaymentRefundDestinationType?,
+                                       limit: Int?,
+                                       accessToken: String,
+                                       completion: ((ListPaymentRefundsResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             let listPaymentRefundsRequest = Serializer.deserialize(ListPaymentRefundsRequest.self, [:])!
             
@@ -291,19 +291,19 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/refunds-api/refund-payment
         public func refundPayment(idempotencyKey: String,
-                           amountMoney: Money,
-                           appFeeMoney: Money?,
-                           paymentId: String?,
-                           destinationId: String?,
-                           unlinked: Bool?,
-                           locationId: String?,
-                           customerId: String?,
-                           reason: String?,
-                           paymentVersionToken: String?,
-                           teamMemberId: String?,
-                           accessToken: String,
-                           completion: ((RefundPaymentResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  amountMoney: Money,
+                                  appFeeMoney: Money?,
+                                  paymentId: String?,
+                                  destinationId: String?,
+                                  unlinked: Bool?,
+                                  locationId: String?,
+                                  customerId: String?,
+                                  reason: String?,
+                                  paymentVersionToken: String?,
+                                  teamMemberId: String?,
+                                  accessToken: String,
+                                  completion: ((RefundPaymentResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             let refundPaymentRequest = Serializer.deserialize(RefundPaymentRequest.self, [:])!
             
@@ -331,9 +331,9 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/refunds-api/get-payment-refund
         public func getPaymentRefund(refundId: String,
-                              accessToken: String,
-                              completion: ((GetPaymentRefundResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     accessToken: String,
+                                     completion: ((GetPaymentRefundResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             request(to: "refunds/\(refundId)",
                     method: .get,
@@ -360,11 +360,11 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_READ
         /// https://developer.squareup.com/reference/square/disputes-api/list-disputes
         public func listDisputes(cursor: String?,
-                          states: DisputeState?,
-                          locationId: String?,
-                          accessToken: String,
-                          completion: ((ListDisputesResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 states: DisputeState?,
+                                 locationId: String?,
+                                 accessToken: String,
+                                 completion: ((ListDisputesResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             let listDisputesRequest = Serializer.deserialize(ListDisputesRequest.self, [:])!
             
@@ -385,9 +385,9 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_READ
         /// https://developer.squareup.com/reference/square/disputes-api/retrieve-dispute
         public func retrieveDispute(disputeId: String,
-                             accessToken: String,
-                             completion: ((RetrieveDisputeResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    accessToken: String,
+                                    completion: ((RetrieveDisputeResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             request(to: "disputes/\(disputeId)",
                     method: .get,
@@ -403,9 +403,9 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/accept-dispute
         public func acceptDispute(disputeId: String,
-                           accessToken: String,
-                           completion: ((AcceptDisputeResponse) -> Void)? = nil,
-                           failed: ((Error) -> Void)? = nil) {
+                                  accessToken: String,
+                                  completion: ((AcceptDisputeResponse) -> Void)? = nil,
+                                  failed: ((Error) -> Void)? = nil) {
             
             request(to: "disputes/\(disputeId)/accept",
                     method: .post,
@@ -418,10 +418,10 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_READ
         /// https://developer.squareup.com/reference/square/disputes-api/list-dispute-evidence
         public func listDisputeEvidence(disputeId: String,
-                                 cursor: String?,
-                                 accessToken: String,
-                                 completion: ((ListDisputeEvidenceResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        cursor: String?,
+                                        accessToken: String,
+                                        completion: ((ListDisputeEvidenceResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let listDisputeEvidenceRequest = Serializer.deserialize(ListDisputeEvidenceRequest.self, [:])!
             listDisputeEvidenceRequest.Cursor = cursor
@@ -440,12 +440,12 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/create-dispute-evidence-file
         public func createDisputeEvidenceFile(disputeId: String,
-                                       idempotencyKey: String,
-                                       evidenceType: DisputeEvidenceType?,
-                                       contentType: String?,
-                                       accessToken: String,
-                                       completion: ((CreateDisputeEvidenceFileResponse) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              idempotencyKey: String,
+                                              evidenceType: DisputeEvidenceType?,
+                                              contentType: String?,
+                                              accessToken: String,
+                                              completion: ((CreateDisputeEvidenceFileResponse) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             let createDisputeEvidenceFileRequest = Serializer.deserialize(CreateDisputeEvidenceFileRequest.self, [:])!
             
@@ -466,12 +466,12 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/create-dispute-evidence-text
         public func createDisputeEvidenceText(disputeId: String,
-                                       idempotencyKey: String,
-                                       evidenceType: DisputeEvidenceType?,
-                                       evidenceText: String?,
-                                       accessToken: String,
-                                       completion: ((CreateDisputeEvidenceTextResponse) -> Void)? = nil,
-                                       failed: ((Error) -> Void)? = nil) {
+                                              idempotencyKey: String,
+                                              evidenceType: DisputeEvidenceType?,
+                                              evidenceText: String?,
+                                              accessToken: String,
+                                              completion: ((CreateDisputeEvidenceTextResponse) -> Void)? = nil,
+                                              failed: ((Error) -> Void)? = nil) {
             
             let createDisputeEvidenceTextRequest = Serializer.deserialize(CreateDisputeEvidenceTextRequest.self, [:])!
             
@@ -492,10 +492,10 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/delete-dispute-evidence
         public func deleteDisputeEvidence(disputeId: String,
-                                   evidenceId: String,
-                                   accessToken: String,
-                                   completion: ((SquareupResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          evidenceId: String,
+                                          accessToken: String,
+                                          completion: ((SquareupResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             request(to: "disputes/\(disputeId)/evidence/\(evidenceId)",
                     method: .delete,
@@ -509,10 +509,10 @@ open class PaymentsApi {
         /// You must maintain a copy of any evidence uploaded if you want to reference it later. Evidence cannot be downloaded after you upload it.
         /// Permissions: DISPUTES_READ
         public func retrieveDisputeEvidence(disputeId: String,
-                                     evidenceId: String,
-                                     accessToken: String,
-                                     completion: ((RetrieveDisputeEvidenceResponse) -> Void)? = nil,
-                                     failed: ((Error) -> Void)? = nil) {
+                                            evidenceId: String,
+                                            accessToken: String,
+                                            completion: ((RetrieveDisputeEvidenceResponse) -> Void)? = nil,
+                                            failed: ((Error) -> Void)? = nil) {
             
             
             request(to: "disputes/\(disputeId)/evidence/\(evidenceId)",
@@ -528,9 +528,9 @@ open class PaymentsApi {
         /// Permissions: DISPUTES_WRITE
         /// https://developer.squareup.com/reference/square/disputes-api/submit-evidence
         public func submitEvidence(disputeId: String,
-                            accessToken: String,
-                            completion: ((SubmitEvidenceResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   accessToken: String,
+                                   completion: ((SubmitEvidenceResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             
             request(to: "disputes/\(disputeId)/submit-evidence",
@@ -557,10 +557,10 @@ open class PaymentsApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/checkout-api/list-payment-links
         public func listPaymentLinks(cursor: String?,
-                              limit: Int,
-                              accessToken: String,
-                              completion: ((ListPaymentLinksResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     limit: Int,
+                                     accessToken: String,
+                                     completion: ((ListPaymentLinksResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             let listPaymentLinksRequest = Serializer.deserialize(ListPaymentLinksRequest.self, [:])!
             
@@ -581,15 +581,15 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE, ORDERS_READ, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/checkout-api/create-payment-link
         public func createPaymentLink(idempotencyKey: String?,
-                               description: String?,
-                               quickPay: QuickPay?,
-                               order: Order?,
-                               checkoutOptions: CheckoutOptions?,
-                               prePopulatedData: PrePopulatedData?,
-                               paymentNote: String?,
-                               accessToken: String,
-                               completion: ((CreatePaymentLinkResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      description: String?,
+                                      quickPay: QuickPay?,
+                                      order: Order?,
+                                      checkoutOptions: CheckoutOptions?,
+                                      prePopulatedData: PrePopulatedData?,
+                                      paymentNote: String?,
+                                      accessToken: String,
+                                      completion: ((CreatePaymentLinkResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let createPaymentLinkRequest = Serializer.deserialize(CreatePaymentLinkRequest.self, [:])!
             
@@ -613,9 +613,9 @@ open class PaymentsApi {
         /// Permissions: ORDERS_READ, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/checkout-api/delete-payment-link
         public func deletePaymentLink(id: String,
-                               accessToken: String,
-                               completion: ((DeletePaymentLinkResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      accessToken: String,
+                                      completion: ((DeletePaymentLinkResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             request(to: "online-checkout/payment-links/\(id)",
                     method: .delete,
@@ -629,9 +629,9 @@ open class PaymentsApi {
         /// Permissions: ORDERS_READ
         /// https://developer.squareup.com/reference/square/checkout-api/retrieve-payment-link
         public func retrievePaymentLink(id: String,
-                                 accessToken: String,
-                                 completion: ((RetrievePaymentLinkResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        accessToken: String,
+                                        completion: ((RetrievePaymentLinkResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             request(to: "online-checkout/payment-links/\(id)",
                     method: .get,
@@ -646,10 +646,10 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE, ORDERS_READ, ORDERS_WRITE
         /// https://developer.squareup.com/reference/square/checkout-api/update-payment-link
         public func updatePaymentLink(id: String,
-                               paymentLink: PaymentLink?,
-                               accessToken: String,
-                               completion: ((UpdatePaymentLinkResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      paymentLink: PaymentLink?,
+                                      accessToken: String,
+                                      completion: ((UpdatePaymentLinkResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let updatePaymentLinkRequest = Serializer.deserialize(UpdatePaymentLinkRequest.self, [:])!
             updatePaymentLinkRequest.paymentLink = paymentLink
@@ -677,9 +677,9 @@ open class PaymentsApi {
         /// To learn more about the Web Payments SDK and how to add Apple Pay, see Take an Apple Pay Payment.
         /// https://developer.squareup.com/reference/square/apple-pay-api/register-domain
         public func registerDomain(domainName: String,
-                            accessToken: String,
-                            completion: ((RegisterDomainResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   accessToken: String,
+                                   completion: ((RegisterDomainResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let registerDomainRequest = Serializer.deserialize(RegisterDomainRequest.self, [:])!
             registerDomainRequest.DomainName = domainName
@@ -711,13 +711,13 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/cards-api/list-cards
         public func listCards(cursor: String?,
-                       customerId: String?,
-                       includeDisabled: Bool?,
-                       referenceId: String?,
-                       sortOrder: SortOrder?,
-                       accessToken: String,
-                       completion: ((ListCardsResponse) -> Void)? = nil,
-                       failed: ((Error) -> Void)? = nil) {
+                              customerId: String?,
+                              includeDisabled: Bool?,
+                              referenceId: String?,
+                              sortOrder: SortOrder?,
+                              accessToken: String,
+                              completion: ((ListCardsResponse) -> Void)? = nil,
+                              failed: ((Error) -> Void)? = nil) {
             
             let listCardsRequest = Serializer.deserialize(ListCardsRequest.self, [:])!
             
@@ -740,12 +740,12 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/cards-api/create-card
         public func createCard(idempotencyKey: String,
-                        sourceId: String,
-                        verificationToken: String?,
-                        card: Card?,
-                        accessToken: String,
-                        completion: ((CreateCardResponse) -> Void)? = nil,
-                        failed: ((Error) -> Void)? = nil) {
+                               sourceId: String,
+                               verificationToken: String?,
+                               card: Card?,
+                               accessToken: String,
+                               completion: ((CreateCardResponse) -> Void)? = nil,
+                               failed: ((Error) -> Void)? = nil) {
             
             let createCardRequest = Serializer.deserialize(CreateCardRequest.self, [:])!
             
@@ -766,9 +766,9 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_READ
         /// https://developer.squareup.com/reference/square/cards-api/retrieve-card
         public func retrieveCard(cardId: String,
-                          accessToken: String,
-                          completion: ((RetrieveCardResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 accessToken: String,
+                                 completion: ((RetrieveCardResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             request(to: "cards/\(cardId)",
                     method: .get,
@@ -783,9 +783,9 @@ open class PaymentsApi {
         /// Permissions: PAYMENTS_WRITE
         /// https://developer.squareup.com/reference/square/cards-api/disable-card
         public func disableCard(cardId: String,
-                        accessToken: String,
-                        completion: ((DisableCardResponse) -> Void)? = nil,
-                        failed: ((Error) -> Void)? = nil) {
+                                accessToken: String,
+                                completion: ((DisableCardResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             request(to: "cards/\(cardId)/disable",
                     method: .post,
@@ -806,15 +806,15 @@ open class PaymentsApi {
         /// You can filter payouts by location ID, status, time range, and order them in ascending or descending order. To call this endpoint, set PAYOUTS_READ for the OAuth scope.
         /// https://developer.squareup.com/reference/square/payouts-api/list-payouts
         public func listPayouts(locationId: String?,
-                         status: PayoutStatus?,
-                         beginTime: Date?,
-                         endTime: Date?,
-                         sortOrder: SortOrder?,
-                         cursor: String?,
-                         limit: Int?,
-                         accessToken: String,
-                         completion: ((ListPayoutsResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+                                status: PayoutStatus?,
+                                beginTime: Date?,
+                                endTime: Date?,
+                                sortOrder: SortOrder?,
+                                cursor: String?,
+                                limit: Int?,
+                                accessToken: String,
+                                completion: ((ListPayoutsResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             let listPayoutsRequest = Serializer.deserialize(ListPayoutsRequest.self, [:])!
             
@@ -839,9 +839,9 @@ open class PaymentsApi {
         /// To call this endpoint, set PAYOUTS_READ for the OAuth scope.
         /// https://developer.squareup.com/reference/square/payouts-api/get-payout
         public func getPayout(payoutId: String,
-                       accessToken: String,
-                       completion: ((GetPayoutResponse) -> Void)? = nil,
-                       failed: ((Error) -> Void)? = nil) {
+                              accessToken: String,
+                              completion: ((GetPayoutResponse) -> Void)? = nil,
+                              failed: ((Error) -> Void)? = nil) {
             
             request(to: "payouts/\(payoutId)",
                     method: .get,
@@ -855,12 +855,12 @@ open class PaymentsApi {
         /// To call this endpoint, set PAYOUTS_READ for the OAuth scope.
         /// https://developer.squareup.com/reference/square/payouts-api/list-payout-entries
         public func listPayoutEntries(payoutId: String,
-                               sortOrder: SortOrder?,
-                               cursor: String?,
-                               limit: Int?,
-                               accessToken: String,
-                               completion: ((ListPayoutEntriesResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      sortOrder: SortOrder?,
+                                      cursor: String?,
+                                      limit: Int?,
+                                      accessToken: String,
+                                      completion: ((ListPayoutEntriesResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let listPayoutEntriesRequest = Serializer.deserialize(ListPayoutEntriesRequest.self, [:])!
             
