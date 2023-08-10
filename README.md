@@ -44,7 +44,7 @@ platform :ios, '13.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'Squareup'
+  pod 'Squareup', '~> 1.0.1'
 end
 ```
 
