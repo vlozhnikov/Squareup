@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Serializer {
+open class Serializer {
     
-    class func deserialize<T>(_ object: T.Type, _ json: [String: Any]?, _ id: String = "") -> T! where T : Decodable {
+    public class func deserialize<T>(_ object: T.Type, _ json: [String: Any]?, _ id: String = "") -> T! where T : Decodable {
         
         if json == nil {
             return nil
@@ -31,7 +31,7 @@ public class Serializer {
         return nil
     }
     
-    class func serialize<T>(_ object: T) throws -> [String: Any] where T: Encodable {
+    public class func serialize<T>(_ object: T) throws -> [String: Any] where T: Encodable {
         
         let encoder = JSONEncoder()
         
@@ -44,7 +44,7 @@ public class Serializer {
         return [:]
     }
     
-    class func serialize<T>(_ object: T) -> String? where T: Encodable {
+    public class func serialize<T>(_ object: T) -> String? where T: Encodable {
         
         let encoder = JSONEncoder()
         
