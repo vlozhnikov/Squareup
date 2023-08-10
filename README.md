@@ -7,6 +7,10 @@ The Squareup framework was developed to support the platform for iOS-based devic
  - Minimum Swift Version - 5.0
  - Deployment target - 13.0
 
+## Find an issues?
+
+Please, let me know [here](https://github.com/vlozhnikov/Squareup/issues)
+
 ### How to use?
 
 ```swift
