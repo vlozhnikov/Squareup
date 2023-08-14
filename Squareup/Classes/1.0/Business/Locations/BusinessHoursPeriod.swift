@@ -9,20 +9,20 @@ import Foundation
 
 extension [BusinessHoursPeriod] {
     
-    var friendlyTextWithDays: String {
+    public var friendlyTextWithDays: String {
         return self.map { "\($0.dayOfWeek ?? .Unknown) \($0.friendlyText)" }.joined(separator: "\n")
     }
     
-    var friendlyShortTextWithDays: String {
+    public var friendlyShortTextWithDays: String {
         return self.map { "\($0.dayOfWeek ?? .Unknown) \($0.friendlyShortText)" }.joined(separator: "\n")
     }
     
-    func friendlyText(for day: DayOfWeek) -> String {
+    public func friendlyText(for day: DayOfWeek) -> String {
         let first = self.first(where: { $0.dayOfWeek == day })
         return "\(first?.dayOfWeek ?? DayOfWeek.Unknown) \(first?.friendlyText ?? "-:-")"
     }
     
-    func friendlyShortText(for day: DayOfWeek) -> String {
+    public func friendlyShortText(for day: DayOfWeek) -> String {
         let first = self.first(where: { $0.dayOfWeek == day })
         return "\(first?.friendlyShortText ?? "-:-")"
     }
