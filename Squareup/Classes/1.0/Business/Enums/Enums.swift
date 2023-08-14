@@ -451,7 +451,7 @@ public enum DayOfWeek: String, Codable, Comparable {
     case Saturday = "SAT"
     case Unknown = "Unknown"
     
-    var name: String {
+    public var name: String {
         switch self {
         case .Saturday: return "Saturday"
         case .Sunday: return "Sunday"
@@ -464,7 +464,7 @@ public enum DayOfWeek: String, Codable, Comparable {
         }
     }
     
-    var intValue: Int {
+    public var intValue: Int {
         switch self {
         case .Saturday: return 0
         case .Sunday: return 1
@@ -477,7 +477,7 @@ public enum DayOfWeek: String, Codable, Comparable {
         }
     }
     
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
         self = .Unknown
         if rawValue == 0 {
             self = .Saturday
