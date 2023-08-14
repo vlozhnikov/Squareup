@@ -10,9 +10,9 @@ import Foundation
 open class CatalogObjectResponse: SquareupResponse {
     
     /// - catalogObject: The successfully created or updated CatalogObject.
-    var catalogObject: CatalogObject?
+    public var catalogObject: CatalogObject?
     /// - IdMappings: The mapping between client and server IDs for this upsert.
-    var IdMappings: [CatalogIdMapping]?
+    public var IdMappings: [CatalogIdMapping]?
     
     enum CodingKeys: String, CodingKey {
         case catalogObject = "catalog_object"

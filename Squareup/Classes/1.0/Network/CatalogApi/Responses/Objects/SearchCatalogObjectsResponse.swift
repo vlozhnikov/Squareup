@@ -10,13 +10,13 @@ import Foundation
 open class SearchCatalogObjectsResponse: SquareupResponse {
     
     /// - Cursor: The pagination cursor to be used in a subsequent request. If unset, this is the final response. See Pagination for more information.
-    var Cursor: String?
+    public var Cursor: String?
     /// - Objects: The CatalogObjects returned.
-    var Objects: [CatalogObject]?
+    public var Objects: [CatalogObject]?
     /// - RelatedObjects: A list of CatalogObjects referenced by the objects in the objects field.
-    var RelatedObjects: [CatalogObject]?
+    public var RelatedObjects: [CatalogObject]?
     /// - LatestTime: When the associated product catalog was last updated. Will match the value for end_time or cursor if either field is included in the SearchCatalog request.
-    var LatestTime: String?
+    public var LatestTime: String?
     
     enum CodingKeys: String, CodingKey {
         case Cursor = "cursor"

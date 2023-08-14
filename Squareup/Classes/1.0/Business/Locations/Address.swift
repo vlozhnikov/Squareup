@@ -59,7 +59,7 @@ open class Address: Codable {
         case LastName = "last_name"
     }
     
-    func initCountry(with: String?) {
+    public func initCountry(with: String?) {
         if let first = Country.allNames.first(where: { $0.value == with }) {
             self.country = first.key
             return

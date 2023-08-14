@@ -10,9 +10,9 @@ import Foundation
 open class RetrieveCatalogObjectResponse: SquareupResponse {
     
     /// - Object: The CatalogObjects returned.
-    var Object: CatalogObject?
+    public var Object: CatalogObject?
     /// - RelatedObjects: A list of CatalogObjects referenced by the object in the object field.
-    var RelatedObjects: [CatalogObject]?
+    public var RelatedObjects: [CatalogObject]?
     
     enum CodingKeys: String, CodingKey {
         case Object = "object"

@@ -15,7 +15,7 @@ open class UpdatedItemModifierListsResponse: SquareupResponse {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-    var UpdatedAt: Date?
+    public var UpdatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case UpdatedAt = "updated_at"

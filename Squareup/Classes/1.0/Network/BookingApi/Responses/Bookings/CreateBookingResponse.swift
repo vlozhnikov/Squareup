@@ -9,7 +9,7 @@ import Foundation
 
 open class CreateBookingResponse: SquareupResponse {
     
-    var booking: Booking?
+    public var booking: Booking?
     
     enum CodingKeys: String, CodingKey {
         case booking = "booking"

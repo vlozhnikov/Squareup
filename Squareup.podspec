@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Squareup'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'The Squareup framework was developed to support the platform for iOS-based devices.'
 
 # This description is used to generate tags and improve search results.

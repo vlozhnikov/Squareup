@@ -10,11 +10,11 @@ import Foundation
 open class SearchCatalogItemsResponse: SquareupResponse {
     
     /// - Items: Returned items matching the specified query expressions.
-    var Items: [CatalogObject]?
+    public var Items: [CatalogObject]?
     /// - Cursor: Pagination token used in the next request to return more of the search result.
-    var Cursor: String?
+    public var Cursor: String?
     /// - MatchedVariationIds: Ids of returned item variations matching the specified query expression.
-    var MatchedVariationIds: [String]?
+    public var MatchedVariationIds: [String]?
     
     enum CodingKeys: String, CodingKey {
         case Items = "items"

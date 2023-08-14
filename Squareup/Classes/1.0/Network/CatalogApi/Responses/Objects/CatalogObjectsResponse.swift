@@ -17,9 +17,9 @@ open class CatalogObjectsResponse: SquareupResponse {
     /// UTC: 2020-01-26T02:25:34Z
     ///
     /// Pacific Standard Time with UTC offset: 2020-01-25T18:25:34-08:00
-    var UpdatedAt: Date?
+    public var UpdatedAt: Date?
     /// - IdMappings: The mapping between client and server IDs for this upsert.
-    var IdMappings: [CatalogIdMapping]?
+    public var IdMappings: [CatalogIdMapping]?
     
     enum CodingKeys: String, CodingKey {
         case Objects = "objects"

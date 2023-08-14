@@ -10,9 +10,9 @@ import Foundation
 open class BatchRetrieveCatalogObjectsResponse: SquareupResponse {
     
     /// - Objects: A list of CatalogObjects returned.
-    var Objects: [CatalogObject]?
+    public var Objects: [CatalogObject]?
     /// - RelatedObjects: A list of CatalogObjects referenced by the object in the objects field.
-    var RelatedObjects: [CatalogObject]?
+    public var RelatedObjects: [CatalogObject]?
     
     enum CodingKeys: String, CodingKey {
         case Objects = "objects"

@@ -9,7 +9,7 @@ import Foundation
 
 open class SearchAvailabilityResponse: SquareupResponse {
     
-    var Availabilities: [Availability]?
+    public var Availabilities: [Availability]?
     
     enum CodingKeys: String, CodingKey {
         case Availabilities = "availabilities"
