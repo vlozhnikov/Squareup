@@ -28,6 +28,7 @@ class FinancialsApi {
                                      limit: Int?,
                                      locationId: String,
                                      accessToken: String,
+                                     queue: DispatchQueue = .main,
                                      completion: ((ListBankAccountsResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
                 
@@ -42,6 +43,7 @@ class FinancialsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listBankAccountsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -51,6 +53,7 @@ class FinancialsApi {
         /// https://developer.squareup.com/reference/square/bank-accounts-api/get-bank-account-by-v1-id
         public func getBankAccountByV1Id(v1BankAccountId: String,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((GetBankAccountByV1IdResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -58,6 +61,7 @@ class FinancialsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -67,6 +71,7 @@ class FinancialsApi {
         /// https://developer.squareup.com/reference/square/bank-accounts-api/get-bank-account
         public func getBankAccount(bankAccountId: String,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((GetBankAccountResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -74,6 +79,7 @@ class FinancialsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

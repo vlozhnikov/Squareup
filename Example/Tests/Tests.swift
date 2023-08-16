@@ -27,7 +27,7 @@ class Tests: XCTestCase {
         
         let listLocations = XCTestExpectation(description: "listLocations")
         
-        BusinessApi.locations.listLocations(accessToken: self.accessToken, completion: { response in
+        BusinessApi.locations.listLocations(accessToken: self.accessToken, queue: .global(), completion: { response in
             
             XCTAssert(true, "Pass")
             listLocations.fulfill()

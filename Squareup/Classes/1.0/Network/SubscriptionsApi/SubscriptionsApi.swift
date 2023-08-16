@@ -40,6 +40,7 @@ open class SubscriptionsApi {
                                        source: SubscriptionSource?,
                                        phases: [Phase]?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((CreateSubscriptionResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -63,6 +64,7 @@ open class SubscriptionsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createSubscriptionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -77,6 +79,7 @@ open class SubscriptionsApi {
                                         query: SearchSubscriptionsQuery?,
                                         include: [String]?,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((SearchSubscriptionsResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -91,6 +94,7 @@ open class SubscriptionsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchSubscriptionsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -101,6 +105,7 @@ open class SubscriptionsApi {
         public func retrieveSubscription(subscriptionId: String,
                                          include: String?,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((RetrieveSubscriptionResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
              
@@ -112,6 +117,7 @@ open class SubscriptionsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveSubscriptionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -123,6 +129,7 @@ open class SubscriptionsApi {
         public func updateSubscription(subscriptionId: String,
                                        subscription: Subscription?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((UpdateSubscriptionResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -133,6 +140,7 @@ open class SubscriptionsApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateSubscriptionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -143,12 +151,14 @@ open class SubscriptionsApi {
         public func deleteSubscription(subscriptionId: String,
                                        actionId: String,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((DeleteSubscriptionResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
            
             request(to: "subscriptions/\(subscriptionId)/actions/\(actionId)",
                     method: .delete,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -158,12 +168,14 @@ open class SubscriptionsApi {
         /// Permissions: SUBSCRIPTIONS_WRITE
         public func cancelSubscription(subscriptionId: String,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((CancelSubscriptionResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
            
             request(to: "subscriptions/\(subscriptionId)/cancel",
                     method: .post,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -175,6 +187,7 @@ open class SubscriptionsApi {
                                            cursor: String?,
                                            limit: Int?,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((ListSubscriptionEventsResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -188,6 +201,7 @@ open class SubscriptionsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listSubscriptionEventsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -202,6 +216,7 @@ open class SubscriptionsApi {
                                       resumeChangeTiming: ChangeTiming?,
                                       pauseReason: String?,
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((PauseSubscriptionResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -217,6 +232,7 @@ open class SubscriptionsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: pauseSubscriptionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -228,6 +244,7 @@ open class SubscriptionsApi {
                                        resumeEffectiveDate: Date?,
                                        resumeChangeTiming: ChangeTiming?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((ResumeSubscriptionResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -240,6 +257,7 @@ open class SubscriptionsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: resumeSubscriptionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -252,6 +270,7 @@ open class SubscriptionsApi {
                              newPlanVariationId: String,
                              phases: [PhaseInput]?,
                              accessToken: String,
+                             queue: DispatchQueue = .main,
                              completion: ((SwapPlanResponse) -> Void)? = nil,
                              failed: ((Error) -> Void)? = nil) {
             
@@ -264,6 +283,7 @@ open class SubscriptionsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: swapPlanRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

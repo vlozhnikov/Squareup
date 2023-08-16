@@ -33,6 +33,7 @@ open class GiftCardsApi {
                                   cursor: String?,
                                   customer_id: String?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((ListGiftCardsResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -48,6 +49,7 @@ open class GiftCardsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listGiftCardsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -60,6 +62,7 @@ open class GiftCardsApi {
                                    locationId: String,
                                    giftCard: GiftCard,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((CreateGiftCardResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -73,6 +76,7 @@ open class GiftCardsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createGiftCardRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -82,6 +86,7 @@ open class GiftCardsApi {
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card-from-gan
         public func retrieveGiftCardFromGAN(gan: String,
                                             accessToken: String,
+                                            queue: DispatchQueue = .main,
                                             completion: ((RetrieveGiftCardFromGANResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -92,6 +97,7 @@ open class GiftCardsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: retrieveGiftCardFromGANRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -101,6 +107,7 @@ open class GiftCardsApi {
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card-from-nonce
         public func retrieveGiftCardFromNonce(nonce: String,
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((RetrieveGiftCardFromNonceResponse) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -111,6 +118,7 @@ open class GiftCardsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: retrieveGiftCardFromNonceRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -121,6 +129,7 @@ open class GiftCardsApi {
         public func linkCustomerToGiftCard(giftCardId: String,
                                            customerId: String,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((LinkCustomerToGiftCardResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -131,6 +140,7 @@ open class GiftCardsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: linkCustomerToGiftCardRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -141,6 +151,7 @@ open class GiftCardsApi {
         public func uplinkCustomerFromGiftCard(giftCardId: String,
                                                customerId: String,
                                                accessToken: String,
+                                               queue: DispatchQueue = .main,
                                                completion: ((UnlinkCustomerFromGiftCardResponse) -> Void)? = nil,
                                                failed: ((Error) -> Void)? = nil) {
             
@@ -151,6 +162,7 @@ open class GiftCardsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: unlinkCustomerFromGiftCardRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -160,6 +172,7 @@ open class GiftCardsApi {
         /// https://developer.squareup.com/reference/square/gift-cards-api/retrieve-gift-card
         public func retrieveGiftCard(id: String,
                                      accessToken: String,
+                                     queue: DispatchQueue = .main,
                                      completion: ((RetrieveGiftCardResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
             
@@ -167,6 +180,7 @@ open class GiftCardsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -192,6 +206,7 @@ open class GiftCardsApi {
                                            cursor: String?,
                                            sortOrder: SortOrder?,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((ListGiftCardActivitiesResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -211,6 +226,7 @@ open class GiftCardsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listGiftCardActivitiesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -222,6 +238,7 @@ open class GiftCardsApi {
         public func createGiftCardActivity(idempotencyKey: String,
                                            giftCardActivity: GiftCardActivity,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((CreateGiftCardActivityResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -234,6 +251,7 @@ open class GiftCardsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createGiftCardActivityRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

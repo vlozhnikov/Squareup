@@ -33,10 +33,11 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/create-team-member
         public func createTeamMember(teamMember: TeamMember,
-                              idempotencyKey: String?,
-                              accessToken: String,
-                              completion: ((CreateTeamMemberResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     idempotencyKey: String?,
+                                     accessToken: String,
+                                     queue: DispatchQueue = .main,
+                                     completion: ((CreateTeamMemberResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             let createTeamMemberRequest = Serializer.deserialize(CreateTeamMemberRequest.self, [:])!
             createTeamMemberRequest.IdempotencyKey = idempotencyKey
@@ -46,6 +47,7 @@ open class TeamApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createTeamMemberRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -57,9 +59,10 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/bulk-create-team-members
         public func bulkCreateTeamMembers(teamMembers: [TeamMember],
-                                   accessToken: String,
-                                   completion: ((BulkCreateTeamMembersResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          accessToken: String,
+                                          queue: DispatchQueue = .main,
+                                          completion: ((BulkCreateTeamMembersResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             let bulkCreateTeamMembersRequest = Serializer.deserialize(BulkCreateTeamMembersRequest.self, [:])!
             
@@ -77,6 +80,7 @@ open class TeamApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkCreateTeamMembersRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -86,9 +90,10 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/bulk-update-team-members
         public func bulkUpdateTeamMembers(teamMembers: [TeamMember],
-                                   accessToken: String,
-                                   completion: ((BulkUpdateTeamMembersResponse) -> Void)? = nil,
-                                   failed: ((Error) -> Void)? = nil) {
+                                          accessToken: String,
+                                          queue: DispatchQueue = .main,
+                                          completion: ((BulkUpdateTeamMembersResponse) -> Void)? = nil,
+                                          failed: ((Error) -> Void)? = nil) {
             
             let bulkUpdateTeamMembersRequest = Serializer.deserialize(BulkUpdateTeamMembersRequest.self, [:])!
             
@@ -106,6 +111,7 @@ open class TeamApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkUpdateTeamMembersRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -119,11 +125,12 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/team-api/search-team-members
         public func searchTeamMembers(filter: SearchTeamMembersFilter?,
-                               limit: Int?,
-                               cursor: String?,
-                               accessToken: String,
-                               completion: ((SearchTeamMembersResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      limit: Int?,
+                                      cursor: String?,
+                                      accessToken: String,
+                                      queue: DispatchQueue = .main,
+                                      completion: ((SearchTeamMembersResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let searchTeamMembersRequest = Serializer.deserialize(SearchTeamMembersRequest.self, [:])!
             
@@ -137,6 +144,7 @@ open class TeamApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchTeamMembersRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -146,13 +154,15 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/team-api/retrieve-team-member
         public func retrieveTeamMember(teamMemberId: String,
-                                accessToken: String,
-                                completion: ((RetrieveTeamMemberResponse) -> Void)? = nil,
-                                failed: ((Error) -> Void)? = nil) {
+                                       accessToken: String,
+                                       queue: DispatchQueue = .main,
+                                       completion: ((RetrieveTeamMemberResponse) -> Void)? = nil,
+                                       failed: ((Error) -> Void)? = nil) {
             
             request(to: "team-members/\(teamMemberId)",
                     method: .get,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -162,10 +172,11 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/update-team-member
         public func updateTeamMember(teamMemberId: String,
-                              teamMember: TeamMember,
-                              accessToken: String,
-                              completion: ((UpdateTeamMemberResponse) -> Void)? = nil,
-                              failed: ((Error) -> Void)? = nil) {
+                                     teamMember: TeamMember,
+                                     accessToken: String,
+                                     queue: DispatchQueue = .main,
+                                     completion: ((UpdateTeamMemberResponse) -> Void)? = nil,
+                                     failed: ((Error) -> Void)? = nil) {
             
             let updateTeamMemberRequest = Serializer.deserialize(UpdateTeamMemberRequest.self, [:])!
             updateTeamMemberRequest.teamMember = teamMember
@@ -174,6 +185,7 @@ open class TeamApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateTeamMemberRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -183,14 +195,16 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/team-api/retrieve-wage-setting
         public func retrieveWageSetting(teamMemberId: String,
-                                 accessToken: String,
-                                 completion: ((RetrieveWageSettingResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        accessToken: String,
+                                        queue: DispatchQueue = .main,
+                                        completion: ((RetrieveWageSettingResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             request(to: "team-members/\(teamMemberId)/wage-setting",
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -200,10 +214,11 @@ open class TeamApi {
         /// Permissions: EMPLOYEES_WRITE
         /// https://developer.squareup.com/reference/square/team-api/update-wage-setting
         public func updateWageSetting(teamMemberId: String,
-                               wageSetting: WageSetting,
-                               accessToken: String,
-                               completion: ((UpdateWageSettingResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      wageSetting: WageSetting,
+                                      accessToken: String,
+                                      queue: DispatchQueue = .main,
+                                      completion: ((UpdateWageSettingResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             let updateWageSettingRequest = Serializer.deserialize(UpdateWageSettingRequest.self, [:])!
             updateWageSettingRequest.wageSetting = wageSetting
@@ -212,6 +227,7 @@ open class TeamApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateWageSettingRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -229,11 +245,12 @@ open class TeamApi {
         /// Permissions:TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/list-break-types
         public func listBreakTypes(locationId: String,
-                            limit: Int?,
-                            cursor: String?,
-                            accessToken: String,
-                            completion: ((ListBreakTypesResponse) -> Void)? = nil,
-                            failed: ((Error) -> Void)? = nil) {
+                                   limit: Int?,
+                                   cursor: String?,
+                                   accessToken: String,
+                                   queue: DispatchQueue = .main,
+                                   completion: ((ListBreakTypesResponse) -> Void)? = nil,
+                                   failed: ((Error) -> Void)? = nil) {
             
             let listBreakTypesRequest = Serializer.deserialize(ListBreakTypesRequest.self, [:])!
             
@@ -246,6 +263,7 @@ open class TeamApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listBreakTypesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -262,10 +280,11 @@ open class TeamApi {
         /// Permissions:TIMECARDS_SETTINGS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/create-break-type
         public func createBreakType(idempotencyKey: String?,
-                             breakType: BreakType?,
-                             accessToken: String,
-                             completion: ((CreateBreakTypeResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    breakType: BreakType?,
+                                    accessToken: String,
+                                    queue: DispatchQueue = .main,
+                                    completion: ((CreateBreakTypeResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             let createBreakTypeRequest = Serializer.deserialize(CreateBreakTypeRequest.self, [:])!
             
@@ -276,6 +295,7 @@ open class TeamApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createBreakTypeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -285,14 +305,16 @@ open class TeamApi {
         /// Permissions:TIMECARDS_SETTINGS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/delete-break-type
         public func deleteBreakType(id: String,
-                             accessToken: String,
-                             completion: ((SquareupResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    accessToken: String,
+                                    queue: DispatchQueue = .main,
+                                    completion: ((SquareupResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             request(to: "labor/break-types/\(id)",
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -301,14 +323,16 @@ open class TeamApi {
         /// Permissions:TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/get-break-type
         public func getBreakType(id: String,
-                          accessToken: String,
-                          completion: ((GetBreakTypeResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 accessToken: String,
+                                 queue: DispatchQueue = .main,
+                                 completion: ((GetBreakTypeResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             request(to: "labor/break-types/\(id)",
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -317,10 +341,11 @@ open class TeamApi {
         /// Permissions:TIMECARDS_SETTINGS_WRITE, TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/update-break-type
         public func updateBreakType(id: String,
-                             breakType: BreakType?,
-                             accessToken: String,
-                             completion: ((UpdateBreakTypeResponse) -> Void)? = nil,
-                             failed: ((Error) -> Void)? = nil) {
+                                    breakType: BreakType?,
+                                    accessToken: String,
+                                    queue: DispatchQueue = .main,
+                                    completion: ((UpdateBreakTypeResponse) -> Void)? = nil,
+                                    failed: ((Error) -> Void)? = nil) {
             
             let updateBreakTypeRequest = Serializer.deserialize(UpdateBreakTypeRequest.self, [:])!
             updateBreakTypeRequest.breakType = breakType
@@ -329,6 +354,7 @@ open class TeamApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateBreakTypeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -350,10 +376,11 @@ open class TeamApi {
         /// Permissions:TIMECARDS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/create-shift
         public func createShift(idempotencyKey: String?,
-                         shift: Shift?,
-                         accessToken: String,
-                         completion: ((CreateShiftResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+                                shift: Shift?,
+                                accessToken: String,
+                                queue: DispatchQueue = .main,
+                                completion: ((CreateShiftResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             let createShiftRequest = Serializer.deserialize(CreateShiftRequest.self, [:])!
             
@@ -364,6 +391,7 @@ open class TeamApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createShiftRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -386,11 +414,12 @@ open class TeamApi {
         /// Permissions:TIMECARDS_READ
         /// https://developer.squareup.com/reference/square/labor-api/search-shifts
         public func searchShifts(query: ShiftQuery?,
-                          limit: Int?,
-                          cursor: String?,
-                          accessToken: String,
-                          completion: ((SearchShiftsResponse) -> Void)? = nil,
-                          failed: ((Error) -> Void)? = nil) {
+                                 limit: Int?,
+                                 cursor: String?,
+                                 accessToken: String,
+                                 queue: DispatchQueue = .main,
+                                 completion: ((SearchShiftsResponse) -> Void)? = nil,
+                                 failed: ((Error) -> Void)? = nil) {
             
             let searchShiftsRequest = Serializer.deserialize(SearchShiftsRequest.self, [:])!
             
@@ -401,6 +430,7 @@ open class TeamApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchShiftsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -409,14 +439,16 @@ open class TeamApi {
         /// Permissions:TIMECARDS_WRITE
         /// https://developer.squareup.com/reference/square/labor-api/delete-shift
         public func deleteShift(id: String,
-                         accessToken: String,
-                         completion: ((SquareupResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+                                accessToken: String,
+                                queue: DispatchQueue = .main,
+                                completion: ((SquareupResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             request(to: "labor/shifts/\(id)",
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -425,14 +457,16 @@ open class TeamApi {
         /// Permissions:TIMECARDS_READ
         /// https://developer.squareup.com/reference/square/labor-api/get-shift
         public func getShift(id: String,
-                      accessToken: String,
-                      completion: ((GetShiftResponse) -> Void)? = nil,
-                      failed: ((Error) -> Void)? = nil) {
+                             accessToken: String,
+                             queue: DispatchQueue = .main,
+                             completion: ((GetShiftResponse) -> Void)? = nil,
+                             failed: ((Error) -> Void)? = nil) {
             
             request(to: "labor/shifts/\(id)",
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -444,10 +478,11 @@ open class TeamApi {
         /// Permissions:TIMECARDS_WRITE, TIMECARDS_READ
         /// https://developer.squareup.com/reference/square/labor-api/update-shift
         public func updateShift(id: String,
-                         shift: Shift?,
-                         accessToken: String,
-                         completion: ((UpdateShiftResponse) -> Void)? = nil,
-                         failed: ((Error) -> Void)? = nil) {
+                                shift: Shift?,
+                                accessToken: String,
+                                queue: DispatchQueue = .main,
+                                completion: ((UpdateShiftResponse) -> Void)? = nil,
+                                failed: ((Error) -> Void)? = nil) {
             
             let updateShiftRequest = Serializer.deserialize(UpdateShiftRequest.self, [:])!
             updateShiftRequest.shift = shift
@@ -456,6 +491,7 @@ open class TeamApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateShiftRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -464,11 +500,12 @@ open class TeamApi {
         /// Permissions:EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/labor-api/list-team-member-wages
         public func listTeamMemberWages(teamMemberId: String?,
-                                 limit: Int?,
-                                 cursor: String?,
-                                 accessToken: String,
-                                 completion: ((ListTeamMemberWagesResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        limit: Int?,
+                                        cursor: String?,
+                                        accessToken: String,
+                                        queue: DispatchQueue = .main,
+                                        completion: ((ListTeamMemberWagesResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let listTeamMemberWagesRequest = Serializer.deserialize(ListTeamMemberWagesRequest.self, [:])!
             
@@ -481,6 +518,7 @@ open class TeamApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listTeamMemberWagesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -489,14 +527,16 @@ open class TeamApi {
         /// Permissions:EMPLOYEES_READ
         /// https://developer.squareup.com/reference/square/labor-api/get-team-member-wage
         public func getTeamMemberWage(id: String,
-                               accessToken: String,
-                               completion: ((GetTeamMemberWageResponse) -> Void)? = nil,
-                               failed: ((Error) -> Void)? = nil) {
+                                      accessToken: String,
+                                      queue: DispatchQueue = .main,
+                                      completion: ((GetTeamMemberWageResponse) -> Void)? = nil,
+                                      failed: ((Error) -> Void)? = nil) {
             
             request(to: "labor/team-member-wages/\(id)",
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -505,10 +545,11 @@ open class TeamApi {
         /// Permissions:TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/list-workweek-configs
         public func listWorkweekConfigs(limit: Int?,
-                                 cursor: String?,
-                                 accessToken: String,
-                                 completion: ((ListWorkweekConfigsResponse) -> Void)? = nil,
-                                 failed: ((Error) -> Void)? = nil) {
+                                        cursor: String?,
+                                        accessToken: String,
+                                        queue: DispatchQueue = .main,
+                                        completion: ((ListWorkweekConfigsResponse) -> Void)? = nil,
+                                        failed: ((Error) -> Void)? = nil) {
             
             let listWorkweekConfigsRequest = Serializer.deserialize(ListWorkweekConfigsRequest.self, [:])!
             
@@ -520,6 +561,7 @@ open class TeamApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listWorkweekConfigsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -528,10 +570,11 @@ open class TeamApi {
         /// Permissions:TIMECARDS_SETTINGS_WRITE, TIMECARDS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/labor-api/update-workweek-config
         public func updateWorkweekConfig(id: String,
-                                  workweekConfig: WorkweekConfig?,
-                                  accessToken: String,
-                                  completion: ((UpdateWorkweekConfigResponse) -> Void)? = nil,
-                                  failed: ((Error) -> Void)? = nil) {
+                                         workweekConfig: WorkweekConfig?,
+                                         accessToken: String,
+                                         queue: DispatchQueue = .main,
+                                         completion: ((UpdateWorkweekConfigResponse) -> Void)? = nil,
+                                         failed: ((Error) -> Void)? = nil) {
             
             let updateWorkweekConfigRequest = Serializer.deserialize(UpdateWorkweekConfigRequest.self, [:])!
             updateWorkweekConfigRequest.workweekConfig = workweekConfig
@@ -540,6 +583,7 @@ open class TeamApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateWorkweekConfigRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

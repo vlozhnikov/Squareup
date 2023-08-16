@@ -33,6 +33,7 @@ open class CustomersApi {
                                   sortField: CustomerSortField,
                                   sortOrder: SortOrder,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((ListCustomersResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -48,6 +49,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCustomersRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -76,6 +78,7 @@ open class CustomersApi {
                                    taxIds: CustomerTaxIds?,
                                    idempotencyKey: String?,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((CreateCustomersResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -98,6 +101,7 @@ open class CustomersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createCustomersRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -111,6 +115,7 @@ open class CustomersApi {
                                     limit: Int?,
                                     query: CustomerQuery?,
                                     accessToken: String,
+                                    queue: DispatchQueue = .main,
                                     completion: ((SearchCustomersResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
             
@@ -123,6 +128,7 @@ open class CustomersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchCustomerRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -138,6 +144,7 @@ open class CustomersApi {
         public func deleteCustomer(customerId: String,
                                    version: Int?,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((SquareupResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -149,6 +156,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: deleteCustomerRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -157,6 +165,7 @@ open class CustomersApi {
         /// Permissions: CUSTOMERS_READ
         public func retrieveCustomer(customerId: String,
                                      accessToken: String,
+                                     queue: DispatchQueue = .main,
                                      completion: ((RetrieveCustomerResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
             
@@ -164,6 +173,7 @@ open class CustomersApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -191,6 +201,7 @@ open class CustomersApi {
                                    version: Int?,
                                    taxIds: CustomerTaxIds?,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((UpdateCustomerResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -213,6 +224,7 @@ open class CustomersApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateCustomerRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -224,6 +236,7 @@ open class CustomersApi {
         public func removeGroupFromCustomer(customerId: String,
                                             groupId: String,
                                             accessToken: String,
+                                            queue: DispatchQueue = .main,
                                             completion: ((SquareupResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -231,6 +244,7 @@ open class CustomersApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -242,6 +256,7 @@ open class CustomersApi {
         public func addGroupFromCustomer(customerId: String,
                                          groupId: String,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((SquareupResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -249,6 +264,7 @@ open class CustomersApi {
                     method: .put,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -268,6 +284,7 @@ open class CustomersApi {
         public func listCustomerCustomAttributeDefinitions(limit: Int?,
                                                            cursor: String?,
                                                            accessToken: String,
+                                                           queue: DispatchQueue = .main,
                                                            completion: ((ListCustomerCustomAttributeDefinitionsResponse) -> Void)? = nil,
                                                            failed: ((Error) -> Void)? = nil) {
             
@@ -281,6 +298,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCustomerCustomAttributeDefinitionsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -297,6 +315,7 @@ open class CustomersApi {
         public func createCustomerCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
                                                             idempotencyKey: String?,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((CreateCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -309,6 +328,7 @@ open class CustomersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createCustomerCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -321,6 +341,7 @@ open class CustomersApi {
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/delete-customer-custom-attribute-definition
         public func deleteCustomerCustomAttributeDefinition(key: String,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((SquareupResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -328,6 +349,7 @@ open class CustomersApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -339,6 +361,7 @@ open class CustomersApi {
         public func retrieveCustomerCustomAttributeDefinition(key: String,
                                                               version: Int?,
                                                               accessToken: String,
+                                                              queue: DispatchQueue = .main,
                                                               completion: ((RetrieveCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                               failed: ((Error) -> Void)? = nil) {
             
@@ -350,6 +373,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveCustomerCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -364,6 +388,7 @@ open class CustomersApi {
                                                             customAttributeDefinition: CustomAttributeDefinition?,
                                                             idempotencyKey: String?,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((UpdateCustomerCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -376,6 +401,7 @@ open class CustomersApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateCustomerCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -390,6 +416,7 @@ open class CustomersApi {
         ///  https://developer.squareup.com/reference/square/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes
         public func bulkUpsertCustomerCustomAttributes(value: [String: BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest]?,
                                                        accessToken: String,
+                                                       queue: DispatchQueue = .main,
                                                        completion: ((BulkUpsertCustomerCustomAttributesResponse) -> Void)? = nil,
                                                        failed: ((Error) -> Void)? = nil) {
             
@@ -400,6 +427,7 @@ open class CustomersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkUpsertCustomerCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -415,6 +443,7 @@ open class CustomersApi {
                                                  cursor: String?,
                                                  withDefinitions: Bool?,
                                                  accessToken: String,
+                                                 queue: DispatchQueue = .main,
                                                  completion: ((ListCustomerCustomAttributesResponse) -> Void)? = nil,
                                                  failed: ((Error) -> Void)? = nil) {
             
@@ -429,6 +458,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCustomerCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -440,6 +470,7 @@ open class CustomersApi {
         public func deleteCustomerCustomAttribute(customerId: String,
                                                   key: String,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((SquareupResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -447,6 +478,7 @@ open class CustomersApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -461,6 +493,7 @@ open class CustomersApi {
                                                     withDefinitions: Bool?,
                                                     version: Int?,
                                                     accessToken: String,
+                                                    queue: DispatchQueue = .main,
                                                     completion: ((RetrieveCustomerCustomAttributeResponse) -> Void)? = nil,
                                                     failed: ((Error) -> Void)? = nil) {
             
@@ -474,6 +507,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveCustomerCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -489,6 +523,7 @@ open class CustomersApi {
                                                   customAttribute: CustomAttribute?,
                                                   idempotencyKey: String?,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((UpsertCustomerCustomAttributeResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -501,6 +536,7 @@ open class CustomersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: upsertCustomerCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -521,6 +557,7 @@ open class CustomersApi {
         public func listCustomerGroups(cursor: String?,
                                        limit: Int?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((ListCustomerGroupsResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -534,6 +571,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCustomerGroupsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -545,6 +583,7 @@ open class CustomersApi {
         public func createCustomerGroup(idempotencyKey: String?,
                                         group: CustomerGroup,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((CreateCustomerGroupResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -557,6 +596,7 @@ open class CustomersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createCustomerGroupRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -566,6 +606,7 @@ open class CustomersApi {
         /// https://developer.squareup.com/reference/square/customer-groups-api/delete-customer-group
         public func deleteCustomerGroup(groupId: String,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((SquareupResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -573,6 +614,7 @@ open class CustomersApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -582,6 +624,7 @@ open class CustomersApi {
         /// https://developer.squareup.com/reference/square/customer-groups-api/retrieve-customer-group
         public func retrieveCustomerGroup(groupId: String,
                                           accessToken: String,
+                                          queue: DispatchQueue = .main,
                                           completion: ((RetrieveCustomerGroupResponse) -> Void)? = nil,
                                           failed: ((Error) -> Void)? = nil) {
             
@@ -589,6 +632,7 @@ open class CustomersApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -599,6 +643,7 @@ open class CustomersApi {
         public func updateCustomerGroup(groupId: String,
                                         group: CustomerGroup?,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((UpdateCustomerGroupResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -609,6 +654,7 @@ open class CustomersApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateCustomerGroupRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -628,6 +674,7 @@ open class CustomersApi {
         public func listCustomerSegments(cursor: String?,
                                          limit: Int?,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((ListCustomerSegmentsResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -641,6 +688,7 @@ open class CustomersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCustomerSegmentsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -650,6 +698,7 @@ open class CustomersApi {
         /// https://developer.squareup.com/reference/square/customer-segments-api/retrieve-customer-segment
         public func retrieveCustomerSegment(segmentId: String,
                                             accessToken: String,
+                                            queue: DispatchQueue = .main,
                                             completion: ((RetrieveCustomerSegmentResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -657,6 +706,7 @@ open class CustomersApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

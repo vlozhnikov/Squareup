@@ -45,6 +45,7 @@ open class SquareupApi {
                                       request: Codable? = nil,
                                       printRequest: Bool = false,
                                       printResponse: Bool = false,
+                                      queue: DispatchQueue = .main,
                                       completion: ((T) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
         
@@ -67,7 +68,7 @@ open class SquareupApi {
         AF.request(url, method: method,
                    parameters: parameters,
                    encoding: encoding,
-                   headers: headers).responseDecodable(of: T.self) { response in
+                   headers: headers).responseDecodable(of: T.self, queue: queue) { response in
             
             if printResponse {
                 print(response)
@@ -95,6 +96,7 @@ open class SquareupApi {
                                    request: Codable? = nil,
                                    printRequest: Bool = false,
                                    printResponse: Bool = false,
+                                   queue: DispatchQueue = .main,
                                    completion: ((T) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
         
@@ -124,7 +126,7 @@ open class SquareupApi {
                 }
             }
         }, to: url, method: .post, headers: headers)
-        .responseDecodable(of: T.self) { response in
+        .responseDecodable(of: T.self, queue: queue) { response in
             switch response.result {
             case .failure(let error): failed?(error)
             case .success(let value):

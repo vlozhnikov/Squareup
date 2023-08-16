@@ -33,6 +33,7 @@ open class BookingApi {
                                 startAtMin: Date?,
                                 startAtMax: Date?,
                                 accessToken: String,
+                                queue: DispatchQueue = .main,
                                 completion: ((ListBookingResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
             
@@ -50,6 +51,7 @@ open class BookingApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listBookingRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -70,6 +72,7 @@ open class BookingApi {
         public func createBooking(booking: Booking,
                                   idempotencyKey: String?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((CreateBookingResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -82,6 +85,7 @@ open class BookingApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createBookingRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -92,6 +96,7 @@ open class BookingApi {
         /// https://developer.squareup.com/reference/square/bookings-api/search-availability
         public func searchaAvailability(query: SearchAvailabilityQuery,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((SearchAvailabilityResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -102,6 +107,7 @@ open class BookingApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchAvailabilityRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -110,6 +116,7 @@ open class BookingApi {
         /// Permissions: APPOINTMENTS_BUSINESS_SETTINGS_READ
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-business-booking-profile
         public func retrieveBusinessBookingProfile(accessToken: String,
+                                                   queue: DispatchQueue = .main,
                                                    completion: ((RetrieveBusinessBookingProfileResponse) -> Void)? = nil,
                                                    failed: ((Error) -> Void)? = nil) {
             
@@ -117,6 +124,7 @@ open class BookingApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -129,6 +137,7 @@ open class BookingApi {
                                                   cursor: String?,
                                                   locationId: String,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((ListTeamMemberBookingProfilesResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -144,6 +153,7 @@ open class BookingApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listTeamMemberBookingProfilesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -153,6 +163,7 @@ open class BookingApi {
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-team-member-booking-profile
         public func retriveTeamMemberBookingProfile(teamMemberId: String,
                                                     accessToken: String,
+                                                    queue: DispatchQueue = .main,
                                                     completion: ((RetriveTeamMemberBookingProfileResponse) -> Void)? = nil,
                                                     failed: ((Error) -> Void)? = nil) {
             
@@ -160,6 +171,7 @@ open class BookingApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -170,6 +182,7 @@ open class BookingApi {
         /// https://developer.squareup.com/reference/square/bookings-api/retrieve-booking
         public func retriveBoooking(bookingId: String,
                                     accessToken: String,
+                                    queue: DispatchQueue = .main,
                                     completion: ((RetrieveBookingResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
             
@@ -177,6 +190,7 @@ open class BookingApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -191,6 +205,7 @@ open class BookingApi {
                                    booking: Booking,
                                    idempotencyKey: String?,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((UpdateBookingResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -202,6 +217,7 @@ open class BookingApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateBookingRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -216,6 +232,7 @@ open class BookingApi {
                                    bookingVersion: Int,
                                    idempotencyKey: String?,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((CancelBookingResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -227,6 +244,7 @@ open class BookingApi {
                     method: .post,
                     accessToken: accessToken,
                     request: cancelBookingRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -246,6 +264,7 @@ open class BookingApi {
         public func listBookingCustomAttributeDefinitions(limit: Int?,
                                                           cursor: String?,
                                                           accessToken: String,
+                                                          queue: DispatchQueue = .main,
                                                           completion: ((ListBookingCustomAttributeDefinitionsResponse) -> Void)? = nil,
                                                           failed: ((Error) -> Void)? = nil) {
             
@@ -259,6 +278,7 @@ open class BookingApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listBookingCustomAttributeDefinitionsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -271,6 +291,7 @@ open class BookingApi {
         public func createBookingCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
                                                            idempotencyKey: String,
                                                            accessToken: String,
+                                                           queue: DispatchQueue = .main,
                                                            completion: ((CreateBookingCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                            failed: ((Error) -> Void)? = nil) {
             
@@ -283,6 +304,7 @@ open class BookingApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createBookingCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -294,6 +316,7 @@ open class BookingApi {
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/delete-booking-custom-attribute-definition
         public func deleteBookingCustomAttributeDefinition(key: String,
                                                            accessToken: String,
+                                                           queue: DispatchQueue = .main,
                                                            completion: ((SquareupResponse) -> Void)? = nil,
                                                            failed: ((Error) -> Void)? = nil) {
             
@@ -301,6 +324,7 @@ open class BookingApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -312,6 +336,7 @@ open class BookingApi {
         public func retrieveBookingCustomAttributeDefinition(key: String,
                                                              version: Int,
                                                              accessToken: String,
+                                                             queue: DispatchQueue = .main,
                                                              completion: ((RetrieveBookingCustomAttributeDefinition) -> Void)? = nil,
                                                              failed: ((Error) -> Void)? = nil) {
             
@@ -323,6 +348,7 @@ open class BookingApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveBookingCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -336,6 +362,7 @@ open class BookingApi {
                                                            customAttributeDefinition: CustomAttributeDefinition,
                                                            idempotencyKey: String?,
                                                            accessToken: String,
+                                                           queue: DispatchQueue = .main,
                                                            completion: ((UpdateBookingCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                            failed: ((Error) -> Void)? = nil) {
             
@@ -348,6 +375,7 @@ open class BookingApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateBookingCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -359,6 +387,7 @@ open class BookingApi {
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/bulk-delete-booking-custom-attributes
         public func bulkDeleteBookingCustomAttributes(values: [String: BookingCustomAttributeDeleteRequest],
                                                       accessToken: String,
+                                                      queue: DispatchQueue = .main,
                                                       completion: ((BulkDeleteBookingCustomAttributesResponse) -> Void)? = nil,
                                                       failed: ((Error) -> Void)? = nil) {
             
@@ -369,6 +398,7 @@ open class BookingApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkDeleteBookingCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -380,6 +410,7 @@ open class BookingApi {
         /// https://developer.squareup.com/reference/square/booking-custom-attributes-api/bulk-upsert-booking-custom-attributes
         public func bulkUpsertBookingCustomAttributes(values: [String: BookingCustomAttributeUpsertRequest],
                                                       accessToken: String,
+                                                      queue: DispatchQueue = .main,
                                                       completion: ((BulkUpsertBookingCustomAttributesResponse) -> Void)? = nil,
                                                       failed: ((Error) -> Void)? = nil) {
             
@@ -390,6 +421,7 @@ open class BookingApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkUpsertBookingCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -403,6 +435,7 @@ open class BookingApi {
                                                 cursor: String?,
                                                 withDefinitions: Bool?,
                                                 accessToken: String,
+                                                queue: DispatchQueue = .main,
                                                 completion: ((ListBookingCustomAttributes) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
             
@@ -417,6 +450,7 @@ open class BookingApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listBookingCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -429,6 +463,7 @@ open class BookingApi {
         public func deleteBookingCustomAttribute(bookingId: String,
                                                  key: String,
                                                  accessToken: String,
+                                                 queue: DispatchQueue = .main,
                                                  completion: ((SquareupResponse) -> Void)? = nil,
                                                  failed: ((Error) -> Void)? = nil) {
             
@@ -436,6 +471,7 @@ open class BookingApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -449,6 +485,7 @@ open class BookingApi {
                                                    withDefinitions: Bool?,
                                                    version: Int?,
                                                    accessToken: String,
+                                                   queue: DispatchQueue = .main,
                                                    completion: ((RetrieveBookingCustomAttributeResponse) -> Void)? = nil,
                                                    failed: ((Error) -> Void)? = nil) {
             
@@ -462,6 +499,7 @@ open class BookingApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveBookingCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -476,6 +514,7 @@ open class BookingApi {
                                                  customAttribute: CustomAttribute?,
                                                  idempotencyKey: String?,
                                                  accessToken: String,
+                                                 queue: DispatchQueue = .main,
                                                  completion: ((UpsertBookingCustomAttributeResponse) -> Void)? = nil,
                                                  failed: ((Error) -> Void)? = nil) {
             
@@ -488,6 +527,7 @@ open class BookingApi {
                     method: .put,
                     accessToken: accessToken,
                     request: upsertBookingCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

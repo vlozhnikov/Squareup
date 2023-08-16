@@ -48,6 +48,7 @@ open class PaymentsApi {
                                  cardBrand: String?,
                                  limit: Int?,
                                  accessToken: String,
+                                 queue: DispatchQueue = .main,
                                  completion: ((ListPaymentsResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
             
@@ -68,6 +69,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listPaymentsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -101,6 +103,7 @@ open class PaymentsApi {
                                   cashDetails: CashPaymentDetails?,
                                   externalDetails: ExternalPaymentDetails?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((CreatePaymentResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -133,6 +136,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createPaymentRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -144,6 +148,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/payments-api/cancel-payment-by-idempotency-key
         public func cancelPayment(idempotencyKey: String?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((SquareupResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -153,6 +158,7 @@ open class PaymentsApi {
             request(to: "payments/cancel",
                     method: .post,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -162,6 +168,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/payments-api/get-payment
         public func getPayment(paymentId: String,
                                accessToken: String,
+                               queue: DispatchQueue = .main,
                                completion: ((GetPaymentResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
             
@@ -169,6 +176,7 @@ open class PaymentsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -181,6 +189,7 @@ open class PaymentsApi {
                                   payment: Payment,
                                   idempotencyKey: String,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((UpdatePaymentResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -193,6 +202,7 @@ open class PaymentsApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updatePaymentRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -203,12 +213,14 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/payments-api/cancel-payment
         public func cancelPayment(paymentId: String,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((CancelPaymentResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
             request(to: "payments/\(paymentId)/cancel",
                     method: .post,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -221,6 +233,7 @@ open class PaymentsApi {
         public func completePayment(paymentId: String,
                                     versionToken: String,
                                     accessToken: String,
+                                    queue: DispatchQueue = .main,
                                     completion: ((CompletePaymentResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
             
@@ -231,6 +244,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: completePaymentRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -263,6 +277,7 @@ open class PaymentsApi {
                                        sourceType: PaymentRefundDestinationType?,
                                        limit: Int?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((ListPaymentRefundsResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -282,6 +297,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listPaymentRefundsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -302,6 +318,7 @@ open class PaymentsApi {
                                   paymentVersionToken: String?,
                                   teamMemberId: String?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((RefundPaymentResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -323,6 +340,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: refundPaymentRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -332,6 +350,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/refunds-api/get-payment-refund
         public func getPaymentRefund(refundId: String,
                                      accessToken: String,
+                                     queue: DispatchQueue = .main,
                                      completion: ((GetPaymentRefundResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
             
@@ -339,6 +358,7 @@ open class PaymentsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -363,6 +383,7 @@ open class PaymentsApi {
                                  states: DisputeState?,
                                  locationId: String?,
                                  accessToken: String,
+                                 queue: DispatchQueue = .main,
                                  completion: ((ListDisputesResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
             
@@ -377,6 +398,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listDisputesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -386,6 +408,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/disputes-api/retrieve-dispute
         public func retrieveDispute(disputeId: String,
                                     accessToken: String,
+                                    queue: DispatchQueue = .main,
                                     completion: ((RetrieveDisputeResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
             
@@ -393,6 +416,7 @@ open class PaymentsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -404,12 +428,14 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/disputes-api/accept-dispute
         public func acceptDispute(disputeId: String,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((AcceptDisputeResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
             request(to: "disputes/\(disputeId)/accept",
                     method: .post,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -420,6 +446,7 @@ open class PaymentsApi {
         public func listDisputeEvidence(disputeId: String,
                                         cursor: String?,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((ListDisputeEvidenceResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -431,6 +458,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listDisputeEvidenceRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -444,6 +472,7 @@ open class PaymentsApi {
                                               evidenceType: DisputeEvidenceType?,
                                               contentType: String?,
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((CreateDisputeEvidenceFileResponse) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -458,6 +487,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createDisputeEvidenceFileRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -470,6 +500,7 @@ open class PaymentsApi {
                                               evidenceType: DisputeEvidenceType?,
                                               evidenceText: String?,
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((CreateDisputeEvidenceTextResponse) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -483,6 +514,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createDisputeEvidenceTextRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -494,6 +526,7 @@ open class PaymentsApi {
         public func deleteDisputeEvidence(disputeId: String,
                                           evidenceId: String,
                                           accessToken: String,
+                                          queue: DispatchQueue = .main,
                                           completion: ((SquareupResponse) -> Void)? = nil,
                                           failed: ((Error) -> Void)? = nil) {
             
@@ -501,6 +534,7 @@ open class PaymentsApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -511,6 +545,7 @@ open class PaymentsApi {
         public func retrieveDisputeEvidence(disputeId: String,
                                             evidenceId: String,
                                             accessToken: String,
+                                            queue: DispatchQueue = .main,
                                             completion: ((RetrieveDisputeEvidenceResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -519,6 +554,7 @@ open class PaymentsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -529,6 +565,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/disputes-api/submit-evidence
         public func submitEvidence(disputeId: String,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((SubmitEvidenceResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -536,6 +573,7 @@ open class PaymentsApi {
             request(to: "disputes/\(disputeId)/submit-evidence",
                     method: .post,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -559,6 +597,7 @@ open class PaymentsApi {
         public func listPaymentLinks(cursor: String?,
                                      limit: Int,
                                      accessToken: String,
+                                     queue: DispatchQueue = .main,
                                      completion: ((ListPaymentLinksResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
             
@@ -572,6 +611,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listPaymentLinksRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -588,6 +628,7 @@ open class PaymentsApi {
                                       prePopulatedData: PrePopulatedData?,
                                       paymentNote: String?,
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((CreatePaymentLinkResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -605,6 +646,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createPaymentLinkRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -614,6 +656,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/checkout-api/delete-payment-link
         public func deletePaymentLink(id: String,
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((DeletePaymentLinkResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -621,6 +664,7 @@ open class PaymentsApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -630,6 +674,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/checkout-api/retrieve-payment-link
         public func retrievePaymentLink(id: String,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((RetrievePaymentLinkResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -637,6 +682,7 @@ open class PaymentsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -648,6 +694,7 @@ open class PaymentsApi {
         public func updatePaymentLink(id: String,
                                       paymentLink: PaymentLink?,
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((UpdatePaymentLinkResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -658,6 +705,7 @@ open class PaymentsApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updatePaymentLinkRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -678,6 +726,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/apple-pay-api/register-domain
         public func registerDomain(domainName: String,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((RegisterDomainResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -688,6 +737,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: registerDomainRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -716,6 +766,7 @@ open class PaymentsApi {
                               referenceId: String?,
                               sortOrder: SortOrder?,
                               accessToken: String,
+                              queue: DispatchQueue = .main,
                               completion: ((ListCardsResponse) -> Void)? = nil,
                               failed: ((Error) -> Void)? = nil) {
             
@@ -732,6 +783,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCardsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -744,6 +796,7 @@ open class PaymentsApi {
                                verificationToken: String?,
                                card: Card?,
                                accessToken: String,
+                               queue: DispatchQueue = .main,
                                completion: ((CreateCardResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
             
@@ -758,6 +811,7 @@ open class PaymentsApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createCardRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -767,6 +821,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/cards-api/retrieve-card
         public func retrieveCard(cardId: String,
                                  accessToken: String,
+                                 queue: DispatchQueue = .main,
                                  completion: ((RetrieveCardResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
             
@@ -774,6 +829,7 @@ open class PaymentsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -784,12 +840,14 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/cards-api/disable-card
         public func disableCard(cardId: String,
                                 accessToken: String,
+                                queue: DispatchQueue = .main,
                                 completion: ((DisableCardResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
             
             request(to: "cards/\(cardId)/disable",
                     method: .post,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -813,6 +871,7 @@ open class PaymentsApi {
                                 cursor: String?,
                                 limit: Int?,
                                 accessToken: String,
+                                queue: DispatchQueue = .main,
                                 completion: ((ListPayoutsResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
             
@@ -831,6 +890,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listPayoutsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -840,6 +900,7 @@ open class PaymentsApi {
         /// https://developer.squareup.com/reference/square/payouts-api/get-payout
         public func getPayout(payoutId: String,
                               accessToken: String,
+                              queue: DispatchQueue = .main,
                               completion: ((GetPayoutResponse) -> Void)? = nil,
                               failed: ((Error) -> Void)? = nil) {
             
@@ -847,6 +908,7 @@ open class PaymentsApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -859,6 +921,7 @@ open class PaymentsApi {
                                       cursor: String?,
                                       limit: Int?,
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((ListPayoutEntriesResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -873,6 +936,7 @@ open class PaymentsApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listPayoutEntriesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

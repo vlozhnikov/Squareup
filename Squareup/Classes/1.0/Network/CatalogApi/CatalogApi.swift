@@ -30,6 +30,7 @@ open class CatalogApi {
         public func upsertCatalogObject(object: CatalogObject,
                                         idempotencyKey: String?,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((CatalogObjectResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -41,6 +42,7 @@ open class CatalogApi {
                     method: .post,
                     accessToken: accessToken,
                     request: upsertCatalogRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -55,6 +57,7 @@ open class CatalogApi {
         public func batchUpsertCatalogObjects(objects: [CatalogObject],
                                               idempotencyKey: String?,
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((CatalogObjectsResponse) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -70,6 +73,7 @@ open class CatalogApi {
                     method: .post,
                     accessToken: accessToken,
                     request: batchUpsertCatalogRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -94,6 +98,7 @@ open class CatalogApi {
                                             modifierListsToDisable: [String],
                                             modifierListsToEnable: [String],
                                             accessToken: String,
+                                            queue: DispatchQueue = .main,
                                             completion: ((UpdatedItemModifierListsResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -107,6 +112,7 @@ open class CatalogApi {
                     method: .post,
                     accessToken: accessToken,
                     request: updateItemModifierListsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -123,6 +129,7 @@ open class CatalogApi {
                                 types: [CatalogObjectType]?,
                                 catalog_version: Int?,
                                 accessToken: String,
+                                queue: DispatchQueue = .main,
                                 completion: ((ListCatalogResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
             
@@ -137,6 +144,7 @@ open class CatalogApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCatalogRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -162,6 +170,7 @@ open class CatalogApi {
                                        productTypes: [CatalogItemProductType]?,
                                        customAttributeFilters: [CustomAttributeFilter]?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((SearchCatalogItemsResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -181,6 +190,7 @@ open class CatalogApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchCatalogItemsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -204,6 +214,7 @@ open class CatalogApi {
                                          query: CatalogQuery?,
                                          limit: Int?,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((SearchCatalogObjectsResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -221,6 +232,7 @@ open class CatalogApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchCatalogObjectsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -235,6 +247,7 @@ open class CatalogApi {
                                           includeRelatedObjects: Bool?,
                                           catalogVersion: Int?,
                                           accessToken: String,
+                                          queue: DispatchQueue = .main,
                                           completion: ((RetrieveCatalogObjectResponse) -> Void)? = nil,
                                           failed: ((Error) -> Void)? = nil) {
             
@@ -248,6 +261,7 @@ open class CatalogApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveCatalogObjectRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -263,6 +277,7 @@ open class CatalogApi {
                                                 catalogVersion: Int?,
                                                 includeDeletedObjects: Bool?,
                                                 accessToken: String,
+                                                queue: DispatchQueue = .main,
                                                 completion: ((BatchRetrieveCatalogObjectsResponse) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
             
@@ -277,6 +292,7 @@ open class CatalogApi {
                     method: .post,
                     accessToken: accessToken,
                     request: batchRetrieveCatalogObjectsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -292,12 +308,14 @@ open class CatalogApi {
         /// https://developer.squareup.com/reference/square/catalog-api/delete-catalog-object
         public func deleteCatalogObject(objectId: String,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((DeleteCatalogObjectResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
             request(to: "catalog/object/\(objectId)",
                     method: .delete,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -315,6 +333,7 @@ open class CatalogApi {
         /// https://developer.squareup.com/reference/square/catalog-api/batch-delete-catalog-objects
         public func batchDeleteCatalogObjects(objectIds: [String],
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((BatchDeleteCatalogObjectsResponse?) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -325,6 +344,7 @@ open class CatalogApi {
                     method: .post,
                     accessToken: accessToken,
                     request: batchDeleteCatalogObjectsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -342,6 +362,7 @@ open class CatalogApi {
                                        image: UIImage,
                                        idempotencyKey: String?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((CreateCatalogImageResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -361,6 +382,7 @@ open class CatalogApi {
                    imageName: "\(UUID().uuidString)_create_catalog_image.jpg",
                    accessToken: accessToken,
                    request: createCatalogImageRequest,
+                   queue: queue,
                    completion: completion,
                    failed: failed)
         }
@@ -376,6 +398,7 @@ open class CatalogApi {
                                        image: UIImage,
                                        idempotencyKey: String?,
                                        accessToken: String,
+                                       queue: DispatchQueue = .main,
                                        completion: ((UpdateCatalogImageResponse) -> Void)? = nil,
                                        failed: ((Error) -> Void)? = nil) {
             
@@ -390,6 +413,7 @@ open class CatalogApi {
                    imageName: "\(UUID().uuidString)_update_catalog_image.jpg",
                    accessToken: accessToken,
                    request: updateCatalogImageRequest,
+                   queue: queue,
                    completion: completion,
                    failed: failed)
         }

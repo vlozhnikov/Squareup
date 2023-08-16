@@ -31,6 +31,7 @@ open class InvoicesApi {
                                  cursor: String?,
                                  limit: Int?,
                                  accessToken: String,
+                                 queue: DispatchQueue = .main,
                                  completion: ((ListInvoicesResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
             
@@ -43,6 +44,7 @@ open class InvoicesApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listInvoicesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -54,6 +56,7 @@ open class InvoicesApi {
         public func createInvoice(invoice: Invoice,
                                   idempotencyKey: String?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((CreateInvoiceResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -65,6 +68,7 @@ open class InvoicesApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createInvoiceRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -78,6 +82,7 @@ open class InvoicesApi {
                                    limit: Int?,
                                    cursor: String?,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((SearchInvoicesResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -91,6 +96,7 @@ open class InvoicesApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchInvoicesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -102,6 +108,7 @@ open class InvoicesApi {
         public func deleteInvoice(invoiceId: String,
                                   version: Int?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((SquareupResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -112,6 +119,7 @@ open class InvoicesApi {
                     method: .delete,
                     accessToken: accessToken,
                     request: deleteInvoiceRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -121,6 +129,7 @@ open class InvoicesApi {
         /// https://developer.squareup.com/reference/square/invoices-api/get-invoice
         public func getInvoice(invoiceId: String,
                                accessToken: String,
+                               queue: DispatchQueue = .main,
                                completion: ((GetInvoiceResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
             
@@ -128,6 +137,7 @@ open class InvoicesApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -141,6 +151,7 @@ open class InvoicesApi {
                                   idempotencyKey: String?,
                                   fieldsToClear: [String]?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((UpdateInvoiceResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -154,6 +165,7 @@ open class InvoicesApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateInvoiceRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -166,6 +178,7 @@ open class InvoicesApi {
         public func cancelInvoice(invoiceId: String,
                                   version: Int,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((CancelInvoiceResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -176,6 +189,7 @@ open class InvoicesApi {
                     method: .post,
                     accessToken: accessToken,
                     request: cancelInvoiceRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -190,6 +204,7 @@ open class InvoicesApi {
                                    version: Int,
                                    idempotencyKey: String?,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((PublishInvoiceResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -202,6 +217,7 @@ open class InvoicesApi {
                     method: .post,
                     accessToken: accessToken,
                     request: publishInvoiceRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

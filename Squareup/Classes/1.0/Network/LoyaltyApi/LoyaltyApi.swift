@@ -31,6 +31,7 @@ open class LoyaltyApi {
         public func createLoyaltyAccount(idempotencyKey: String,
                                          loyaltyAccount: LoyaltyAccount,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((CreateLoyaltyAccountResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -43,6 +44,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createLoyaltyAccountRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -56,6 +58,7 @@ open class LoyaltyApi {
                                           limit: Int?,
                                           cursor: String?,
                                           accessToken: String,
+                                          queue: DispatchQueue = .main,
                                           completion: ((SearchLoyaltyAccountsResponse) -> Void)? = nil,
                                           failed: ((Error) -> Void)? = nil) {
             
@@ -69,6 +72,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchLoyaltyAccountsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -78,6 +82,7 @@ open class LoyaltyApi {
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-account
         public func retrieveLoyaltyAccount(accountId: String,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((RetrieveLocationResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -85,6 +90,7 @@ open class LoyaltyApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -99,6 +105,7 @@ open class LoyaltyApi {
                                             idempotencyKey: String,
                                             locationId: String,
                                             accessToken: String,
+                                            queue: DispatchQueue = .main,
                                             completion: ((AccumulateLoyaltyPointsResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -112,6 +119,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: accumulateLoyaltyPointsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -125,6 +133,7 @@ open class LoyaltyApi {
                                         adjustPoints: LoyaltyEventAdjustPoints,
                                         allowNegativeBalance: Bool?,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((AdjustLoyaltyPointsResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -138,6 +147,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: adjustLoyaltyPointsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -151,6 +161,7 @@ open class LoyaltyApi {
                                         limit: Int?,
                                         cursor: String?,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((SearchLoyaltyEventsResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -164,6 +175,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchLoyaltyEventsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -174,6 +186,7 @@ open class LoyaltyApi {
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-program
         public func retrieveLoyaltyProgram(programId: String,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((RetrieveLoyaltyProgramResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -181,6 +194,7 @@ open class LoyaltyApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -199,6 +213,7 @@ open class LoyaltyApi {
                                            transactionAmountMoney: Money?,
                                            loyaltyAccountId: String?,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((CalculateLoyaltyPointsResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -212,6 +227,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: calculateLoyaltyPointsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -225,6 +241,7 @@ open class LoyaltyApi {
                                           cursor: String?,
                                           limit: Int?,
                                           accessToken: String,
+                                          queue: DispatchQueue = .main,
                                           completion: ((ListLoyaltyPromotionsResponse) -> Void)? = nil,
                                           failed: ((Error) -> Void)? = nil) {
             
@@ -239,6 +256,7 @@ open class LoyaltyApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listLoyaltyPromotionsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -252,6 +270,7 @@ open class LoyaltyApi {
                                            loyaltyPromotion: LoyaltyPromotion,
                                            idempotencyKey: String,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((CreateLoyaltyPromotionResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -264,6 +283,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createLoyaltyPromotionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -274,6 +294,7 @@ open class LoyaltyApi {
         public func retrieveLoyaltyPromotion(promotionId: String,
                                              programId: String,
                                              accessToken: String,
+                                             queue: DispatchQueue = .main,
                                              completion: ((RetrieveLoyaltyPromotionResponse) -> Void)? = nil,
                                              failed: ((Error) -> Void)? = nil) {
             
@@ -281,6 +302,7 @@ open class LoyaltyApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -293,12 +315,14 @@ open class LoyaltyApi {
         public func cancelLoyaltyPromotion(promotionId: String,
                                            programId: String,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((CancelLoyaltyPromotionResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
             request(to: "loyalty/programs/\(programId)/promotions/\(promotionId)/cancel",
                     method: .post,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -313,6 +337,7 @@ open class LoyaltyApi {
         public func createLoyaltyReward(reward: LoyaltyReward,
                                         idempotencyKey: String,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((CreateLoyaltyRewardResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -325,6 +350,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createLoyaltyRewardRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -339,6 +365,7 @@ open class LoyaltyApi {
                                          limit: Int?,
                                          cursor: String?,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((SearchLoyaltyRewardsResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -352,6 +379,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchLoyaltyRewardsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -364,6 +392,7 @@ open class LoyaltyApi {
         /// https://developer.squareup.com/reference/square/loyalty-api/delete-loyalty-reward
         public func deleteLoyaltyReward(rewardId: String,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((SquareupResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -371,6 +400,7 @@ open class LoyaltyApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -380,6 +410,7 @@ open class LoyaltyApi {
         /// https://developer.squareup.com/reference/square/loyalty-api/retrieve-loyalty-reward
         public func retrieveLoyaltyReward(rewardId: String,
                                           accessToken: String,
+                                          queue: DispatchQueue = .main,
                                           completion: ((RetrieveLoyaltyRewardResponse) -> Void)? = nil,
                                           failed: ((Error) -> Void)? = nil) {
             
@@ -387,6 +418,7 @@ open class LoyaltyApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -401,6 +433,7 @@ open class LoyaltyApi {
                                         idempotencyKey: String,
                                         locationId: String,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((RedeemLoyaltyRewardResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -413,6 +446,7 @@ open class LoyaltyApi {
                     method: .post,
                     accessToken: accessToken,
                     request: redeemLoyaltyRewardRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

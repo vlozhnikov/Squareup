@@ -36,6 +36,7 @@ open class OrdersApi {
         public func createOrder(order: Order,
                                 idempotencyKey: String?,
                                 accessToken: String,
+                                queue: DispatchQueue = .main,
                                 completion: ((CreateOrderResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
             
@@ -48,6 +49,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createOrderRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -59,6 +61,7 @@ open class OrdersApi {
         public func batchRetrieveOrders(locationId: String,
                                         orderIds: [String],
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((BatchRetrieveOrdersResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             let batchRetrieveOrdersRequest = Serializer.deserialize(BatchRetrieveOrdersRequest.self, [:])!
@@ -70,6 +73,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: batchRetrieveOrdersRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -79,6 +83,7 @@ open class OrdersApi {
         public func calculateOrder(order: Order,
                                    proposedRewards: [OrderReward],
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((CalculateOrderResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             let calculateOrderRequest = Serializer.deserialize(CalculateOrderRequest.self, [:])!
@@ -90,6 +95,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: calculateOrderRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -102,6 +108,7 @@ open class OrdersApi {
                                version: Int?,
                                idempotencyKey: String?,
                                accessToken: String,
+                               queue: DispatchQueue = .main,
                                completion: ((CloneOrderResponse) -> Void)? = nil,
                                failed: ((Error) -> Void)? = nil) {
             let cloneOrderRequest = Serializer.deserialize(CloneOrderRequest.self, [:])!
@@ -113,6 +120,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: cloneOrderRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -132,6 +140,7 @@ open class OrdersApi {
                                  limit: Int?,
                                  returnEntries: Bool?,
                                  accessToken: String,
+                                 queue: DispatchQueue = .main,
                                  completion: ((SearchOrdersResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
             let searchOrdersRequest = Serializer.deserialize(SearchOrdersRequest.self, [:])!
@@ -146,6 +155,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchOrdersRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -155,6 +165,7 @@ open class OrdersApi {
         /// https://developer.squareup.com/reference/square/orders-api/retrieve-order
         public func retrieveOrder(orderId: String,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((RetrieveOrderResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -162,6 +173,7 @@ open class OrdersApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -184,6 +196,7 @@ open class OrdersApi {
                                 fieldsToClear: [String],
                                 idempotencyKey: String?,
                                 accessToken: String,
+                                queue: DispatchQueue = .main,
                                 completion: ((UpdateOrderResponse) -> Void)? = nil,
                                 failed: ((Error) -> Void)? = nil) {
             let updateOrderRequest = Serializer.deserialize(UpdateOrderRequest.self, [:])!
@@ -196,6 +209,7 @@ open class OrdersApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateOrderRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -214,6 +228,7 @@ open class OrdersApi {
                              paymentIds: [String],
                              idempotencyKey: String?,
                              accessToken: String,
+                             queue: DispatchQueue = .main,
                              completion: ((PayOrderResponse) -> Void)? = nil,
                              failed: ((Error) -> Void)? = nil) {
             let payOrderRequest = Serializer.deserialize(PayOrderRequest.self, [:])!
@@ -226,6 +241,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: payOrderRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -246,6 +262,7 @@ open class OrdersApi {
                                                         cursor: String?,
                                                         limit: Int?,
                                                         accessToken: String,
+                                                        queue: DispatchQueue = .main,
                                                         completion: ((ListPrderCustomAttributeDefinitionsResponse) -> Void)? = nil,
                                                         failed: ((Error) -> Void)? = nil) {
             
@@ -260,6 +277,7 @@ open class OrdersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listPrderCustomAttributeDefinitionsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -272,6 +290,7 @@ open class OrdersApi {
         public func createOrderCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
                                                          idempotencyKey: String,
                                                          accessToken: String,
+                                                         queue: DispatchQueue = .main,
                                                          completion: ((CreateOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                          failed: ((Error) -> Void)? = nil) {
             
@@ -284,6 +303,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createOrderCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -294,6 +314,7 @@ open class OrdersApi {
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/delete-order-custom-attribute-definition
         public func deleteOrderCustomAttributeDefinition(key: String,
                                                          accessToken: String,
+                                                         queue: DispatchQueue = .main,
                                                          completion: ((SquareupResponse) -> Void)? = nil,
                                                          failed: ((Error) -> Void)? = nil) {
             
@@ -301,6 +322,7 @@ open class OrdersApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -312,6 +334,7 @@ open class OrdersApi {
         public func retrieveOrderCustomAttributeDefinition(key: String,
                                                            version: Int?,
                                                            accessToken: String,
+                                                           queue: DispatchQueue = .main,
                                                            completion: ((RetrieveOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                            failed: ((Error) -> Void)? = nil) {
             
@@ -323,6 +346,7 @@ open class OrdersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveOrderCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -335,6 +359,7 @@ open class OrdersApi {
                                                          customAttributeDefinition: CustomAttributeDefinition?,
                                                          idempotencyKey: String?,
                                                          accessToken: String,
+                                                         queue: DispatchQueue = .main,
                                                          completion: ((UpdateOrderCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                          failed: ((Error) -> Void)? = nil) {
             
@@ -347,6 +372,7 @@ open class OrdersApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateOrderCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -359,6 +385,7 @@ open class OrdersApi {
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/bulk-delete-order-custom-attributes
         public func bulkDeleteOrderCustomAttributes(values: [String: BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute]?,
                                                     accessToken: String,
+                                                    queue: DispatchQueue = .main,
                                                     completion: ((BulkDeleteOrderCustomAttributesResponse) -> Void)? = nil,
                                                     failed: ((Error) -> Void)? = nil) {
             
@@ -369,6 +396,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkDeleteOrderCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -381,6 +409,7 @@ open class OrdersApi {
         /// https://developer.squareup.com/reference/square/order-custom-attributes-api/bulk-upsert-order-custom-attributes
         public func bulkUpsertOrderCustomAttributes(values: [String: BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute]?,
                                                     accessToken: String,
+                                                    queue: DispatchQueue = .main,
                                                     completion: ((BulkUpsertOrderCustomAttributesResponse) -> Void)? = nil,
                                                     failed: ((Error) -> Void)? = nil) {
             
@@ -391,6 +420,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkUpsertOrderCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -406,6 +436,7 @@ open class OrdersApi {
                                               limit: Int?,
                                               withDefinitions: Bool?,
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((ListOrderCustomAttributesResponse) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -421,6 +452,7 @@ open class OrdersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listOrderCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -432,6 +464,7 @@ open class OrdersApi {
         public func deleteOrderCustomAttribute(orderId: String,
                                                customAttributeKey: String,
                                                accessToken: String,
+                                               queue: DispatchQueue = .main,
                                                completion: ((SquareupResponse) -> Void)? = nil,
                                                failed: ((Error) -> Void)? = nil) {
             
@@ -439,6 +472,7 @@ open class OrdersApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -453,6 +487,7 @@ open class OrdersApi {
                                                  version: Int?,
                                                  withDefinitions: Bool?,
                                                  accessToken: String,
+                                                 queue: DispatchQueue = .main,
                                                  completion: ((RetrieveOrderCustomAttributeResponse) -> Void)? = nil,
                                                  failed: ((Error) -> Void)? = nil) {
             
@@ -466,6 +501,7 @@ open class OrdersApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveOrderCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -480,6 +516,7 @@ open class OrdersApi {
                                                customAttribute: CustomAttribute?,
                                                idempotencyKey: String?,
                                                accessToken: String,
+                                               queue: DispatchQueue = .main,
                                                completion: ((UpsertOrderCustomAttributeResponse) -> Void)? = nil,
                                                failed: ((Error) -> Void)? = nil) {
             
@@ -492,6 +529,7 @@ open class OrdersApi {
                     method: .post,
                     accessToken: accessToken,
                     request: upsertOrderCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

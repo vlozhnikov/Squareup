@@ -35,6 +35,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/merchants-api/list-merchants
         public func listMerchants(cursor: String?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((ListMerchantsResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -46,6 +47,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listMerchantsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -55,6 +57,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/merchants-api/retrieve-merchant
         public func retrieveMerchants(merchantId: String,
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((RetrieveMerchantsResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -62,6 +65,7 @@ open class BusinessApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -82,6 +86,7 @@ open class BusinessApi {
                                                            limit: Int?,
                                                            cursor: String?,
                                                            accessToken: String,
+                                                           queue: DispatchQueue = .main,
                                                            completion: ((ListMerchantCustomAttributeDefinitionsResponse) -> Void)? = nil,
                                                            failed: ((Error) -> Void)? = nil) {
             
@@ -96,6 +101,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listMerchantCustomAttributeDefinitionsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -107,6 +113,7 @@ open class BusinessApi {
         public func createMerchantCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition?,
                                                             IdempotencyKey: String?,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((CreateMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -119,6 +126,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createMerchantCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -129,6 +137,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/delete-merchant-custom-attribute-definition
         public func deleteMerchantCustomAttributeDefinition(key: String,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((SquareupResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -136,6 +145,7 @@ open class BusinessApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -147,6 +157,7 @@ open class BusinessApi {
         public func retrieveMerchantCustomAttributeDefinition(key: String,
                                                               version: Int?,
                                                               accessToken: String,
+                                                              queue: DispatchQueue = .main,
                                                               completion: ((RetrieveMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                               failed: ((Error) -> Void)? = nil) {
             
@@ -158,6 +169,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveMerchantCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -170,6 +182,7 @@ open class BusinessApi {
                                                             customAttributeDefinition: CustomAttributeDefinition?,
                                                             IdempotencyKey: String?,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((UpdateMerchantCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -182,6 +195,7 @@ open class BusinessApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateMerchantCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -192,6 +206,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/bulk-delete-merchant-custom-attributes
         public func bulkDeleteMerchantCustomAttributes(values: [String: BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequest]?,
                                                        accessToken: String,
+                                                       queue: DispatchQueue = .main,
                                                        completion: ((BulkDeleteMerchantCustomAttributesResponse) -> Void)? = nil,
                                                        failed: ((Error) -> Void)? = nil) {
             
@@ -202,6 +217,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkDeleteMerchantCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -212,6 +228,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes
         public func bulkUpsertMerchantCustomAttributes(values: [String: BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequest]?,
                                                        accessToken: String,
+                                                       queue: DispatchQueue = .main,
                                                        completion: ((BulkUpsertMerchantCustomAttributesResponse) -> Void)? = nil,
                                                        failed: ((Error) -> Void)? = nil) {
             
@@ -222,6 +239,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkUpsertMerchantCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -236,6 +254,7 @@ open class BusinessApi {
                                                  cursor: String?,
                                                  withDefinitions: Bool?,
                                                  accessToken: String,
+                                                 queue: DispatchQueue = .main,
                                                  completion: ((ListMerchantCustomAttributesResponse) -> Void)? = nil,
                                                  failed: ((Error) -> Void)? = nil) {
             
@@ -251,6 +270,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listMerchantCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -262,6 +282,7 @@ open class BusinessApi {
         public func deleteMerchantCustomattribute(merchantId: String,
                                                   key: String,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((SquareupResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -269,6 +290,7 @@ open class BusinessApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -282,6 +304,7 @@ open class BusinessApi {
                                                     withDefinitions: Bool?,
                                                     version: Int?,
                                                     accessToken: String,
+                                                    queue: DispatchQueue = .main,
                                                     completion: ((RetrieveMerchantCustomAttributeResponse) -> Void)? = nil,
                                                     failed: ((Error) -> Void)? = nil) {
             
@@ -295,6 +318,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveMerchantCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -308,6 +332,7 @@ open class BusinessApi {
                                                   customAttribute: CustomAttribute,
                                                   idempotencyKey: String?,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((UpsertMerchantCustomAttributeResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -320,6 +345,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: upsertMerchantCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -336,6 +362,7 @@ open class BusinessApi {
         /// Permissions: MERCHANT_PROFILE_READ
         /// https://developer.squareup.com/reference/square/locations-api/list-locations
         public func listLocations(accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((ListLocationsResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -343,6 +370,7 @@ open class BusinessApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -353,6 +381,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/locations-api/create-location
         public func createLocation(location: Location,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((CreateLocationResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -363,6 +392,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createLocationRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -373,13 +403,15 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/locations-api/retrieve-location
         public func retrieveLocation(locationId: String,
                                      accessToken: String,
-                                        completion: ((RetrieveLocationResponse) -> Void)? = nil,
+                                     queue: DispatchQueue = .main,
+                                     completion: ((RetrieveLocationResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
             
             request(to: "locations/\(locationId)",
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -390,6 +422,7 @@ open class BusinessApi {
         public func updateLocation(location: Location,
                                    locationId: String,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((UpdateLocationResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -400,6 +433,7 @@ open class BusinessApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateLocationRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -420,6 +454,7 @@ open class BusinessApi {
                                                            limit: Int?,
                                                            cursor: String?,
                                                            accessToken: String,
+                                                           queue: DispatchQueue = .main,
                                                            completion: ((ListLocationCustomAttributeDefinitionsResponse) -> Void)? = nil,
                                                            failed: ((Error) -> Void)? = nil) {
             
@@ -434,6 +469,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listLocationCustomAttributeDefinitionsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -445,6 +481,7 @@ open class BusinessApi {
         public func createLocationCustomAttributeDefinition(customAttributeDefinition: CustomAttributeDefinition,
                                                             idempotencyKey: String?,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((CreateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -457,6 +494,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createLocationCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -467,6 +505,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/delete-location-custom-attribute-definition
         public func deleteLocationCustomAttributeDefinition(key: String,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((SquareupResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -474,6 +513,7 @@ open class BusinessApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -485,6 +525,7 @@ open class BusinessApi {
         public func retrieveLocationCustomAttributeDefinition(key: String,
                                                               version: Int,
                                                               accessToken: String,
+                                                              queue: DispatchQueue = .main,
                                                               completion: ((RetrieveLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                               failed: ((Error) -> Void)? = nil) {
             
@@ -496,6 +537,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveLocationCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -507,6 +549,7 @@ open class BusinessApi {
         public func updateLocationCustomAttributeDefinition(key: String,
                                                             customAttributeDefinition: CustomAttributeDefinition?,
                                                             accessToken: String,
+                                                            queue: DispatchQueue = .main,
                                                             completion: ((UpdateLocationCustomAttributeDefinitionResponse) -> Void)? = nil,
                                                             failed: ((Error) -> Void)? = nil) {
             
@@ -517,6 +560,7 @@ open class BusinessApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateLocationCustomAttributeDefinitionRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -527,6 +571,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/bulk-delete-location-custom-attributes
         public func bulkDeleteLocationCustomAttributes(values: [String: BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest]?,
                                                        accessToken: String,
+                                                       queue: DispatchQueue = .main,
                                                        completion: ((BulkDeleteLocationCustomAttributesResponse) -> Void)? = nil,
                                                        failed: ((Error) -> Void)? = nil) {
             
@@ -537,6 +582,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkDeleteLocationCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -547,6 +593,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/location-custom-attributes-api/bulk-upsert-location-custom-attributes
         public func bulkUpsertLocationCustomAttributes(values: [String: BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest]?,
                                                        accessToken: String,
+                                                       queue: DispatchQueue = .main,
                                                        completion: ((BulkUpsertLocationCustomAttributesResponse) -> Void)? = nil,
                                                        failed: ((Error) -> Void)? = nil) {
             
@@ -557,6 +604,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkUpsertLocationCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -571,6 +619,7 @@ open class BusinessApi {
                                                  cursor: String?,
                                                  withDefinitions: Bool?,
                                                  accessToken: String,
+                                                 queue: DispatchQueue = .main,
                                                  completion: ((ListLocationCustomAttributesResponse) -> Void)? = nil,
                                                  failed: ((Error) -> Void)? = nil) {
             
@@ -586,6 +635,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listLocationCustomAttributesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -597,6 +647,7 @@ open class BusinessApi {
         public func deleteLocationCustomAttribute(locationId: String,
                                                   key: String,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((SquareupResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -604,6 +655,7 @@ open class BusinessApi {
                     method: .delete,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -617,6 +669,7 @@ open class BusinessApi {
                                                     withDefinition: Bool?,
                                                     version: Int?,
                                                     accessToken: String,
+                                                    queue: DispatchQueue = .main,
                                                     completion: ((RetrieveLocationCustomAttributeResponse) -> Void)? = nil,
                                                     failed: ((Error) -> Void)? = nil) {
             
@@ -630,6 +683,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveLocationCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -643,6 +697,7 @@ open class BusinessApi {
                                                   customAttribute: CustomAttribute?,
                                                   idempotencyKey: String?,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((UpsertLocationCustomAttributeResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -655,6 +710,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: upsertLocationCustomAttributeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -674,6 +730,7 @@ open class BusinessApi {
                                     productType: ProductType?,
                                     status: DeviceCodeStatus?,
                                     accessToken: String,
+                                    queue: DispatchQueue = .main,
                                     completion: ((ListDeviceCodesResponse) -> Void)? = nil,
                                     failed: ((Error) -> Void)? = nil) {
             
@@ -689,6 +746,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listDeviceCodesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -699,6 +757,7 @@ open class BusinessApi {
         public func createDeviceCode(idempotencyKey: String,
                                      deviceCode: DeviceCode,
                                      accessToken: String,
+                                     queue: DispatchQueue = .main,
                                      completion: ((CreateDeviceCodeResponse) -> Void)? = nil,
                                      failed: ((Error) -> Void)? = nil) {
             
@@ -711,6 +770,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createDeviceCodeRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -720,6 +780,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/devices-api/get-device-code
         public func getDeviceCode(id: String,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((GetDeviceCodeResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -727,6 +788,7 @@ open class BusinessApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -749,6 +811,7 @@ open class BusinessApi {
                                          limit: Int?,
                                          cursor: String?,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((ListCashDrawerShiftsResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -766,6 +829,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCashDrawerShiftsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -777,6 +841,7 @@ open class BusinessApi {
         public func retrieveCashDrawerShift(shiftId: String,
                                             locationId: String,
                                             accessToken: String,
+                                            queue: DispatchQueue = .main,
                                             completion: ((RetrieveCashDrawerShiftResponse) -> Void)? = nil,
                                             failed: ((Error) -> Void)? = nil) {
             
@@ -788,6 +853,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveCashDrawerShiftRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -800,6 +866,7 @@ open class BusinessApi {
                                               limit: Int?,
                                               cursor: String?,
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((ListCashDrawerShiftEventsResponse) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -814,6 +881,7 @@ open class BusinessApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: listCashDrawerShiftEventsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -831,6 +899,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-create-vendors
         public func bulkCreateVendors(vendors: [String: Vendor],
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((BulkCreateVendorsResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -841,6 +910,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkCreateVendorsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -850,6 +920,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-retrieve-vendors
         public func bulkRetrieveVendors(vendorIds: [String]?,
                                         accessToken: String,
+                                        queue: DispatchQueue = .main,
                                         completion: ((BulkRetrieveVendorsResponse) -> Void)? = nil,
                                         failed: ((Error) -> Void)? = nil) {
             
@@ -860,6 +931,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: bulkRetrieveVendorsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -869,6 +941,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/vendors-api/bulk-update-vendors
         public func bulkUpdateVendors(vendors: [String: UpdateVendorRequest],
                                       accessToken: String,
+                                      queue: DispatchQueue = .main,
                                       completion: ((BulkUpdateVendorsResponse) -> Void)? = nil,
                                       failed: ((Error) -> Void)? = nil) {
             
@@ -879,6 +952,7 @@ open class BusinessApi {
                     method: .put,
                     accessToken: accessToken,
                     request: bulkUpdateVendorsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -889,6 +963,7 @@ open class BusinessApi {
         public func createVendor(idempotencyKey: String,
                                  vendor: Vendor?,
                                  accessToken: String,
+                                 queue: DispatchQueue = .main,
                                  completion: ((CreateVendorResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
             
@@ -901,6 +976,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: createVendorRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -912,6 +988,7 @@ open class BusinessApi {
                                   sort: SearchVendorsRequestSort?,
                                   cursor: String?,
                                   accessToken: String,
+                                  queue: DispatchQueue = .main,
                                   completion: ((BulkUpdateVendorsResponse) -> Void)? = nil,
                                   failed: ((Error) -> Void)? = nil) {
             
@@ -925,6 +1002,7 @@ open class BusinessApi {
                     method: .post,
                     accessToken: accessToken,
                     request: searchVendorsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -934,6 +1012,7 @@ open class BusinessApi {
         /// https://developer.squareup.com/reference/square/vendors-api/retrieve-vendor
         public func retrieveVendor(vendorId: String,
                                    accessToken: String,
+                                   queue: DispatchQueue = .main,
                                    completion: ((RetrieveVendorResponse) -> Void)? = nil,
                                    failed: ((Error) -> Void)? = nil) {
             
@@ -941,6 +1020,7 @@ open class BusinessApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -952,6 +1032,7 @@ open class BusinessApi {
                                  idempotencyKey: String,
                                  vendor: Vendor,
                                  accessToken: String,
+                                 queue: DispatchQueue = .main,
                                  completion: ((UpdateVendorResponse) -> Void)? = nil,
                                  failed: ((Error) -> Void)? = nil) {
             
@@ -964,6 +1045,7 @@ open class BusinessApi {
                     method: .put,
                     accessToken: accessToken,
                     request: updateVendorRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }

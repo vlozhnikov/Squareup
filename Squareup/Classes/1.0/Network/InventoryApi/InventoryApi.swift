@@ -26,6 +26,7 @@ open class InventoryApi {
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-adjustment
         public func retrieveInventoryAdjustment(adjustmentId: String,
                                                 accessToken: String,
+                                                queue: DispatchQueue = .main,
                                                 completion: ((RetrieveInventoryAdjustmentResponse) -> Void)? = nil,
                                                 failed: ((Error) -> Void)? = nil) {
             
@@ -45,6 +46,7 @@ open class InventoryApi {
                                          ignoreUnchangedCounts: Bool?,
                                          idempotencyKey: String?,
                                          accessToken: String,
+                                         queue: DispatchQueue = .main,
                                          completion: ((BatchChangeInventoryResponse) -> Void)? = nil,
                                          failed: ((Error) -> Void)? = nil) {
             
@@ -58,6 +60,7 @@ open class InventoryApi {
                     method: .post,
                     accessToken: accessToken,
                     request: batchChangeInventoryRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -76,6 +79,7 @@ open class InventoryApi {
                                                   cursor: String?,
                                                   limit: Int?,
                                                   accessToken: String,
+                                                  queue: DispatchQueue = .main,
                                                   completion: ((BatchRetrieveInventoryChangesResponse) -> Void)? = nil,
                                                   failed: ((Error) -> Void)? = nil) {
             
@@ -94,6 +98,7 @@ open class InventoryApi {
                     method: .post,
                     accessToken: accessToken,
                     request: batchRetrieveInventoryChangesRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -112,6 +117,7 @@ open class InventoryApi {
                                                  states: [InventoryState],
                                                  limit: Int?,
                                                  accessToken: String,
+                                                 queue: DispatchQueue = .main,
                                                  completion: ((BatchRetrieveInventoryCountsResponse) -> Void)? = nil,
                                                  failed: ((Error) -> Void)? = nil) {
             
@@ -128,6 +134,7 @@ open class InventoryApi {
                     method: .post,
                     accessToken: accessToken,
                     request: batchRetrieveInventoryCountsRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -137,6 +144,7 @@ open class InventoryApi {
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-physical-count
         public func retrieveInventoryPhysicalCount(physicalCountId: String,
                                                    accessToken: String,
+                                                   queue: DispatchQueue = .main,
                                                    completion: ((RetrieveInventoryPhysicalCountResponse) -> Void)? = nil,
                                                    failed: ((Error) -> Void)? = nil) {
             
@@ -144,6 +152,7 @@ open class InventoryApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -153,6 +162,7 @@ open class InventoryApi {
         /// https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-transfer
         public func retrieveInventoryTransfer(transferId: String,
                                               accessToken: String,
+                                              queue: DispatchQueue = .main,
                                               completion: ((RetrieveInventoryTransferResponse) -> Void)? = nil,
                                               failed: ((Error) -> Void)? = nil) {
             
@@ -160,6 +170,7 @@ open class InventoryApi {
                     method: .get,
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
@@ -172,6 +183,7 @@ open class InventoryApi {
                                            locationIds: [String],
                                            cursor: String?,
                                            accessToken: String,
+                                           queue: DispatchQueue = .main,
                                            completion: ((RetrieveInventoryCountResponse) -> Void)? = nil,
                                            failed: ((Error) -> Void)? = nil) {
             
@@ -184,6 +196,7 @@ open class InventoryApi {
                     encoding: URLEncoding.queryString,
                     accessToken: accessToken,
                     request: retrieveInventoryCountRequest,
+                    queue: queue,
                     completion: completion,
                     failed: failed)
         }
