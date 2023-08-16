@@ -35,9 +35,9 @@ open class BusinessHoursPeriod: Codable, Comparable {
     /// - dayOfWeek: The day of the week for this time period.
     public var dayOfWeek: DayOfWeek?
     /// - StartLocalTime: The start time of a business hours period, specified in local time using partial-time RFC 3339 format. For example, 8:30:00 for a period starting at 8:30 in the morning. Note that the seconds value is always :00, but it is appended for conformance to the RFC.
-    public var StartLocalTime = "09:00:00"
+    public var StartLocalTime: String?
     /// - EndLocalTime: The end time of a business hours period, specified in local time using partial-time RFC 3339 format. For example, 21:00:00 for a period ending at 9:00 in the evening. Note that the seconds value is always :00, but it is appended for conformance to the RFC.
-    public var EndLocalTime = "18:00:00"
+    public var EndLocalTime: String?
     
     enum CodingKeys: String, CodingKey {
         case dayOfWeek = "day_of_week"
@@ -46,31 +46,34 @@ open class BusinessHoursPeriod: Codable, Comparable {
     }
     
     public var friendlyText: String {
-        return "\(self.StartLocalTime)-\(self.EndLocalTime)"
+        guard let startLocalTime = self.StartLocalTime, let endLocalTime = self.EndLocalTime else {
+            return "...-..."
+        }
+        return "\(startLocalTime)-\(endLocalTime)"
     }
     
     public var friendlyShortText: String {
-        var from = self.StartLocalTime.split(separator: ":")
-        from.removeLast()
+        var from = self.StartLocalTime?.split(separator: ":")
+        from?.removeLast()
         
-        var to = self.EndLocalTime.split(separator: ":")
-        to.removeLast()
+        var to = self.EndLocalTime?.split(separator: ":")
+        to?.removeLast()
         
-        return "\(from.joined(separator: ":"))-\(to.joined(separator: ":"))"
+        return "\(from?.joined(separator: ":") ?? "...")-\(to?.joined(separator: ":") ?? "...")"
     }
     
     public var friendlyShortFromText: String {
-        var from = self.StartLocalTime.split(separator: ":")
-        from.removeLast()
+        var from = self.StartLocalTime?.split(separator: ":")
+        from?.removeLast()
         
-        return "\(from.joined(separator: ":"))"
+        return "\(from?.joined(separator: ":") ?? "...")"
     }
     
     public var friendlyShortToText: String {
-        var to = self.EndLocalTime.split(separator: ":")
-        to.removeLast()
+        var to = self.EndLocalTime?.split(separator: ":")
+        to?.removeLast()
         
-        return "\(to.joined(separator: ":"))"
+        return "\(to?.joined(separator: ":") ?? "...")"
     }
     
     // MARK: Comparable
